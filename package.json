@@ -56,19 +56,19 @@
                     "default": "verbose",
                     "description": "Traces the communication between VS Code and the Wolfram Language server."
                 },
-                "wolfram.proxy" : {
+                "wolfram.proxy": {
                     "scope": "user",
                     "type": "string",
                     "default": "/path/to/python/proxy/script",
                     "description": "Path to wolfram_lsp_proxy.py"
                 },
-                "wolfram.wolframkernel" : {
+                "wolfram.wolframkernel": {
                     "scope": "user",
                     "type": "string",
                     "default": "/path/to/WolframKernel",
                     "description": "Path to WolframKernel"
                 },
-                "wolfram.logDir" : {
+                "wolfram.logDir": {
                     "scope": "user",
                     "type": "string",
                     "default": "/path/to/logDir/",
