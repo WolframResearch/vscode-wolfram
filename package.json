@@ -2,7 +2,12 @@
     "name": "wolfram",
     "displayName": "Wolfram Language",
     "description": "Support for Wolfram Language",
-    "version": "0.0.1",
+    "version": "0.11.0",
+    "publisher": "brenton",
+    "repository": {
+        "type": "git",
+        "url": "ssh://git@stash.wolfram.com:7999/cod/vscode-wolfram.git"
+    },
     "engines": {
         "vscode": "^1.33.0"
     },
@@ -23,7 +28,8 @@
                 ],
                 "extensions": [
                     ".m",
-                    ".wl"
+                    ".wl",
+                    ".mt"
                 ],
                 "configuration": "./language-configuration.json"
             }
