@@ -11,6 +11,25 @@ Follow instructions for LSPServer paclet.
 
 
 
+# Building wolfram-XXX.vsix file
+
+Taken from:
+https://code.visualstudio.com/api/working-with-extensions/publishing-extension
+
+
+
+```
+cd vscode-wolfram
+
+vsce package -o build/wolfram-0.11.0.vsix
+
+```
+
+
+
+
+
+
 
 # Setup
 
