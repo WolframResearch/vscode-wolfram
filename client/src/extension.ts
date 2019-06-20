@@ -15,27 +15,18 @@ export function activate(context: ExtensionContext) {
 
 	const config: WorkspaceConfiguration = workspace.getConfiguration("[wolfram]", null);
 
-	let proxy: string = config.get<string>("proxy");
-	let wolframkernel: string = config.get<string>("wolframkernel");
-	let logDir: string = config.get<string>("logDir");
-
-	let args;
-	if (logDir) {
-		args = [proxy, wolframkernel, "--logDir", logDir]
-	} else {
-		args = [proxy, wolframkernel]
-	}
+	let command: [string] = config.get<[string]>("command");
 
 	let serverOptions: ServerOptions = {
 		run: {
 			transport: TransportKind.stdio,
-			command: "python",
-			args: args
+			command: command[0],
+			args: command.slice(1)
 		},
 		debug: {
 			transport: TransportKind.stdio,
-			command: "python",
-			args: args
+			command: command[0],
+			args: command.slice(1)
 		}
 	};
 

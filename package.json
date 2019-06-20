@@ -2,7 +2,7 @@
     "name": "wolfram",
     "displayName": "Wolfram Language",
     "description": "Support for Wolfram Language",
-    "version": "0.11.0",
+    "version": "0.12.0",
     "publisher": "brenton",
     "repository": {
         "type": "git",
@@ -62,23 +62,12 @@
                     "default": "verbose",
                     "description": "Traces the communication between VS Code and the Wolfram Language server."
                 },
-                "wolfram.proxy": {
+                "wolfram.command": {
                     "scope": "user",
-                    "type": "string",
-                    "default": "/path/to/python/proxy/script",
-                    "description": "Path to wolfram_lsp_proxy.py"
-                },
-                "wolfram.wolframkernel": {
-                    "scope": "user",
-                    "type": "string",
-                    "default": "/path/to/WolframKernel",
-                    "description": "Path to WolframKernel"
-                },
-                "wolfram.logDir": {
-                    "scope": "user",
-                    "type": "string",
-                    "default": "/path/to/logDir/",
-                    "description": "Path to logDir"
+                    "type": "[string]",
+                    "default": ["python", "/path/to/python/proxy/script", "--logDir", "/path/to/logDir/", "--extra=-noinit",
+                        "/path/to/WolframKernel"],
+                    "description": "Command for Language Server"
                 }
             }
         }

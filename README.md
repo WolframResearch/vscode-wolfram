@@ -49,6 +49,8 @@ Install the VSIX file that you downloaded.
 
 
 
+## Settings
+
 Open the Command Palette
 
 Enter the command:
@@ -64,12 +66,26 @@ In settings.json put:
 ```
 {
     "[wolfram]": {
-        "wolframkernel": "/path/to/my/wolframkernel",
-        "proxy": "/path/to/my/wolfram_lsp_proxy.py",
-        "logDir": "/path/to/my/log/dir"
+        "command": [
+        		"python",
+        		"/path/to/my/wolfram_lsp_proxy.py",
+        		"--logDir", "/path/to/my/logDir/",
+        		"--extra=-noinit",
+        		"/path/to/my/WolframKernel"
+        	]
     }
 }
 ```
+
+### Command arguments:
+
+--extra
+extra arguments for WolframKernel
+multiple --extra may be given
+NOTE: = must be used to prevent Python from interpreting -noinit as an argument
+
+
+
 
 ### Windows
 
