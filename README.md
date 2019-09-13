@@ -25,7 +25,6 @@ Install the VSIX file that you downloaded.
 ### Wolfram paclets
 
 Install `LSPServer` and dependencies from the public paclet server:
-
 ```
 In[1]:= PacletUpdate["AST", "Site" -> "http://pacletserver.wolfram.com", "UpdateSites" -> True]
             PacletUpdate["Lint", "Site" -> "http://pacletserver.wolfram.com", "UpdateSites" -> True]
@@ -89,7 +88,6 @@ Restart VS Code
 You should now have syntax highlighting and linting of Wolfram `.m` and `.wl` files working.
 
 Test this by typing this into a new `.m` file and saving it:
-
 ```
 Which[a, b, a, b]
 ```
