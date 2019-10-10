@@ -6,6 +6,7 @@ let client;
 function activate(context) {
     const config = vscode_1.workspace.getConfiguration("[wolfram]", null);
     let command = config.get("command");
+    let confidenceLevel = config.get("confidenceLevel");
     let serverOptions = {
         run: {
             transport: vscode_languageclient_1.TransportKind.stdio,
@@ -20,6 +21,7 @@ function activate(context) {
     };
     let clientOptions = {
         documentSelector: [{ scheme: 'file', language: 'wolfram' }],
+        initializationOptions: { confidenceLevel: confidenceLevel }
     };
     client = new vscode_languageclient_1.LanguageClient('wolfram', 'Wolfram Language', serverOptions, clientOptions);
     client.start();

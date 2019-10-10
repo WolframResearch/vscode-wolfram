@@ -16,6 +16,7 @@ export function activate(context: ExtensionContext) {
 	const config: WorkspaceConfiguration = workspace.getConfiguration("[wolfram]", null);
 
 	let command: [string] = config.get<[string]>("command");
+	let confidenceLevel: [number] = config.get<[number]>("confidenceLevel");
 
 	let serverOptions: ServerOptions = {
 		run: {
@@ -32,6 +33,7 @@ export function activate(context: ExtensionContext) {
 
 	let clientOptions: LanguageClientOptions = {
 		documentSelector: [{ scheme: 'file', language: 'wolfram' }],
+		initializationOptions: {confidenceLevel: confidenceLevel}
 	};
 
 	client = new LanguageClient(
