@@ -65,8 +65,14 @@
                 "wolfram.command": {
                     "scope": "user",
                     "type": "[string]",
-                    "default": ["python", "/path/to/python/proxy/script", "--logDir", "/path/to/logDir/", "--extra=-noinit",
-                        "/path/to/WolframKernel"],
+                    "default": [
+                        "/path/to/WolframKernel",
+                        "-noinit",
+                        "-noprompt",
+                        "-nopaclet",
+                        "-run",
+                        "Needs[\"LSPServer`\"];LSPServer`StartServer[]"
+                    ],
                     "description": "Command for Language Server"
                 }
             }
