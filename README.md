@@ -1,62 +1,39 @@
-# Visual Studio Code extension for Wolfram Language
+# VSCode-Wolfram
 
 Wolfram Language extension for VSCode
-
-## Installing
-
-There is a VSCode extension to install and 3 Wolfram paclets to install.
-
-### VSCode extension
-
-Download the VSIX file from:
-`http://temp-store.wolfram.com/temp-store/brenton/CodeTools-XX/`
-
-where `XX` is the latest release.
-
-Open VS Code
-
-Open the Command Palette (⇧⌘P)
-
-Enter the command:
-`Extensions: Install from VSIX`
-
-Install the VSIX file that you downloaded.
-
-### Wolfram paclets
-
-Install `LSPServer` and dependencies from the public paclet server:
-```
-In[1]:= PacletUpdate["AST", "Site" -> "http://pacletserver.wolfram.com", "UpdateSites" -> True]
-            PacletUpdate["Lint", "Site" -> "http://pacletserver.wolfram.com", "UpdateSites" -> True]
-            PacletUpdate["LSPServer", "Site" -> "http://pacletserver.wolfram.com", "UpdateSites" -> True]
-
-Out[1]= Paclet[AST,0.2,<>]
-Out[2]= Paclet[Lint,0.2,<>]
-Out[3]= Paclet[LSPServer,0.2,<>]
-```
 
 
 ## Setup
 
-Make sure `python` is on your path.
-
-Either Python 2 or Python 3 may be used.
-
-The extension depends on the `AST` paclet, `Lint` paclet, and the `LSPServer` paclet. Make sure that the paclets can be found on your system: 
+VSCode-WolframLanguage depends on the CodeParser, CodeInspector, CodeFormatter, and LSPServer paclets. Make sure that the paclets can be found on your system:
 ```
-In[1]:= Needs["AST`"]
-			Needs["Lint`"]
-			Needs["LSPServer`"]
+In[1]:= Needs["CodeParser`"]
+      Needs["CodeInspector`"]
+      Needs["CodeFormatter`"]
+      Needs["LSPServer`"]
 ```
 
-[AST on stash.wolfram.com](https://stash.wolfram.com/projects/COD/repos/ast/browse)
+[CodeParser on github.com](https://github.com/xxx)
+[CodeInspector on github.com](https://github.com/xxx)
+[CodeFormatter on github.com](https://github.com/xxx)
+[CodeParser on github.com](https://github.com/xxx)
 
-[Lint on stash.wolfram.com](https://stash.wolfram.com/projects/COD/repos/lint/browse)
+Install LSPServer and dependencies from the CodeTools paclet server:
+```
+In[1]:= PacletUpdate["CodeParser", "Site" -> "XXX", "UpdateSites" -> True]
+      PacletUpdate["CodeInspector", "Site" -> "XXX", "UpdateSites" -> True]
+      PacletUpdate["CodeFormatter", "Site" -> "XXX", "UpdateSites" -> True]
+      PacletUpdate["LSPServer", "Site" -> "XXX", "UpdateSites" -> True]
 
-[LSPServer on stash.wolfram.com](https://stash.wolfram.com/projects/COD/repos/lspserver/browse)
+Out[1]= PacletObject[CodeParser, 1.0, <>]
+Out[2]= PacletObject[CodeInspector, 1.0, <>]
+Out[3]= PacletObject[CodeFormatter, 1.0, <>]
+Out[4]= PacletObject[LSPServer, 1.0, <>]
+```
 
+Search the VSCode Marketplace for the extension "WolframLanguage" and install.
 
-## Settings
+### Settings
 
 Open the Command Palette
 
@@ -73,12 +50,13 @@ In `settings.json` put:
 {
     "[wolfram]": {
         "command": [
-        		"python",
-        		"/path/to/my/wolfram_lsp_proxy.py",
-        		"--logDir", "/path/to/my/logDir/",
-        		"--extra=-noinit",
-        		"/path/to/my/WolframKernel"
-        	]
+            "<<Path to WolframKernel>>",
+            "-noinit",
+            "-noprompt",
+            "-nopaclet",
+            "-run",
+            "Needs[\"LSPServer`\"];LSPServer`StartServer[]"
+        ]
     }
 }
 ```
@@ -95,36 +73,9 @@ Which[a, b, a, b]
 You should see warnings about duplicate clauses.
 
 
-### Command arguments:
+#### Command arguments:
 
-`/path/to/my/wolfram_lsp_proxy.py`
-
-This is the Python script that will be called by Sublime.
-
-If you installed the `LSPServer` paclet, then this is something like:
-```
-/Users/brenton/Library/Mathematica/Paclets/Repository/LSPServer-0.12/Python/wolfram_lsp_proxy.py
-```
-
-
-`/path/to/my/logDir/`
-
-This is the directory where log files will be written to. This can be any directory. A typical value is something like:
-```
-/Users/brenton/development/logs/
-```
-
-
-`--extra`
-
-extra arguments for `WolframKernel`
-
-multiple `--extra` may be given
-
-NOTE: `=` must be used to prevent Python from interpreting `-noinit` as an argument
-
-
-`/path/to/my/WolframKernel`
+`<<Path to WolframKernel>>`
 
 This is the path to your `WolframKernel` executable.
 
@@ -133,12 +84,12 @@ If you installed Mathematica in a default location, then this is something like:
 /Applications/Mathematica.app/Contents/MacOS/WolframKernel
 ```
 
-On Windows, it is recommended to specify `wolfram.exe` instead of `WolframKernel.exe`.
+``"Needs[\"LSPServer`\"];LSPServer`StartServer[]"``
 
-`WolframKernel.exe` opens a new window while it is running. But `wolfram.exe` runs inside the window that started it.
+This is the command that the kernel runs to start the server.
 
 
-# Building
+## Building
 
 You may want to manually build the VSIX file.
 
@@ -148,12 +99,22 @@ https://code.visualstudio.com/api/working-with-extensions/publishing-extension
 ```
 cd vscode-wolfram
 
-vsce package -o build/wolfram-0.11.0.vsix
+vsce package -o build/wolfram-1.0.vsix
 
 ```
 
 
-# Troubleshooting
+## Troubleshooting
+
+## Windows
+
+On Windows, it is recommended to specify `wolfram.exe` instead of `WolframKernel.exe`.
+
+`WolframKernel.exe` opens a new window while it is running. But `wolfram.exe` runs inside the window that started it.
+
+You may need to double-up quotation marks in the command:
+
+``"Needs[\"\"LSPServer`\"\"];LSPServer`StartServer[]"``
 
 ## I see "Unknown Identifier. Use language identifiers" while editing settings.json
 
