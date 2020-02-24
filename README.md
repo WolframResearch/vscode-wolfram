@@ -13,17 +13,17 @@ In[1]:= Needs["CodeParser`"]
       Needs["LSPServer`"]
 ```
 
-[CodeParser on github.com](https://github.com/xxx)
-[CodeInspector on github.com](https://github.com/xxx)
-[CodeFormatter on github.com](https://github.com/xxx)
-[CodeParser on github.com](https://github.com/xxx)
+[CodeParser on github.com](https://github.com/<<TODO_placeholder_for_actual_link>>)
+[CodeInspector on github.com](https://github.com/<<TODO_placeholder_for_actual_link>>)
+[CodeFormatter on github.com](https://github.com/<<TODO_placeholder_for_actual_link>>)
+[CodeParser on github.com](https://github.com/<<TODO_placeholder_for_actual_link>>)
 
 Install LSPServer and dependencies from the CodeTools paclet server:
 ```
-In[1]:= PacletUpdate["CodeParser", "Site" -> "XXX", "UpdateSites" -> True]
-      PacletUpdate["CodeInspector", "Site" -> "XXX", "UpdateSites" -> True]
-      PacletUpdate["CodeFormatter", "Site" -> "XXX", "UpdateSites" -> True]
-      PacletUpdate["LSPServer", "Site" -> "XXX", "UpdateSites" -> True]
+In[1]:= PacletUpdate["CodeParser", "Site" -> "<<TODO_placeholder_for_actual_link>>", "UpdateSites" -> True]
+      PacletUpdate["CodeInspector", "Site" -> "<<TODO_placeholder_for_actual_link>>", "UpdateSites" -> True]
+      PacletUpdate["CodeFormatter", "Site" -> "<<TODO_placeholder_for_actual_link>>", "UpdateSites" -> True]
+      PacletUpdate["LSPServer", "Site" -> "<<TODO_placeholder_for_actual_link>>", "UpdateSites" -> True]
 
 Out[1]= PacletObject[CodeParser, 1.0, <>]
 Out[2]= PacletObject[CodeInspector, 1.0, <>]
