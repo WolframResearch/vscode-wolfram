@@ -50,7 +50,7 @@ In `settings.json` put:
 {
     "[wolfram]": {
         "command": [
-            "<<Path to WolframKernel>>",
+            "<<Path to WolframKernel (or wolfram.exe on Windows)>>",
             "-noinit",
             "-noprompt",
             "-nopaclet",
