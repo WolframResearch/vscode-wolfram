@@ -2,7 +2,7 @@
     "name": "wolfram",
     "displayName": "Wolfram Language",
     "description": "Support for Wolfram Language",
-    "version": "0.16.0",
+    "version": "1.0.0",
     "publisher": "brenton",
     "repository": {
         "type": "git",
