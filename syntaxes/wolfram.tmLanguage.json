@@ -30,7 +30,10 @@
                     "beginCaptures": {"0": {"name": "punctuation.definition.comment"}},
                     "end": "\\*\\)",
                     "endCaptures": {"0": {"name": "punctuation.definition.comment"}},
-                    "name": "comment.block"
+                    "name": "comment.block",
+                    "patterns": [
+                        {"include": "#comments"}
+                    ]
                 }
             ]
         },
