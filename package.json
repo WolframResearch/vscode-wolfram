@@ -71,7 +71,7 @@
                         "-noprompt",
                         "-nopaclet",
                         "-run",
-                        "Needs[\"LSPServer`\"];LSPServer`StartServer[]"
+                        "$Messages=Streams[\"stderr\"];Needs[\"LSPServer`\"];LSPServer`StartServer[]"
                     ],
                     "description": "Command for Language Server"
                 }
