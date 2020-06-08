@@ -3,7 +3,7 @@
 	"description": "Wolfram Language Server Client",
 	"author": "Wolfram Research",
 	"license": "MIT",
-	"version": "0.0.1",
+	"version": "1.1.0",
 	"publisher": "vscode",
 	"repository": {
 		"type": "git",

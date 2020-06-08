@@ -2,7 +2,7 @@
     "name": "wolfram",
     "displayName": "Wolfram Language",
     "description": "Support for Wolfram Language",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "publisher": "brenton",
     "repository": {
         "type": "git",
@@ -64,7 +64,7 @@
                 },
                 "wolfram.command": {
                     "scope": "user",
-                    "type": "[string]",
+                    "type": "array",
                     "default": [
                         "<<Path to WolframKernel>>",
                         "-noinit",
@@ -73,7 +73,7 @@
                         "-run",
                         "$Messages=Streams[\"stderr\"];Needs[\"LSPServer`\"];LSPServer`StartServer[]"
                     ],
-                    "description": "Command for Language Server"
+                    "description": "Command for Wolfram Language Server"
                 }
             }
         }
