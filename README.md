@@ -50,10 +50,11 @@ In `settings.json` put:
 {
     "[wolfram]": {
         "command": [
-            "<<Path to WolframKernel (or wolfram.exe on Windows)>>",
+            "<<Path to WolframKernel>>",
             "-noinit",
             "-noprompt",
             "-nopaclet",
+            "-noicon",
             "-run",
             "Needs[\"LSPServer`\"];LSPServer`StartServer[]"
         ]
@@ -107,10 +108,6 @@ vsce package -o build/wolfram-1.0.vsix
 ## Troubleshooting
 
 ## Windows
-
-On Windows, it is recommended to specify `wolfram.exe` instead of `WolframKernel.exe`.
-
-`WolframKernel.exe` opens a new window while it is running. But `wolfram.exe` runs inside the window that started it.
 
 You may need to double-up quotation marks in the command:
 
