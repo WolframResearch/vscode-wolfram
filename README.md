@@ -90,19 +90,7 @@ If you installed Mathematica in a default location, then this is something like:
 This is the command that the kernel runs to start the server.
 
 
-## Building
 
-You may want to manually build the VSIX file.
-
-Taken from:
-https://code.visualstudio.com/api/working-with-extensions/publishing-extension
-
-```
-cd vscode-wolfram
-
-vsce package -o build/wolfram-1.0.vsix
-
-```
 
 
 ## Troubleshooting
