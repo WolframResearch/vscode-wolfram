@@ -70,8 +70,9 @@
                         "-noinit",
                         "-noprompt",
                         "-nopaclet",
+                        "-noicon",
                         "-run",
-                        "$Messages=Streams[\"stderr\"];Needs[\"LSPServer`\"];LSPServer`StartServer[]"
+                        "Needs[\"LSPServer`\"];LSPServer`StartServer[]"
                     ],
                     "description": "Command for Wolfram Language Server"
                 }

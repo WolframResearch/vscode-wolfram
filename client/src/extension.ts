@@ -1,6 +1,7 @@
 
 import * as path from 'path';
 import { workspace, ExtensionContext, WorkspaceConfiguration } from 'vscode';
+import { window } from 'vscode';
 
 import {
 	LanguageClient,
@@ -17,6 +18,12 @@ export function activate(context: ExtensionContext) {
 
 	let command: [string] = config.get<[string]>("command");
 	let confidenceLevel: [number] = config.get<[number]>("confidenceLevel");
+
+	let base = path.basename(command[0]);
+
+	if (!base.toLowerCase().startsWith("wolframkernel")) {
+		window.showErrorMessage("Command for Wolfram Language Server does not start with 'WolframKernel': " + command[0]);
+	}
 
 	let serverOptions: ServerOptions = {
 		run: {
