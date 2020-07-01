@@ -10,7 +10,7 @@ function activate(context) {
     let command = config.get("command");
     let confidenceLevel = config.get("confidenceLevel");
     let base = path.basename(command[0]);
-    if (!base.startsWith("WolframKernel")) {
+    if (!base.toLowerCase().startsWith("wolframkernel")) {
         vscode_2.window.showErrorMessage("Command for Wolfram Language Server does not start with 'WolframKernel': " + command[0]);
     }
     let serverOptions = {
