@@ -7,10 +7,10 @@ Wolfram Language extension for VSCode
 
 VSCode-WolframLanguage depends on the CodeParser, CodeInspector, CodeFormatter, and LSPServer paclets. Make sure that the paclets can be found on your system:
 ```
-In[1]:= Needs["CodeParser`"]
-      Needs["CodeInspector`"]
-      Needs["CodeFormatter`"]
-      Needs["LSPServer`"]
+Needs["CodeParser`"]
+Needs["CodeInspector`"]
+Needs["CodeFormatter`"]
+Needs["LSPServer`"]
 ```
 
 [CodeParser on github.com](https://github.com/<<TODO_placeholder_for_actual_link>>)
@@ -20,15 +20,10 @@ In[1]:= Needs["CodeParser`"]
 
 Install LSPServer and dependencies from the CodeTools paclet server:
 ```
-In[1]:= PacletUpdate["CodeParser", "Site" -> "<<TODO_placeholder_for_actual_link>>", "UpdateSites" -> True]
-      PacletUpdate["CodeInspector", "Site" -> "<<TODO_placeholder_for_actual_link>>", "UpdateSites" -> True]
-      PacletUpdate["CodeFormatter", "Site" -> "<<TODO_placeholder_for_actual_link>>", "UpdateSites" -> True]
-      PacletUpdate["LSPServer", "Site" -> "<<TODO_placeholder_for_actual_link>>", "UpdateSites" -> True]
-
-Out[1]= PacletObject[CodeParser, 1.0, <>]
-Out[2]= PacletObject[CodeInspector, 1.0, <>]
-Out[3]= PacletObject[CodeFormatter, 1.0, <>]
-Out[4]= PacletObject[LSPServer, 1.0, <>]
+PacletInstall["CodeParser"]
+PacletInstall["CodeInspector"]
+PacletInstall["CodeFormatter"]
+PacletInstall["LSPServer"]
 ```
 
 Search the VSCode Marketplace for the extension "WolframLanguage" and install.
@@ -90,6 +85,11 @@ If you installed Mathematica in a default location, then this is something like:
 This is the command that the kernel runs to start the server.
 
 
+You can provide other settings:
+
+`confidenceLevel`
+
+This controls how many problems you see. Set it to a value between 0.0 and 1.0
 
 
 
