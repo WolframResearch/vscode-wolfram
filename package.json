@@ -27,8 +27,10 @@
                     "wolfram"
                 ],
                 "extensions": [
-                    ".m",
                     ".wl",
+                    ".m",
+                    ".wls",
+                    ".wlt",
                     ".mt"
                 ],
                 "configuration": "./language-configuration.json"
