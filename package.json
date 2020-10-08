@@ -33,7 +33,7 @@
                     ".wlt",
                     ".mt"
                 ],
-                "configuration": "./language-configuration.json"
+                "configuration": "./wolfram.language-configuration.json"
             }
         ],
         "grammars": [
