@@ -85,14 +85,6 @@ If you installed Mathematica in a default location, then this is something like:
 This is the command that the kernel runs to start the server.
 
 
-You can provide other settings:
-
-`confidenceLevel`
-
-This controls how many problems you see. Set it to a value between 0.0 and 1.0
-
-
-
 ## Troubleshooting
 
 ## Windows
