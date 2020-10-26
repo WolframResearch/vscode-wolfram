@@ -8,7 +8,87 @@
     "repository":{
         "main": {
             "patterns": [
+                {"include": "#shebang"},
+                {"include": "#toplevel-constants"},
+                {"include": "#toplevel-options"},
+                {"include": "#toplevel-attributes"},
+                {"include": "#simple-toplevel-definitions"},
                 {"include": "#expressions"}
+            ]
+        },
+        "shebang": {
+            "name": "comment.line.shebang.wolfram",
+            "match": "\\A(#!).*(?=$)",
+            "captures": {
+                "1": {
+                    "name": "punctuation.definition.comment.wolfram"
+                }
+            }
+        },
+        "toplevel-constants": {
+            "patterns": [
+                {
+                    "match": "(`?(?:{{symbolSegment}}`)*)({{symbolSegment}})(?=\\s*(?::=|=))",
+                    "captures": {
+                        "1": {
+                            "name": "entity.name.Context.wolfram"
+                        },
+                        "2": {
+                            "name": "entity.name.constant.wolfram"
+                        }
+                    }
+                }
+            ]
+        },
+        "toplevel-options": {
+            "patterns": [
+                {
+                    "match": "(Options)\\s*\\[\\s*(`?(?:{{symbolSegment}}`)*)({{symbolSegment}})\\s*\\](?=\\s*(:=|=))",
+                    "captures": {
+                        "1": {
+                            "name": "variable.function.builtin.wolfram"
+                        },
+                        "2": {
+                            "name": "entity.name.Context.wolfram"
+                        },
+                        "3": {
+                            "name": "entity.other.Options.wolfram"
+                        }
+                    }
+                }
+            ]
+        },
+        "toplevel-attributes": {
+            "patterns": [
+                {
+                    "match": "(Attributes)\\s*\\[\\s*(`?(?:{{symbolSegment}}`)*)({{symbolSegment}})\\s*\\](?=\\s*(:=|=))",
+                    "captures": {
+                        "1": {
+                            "name": "variable.function.builtin.wolfram"
+                        },
+                        "2": {
+                            "name": "entity.name.Context.wolfram"
+                        },
+                        "3": {
+                            "name": "entity.other.Attributes.wolfram"
+                        }
+                    }
+                }
+            ]
+        },
+        "simple-toplevel-definitions": {
+            "patterns": [
+                {
+                    "match": "(`?(?:(?:[$[:alpha:]][$[:alnum:]]*)`)*)((?:[$[:alpha:]][$[:alnum:]]*))(?=\\s*(\\[(?>[^\\[\\]]+|\\g<-1>)*\\])\\s*(?::=|=))",
+                    "captures": {
+                        "1": {
+                            "name": "meta.function.wolfram entity.name.Context.wolfram"
+                        },
+                        "2": {
+                            "name": "meta.function.wolfram entity.name.function.wolfram"
+                        }
+                    }
+                }
             ]
         },
         "expressions": {
@@ -206,6 +286,58 @@
                 },
                 {
                     "match": "::",
+                    "name": "invalid.illegal"
+                },
+                {
+                    "match": "(<<)\\s*(\"[`[:alpha:]][`[:alnum:]]*\")",
+                    "captures": {
+                        "1": {
+                            "name": "keyword.operator.Get.wolfram"
+                        },
+                        "2": {
+                            "name": "string.quoted.double.wolfram"
+                        }
+                    }
+                },
+                {
+                    "match": "(<<)\\s*([`[:alpha:]][`[:alnum:]]*)",
+                    "captures": {
+                        "1": {
+                            "name": "keyword.operator.Get.wolfram"
+                        },
+                        "2": {
+                            "name": "string.unquoted.wolfram"
+                        }
+                    }
+                },
+                {
+                    "match": "<<",
+                    "name": "invalid.illegal"
+                },
+                {
+                    "match": "(>>)\\s*(\"\\w*\")",
+                    "captures": {
+                        "1": {
+                            "name": "keyword.operator.Put.wolfram"
+                        },
+                        "2": {
+                            "name": "string.quoted.double.wolfram"
+                        }
+                    }
+                },
+                {
+                    "match": "(>>)\\s*(\\w*)",
+                    "captures": {
+                        "1": {
+                            "name": "keyword.operator.Put.wolfram"
+                        },
+                        "2": {
+                            "name": "string.unquoted.wolfram"
+                        }
+                    }
+                },
+                {
+                    "match": ">>",
                     "name": "invalid.illegal"
                 }
             ]
@@ -418,40 +550,44 @@
                 }
             ]
         },
+
+
         "groups": {
             "patterns": [
-                {"include": "#linearsyntaxparens-group"},
+                {"include": "#linearsyntaxparen-group"},
                 {"include": "#paren-group"},
-                {"include": "#parts-group"},
-                {"include": "#brackets-group"},
-                {"include": "#braces-group"},
+                {"include": "#part-group"},
+                {"include": "#bracket-group"},
+                {"include": "#brace-group"},
                 {"include": "#association-group"}
             ]
         },
-        "linearsyntaxparens-group": {
-            "name": "meta.linearsyntax.wolfram",
+
+        "linearsyntaxparen-group": {
+            "name": "meta.linearsyntaxparens.wolfram",
             "begin": "\\\\\\(",
             "beginCaptures": {
                 "0": {
-                    "name": "punctuation.section.parens.begin.wolfram"
+                    "name": "punctuation.section.linearsyntaxparens.begin.wolfram"
                 }
             },
             "end": "\\\\\\)",
             "endCaptures": {
                 "0": {
-                    "name": "punctuation.section.parens.end.wolfram"
+                    "name": "punctuation.section.linearsyntaxparens.end.wolfram"
                 }
             },
             "patterns": [
                 {
                     "match":  "\\\\\\)",
-                    "name": "invalid.illegal.stray-linearsyntax-end.wolfram"
+                    "name": "invalid.illegal.stray-linearsyntaxparens-end.wolfram"
                 },
                 {
                     "include": "#expressions"
                 }
             ]
         },
+
         "paren-group": {
             "name": "meta.parens.wolfram",
             "begin": "\\(",
@@ -476,7 +612,8 @@
                 }
             ]
         },
-        "parts-group": {
+
+        "part-group": {
             "name": "meta.parts.wolfram",
             "begin": "\\[\\s*\\[",
             "beginCaptures": {
@@ -500,8 +637,9 @@
                 }
             ]
         },
-        "brackets-group": {
-            "name": "meta.parts.wolfram",
+
+        "bracket-group": {
+            "name": "meta.brackets.wolfram",
             "begin": "\\[",
             "beginCaptures": {
                 "0": {
@@ -524,7 +662,8 @@
                 }
             ]
         },
-        "braces-group": {
+
+        "brace-group": {
             "name": "meta.braces.wolfram",
             "begin": "\\{",
             "beginCaptures": {
@@ -548,30 +687,32 @@
                 }
             ]
         },
+
         "association-group": {
-            "name": "meta.association.wolfram",
+            "name": "meta.associations.wolfram",
             "begin": "<\\|",
             "beginCaptures": {
                 "0": {
-                    "name": "punctuation.section.association.begin.wolfram"
+                    "name": "punctuation.section.associations.begin.wolfram"
                 }
             },
             "end": "\\|>",
             "endCaptures": {
                 "0": {
-                    "name": "punctuation.section.association.end.wolfram"
+                    "name": "punctuation.section.associations.end.wolfram"
                 }
             },
             "patterns": [
                 {
                     "match":  "\\|>",
-                    "name": "invalid.illegal.stray-association-end.wolfram"
+                    "name": "invalid.illegal.stray-associations-end.wolfram"
                 },
                 {
                     "include": "#expressions"
                 }
             ]
         },
+
         "pattern-operators": {
             "patterns": [
                 {
