@@ -1,10 +1,5 @@
 
-#
-# Require CMake 3.11 to allow "package" target
-#
-# Related policies: https://cmake.org/cmake/help/v3.11/policy/CMP0037.html
-#
-cmake_minimum_required(VERSION 3.11)
+cmake_minimum_required(VERSION 3.0)
 
 project(vscode-wolframlanguage
 	LANGUAGES
@@ -38,8 +33,8 @@ if(LOCAL_BUILD)
 message(FATAL_ERROR "LOCAL_BUILD is not currently supported.")
 endif(LOCAL_BUILD)
 
-set(STATIC_PACKAGE_SOURCES
-	${PROJECT_SOURCE_DIR}/client/src/extension.ts
+set(STATIC_VSIX_SOURCES
+	${PROJECT_SOURCE_DIR}/src/extension.ts
 	${PROJECT_SOURCE_DIR}/syntaxes/wolfram.tmLanguage.json
 	${PROJECT_SOURCE_DIR}/wolfram.language-configuration.json
 )
@@ -59,30 +54,30 @@ CheckPackageJSON()
 
 
 #
-# package target
+# vsix target
 #
 
-set(PACKAGE_SOURCES
+set(VSIX_SOURCES
 	${PACKAGEJSON_SOURCE}
-	${STATIC_PACKAGE_SOURCES}
+	${STATIC_VSIX_SOURCES}
 )
 
 if(LOCAL_BUILD)
-set(PACKAGE_OUTPUT ${PROJECT_BINARY_DIR}/wolfram-${LOCAL_BUILD_VERSION}.vsix)
+set(VSIX_OUTPUT ${PROJECT_BINARY_DIR}/wolfram-${LOCAL_BUILD_VERSION}.vsix)
 else(LOCAL_BUILD)
-set(PACKAGE_OUTPUT ${PROJECT_BINARY_DIR}/wolfram-${PACKAGEJSON_VERSION}.vsix)
+set(VSIX_OUTPUT ${PROJECT_BINARY_DIR}/wolfram-${PACKAGEJSON_VERSION}.vsix)
 endif(LOCAL_BUILD)
 
-add_custom_target(package
+add_custom_target(vsix
 	DEPENDS
-		${PACKAGE_OUTPUT}
+		${VSIX_OUTPUT}
 )
 
 add_custom_command(
 	OUTPUT
-		${PACKAGE_OUTPUT}
+		${VSIX_OUTPUT}
 	DEPENDS
-		${PACKAGE_SOURCES}
+		${VSIX_SOURCES}
 	COMMAND
 		vsce package -o ${PROJECT_BINARY_DIR}
 	VERBATIM

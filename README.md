@@ -43,17 +43,15 @@ In `settings.json` put:
 
 ```
 {
-    "[wolfram]": {
-        "command": [
-            "<<Path to WolframKernel>>",
-            "-noinit",
-            "-noprompt",
-            "-nopaclet",
-            "-noicon",
-            "-run",
-            "Needs[\"LSPServer`\"];LSPServer`StartServer[]"
-        ]
-    }
+    "wolfram.command": [
+        "<<Path to WolframKernel>>",
+        "-noinit",
+        "-noprompt",
+        "-nopaclet",
+        "-noicon",
+        "-run",
+        "Needs[\"LSPServer`\"];LSPServer`StartServer[]"
+    ]
 }
 ```
 
@@ -93,7 +91,3 @@ You may need to double-up quotation marks in the command:
 
 ``"Needs[\"\"LSPServer`\"\"];LSPServer`StartServer[]"``
 
-## I see "Unknown Identifier. Use language identifiers" while editing settings.json
-
-This is an open issue:
-https://github.com/microsoft/vscode/issues/26707
