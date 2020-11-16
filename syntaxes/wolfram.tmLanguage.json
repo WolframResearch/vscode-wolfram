@@ -28,7 +28,7 @@
         "toplevel-constants": {
             "patterns": [
                 {
-                    "match": "(`?(?:{{symbolSegment}}`)*)({{symbolSegment}})(?=\\s*(?::=|=))",
+                    "match": "^\\s*(`?(?:(?:[$[:alpha:]][$[:alnum:]]*)`)*)((?:[$[:alpha:]][$[:alnum:]]*))(?=\\s*(?::=|=))",
                     "captures": {
                         "1": {
                             "name": "entity.name.Context.wolfram"
@@ -43,7 +43,7 @@
         "toplevel-options": {
             "patterns": [
                 {
-                    "match": "(Options)\\s*\\[\\s*(`?(?:{{symbolSegment}}`)*)({{symbolSegment}})\\s*\\](?=\\s*(:=|=))",
+                    "match": "^\\s*(Options)\\s*\\[\\s*(`?(?:(?:[$[:alpha:]][$[:alnum:]]*)`)*)((?:[$[:alpha:]][$[:alnum:]]*))\\s*\\](?=\\s*(:=|=))",
                     "captures": {
                         "1": {
                             "name": "variable.function.builtin.wolfram"
@@ -61,7 +61,7 @@
         "toplevel-attributes": {
             "patterns": [
                 {
-                    "match": "(Attributes)\\s*\\[\\s*(`?(?:{{symbolSegment}}`)*)({{symbolSegment}})\\s*\\](?=\\s*(:=|=))",
+                    "match": "^\\s*(Attributes)\\s*\\[\\s*(`?(?:(?:[$[:alpha:]][$[:alnum:]]*)`)*)((?:[$[:alpha:]][$[:alnum:]]*))\\s*\\](?=\\s*(:=|=))",
                     "captures": {
                         "1": {
                             "name": "variable.function.builtin.wolfram"
@@ -79,7 +79,7 @@
         "simple-toplevel-definitions": {
             "patterns": [
                 {
-                    "match": "(`?(?:(?:[$[:alpha:]][$[:alnum:]]*)`)*)((?:[$[:alpha:]][$[:alnum:]]*))(?=\\s*(\\[(?>[^\\[\\]]+|\\g<-1>)*\\])\\s*(?::=|=))",
+                    "match": "^\\s*(`?(?:(?:[$[:alpha:]][$[:alnum:]]*)`)*)((?:[$[:alpha:]][$[:alnum:]]*))(?=\\s*(\\[(?>[^\\[\\]\"]+|\".*\"|\\g<-1>)*\\])\\s*(?:/;.*)?(?::=|=))",
                     "captures": {
                         "1": {
                             "name": "meta.function.wolfram entity.name.Context.wolfram"
