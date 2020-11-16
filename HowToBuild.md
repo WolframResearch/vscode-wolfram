@@ -19,8 +19,8 @@ Here is an example transcript using the default make generator to build VSCode-W
 
 ```
 cd vscode-wolfram
-mkdir dist
-cd dist
+mkdir build
+cd build
 cmake ..
 cmake --build . --target vsix
 ```

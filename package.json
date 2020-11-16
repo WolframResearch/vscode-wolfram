@@ -83,9 +83,9 @@
     },
     "scripts": {
         "vscode:prepublish": "npm run package",
-        "compile": "webpack --devtool nosources-source-map --config ./build/node-extension.webpack.config.js",
-        "watch": "webpack --watch --devtool nosources-source-map --info-verbosity verbose --config ./build/node-extension.webpack.config.js",
-        "package": "webpack --mode production --config ./build/node-extension.webpack.config.js",
+        "compile": "webpack --devtool nosources-source-map --config ./config/node-extension.webpack.config.js",
+        "watch": "webpack --watch --devtool nosources-source-map --info-verbosity verbose --config ./config/node-extension.webpack.config.js",
+        "package": "webpack --mode production --config ./config/node-extension.webpack.config.js",
         "test-compile": "tsc -p ./",
         "test-watch": "tsc -watch -p ./",
         "pretest": "npm run test-compile && npm run lint",
