@@ -313,13 +313,10 @@
         "stringifying-operators": {
             "patterns": [
                 {
-                    "match": "(>>>)\\s*(\"\\w*\")",
+                    "match": "(>>>)(?=\\s*\")",
                     "captures": {
                         "1": {
                             "name": "keyword.operator.PutAppend.wolfram"
-                        },
-                        "2": {
-                            "name": "string.quoted.double.wolfram"
                         }
                     }
                 },
@@ -339,13 +336,10 @@
                     "name": "invalid.illegal"
                 },
                 {
-                    "match": "(::)(\"[[:alpha:]][[:alnum:]]*\")",
+                    "match": "(::)(?=\\s*\")",
                     "captures": {
                         "1": {
                             "name": "keyword.operator.MessageName.wolfram"
-                        },
-                        "2": {
-                            "name": "string.quoted.double.wolfram"
                         }
                     }
                 },
@@ -365,13 +359,10 @@
                     "name": "invalid.illegal"
                 },
                 {
-                    "match": "(<<)\\s*(\"[`[:alpha:]][`[:alnum:]]*\")",
+                    "match": "(<<)(?=\\s*\")",
                     "captures": {
                         "1": {
                             "name": "keyword.operator.Get.wolfram"
-                        },
-                        "2": {
-                            "name": "string.quoted.double.wolfram"
                         }
                     }
                 },
@@ -391,13 +382,10 @@
                     "name": "invalid.illegal"
                 },
                 {
-                    "match": "(>>)\\s*(\"\\w*\")",
+                    "match": "(>>)(?=\\s*\")",
                     "captures": {
                         "1": {
                             "name": "keyword.operator.Put.wolfram"
-                        },
-                        "2": {
-                            "name": "string.quoted.double.wolfram"
                         }
                     }
                 },
