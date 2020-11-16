@@ -142,6 +142,10 @@
                     "name": "invalid.illegal.BadLongName"
                 },
                 {
+                    "match": "\\\\(?:[$[:alpha:]][$[:alnum:]]*)\\]",
+                    "name": "invalid.illegal.BadLongName"
+                },
+                {
                     "match": "\\\\:\\h{4}",
                     "name": "constant.character.escape"
                 },
