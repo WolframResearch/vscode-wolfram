@@ -429,6 +429,10 @@
                     "name": "keyword.operator.Function.wolfram"
                 },
                 {
+                    "match": "(?://=)",
+                    "name": "keyword.operator.assignment.ApplyTo.wolfram"
+                },
+                {
                     "match": "(?:--|\\+\\+)",
                     "name": "keyword.operator.arithmetic.wolfram"
                 },
@@ -463,10 +467,6 @@
                 {
                     "match": "(?:-=)",
                     "name": "keyword.operator.assignment.SubtractFrom.wolfram"
-                },
-                {
-                    "match": "(?:@=)",
-                    "name": "keyword.operator.assignment.ApplyTo.wolfram"
                 },
                 {
                     "match": "(?:/:)",
