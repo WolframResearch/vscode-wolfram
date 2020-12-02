@@ -16,7 +16,7 @@ Needs["LSPServer`"]
 [CodeParser on github.com](https://github.com/<<TODO_placeholder_for_actual_link>>)
 [CodeInspector on github.com](https://github.com/<<TODO_placeholder_for_actual_link>>)
 [CodeFormatter on github.com](https://github.com/<<TODO_placeholder_for_actual_link>>)
-[CodeParser on github.com](https://github.com/<<TODO_placeholder_for_actual_link>>)
+[LSPServer on github.com](https://github.com/<<TODO_placeholder_for_actual_link>>)
 
 Install LSPServer and dependencies from the CodeTools paclet server:
 ```
