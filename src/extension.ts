@@ -12,6 +12,8 @@ import {
 
 let client: LanguageClient;
 
+let kernel_initialized = false;
+
 export function activate(context: ExtensionContext) {
 
 	const config: WorkspaceConfiguration = workspace.getConfiguration("wolfram", null);
@@ -49,7 +51,48 @@ export function activate(context: ExtensionContext) {
 		clientOptions
 	);
 
+	client.onReady().then(() => {
+		kernel_initialized = true
+	  });
+
+	
+	setTimeout(kernel_initialization_check_function, 10000, command);
+
 	client.start();
+}
+
+function kernel_initialization_check_function(command: [string]) {
+	if (kernel_initialized) {
+		return
+	}
+
+	// kill kernel, is possible
+
+	let report = window.createOutputChannel("Wolfram Language Error Report");
+
+	report.appendLine("Language Server kernel did not initialize properly after 10 seconds.")
+	report.appendLine("")
+	report.appendLine("This is the command that was used:")
+	report.appendLine(command.toString())
+	report.appendLine("")
+	report.appendLine("To diagnose the problem, run this in a notebook:")
+	report.appendLine("")
+	report.appendLine("Needs[\"LSPServer`\"]")
+	report.append("LSPServer`RunServerDiagnostic[{")
+	//
+	// TODO: when replaceAll is available, then use it instead of split().join()
+	//
+	command.slice(0, -1).forEach( (a) => {
+		report.append("\"" + a.split("\"").join("\\\"") + "\"")
+		report.append(", ")
+	})
+	report.append("\"" + command[command.length - 1].split("\"").join("\\\"") + "\"")
+	report.append("}]")
+	report.appendLine("")
+	report.appendLine("")
+	report.appendLine("Fix any problems then restart and try again.")
+
+	window.showErrorMessage("Cannot start Wolfram Language server. Check Wolfram Language Error Report output channel for more information.")
 }
 
 export function deactivate(): Thenable<void> | undefined {
