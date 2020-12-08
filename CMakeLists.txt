@@ -52,6 +52,19 @@ CheckWolframKernel()
 CheckPackageJSON()
 
 
+set(PACKAGEJSON_STAMP ${PROJECT_BINARY_DIR}/package.json.stamp)
+
+add_custom_command(
+	OUTPUT
+		${PACKAGEJSON_STAMP}
+	DEPENDS
+		${PACKAGEJSON_SOURCE}
+	COMMAND
+		npm install --no-save
+	COMMAND
+		${CMAKE_COMMAND} -E touch ${PACKAGEJSON_STAMP}
+)
+
 
 #
 # vsix target
@@ -78,6 +91,7 @@ add_custom_command(
 		${VSIX_OUTPUT}
 	DEPENDS
 		${VSIX_SOURCES}
+		${PACKAGEJSON_STAMP}
 	COMMAND
 		vsce package -o ${PROJECT_BINARY_DIR}
 	VERBATIM

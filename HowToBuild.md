@@ -6,9 +6,11 @@ VSCode-Wolfram uses CMake to generate build scripts.
 
 ## One time setup
 
-Make sure that you have installed the required modules and tools:
+npm must be installed on your system. Get npm from here:
+[Get npm](https://www.npmjs.com/get-npm)
+
+Make sure that you have installed the required tools:
 ```
-npm install
 npm install -g vsce
 ```
 
