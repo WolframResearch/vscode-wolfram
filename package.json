@@ -64,11 +64,17 @@
                     "default": "verbose",
                     "description": "Traces the communication between VS Code and the Wolfram Language server."
                 },
+                "wolfram.kernel": {
+                    "scope": "user",
+                    "type": "string",
+                    "default": "<<Path to WolframKernel>>",
+                    "description": "WolframKernel to use for Wolfram Language Server"
+                },
                 "wolfram.command": {
                     "scope": "user",
                     "type": "array",
                     "default": [
-                        "<<Path to WolframKernel>>",
+                        "`kernel`",
                         "-noinit",
                         "-noprompt",
                         "-nopaclet",

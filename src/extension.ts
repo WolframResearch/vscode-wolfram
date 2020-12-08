@@ -18,9 +18,30 @@ export function activate(context: ExtensionContext) {
 
 	const config: WorkspaceConfiguration = workspace.getConfiguration("wolfram", null);
 
-	let command: [string] = config.get<[string]>("command") || [""];
+	let command = config.get<string[]>("command", ["`kernel`"])
 
-	let base = path.basename(command[0]);
+	if (command[0] == "`kernel`") {
+
+		let kernel = config.get<string>("kernel", "<<Path to WolframKernel>>");
+
+		if (kernel == "<<Path to WolframKernel>>") {
+			switch (process.platform) {
+				case "aix": case "freebsd": case "linux": case "openbsd": case "sunos":
+					kernel = "/usr/local/Wolfram/Mathematica/12.1/Executables/WolframKernel";
+					break;
+				case "darwin":
+					kernel = "/Applications/Mathematica.app/Contents/MacOS/WolframKernel";
+					break;
+				case "win32":
+					kernel = "C:\\Program Files\\Wolfram Research\\Mathematica\\12.1\\WolframKernel.exe";
+					break;
+			}
+		}
+
+		command[0] = kernel
+	}
+
+	let base = basename(command[0]);
 
 	if (!base.toLowerCase().startsWith("wolframkernel")) {
 		window.showErrorMessage("Command for Wolfram Language Server does not start with 'WolframKernel': " + command[0]);
