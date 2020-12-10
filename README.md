@@ -67,20 +67,17 @@ Which[a, b, a, b]
 You should see warnings about duplicate clauses.
 
 
-#### Command arguments:
+#### Experimental Settings
 
-`<<Path to WolframKernel>>`
+You can enable experimental settings. These are not supported.
 
-This is the path to your `WolframKernel` executable.
+`implicitTokens` controls the display of implicit tokens such as `Null` after `;` and implicit Times character `×`.
 
-If you installed Mathematica in a default location, then this is something like:
 ```
-/Applications/Mathematica.app/Contents/MacOS/WolframKernel
+{
+  "implicitTokens": ["*", ",", ";;", "?"]
+}
 ```
-
-``"Needs[\"LSPServer`\"];LSPServer`StartServer[]"``
-
-This is the command that the kernel runs to start the server.
 
 
 ## Troubleshooting

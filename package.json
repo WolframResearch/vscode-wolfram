@@ -86,22 +86,12 @@
                 },
                 "wolfram.implicitTokens": {
                     "scope": "user",
-                    "type": "boolean",
-                    "default": false,
+                    "type": "array",
+                    "default": [],
                     "description": "Experimental option for Wolfram Language Server"
                 }
             }
-        },
-        "commands": [
-            {
-                "command": "myExtension.sayHello1",
-                "title": "Wolfram Language: Enable Bracket Matcher Debug Mode"
-            },
-            {
-                "command": "myExtension.sayHello2",
-                "title": "Wolfram Language: Disable Bracket Matcher Debug Mode"
-            }
-        ]
+        }
     },
     "scripts": {
         "vscode:prepublish": "npm run package",

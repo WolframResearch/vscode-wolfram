@@ -86,7 +86,7 @@ export function activate(context: ExtensionContext) {
 		command[0] = kernel
 	}
 
-	let implicitTokens = config.get<boolean>("implicitTokens", false);
+	let implicitTokens = config.get<string[]>("implicitTokens", []);
 	// let bracketMatcher = config.get<boolean>("bracketMatcher", false);
 	// let debugBracketMatcher = config.get<boolean>("debugBracketMatcher", false);
 
@@ -202,6 +202,7 @@ function implicitTokenCharToText(c: string) {
 		case "y": return "\xd71";
 		case "B": return "All\xd7";
 		case "C": return "All\xd71";
+		case "D": return "All1";
 		default: return " ";
 	}
 }
