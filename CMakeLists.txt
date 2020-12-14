@@ -99,5 +99,9 @@ add_custom_command(
 		${PROJECT_SOURCE_DIR}
 )
 
-
-
+install(
+	CODE
+		"execute_process(COMMAND code --install-extension ${VSIX_OUTPUT})"
+	COMPONENT
+		vsix
+)
