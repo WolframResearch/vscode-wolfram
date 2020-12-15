@@ -221,7 +221,7 @@ function kernel_initialization_check_function(command: [string]) {
 	report.appendLine("This is the command that was used:")
 	report.appendLine(command.toString())
 	report.appendLine("")
-	report.appendLine("To diagnose the problem, run this in a notebook:")
+	report.appendLine("To help diagnose the problem, run this in a notebook:")
 	report.appendLine("")
 	report.appendLine("Needs[\"LSPServer`\"]")
 	report.append("LSPServer`RunServerDiagnostic[{")
