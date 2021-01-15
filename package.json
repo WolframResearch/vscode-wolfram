@@ -9,7 +9,7 @@
         "url": "ssh://git@stash.wolfram.com:7999/cod/vscode-wolfram.git"
     },
     "engines": {
-        "vscode": "^1.33.0"
+        "vscode": "^1.52.0"
     },
     "activationEvents": [
         "onLanguage:wolfram"
@@ -91,7 +91,14 @@
                     "description": "Experimental option for Wolfram Language Server"
                 }
             }
-        }
+        },
+        "semanticTokenTypes": [
+            {
+              "id": "moduleVariable",
+              "superType": "variable",
+              "description": "Annotates a symbol that is a Module variable"
+            }
+          ]
     },
     "scripts": {
         "vscode:prepublish": "npm run package",
@@ -106,10 +113,10 @@
     },
     "dependencies": {
         "@types/node": "^14.14.7",
-        "@types/vscode": "^1.51.0",
+        "@types/vscode": "^1.52.0",
         "ts-loader": "^8.0.3",
         "typescript": "^4.0.2",
-        "vscode-languageclient": "^6.1.3",
+        "vscode-languageclient": "^7.0.0",
         "webpack": "^4.44.1",
         "webpack-cli": "^3.3.12"
     }
