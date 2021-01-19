@@ -1222,7 +1222,7 @@
                 },
                 {
                     "match": "(?:[$[:alpha:]][$[:alnum:]]*)(?:`(?:[$[:alpha:]][$[:alnum:]]*))+",
-                    "name": "variable.other.wolfram"
+                    "name": "symbol.unrecognized.wolfram"
                 },
                 {
                     "match": "(?:[$[:alpha:]][$[:alnum:]]*)`",
@@ -1230,7 +1230,7 @@
                 },
                 {
                     "match": "(?:`(?:[$[:alpha:]][$[:alnum:]]*))+",
-                    "name": "variable.other.wolfram"
+                    "name": "symbol.unrecognized.wolfram"
                 },
                 {
                     "match": "`",
@@ -1711,7 +1711,7 @@
 
                 {
                     "match": "(?:[$[:alpha:]][$[:alnum:]]*)",
-                    "name": "variable.other.wolfram"
+                    "name": "symbol.unrecognized.wolfram"
                 }
             ]
         },
