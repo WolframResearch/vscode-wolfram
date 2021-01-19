@@ -92,13 +92,21 @@
                 }
             }
         },
-        "semanticTokenTypes": [
+        "semanticTokenTypes": [],
+        "semanticTokenModifiers": [
             {
-              "id": "moduleVariable",
-              "superType": "variable",
-              "description": "Annotates a symbol that is a Module variable"
+                "id": "Module",
+                "description": "Annotates a variable that is Module scoped"
+            },
+            {
+                "id": "Block",
+                "description": "Annotates a symbol that is Block scoped"
+            },
+            {
+                "id": "shadowed",
+                "description": "Annotates a symbol that is shadowed"
             }
-          ]
+        ]
     },
     "scripts": {
         "vscode:prepublish": "npm run package",
