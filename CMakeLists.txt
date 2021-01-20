@@ -60,7 +60,7 @@ add_custom_command(
 	DEPENDS
 		${PACKAGEJSON_SOURCE}
 	COMMAND
-		npm install --no-save
+		npm --no-fund install --no-save
 	COMMAND
 		${CMAKE_COMMAND} -E touch ${PACKAGEJSON_STAMP}
 )
