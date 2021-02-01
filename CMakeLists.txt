@@ -57,12 +57,12 @@ set(PACKAGEJSON_STAMP ${PROJECT_BINARY_DIR}/package.json.stamp)
 add_custom_command(
 	OUTPUT
 		${PACKAGEJSON_STAMP}
-	DEPENDS
-		${PACKAGEJSON_SOURCE}
 	COMMAND
 		npm --no-fund install --no-save
 	COMMAND
 		${CMAKE_COMMAND} -E touch ${PACKAGEJSON_STAMP}
+	DEPENDS
+		${PACKAGEJSON_SOURCE}
 )
 
 
@@ -89,11 +89,11 @@ add_custom_target(vsix
 add_custom_command(
 	OUTPUT
 		${VSIX_OUTPUT}
+	COMMAND
+		vsce package -o ${PROJECT_BINARY_DIR}
 	DEPENDS
 		${VSIX_SOURCES}
 		${PACKAGEJSON_STAMP}
-	COMMAND
-		vsce package -o ${PROJECT_BINARY_DIR}
 	VERBATIM
 	WORKING_DIRECTORY
 		${PROJECT_SOURCE_DIR}
