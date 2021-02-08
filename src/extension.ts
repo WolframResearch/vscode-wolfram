@@ -194,6 +194,7 @@ export function activate(context: ExtensionContext) {
 function implicitTokenCharToText(c: string) {
 	switch (c) {
 		case "x": return "\xd7";
+		case "z": return " \xd7";
 		case "N": return "Null";
 		case "1": return "1";
 		case "A": return "All";
