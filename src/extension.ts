@@ -89,6 +89,7 @@ export function activate(context: ExtensionContext) {
 	let implicitTokens = config.get<string[]>("implicitTokens", []);
 	// let bracketMatcher = config.get<boolean>("bracketMatcher", false);
 	// let debugBracketMatcher = config.get<boolean>("debugBracketMatcher", false);
+	let semanticTokens = config.get<boolean>("semanticTokens", false);
 
 	let base = basename(command[0]);
 
@@ -115,6 +116,7 @@ export function activate(context: ExtensionContext) {
 			implicitTokens: implicitTokens,
 			// bracketMatcher: bracketMatcher,
 			// debugBracketMatcher: debugBracketMatcher
+			semanticTokens: semanticTokens
 		}
 	};
 	

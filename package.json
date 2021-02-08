@@ -90,6 +90,12 @@
                     "type": "array",
                     "default": [],
                     "description": "Experimental option for Wolfram Language Server"
+                },
+                "wolfram.semanticTokens": {
+                    "scope": "user",
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Experimental option for Wolfram Language Server"
                 }
             }
         },
@@ -101,11 +107,19 @@
             },
             {
                 "id": "Block",
-                "description": "Annotates a symbol that is Block scoped"
+                "description": "Annotates a variable that is Block scoped"
             },
             {
                 "id": "shadowed",
-                "description": "Annotates a symbol that is shadowed"
+                "description": "Annotates a variable or parameter that is shadowed"
+            },
+            {
+                "id": "unused",
+                "description": "Annotates a variable or parameter that is unused"
+            },
+            {
+                "id": "error",
+                "description": "Annotates a scoping error"
             }
         ]
     },
