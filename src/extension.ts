@@ -72,13 +72,13 @@ export function activate(context: ExtensionContext) {
 		if (kernel == "<<Path to WolframKernel>>") {
 			switch (process.platform) {
 				case "aix": case "freebsd": case "linux": case "openbsd": case "sunos":
-					kernel = "/usr/local/Wolfram/Mathematica/12.1/Executables/WolframKernel";
+					kernel = "/usr/local/Wolfram/Mathematica/12.2/Executables/WolframKernel";
 					break;
 				case "darwin":
 					kernel = "/Applications/Mathematica.app/Contents/MacOS/WolframKernel";
 					break;
 				case "win32":
-					kernel = "C:\\Program Files\\Wolfram Research\\Mathematica\\12.1\\WolframKernel.exe";
+					kernel = "C:\\Program Files\\Wolfram Research\\Mathematica\\12.2\\WolframKernel.exe";
 					break;
 			}
 		}
