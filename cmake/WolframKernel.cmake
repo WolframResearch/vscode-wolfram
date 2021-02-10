@@ -120,7 +120,12 @@ macro(CheckWolframKernel)
 	# CMAKE_SIZEOF_VOID_P is not set; CXX is probably not enabled
 	elseif(${CMAKE_SIZEOF_VOID_P} EQUAL 4)
 	if(NOT ${SYSTEMWORDLENGTH} EQUAL 32)
-	message(FATAL_ERROR "CMake is reporting 32-bit; Mathematica is reporting: ${SYSTEMWORDLENGTH}")
+	message(FATAL_ERROR
+		"CMake is reporting 32-bit; Mathematica is reporting: ${SYSTEMWORDLENGTH}"
+		"\n"
+		"HINT: On Windows, you probably need to specify -A x64"
+		"\n"
+	)
 	endif()
 	elseif(${CMAKE_SIZEOF_VOID_P} EQUAL 8)
 	if(NOT ${SYSTEMWORDLENGTH} EQUAL 64)
