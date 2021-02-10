@@ -1,5 +1,9 @@
 
-cmake_minimum_required(VERSION 3.0)
+#
+# https://cmake.org/cmake/help/latest/release/3.15.html
+# The cmake(1) command gained a new --install option. This may be used after building a project to run installation without using the generated build system or the native build tool.
+#
+cmake_minimum_required(VERSION 3.15)
 
 project(vscode-wolframlanguage
 	LANGUAGES
