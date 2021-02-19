@@ -9,9 +9,6 @@
         "main": {
             "patterns": [
                 {"include": "#shebang"},
-                {"include": "#toplevel-constants"},
-                {"include": "#toplevel-options"},
-                {"include": "#toplevel-attributes"},
                 {"include": "#simple-toplevel-definitions"},
                 {"include": "#expressions"}
             ]
@@ -25,61 +22,10 @@
                 }
             }
         },
-        "toplevel-constants": {
-            "patterns": [
-                {
-                    "match": "^\\s*(`?(?:(?:[$[:alpha:]][$[:alnum:]]*)`)*)((?:[$[:alpha:]][$[:alnum:]]*))(?=\\s*(?::=|=))",
-                    "captures": {
-                        "1": {
-                            "name": "entity.name.Context.wolfram"
-                        },
-                        "2": {
-                            "name": "entity.name.constant.wolfram"
-                        }
-                    }
-                }
-            ]
-        },
-        "toplevel-options": {
-            "patterns": [
-                {
-                    "match": "^\\s*(Options)\\s*\\[\\s*(`?(?:(?:[$[:alpha:]][$[:alnum:]]*)`)*)((?:[$[:alpha:]][$[:alnum:]]*))\\s*\\](?=\\s*(:=|=))",
-                    "captures": {
-                        "1": {
-                            "name": "variable.function.builtin.wolfram"
-                        },
-                        "2": {
-                            "name": "entity.name.Context.wolfram"
-                        },
-                        "3": {
-                            "name": "entity.other.Options.wolfram"
-                        }
-                    }
-                }
-            ]
-        },
-        "toplevel-attributes": {
-            "patterns": [
-                {
-                    "match": "^\\s*(Attributes)\\s*\\[\\s*(`?(?:(?:[$[:alpha:]][$[:alnum:]]*)`)*)((?:[$[:alpha:]][$[:alnum:]]*))\\s*\\](?=\\s*(:=|=))",
-                    "captures": {
-                        "1": {
-                            "name": "variable.function.builtin.wolfram"
-                        },
-                        "2": {
-                            "name": "entity.name.Context.wolfram"
-                        },
-                        "3": {
-                            "name": "entity.other.Attributes.wolfram"
-                        }
-                    }
-                }
-            ]
-        },
         "simple-toplevel-definitions": {
             "patterns": [
                 {
-                    "match": "^\\s*(`?(?:(?:[$[:alpha:]][$[:alnum:]]*)`)*)((?:[$[:alpha:]][$[:alnum:]]*))(?=\\s*(\\[(?>[^\\[\\]\"]+|\".*\"|\\g<-1>)*\\])\\s*(?:/;.*)?(?::=|=))",
+                    "match": "^\\s*(`?(?:(?:[$[:alpha:]][$[:alnum:]]*)`)*)((?:[$[:alpha:]][$[:alnum:]]*))(?=\\s*(\\[(?>[^\\[\\]]+|\\g<-1>)*\\])\\s*(?:/;.*)?(?::=|=))",
                     "captures": {
                         "1": {
                             "name": "meta.function.wolfram entity.name.Context.wolfram"
