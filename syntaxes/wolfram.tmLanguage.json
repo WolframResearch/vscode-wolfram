@@ -599,6 +599,10 @@
                     "name": "keyword.operator.assignment.AddTo.wolfram"
                 },
                 {
+                    "match": "(?:=\\s+\\.)",
+                    "name": "invalid.whitespace.Unset.wolfram"
+                },
+                {
                     "match": "(?:=\\.)",
                     "name": "keyword.operator.assignment.Unset.wolfram"
                 },
