@@ -38,6 +38,7 @@ message(FATAL_ERROR "LOCAL_BUILD is not currently supported.")
 endif(LOCAL_BUILD)
 
 set(STATIC_VSIX_SOURCES
+	${PROJECT_SOURCE_DIR}/themes/brenton-wl-theme.json
 	${PROJECT_SOURCE_DIR}/src/extension.ts
 	${PROJECT_SOURCE_DIR}/syntaxes/wolfram.tmLanguage.json
 	${PROJECT_SOURCE_DIR}/wolfram.language-configuration.json

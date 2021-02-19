@@ -17,7 +17,7 @@
     ],
     "main": "./dist/extension.js",
     "categories": [
-        "Programming Languages"
+        "Programming Languages", "Themes"
     ],
     "contributes": {
         "languages": [
@@ -120,6 +120,13 @@
             {
                 "id": "error",
                 "description": "Annotates a scoping error"
+            }
+        ],
+        "themes": [
+            {
+                "label": "BrentonWL",
+                "uiTheme": "vs-dark",
+                "path": "./themes/brenton-wl-theme.json"
             }
         ]
     },
