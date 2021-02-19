@@ -683,7 +683,11 @@
                     "name": "keyword.operator.Derivative.wolfram"
                 },
                 {
-                    "match":  "(?:>|\\^|\\.|:|,|&|@|~)",
+                    "match":  "(?:&)",
+                    "name": "keyword.operator.Function.wolfram"
+                },
+                {
+                    "match":  "(?:>|\\^|\\.|:|,|@|~)",
                     "name": "keyword.operator.wolfram"
                 }
             ]
