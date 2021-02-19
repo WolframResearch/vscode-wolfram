@@ -2,6 +2,9 @@
 //
 // https://github.com/microsoft/vscode/wiki/Semantic-Highlighting-Overview
 //
+// Themes don't support background styling
+// https://github.com/microsoft/vscode/issues/3429
+//
 
 {
 	"semanticHighlighting": true,
@@ -251,7 +254,8 @@
 			"settings": {
 				// "background": "#F92672",
 				// "fontStyle": "",
-				"foreground": "#F44747"
+				// "foreground": "#F44747"
+				"foreground": "#FF0000"
 			}
 		},
 
