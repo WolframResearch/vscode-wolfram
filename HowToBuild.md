@@ -42,3 +42,10 @@ On Windows:
 cmake -DMATHEMATICA_INSTALL_DIR="C:/Program Files/Wolfram Research/Mathematica/12.2" ..
 cmake --build . --target vsix
 ```
+
+## Installing
+
+You can install the paclet from CMake:
+```
+cmake --install . --component vsix
+```
