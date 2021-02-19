@@ -196,14 +196,14 @@
 				"foreground": "#66D9EF"
 			}
 		},
-		{
-			"name": "Experimenal",
-			"scope": "support.function.experimental",
-			"settings": {
-				// "background": "#F92672",
-				"foreground": "#F44747"
-			}
-		},
+		// {
+		// 	"name": "Experimental",
+		// 	"scope": "support.function.experimental",
+		// 	"settings": {
+		// 		// "background": "#F92672",
+		// 		"foreground": "#F44747"
+		// 	}
+		// },
 		{
 			"name": "Undocumented",
 			"scope": "support.function.undocumented",
