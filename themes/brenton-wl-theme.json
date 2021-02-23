@@ -12,11 +12,11 @@
 	"semanticTokenColors": {
 		"variable.Module": "#d8a265",
 		"variable.Block": "#d8b64f",
-		"variable.shadowed": "#ff0000",
+		"variable.shadowed": "#f2430e",
 		"variable.error": "#ff0000",
 		"variable.unused": "#888888",
 		"parameter": "#e4861b",
-		"parameter.shadowed": "#ff0000",
+		"parameter.shadowed": "#f2430e",
 		"parameter.error": "#ff0000",
 		"parameter.unused": "#888888"
 	},
