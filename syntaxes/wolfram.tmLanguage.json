@@ -1673,6 +1673,38 @@
 
         "groups": {
             "patterns": [
+                {
+                    "match":  "\\\\\\)",
+                    "name": "invalid.illegal.stray-linearsyntaxparens-end.wolfram"
+                },
+                {
+                    "match":  "\\)",
+                    "name": "invalid.illegal.stray-parens-end.wolfram"
+                },
+                {
+                    "match":  "\\[\\s+\\[",
+                    "name": "invalid.whitespace.Part.wolfram"
+                },
+                {
+                    "match":  "\\]\\s+\\]",
+                    "name": "invalid.whitespace.Part.wolfram"
+                },
+                {
+                    "match":  "\\]\\]",
+                    "name": "invalid.illegal.stray-parts-end.wolfram"
+                },
+                {
+                    "match":  "\\]",
+                    "name": "invalid.illegal.stray-brackets-end.wolfram"
+                },
+                {
+                    "match":  "\\}",
+                    "name": "invalid.illegal.stray-braces-end.wolfram"
+                },
+                {
+                    "match":  "\\|>",
+                    "name": "invalid.illegal.stray-associations-end.wolfram"
+                },
                 {"include": "#linearsyntaxparen-group"},
                 {"include": "#paren-group"},
                 {"include": "#part-group"},
@@ -1698,10 +1730,6 @@
             },
             "patterns": [
                 {
-                    "match":  "\\\\\\)",
-                    "name": "invalid.illegal.stray-linearsyntaxparens-end.wolfram"
-                },
-                {
                     "include": "#expressions"
                 }
             ]
@@ -1723,34 +1751,25 @@
             },
             "patterns": [
                 {
-                    "match":  "\\)",
-                    "name": "invalid.illegal.stray-parens-end.wolfram"
-                },
-                {
                     "include": "#expressions"
                 }
             ]
         },
-
         "part-group": {
             "name": "meta.parts.wolfram",
-            "begin": "\\[\\s*\\[",
+            "begin": "\\[\\[",
             "beginCaptures": {
                 "0": {
                     "name": "punctuation.section.parts.begin.wolfram"
                 }
             },
-            "end": "\\]\\s*\\]",
+            "end": "\\]\\]",
             "endCaptures": {
                 "0": {
                     "name": "punctuation.section.parts.end.wolfram"
                 }
             },
             "patterns": [
-                {
-                    "match":  "\\]\\s*\\]",
-                    "name": "invalid.illegal.stray-parts-end.wolfram"
-                },
                 {
                     "include": "#expressions"
                 }
@@ -1773,10 +1792,6 @@
             },
             "patterns": [
                 {
-                    "match":  "\\]",
-                    "name": "invalid.illegal.stray-brackets-end.wolfram"
-                },
-                {
                     "include": "#expressions"
                 }
             ]
@@ -1798,10 +1813,6 @@
             },
             "patterns": [
                 {
-                    "match":  "\\}",
-                    "name": "invalid.illegal.stray-braces-end.wolfram"
-                },
-                {
                     "include": "#expressions"
                 }
             ]
@@ -1822,10 +1833,6 @@
                 }
             },
             "patterns": [
-                {
-                    "match":  "\\|>",
-                    "name": "invalid.illegal.stray-associations-end.wolfram"
-                },
                 {
                     "include": "#expressions"
                 }
