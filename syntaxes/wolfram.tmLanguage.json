@@ -599,11 +599,11 @@
                     "name": "keyword.operator.assignment.AddTo.wolfram"
                 },
                 {
-                    "match": "(?:=\\s+\\.)",
+                    "match": "(?:=\\s+\\.(?![0-9]))",
                     "name": "invalid.whitespace.Unset.wolfram"
                 },
                 {
-                    "match": "(?:=\\.)",
+                    "match": "(?:=\\.(?![0-9]))",
                     "name": "keyword.operator.assignment.Unset.wolfram"
                 },
                 {
