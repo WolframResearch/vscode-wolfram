@@ -43,15 +43,15 @@ In `settings.json` put:
 
 ```
 {
-    "wolfram.command": [
-        "<<Path to WolframKernel>>",
-        "-noinit",
-        "-noprompt",
-        "-nopaclet",
-        "-noicon",
-        "-run",
-        "Needs[\"LSPServer`\"];LSPServer`StartServer[]"
-    ]
+  "wolfram.command": [
+      "<<Path to WolframKernel>>",
+      "-noinit",
+      "-noprompt",
+      "-nopaclet",
+      "-noicon",
+      "-run",
+      "Needs[\"LSPServer`\"];LSPServer`StartServer[]"
+  ]
 }
 ```
 
@@ -75,7 +75,15 @@ You can enable experimental settings. These are not supported.
 
 ```
 {
-  "implicitTokens": ["*", ",", ";;", "?"]
+  "wolfram.implicitTokens": ["*", ",", ";;", "?"]
+}
+```
+
+`semanticTokens` controls semantic highlighting such as `Module` variables.
+
+```
+{
+  "wolfram.semanticTokens": true
 }
 ```
 
