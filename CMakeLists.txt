@@ -34,7 +34,7 @@ message(STATUS "BUG349779_PAUSE: ${BUG349779_PAUSE}")
 message(STATUS "BUG349779_TIMEOUT: ${BUG349779_TIMEOUT}")
 
 if(LOCAL_BUILD)
-message(FATAL_ERROR "LOCAL_BUILD is not currently supported.")
+message(STATUS "Configuring for local build.")
 endif(LOCAL_BUILD)
 
 set(STATIC_VSIX_SOURCES

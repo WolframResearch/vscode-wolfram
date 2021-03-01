@@ -1,3 +1,4 @@
+include (GetGitRevisionDescription)
 
 macro(CheckPackageJSON)
 
@@ -7,7 +8,24 @@ macro(CheckPackageJSON)
 
   if(LOCAL_BUILD)
     message(STATUS "PackageJSON Version ignored in local build")
-    set(LOCAL_BUILD_VERSION 999.9)
+    set(LOCAL_BUILD_VERSION 999.9.9)
+    get_git_head_revision(GIT_REVSPEC GIT_SHA1)
+    string(SUBSTRING "${GIT_SHA1}" 0 8 GIT_SHA1)
+    message(STATUS "Local build version: ${LOCAL_BUILD_VERSION}-${GIT_SHA1}")
+    execute_process(
+      COMMAND
+        ${WOLFRAMKERNEL}
+        -noinit
+        -noprompt
+        -nopaclet
+        -run
+        "
+          Pause[${BUG349779_PAUSE}];
+          Get[\"${PROJECT_SOURCE_DIR}/cmake/SetPackageVersion.wl\"];
+          SetPackageVersion[\"${PACKAGEJSON_SOURCE}\", \"${LOCAL_BUILD_VERSION}-${GIT_SHA1}\"];
+          Exit[]
+        "
+    )
   else()
     #
     # if not local build, then get Version from package.json
