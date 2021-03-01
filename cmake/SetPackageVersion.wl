@@ -3,7 +3,6 @@
 Clear[SetPackageVersion];
 SetPackageVersion[packageJsonSource_String, version_String] :=
     Block[{packageJson},
-        (* Pause[1]; TODO: Find a way to set this from ${BUG349779_PAUSE} *)
         Print["Importing package.json"];
         packageJson = Import[packageJsonSource];
         packageJson = packageJson /. ("version" -> _) -> ("version" -> version);
