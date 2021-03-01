@@ -30,6 +30,10 @@ Search the VSCode Marketplace for the extension "WolframLanguage" and install.
 
 ### Settings
 
+If you have `Mathematica` installed in the default location on your system, you may not have to change any settings.
+
+If `Mathematica` is not in the default location, then change the location by doing these steps:
+
 Open the Command Palette
 
 Enter the command:
@@ -39,12 +43,27 @@ Select `Wolfram`
 
 A `settings.json` file is now open.
 
-In `settings.json` put:
+Add a `wolfram.kernel` setting:
 
 ```
 {
+  ...
+
+  "wolfram.kernel": "/Applications/Mathematica122.app/Contents/MacOS/WolframKernel"
+  
+  ...
+}
+
+```
+
+You may also change the command that is used to start the server:
+
+```
+{
+  ...
+
   "wolfram.command": [
-      "<<Path to WolframKernel>>",
+      "`kernel`",
       "-noinit",
       "-noprompt",
       "-nopaclet",
@@ -52,6 +71,8 @@ In `settings.json` put:
       "-run",
       "Needs[\"LSPServer`\"];LSPServer`StartServer[]"
   ]
+
+  ...
 }
 ```
 
@@ -75,7 +96,11 @@ You can enable experimental settings. These are not supported.
 
 ```
 {
+  ...
+
   "wolfram.implicitTokens": ["*", ",", ";;", "?"]
+
+  ...
 }
 ```
 
@@ -83,7 +108,11 @@ You can enable experimental settings. These are not supported.
 
 ```
 {
+  ...
+
   "wolfram.semanticTokens": true
+
+  ...
 }
 ```
 
