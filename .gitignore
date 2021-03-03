@@ -2,6 +2,7 @@
 build
 dist
 node_modules
+older
 
 # Ignored files
 package.json
