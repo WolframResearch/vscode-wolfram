@@ -92,7 +92,7 @@
                     "name": "constant.character.escape.undocumented"
                 },
                 {
-                    "match": "\\\\\\[(?:C(?:OMPATIBILITYKanjiSpace|OMPATIBILITYNoBreak|ontinuedFractionK|url))\\]",
+                    "match": "\\\\\\[(?:C(?:ontinuedFractionK|url))\\]",
                     "name": "constant.character.escape.undocumented"
                 },
                 {
@@ -112,19 +112,11 @@
                     "name": "constant.character.escape.undocumented"
                 },
                 {
-                    "match": "\\\\\\[(?:I(?:nlinePart))\\]",
-                    "name": "constant.character.escape.undocumented"
-                },
-                {
                     "match": "\\\\\\[(?:L(?:aplacian))\\]",
                     "name": "constant.character.escape.undocumented"
                 },
                 {
                     "match": "\\\\\\[(?:M(?:inus|oon))\\]",
-                    "name": "constant.character.escape.undocumented"
-                },
-                {
-                    "match": "\\\\\\[(?:N(?:umberComma))\\]",
                     "name": "constant.character.escape.undocumented"
                 },
                 {
@@ -146,6 +138,18 @@
                 {
                     "match": "\\\\\\[(?:W(?:olframAlphaPrompt))\\]",
                     "name": "constant.character.escape.undocumented"
+                },
+                {
+                    "match": "\\\\\\[(?:C(?:OMPATIBILITYKanjiSpace|OMPATIBILITYNoBreak))\\]",
+                    "name": "invalid.illegal.unsupported"
+                },
+                {
+                    "match": "\\\\\\[(?:I(?:nlinePart))\\]",
+                    "name": "invalid.illegal.unsupported"
+                },
+                {
+                    "match": "\\\\\\[(?:N(?:umberComma))\\]",
+                    "name": "invalid.illegal.unsupported"
                 },
                 {
                     "match": "\\\\\\[(?:A(?:Acute|Bar|Cup|DoubleDot|E|Grave|Hat|Ring|Tilde|leph|liasDelimiter|liasIndicator|lignmentMarker|lpha|ltKey|nd|ngle|ngstrom|pplication|quariusSign|riesSign|scendingEllipsis|utoLeftMatch|utoOperand|utoPlaceholder|utoRightMatch|utoSpace))\\]",
