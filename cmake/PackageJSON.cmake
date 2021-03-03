@@ -6,6 +6,12 @@ macro(CheckPackageJSON)
   message(FATAL_ERROR "WOLFRAMKERNEL does not exist. WOLFRAMKERNEL: ${WOLFRAMKERNEL}")
   endif()
 
+  configure_file(
+    ${PACKAGEJSON_IN_SOURCE}
+    ${PACKAGEJSON_SOURCE}
+    COPYONLY
+  )
+
   if(LOCAL_BUILD)
     message(STATUS "PackageJSON Version ignored in local build")
     set(LOCAL_BUILD_VERSION 999.9.9)

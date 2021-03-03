@@ -48,6 +48,9 @@ set(PACKAGEJSON_SOURCE
 	${PROJECT_SOURCE_DIR}/package.json
 )
 
+set(PACKAGEJSON_IN_SOURCE
+	${PROJECT_SOURCE_DIR}/package.in.json
+)
 
 
 #

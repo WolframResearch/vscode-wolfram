@@ -1,4 +1,7 @@
-
+# Ignored folders
 build
 dist
 node_modules
+
+# Ignored files
+package.json

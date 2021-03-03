@@ -1,0 +1,153 @@
+{
+	"name": "wolfram",
+	"displayName": "Wolfram Language",
+	"description": "Support for Wolfram Language",
+	"version": "1.2.0",
+	"publisher": "brenton",
+	"license" : "MIT",
+	"repository": {
+		"type": "git",
+		"url": "ssh://git@stash.wolfram.com:7999/cod/vscode-wolfram.git"
+	},
+	"engines": {
+		"vscode": "^1.52.0"
+	},
+	"activationEvents": [
+		"onLanguage:wolfram"
+	],
+	"main": "./dist/extension.js",
+	"categories": [
+		"Programming Languages", "Themes"
+	],
+	"contributes": {
+		"languages": [
+			{
+				"id": "wolfram",
+				"aliases": [
+					"Wolfram",
+					"wolfram"
+				],
+				"extensions": [
+					".wl",
+					".m",
+					".wls",
+					".wlt",
+					".mt"
+				],
+				"configuration": "./wolfram.language-configuration.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "wolfram",
+				"scopeName": "source.wolfram",
+				"path": "./syntaxes/wolfram.tmLanguage.json"
+			}
+		],
+		"configuration": {
+			"type": "object",
+			"title": "Example configuration",
+			"properties": {
+				"wolfram.maxNumberOfProblems": {
+					"scope": "resource",
+					"type": "number",
+					"default": 100,
+					"description": "Controls the maximum number of problems produced by the server."
+				},
+				"wolfram.trace.server": {
+					"scope": "window",
+					"type": "string",
+					"enum": [
+						"off",
+						"messages",
+						"verbose"
+					],
+					"default": "verbose",
+					"description": "Traces the communication between VS Code and the Wolfram Language server."
+				},
+				"wolfram.kernel": {
+					"scope": "user",
+					"type": "string",
+					"default": "<<Path to WolframKernel>>",
+					"description": "WolframKernel to use for Wolfram Language Server"
+				},
+				"wolfram.command": {
+					"scope": "user",
+					"type": "array",
+					"default": [
+						"`kernel`",
+						"-noinit",
+						"-noprompt",
+						"-nopaclet",
+						"-noicon",
+						"-run",
+						"Needs[\"LSPServer`\"];LSPServer`StartServer[]"
+					],
+					"description": "Command for Wolfram Language Server"
+				},
+				"wolfram.implicitTokens": {
+					"scope": "user",
+					"type": "array",
+					"default": [],
+					"description": "Experimental option for Wolfram Language Server"
+				},
+				"wolfram.semanticTokens": {
+					"scope": "user",
+					"type": "boolean",
+					"default": false,
+					"description": "Experimental option for Wolfram Language Server"
+				}
+			}
+		},
+		"semanticTokenTypes": [],
+		"semanticTokenModifiers": [
+			{
+				"id": "Module",
+				"description": "Annotates a variable that is Module scoped"
+			},
+			{
+				"id": "Block",
+				"description": "Annotates a variable that is Block scoped"
+			},
+			{
+				"id": "shadowed",
+				"description": "Annotates a variable or parameter that is shadowed"
+			},
+			{
+				"id": "unused",
+				"description": "Annotates a variable or parameter that is unused"
+			},
+			{
+				"id": "error",
+				"description": "Annotates a scoping error"
+			}
+		],
+		"themes": [
+			{
+				"label": "BrentonWL",
+				"uiTheme": "vs-dark",
+				"path": "./themes/brenton-wl-theme.json"
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run package",
+		"compile": "webpack --devtool nosources-source-map --config ./config/node-extension.webpack.config.js",
+		"watch": "webpack --watch --devtool nosources-source-map --info-verbosity verbose --config ./config/node-extension.webpack.config.js",
+		"package": "webpack --mode production --config ./config/node-extension.webpack.config.js",
+		"test-compile": "tsc -p ./",
+		"test-watch": "tsc -watch -p ./",
+		"pretest": "npm run test-compile && npm run lint",
+		"lint": "eslint src --ext ts",
+		"test": "node ./out/test/runTest.js"
+	},
+	"dependencies": {
+		"@types/node": "^14.14.7",
+		"@types/vscode": "^1.52.0",
+		"ts-loader": "^8.0.3",
+		"typescript": "^4.0.2",
+		"vscode-languageclient": "^7.0.0",
+		"webpack": "^4.44.1",
+		"webpack-cli": "^3.3.12"
+	}
+}
