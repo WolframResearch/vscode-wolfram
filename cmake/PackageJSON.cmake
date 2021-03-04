@@ -16,7 +16,7 @@ macro(CheckPackageJSON)
     message(STATUS "PackageJSON Version ignored in local build")
     get_git_head_revision(GIT_REVSPEC GIT_SHA1)
     string(SUBSTRING "${GIT_SHA1}" 0 8 GIT_SHA1)
-    set(LOCAL_BUILD_VERSION "999.9.0-${GIT_SHA1}")
+    set(LOCAL_BUILD_VERSION "999.9.9-${GIT_SHA1}")
     message(STATUS "Local build version: ${LOCAL_BUILD_VERSION}")
     execute_process(
       COMMAND
