@@ -77,14 +77,14 @@
 				"foreground": "#75715E"
 			}
 		},
-		{
-			"name": "String",
-			"scope": "string",
-			"settings": {
-				// "foreground": "#E6DB74"
-				"foreground": "#dbd16f"
-			}
-		},
+		// {
+		// 	"name": "String",
+		// 	"scope": "string",
+		// 	"settings": {
+		// 		// "foreground": "#E6DB74"
+		// 		"foreground": "#dbd16f"
+		// 	}
+		// },
 		{
 			"name": "Number",
 			"scope": "constant.numeric",
@@ -279,6 +279,18 @@
 			"scope": "comment",
 			"settings": {
 				"foreground": "#88846F"
+			}
+		},
+		{
+			"scope": "punctuation.definition.string.begin",
+			"settings": {
+				"foreground": "#99924d"
+			}
+		},
+		{
+			"scope": "punctuation.definition.string.end",
+			"settings": {
+				"foreground": "#99924d"
 			}
 		},
 		{
