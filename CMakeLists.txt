@@ -90,6 +90,7 @@ set(VSIX_OUTPUT ${PROJECT_BINARY_DIR}/wolfram-${PACKAGEJSON_VERSION}.vsix)
 endif(LOCAL_BUILD)
 
 add_custom_target(vsix
+	ALL
 	DEPENDS
 		${VSIX_OUTPUT}
 )
