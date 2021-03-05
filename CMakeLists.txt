@@ -52,6 +52,14 @@ set(PACKAGEJSON_IN_SOURCE
 	${PROJECT_SOURCE_DIR}/package.json.in
 )
 
+# Related issues: CODETOOLS-77
+if (WIN32)
+	set(NPM_COMMAND npm.cmd)
+	set(CODE_COMMAND code.cmd)
+else()
+	set(NPM_COMMAND npm)
+	set(CODE_COMMAND code)
+endif()
 
 #
 # Set VERSION_NUMBER, SYSTEMID, and PACKAGEJSON_VERSION
@@ -66,7 +74,7 @@ add_custom_command(
 	OUTPUT
 		${PACKAGEJSON_STAMP}
 	COMMAND
-		npm --no-fund install --no-save
+		${NPM_COMMAND} --no-fund install --no-save
 	COMMAND
 		${CMAKE_COMMAND} -E touch ${PACKAGEJSON_STAMP}
 	DEPENDS
@@ -110,7 +118,7 @@ add_custom_command(
 
 install(
 	CODE
-		"execute_process(COMMAND code --install-extension --force ${VSIX_OUTPUT})"
+		"execute_process(COMMAND ${CODE_COMMAND} --install-extension ${VSIX_OUTPUT} --force)"
 	COMPONENT
 		vsix
 )
