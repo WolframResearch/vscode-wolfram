@@ -25,6 +25,14 @@
         "simple-toplevel-definitions": {
             "patterns": [
                 {
+                    "match": "^\\s*(Attributes|Options|Format)(?=\\s*(\\[(?>[^\\[\\]]+|\\g<-1>)*\\])\\s*(?:/;.*)?(?::=|=))",
+                    "captures": {
+                        "1": {
+                            "name": "support.function.builtin.wolfram"
+                        }
+                    }
+                },
+                {
                     "match": "^\\s*(`?(?:(?:[$[:alpha:]][$[:alnum:]]*)`)*)((?:[$[:alpha:]][$[:alnum:]]*))(?=\\s*(\\[(?>[^\\[\\]]+|\\g<-1>)*\\])\\s*(?:/;.*)?(?::=|=))",
                     "captures": {
                         "1": {
