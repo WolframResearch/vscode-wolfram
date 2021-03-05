@@ -24,7 +24,7 @@ cd vscode-wolfram
 mkdir build
 cd build
 cmake ..
-cmake --build . --target vsix
+cmake --build .
 ```
 
 The result is a `.vsix` file in the `build` directory.
@@ -33,19 +33,19 @@ Specify `MATHEMATICA_INSTALL_DIR` if you have Mathematica installed in a non-def
 
 ```
 cmake -DMATHEMATICA_INSTALL_DIR=/Applications/Mathematica122.app/Contents/ ..
-cmake --build . --target vsix
+cmake --build .
 ```
 
 On Windows:
 
 ```
 cmake -DMATHEMATICA_INSTALL_DIR="C:/Program Files/Wolfram Research/Mathematica/12.2" ..
-cmake --build . --target vsix
+cmake --build .
 ```
 
 ## Installing
 
 You can install the paclet from CMake:
 ```
-cmake --install . --component vsix
+cmake --install .
 ```
