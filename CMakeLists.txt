@@ -109,7 +109,7 @@ add_custom_command(
 
 install(
 	CODE
-		"execute_process(COMMAND code --install-extension ${VSIX_OUTPUT})"
+		"execute_process(COMMAND code --install-extension --force ${VSIX_OUTPUT})"
 	COMPONENT
 		vsix
 )
