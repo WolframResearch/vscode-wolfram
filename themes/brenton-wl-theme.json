@@ -208,8 +208,10 @@
 			"name": "Undocumented",
 			"scope": "support.function.undocumented",
 			"settings": {
-				// "background": "#F92672",
-				"foreground": "#F44747"
+                //
+                // the idea is to make it almost the same as unrecognized
+                //
+				"foreground": "#eeeeee"
 			}
 		},
 		// {
