@@ -14,6 +14,19 @@ set(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake" ${CMAKE_MODULE_PATH})
 include(WolframKernel)
 include(PackageJSON)
 
+#
+# Related issues: CODETOOLS-77
+#
+find_program(NPM_COMMAND
+	NAMES
+		npm.cmd npm
+)
+
+find_program(CODE_COMMAND
+	NAMES
+		code.cmd code
+)
+
 set(WOLFRAMKERNEL ${WOLFRAMKERNEL_DEFAULT} CACHE FILEPATH "Path to WolframKernel")
 set(LOCAL_BUILD OFF CACHE BOOL "Local build")
 # Work-around for bug 349779 is to pause ~1 second
@@ -35,6 +48,8 @@ message(STATUS "Configuring for local build")
 endif()
 message(STATUS "BUG349779_PAUSE: ${BUG349779_PAUSE}")
 message(STATUS "BUG349779_TIMEOUT: ${BUG349779_TIMEOUT}")
+message(STATUS "NPM_COMMAND: ${NPM_COMMAND}")
+message(STATUS "CODE_COMMAND: ${CODE_COMMAND}")
 
 set(STATIC_VSIX_SOURCES
 	${PROJECT_SOURCE_DIR}/themes/brenton-wl-theme.json
@@ -47,16 +62,6 @@ set(PACKAGEJSON_IN_SOURCE
 	${PROJECT_SOURCE_DIR}/package.json.in
 )
 
-#
-# Related issues: CODETOOLS-77
-#
-if (WIN32)
-	set(NPM_COMMAND npm.cmd)
-	set(CODE_COMMAND code.cmd)
-else()
-	set(NPM_COMMAND npm)
-	set(CODE_COMMAND code)
-endif()
 
 #
 # Set VERSION_NUMBER, SYSTEMID, and PACKAGEJSON_VERSION
