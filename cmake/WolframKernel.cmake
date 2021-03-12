@@ -41,6 +41,29 @@ macro(CheckWolframKernel)
 	endif()
 
 	#
+	# get $Version
+	#
+	execute_process(
+		COMMAND
+			${WOLFRAMKERNEL} -noinit -noprompt -nopaclet -runfirst Pause[${BUG349779_PAUSE}]\;Print[OutputForm[\$Version]]\;Exit[]
+		OUTPUT_VARIABLE
+			VERSION
+		OUTPUT_STRIP_TRAILING_WHITESPACE
+		WORKING_DIRECTORY
+			${PROJECT_SOURCE_DIR}
+		TIMEOUT
+			${BUG349779_TIMEOUT}
+		RESULT_VARIABLE
+			VERSION_RESULT
+	)
+
+	message(STATUS "VERSION: ${VERSION}")
+
+	if(NOT ${VERSION_RESULT} EQUAL "0")
+	message(WARNING "Bad exit code from Version script: ${VERSION_RESULT}; Continuing")
+	endif()
+
+	#
 	# get $VersionNumber
 	#
 	execute_process(
@@ -60,11 +83,11 @@ macro(CheckWolframKernel)
 	message(STATUS "VERSION_NUMBER: ${VERSION_NUMBER}")
 
 	if(NOT ${VERSION_NUMBER} GREATER_EQUAL 1100)
-		message(FATAL_ERROR "Wolfram Kernel must be at least version 11.0: ${VERSION_NUMBER}")
+	message(FATAL_ERROR "Wolfram Kernel must be at least version 11.0: ${VERSION_NUMBER}")
 	endif()
 
 	if(NOT ${VERSION_NUMBER_RESULT} EQUAL "0")
-		message(WARNING "Bad exit code from VersionNumber script: ${VERSION_NUMBER_RESULT}; Continuing")
+	message(WARNING "Bad exit code from VersionNumber script: ${VERSION_NUMBER_RESULT}; Continuing")
 	endif()
 
 	#
@@ -87,7 +110,7 @@ macro(CheckWolframKernel)
 	message(STATUS "SYSTEMID: ${SYSTEMID}")
 
 	if(NOT ${SYSTEMID_RESULT} EQUAL "0")
-		message(WARNING "Bad exit code from SystemID script: ${SYSTEMID_RESULT}; Continuing")
+	message(WARNING "Bad exit code from SystemID script: ${SYSTEMID_RESULT}; Continuing")
 	endif()
 
 	#
@@ -110,7 +133,7 @@ macro(CheckWolframKernel)
 	message(STATUS "SYSTEMWORDLENGTH: ${SYSTEMWORDLENGTH}")
 
 	if(NOT ${SYSTEMWORDLENGTH_RESULT} EQUAL "0")
-		message(WARNING "Bad exit code from SystemWordLength script: ${SYSTEMWORDLENGTH_RESULT}; Continuing")
+	message(WARNING "Bad exit code from SystemWordLength script: ${SYSTEMWORDLENGTH_RESULT}; Continuing")
 	endif()
 
 	#
