@@ -197,10 +197,12 @@ function implicitTokenCharToText(c: string) {
 	switch (c) {
 		case "x": return "\xd7";
 		case "z": return " \xd7";
-		case "N": return "Null";
+		// add a space before Null because it looks nicer
+		case "N": return " Null";
 		case "1": return "1";
 		case "A": return "All";
-		case "e": return "\u25a1";
+		// add spaces before and after \u25a1 because it looks nicer
+		case "e": return " \u25a1 ";
 		case "f": return "\u25a1\xd7";
 		case "y": return "\xd71";
 		case "B": return "All\xd7";
@@ -241,6 +243,12 @@ function kernel_initialization_check_function(command: [string]) {
 	report.appendLine("")
 	report.appendLine("Fix any problems then restart and try again.")
 
+	//
+	// FIXME: it would be great to just include the above text in the error message.
+	// But VSCode does not currently allow newlines in error messages
+	//
+	// Related issues: https://github.com/microsoft/vscode/issues/5454
+	//
 	window.showErrorMessage("Cannot start Wolfram Language server. Check Wolfram Language Error Report output channel for more information.")
 }
 
