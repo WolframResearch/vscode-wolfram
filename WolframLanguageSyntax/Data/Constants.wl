@@ -1,6 +1,6 @@
 (* AUTO GENERATED FILE *)
 (* DO NOT MODIFY *)
-(* GENERATED WITH: 12.2.0 for Mac OS X x86 (64-bit) (December 3, 2020) *)
+(* GENERATED WITH: 12.3.0 for Mac OS X x86 (64-bit) (March 21, 2021) *)
 {"\\[FormalA]", "\\[FormalAlpha]", "\\[FormalB]", "\\[FormalBeta]", 
  "\\[FormalC]", "\\[FormalCapitalA]", "\\[FormalCapitalAlpha]", 
  "\\[FormalCapitalB]", "\\[FormalCapitalBeta]", "\\[FormalCapitalC]", 
@@ -181,9 +181,9 @@
  "Mesh", "MeshCellHighlight", "MeshCellLabel", "MeshCellMarker", 
  "MeshCellShapeFunction", "MeshCellStyle", "MeshFunctions", 
  "MeshQualityGoal", "MeshRefinementFunction", "MeshShading", "MeshStyle", 
- "MetaInformation", "Method", "MinColorDistance", "MinIntervalSize", 
- "MissingBehavior", "MissingDataMethod", "MissingDataRules", "MissingString", 
- "MissingStyle", "Modal", "Modulus", "MultiedgeStyle", "MultilaunchWarning", 
+ "Method", "MinColorDistance", "MinIntervalSize", "MissingBehavior", 
+ "MissingDataMethod", "MissingDataRules", "MissingString", "MissingStyle", 
+ "Modal", "Modulus", "MultiedgeStyle", "MultilaunchWarning", 
  "MultilineFunction", "Multiselection", "NicholsGridLines", 
  "NominalVariables", "NonConstants", "Normalized", "NormalsFunction", 
  "NormFunction", "NotebookAutoSave", "NotebookBrowseDirectory", 
