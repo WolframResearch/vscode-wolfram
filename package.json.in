@@ -4,7 +4,7 @@
 	"description": "Support for Wolfram Language",
 	"version": "1.2.0",
 	"publisher": "brenton",
-	"license" : "MIT",
+	"license": "MIT",
 	"repository": {
 		"type": "git",
 		"url": "ssh://git@stash.wolfram.com:7999/cod/vscode-wolfram.git"
@@ -17,7 +17,8 @@
 	],
 	"main": "./dist/extension.js",
 	"categories": [
-		"Programming Languages", "Themes"
+		"Programming Languages",
+		"Themes"
 	],
 	"contributes": {
 		"languages": [
