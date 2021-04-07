@@ -49,7 +49,7 @@ Add a `wolfram.kernel` setting:
 {
   ...
 
-  "wolfram.kernel": "/Applications/Mathematica122.app/Contents/MacOS/WolframKernel"
+  "wolfram.kernel": "/Applications/Mathematica123.app/Contents/MacOS/WolframKernel"
   
   ...
 }
