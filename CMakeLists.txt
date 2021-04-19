@@ -70,18 +70,6 @@ CheckWolframKernel()
 CheckPackageJSON()
 
 
-set(GENERATED_PACKAGEJSON ${PROJECT_SOURCE_DIR}/package.json)
-
-add_custom_command(
-	OUTPUT
-		${GENERATED_PACKAGEJSON}
-	COMMAND
-		${CMAKE_COMMAND} -E copy ${PACKAGEJSON_IN_SOURCE} ${GENERATED_PACKAGEJSON}
-	DEPENDS
-		${PACKAGEJSON_IN_SOURCE}
-)
-
-
 #
 # vsix target
 #
@@ -103,9 +91,18 @@ add_custom_target(vsix
 		${VSIX_OUTPUT}
 )
 
+
+set(GENERATED_PACKAGEJSON ${PROJECT_SOURCE_DIR}/package.json)
+
 add_custom_command(
 	OUTPUT
 		${VSIX_OUTPUT}
+	COMMAND
+		#
+		# copy for every build because I am lazy and I do not want to teach ReplacePackageJSON.cmake about semver syntax
+		# so that it can run on already-replaced files
+		#
+		${CMAKE_COMMAND} -E copy ${PACKAGEJSON_IN_SOURCE} ${GENERATED_PACKAGEJSON}
 	COMMAND
 		${CMAKE_COMMAND} -DLOCAL_BUILD=${LOCAL_BUILD} -DLOCAL_BUILD_VERSION=${LOCAL_BUILD_VERSION} -DGENERATED_PACKAGEJSON=${GENERATED_PACKAGEJSON} -P ${PROJECT_SOURCE_DIR}/cmake/ReplacePackageJSON.cmake
 	COMMAND
