@@ -1,7 +1,7 @@
 
 Paclet[
   Name -> "VSCodeWolfram",
-  Version -> "1.2",
+  Version -> "1.3",
   WolframVersion -> "12.0+",
   Creator -> "Brenton Bostick <brenton@wolfram.com>",
   Extensions -> {
