@@ -1135,10 +1135,6 @@
                     "name": "support.function.undocumented.wolfram"
                 },
                 {
-                    "match": "System`(?![`$[:alnum:]])",
-                    "name": "support.function.undocumented.wolfram"
-                },
-                {
                     "match": "System`(?:R(?:adioButtonBox|adioButtonBoxOptions|andomSeed|angeSpecification|aster3DBox|aster3DBoxOptions|asterBox|asterBoxOptions|ationalFunctions|awArray|awMedium|ebuildPacletData|ectangleBox|ecurringDigitsForm|eferenceMarkerStyle|eferenceMarkers|einstall|emoved|epeatedString|esetMenusPacket|esourceAcquire|esourceSubmissionObject|eturnEntersInput|eturnInputFormPacket|otationBox|otationBoxOptions|oundImplies|owBackgrounds|owHeights|uleCondition|uleForm))(?![`$[:alnum:]])",
                     "name": "support.function.undocumented.wolfram"
                 },
@@ -1648,10 +1644,6 @@
                 },
                 {
                     "match": "(?:P(?:ackPaclet|ackage|acletDirectoryAdd|acletDirectoryRemove|acletInformation|acletObjectQ|acletSymbol|acletUpdate|ageHeight|aneBox|aneBoxOptions|aneSelectorBox|aneSelectorBoxOptions|anelBox|anelBoxOptions|aperWidth|arameter|arameterVariables|arentConnect|arentForm|arentList|arenthesize|artialD|asteAutoQuoteCharacters|ausedTime|eriodicInterpolation|erpendicular|ickMode|ickedElements|ivoting|lotRangeClipPlanesStyle|oint3DBox|oint3DBoxOptions|ointBox|ointBoxOptions|olygon3DBox|olygon3DBoxOptions|olygonBox|olygonBoxOptions|olygonHoleScale|olygonScale|olynomialForm|olynomials|opupMenuBox|opupMenuBoxOptions|ostScript|recedence|redictionRoot|revious|rimaryPlaceholder|rintForm|rismBox|rismBoxOptions|rivateFrontEndOptions|robabilityPr|rocessStateDomain|rocessTimeDomain|rogressIndicatorBox|rogressIndicatorBoxOptions|romptForm|yramidBox|yramidBoxOptions))(?![`$[:alnum:]])",
-                    "name": "support.function.undocumented.wolfram"
-                },
-                {
-                    "match": "(?![`$[:alnum:]])",
                     "name": "support.function.undocumented.wolfram"
                 },
                 {
