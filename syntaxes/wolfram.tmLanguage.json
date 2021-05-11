@@ -85,67 +85,67 @@
             "patterns": [
                 {
                     "match": "\\\\[!%&()*+/@^_` ]",
-                    "name": "constant.character.escape"
+                    "name": "donothighlight.constant.character.escape"
                 },
                 {
                     "match": "\\\\\\[(?:F(?:ormalA|ormalAlpha|ormalB|ormalBeta|ormalC|ormalCapitalA|ormalCapitalAlpha|ormalCapitalB|ormalCapitalBeta|ormalCapitalC|ormalCapitalChi|ormalCapitalD|ormalCapitalDelta|ormalCapitalDigamma|ormalCapitalE|ormalCapitalEpsilon|ormalCapitalEta|ormalCapitalF|ormalCapitalG|ormalCapitalGamma|ormalCapitalH|ormalCapitalI|ormalCapitalIota|ormalCapitalJ|ormalCapitalK|ormalCapitalKappa|ormalCapitalKoppa|ormalCapitalL|ormalCapitalLambda|ormalCapitalM|ormalCapitalMu|ormalCapitalN|ormalCapitalNu|ormalCapitalO|ormalCapitalOmega|ormalCapitalOmicron|ormalCapitalP|ormalCapitalPhi|ormalCapitalPi|ormalCapitalPsi|ormalCapitalQ|ormalCapitalR|ormalCapitalRho|ormalCapitalS|ormalCapitalSampi|ormalCapitalSigma|ormalCapitalStigma|ormalCapitalT|ormalCapitalTau|ormalCapitalTheta|ormalCapitalU|ormalCapitalUpsilon|ormalCapitalV|ormalCapitalW|ormalCapitalX|ormalCapitalXi|ormalCapitalY|ormalCapitalZ|ormalCapitalZeta|ormalChi|ormalCurlyCapitalUpsilon|ormalCurlyEpsilon|ormalCurlyKappa|ormalCurlyPhi|ormalCurlyPi|ormalCurlyRho|ormalCurlyTheta|ormalD|ormalDelta|ormalDigamma|ormalE|ormalEpsilon|ormalEta|ormalF|ormalFinalSigma|ormalG|ormalGamma|ormalH|ormalI|ormalIota|ormalJ|ormalK|ormalKappa|ormalKoppa|ormalL|ormalLambda|ormalM|ormalMu|ormalN|ormalNu|ormalO|ormalOmega|ormalOmicron|ormalP|ormalPhi|ormalPi|ormalPsi|ormalQ|ormalR|ormalRho|ormalS|ormalSampi|ormalSigma|ormalStigma|ormalT|ormalTau|ormalTheta|ormalU|ormalUpsilon|ormalV|ormalW|ormalX|ormalXi|ormalY|ormalZ|ormalZeta))\\]",
-                    "name": "constant.character.escape constant.language.wolfram"
+                    "name": "donothighlight.constant.character.escape constant.language.wolfram"
                 },
                 {
                     "match": "\\\\\\[(?:S(?:ystemsModelDelay))\\]",
-                    "name": "constant.character.escape constant.language.wolfram"
+                    "name": "donothighlight.constant.character.escape constant.language.wolfram"
                 },
                 {
                     "match": "\\\\\\[(?:A(?:kuz|ndy))\\]",
-                    "name": "constant.character.escape.undocumented"
+                    "name": "donothighlight.constant.character.escape.undocumented"
                 },
                 {
                     "match": "\\\\\\[(?:C(?:ontinuedFractionK|url))\\]",
-                    "name": "constant.character.escape.undocumented"
+                    "name": "donothighlight.constant.character.escape.undocumented"
                 },
                 {
                     "match": "\\\\\\[(?:D(?:ivergence|ivisionSlash))\\]",
-                    "name": "constant.character.escape.undocumented"
+                    "name": "donothighlight.constant.character.escape.undocumented"
                 },
                 {
                     "match": "\\\\\\[(?:E(?:xpectationE))\\]",
-                    "name": "constant.character.escape.undocumented"
+                    "name": "donothighlight.constant.character.escape.undocumented"
                 },
                 {
                     "match": "\\\\\\[(?:F(?:reeformPrompt))\\]",
-                    "name": "constant.character.escape.undocumented"
+                    "name": "donothighlight.constant.character.escape.undocumented"
                 },
                 {
                     "match": "\\\\\\[(?:G(?:radient))\\]",
-                    "name": "constant.character.escape.undocumented"
+                    "name": "donothighlight.constant.character.escape.undocumented"
                 },
                 {
                     "match": "\\\\\\[(?:L(?:aplacian))\\]",
-                    "name": "constant.character.escape.undocumented"
+                    "name": "donothighlight.constant.character.escape.undocumented"
                 },
                 {
                     "match": "\\\\\\[(?:M(?:inus|oon))\\]",
-                    "name": "constant.character.escape.undocumented"
+                    "name": "donothighlight.constant.character.escape.undocumented"
                 },
                 {
                     "match": "\\\\\\[(?:P(?:ageBreakAbove|ageBreakBelow|robabilityPr))\\]",
-                    "name": "constant.character.escape.undocumented"
+                    "name": "donothighlight.constant.character.escape.undocumented"
                 },
                 {
                     "match": "\\\\\\[(?:S(?:pooky|tepperDown|tepperLeft|tepperRight|tepperUp|un))\\]",
-                    "name": "constant.character.escape.undocumented"
+                    "name": "donothighlight.constant.character.escape.undocumented"
                 },
                 {
                     "match": "\\\\\\[(?:U(?:nknownGlyph))\\]",
-                    "name": "constant.character.escape.undocumented"
+                    "name": "donothighlight.constant.character.escape.undocumented"
                 },
                 {
                     "match": "\\\\\\[(?:V(?:illa))\\]",
-                    "name": "constant.character.escape.undocumented"
+                    "name": "donothighlight.constant.character.escape.undocumented"
                 },
                 {
                     "match": "\\\\\\[(?:W(?:olframAlphaPrompt))\\]",
-                    "name": "constant.character.escape.undocumented"
+                    "name": "donothighlight.constant.character.escape.undocumented"
                 },
                 {
                     "match": "\\\\\\[(?:C(?:OMPATIBILITYKanjiSpace|OMPATIBILITYNoBreak))\\]",
@@ -161,107 +161,107 @@
                 },
                 {
                     "match": "\\\\\\[(?:A(?:Acute|Bar|Cup|DoubleDot|E|Grave|Hat|Ring|Tilde|leph|liasDelimiter|liasIndicator|lignmentMarker|lpha|ltKey|nd|ngle|ngstrom|pplication|quariusSign|riesSign|scendingEllipsis|utoLeftMatch|utoOperand|utoPlaceholder|utoRightMatch|utoSpace))\\]",
-                    "name": "constant.character.escape"
+                    "name": "donothighlight.constant.character.escape"
                 },
                 {
                     "match": "\\\\\\[(?:B(?:ackslash|eamedEighthNote|eamedSixteenthNote|ecause|et|eta|lackBishop|lackKing|lackKnight|lackPawn|lackQueen|lackRook|reve|ullet))\\]",
-                    "name": "constant.character.escape"
+                    "name": "donothighlight.constant.character.escape"
                 },
                 {
                     "match": "\\\\\\[(?:C(?:Acute|Cedilla|Hacek|ancerSign|ap|apitalAAcute|apitalABar|apitalACup|apitalADoubleDot|apitalAE|apitalAGrave|apitalAHat|apitalARing|apitalATilde|apitalAlpha|apitalBeta|apitalCAcute|apitalCCedilla|apitalCHacek|apitalChi|apitalDHacek|apitalDelta|apitalDifferentialD|apitalDigamma|apitalEAcute|apitalEBar|apitalECup|apitalEDoubleDot|apitalEGrave|apitalEHacek|apitalEHat|apitalEpsilon|apitalEta|apitalEth|apitalGamma|apitalIAcute|apitalICup|apitalIDoubleDot|apitalIGrave|apitalIHat|apitalIota|apitalKappa|apitalKoppa|apitalLSlash|apitalLambda|apitalMu|apitalNHacek|apitalNTilde|apitalNu|apitalOAcute|apitalODoubleAcute|apitalODoubleDot|apitalOE|apitalOGrave|apitalOHat|apitalOSlash|apitalOTilde|apitalOmega|apitalOmicron|apitalPhi|apitalPi|apitalPsi|apitalRHacek|apitalRho|apitalSHacek|apitalSampi|apitalSigma|apitalStigma|apitalTHacek|apitalTau|apitalTheta|apitalThorn|apitalUAcute|apitalUDoubleAcute|apitalUDoubleDot|apitalUGrave|apitalUHat|apitalURing|apitalUpsilon|apitalXi|apitalYAcute|apitalZHacek|apitalZeta|apricornSign|edilla|ent|enterDot|enterEllipsis|heckedBox|heckmark|heckmarkedBox|hi|ircleDot|ircleMinus|irclePlus|ircleTimes|lockwiseContourIntegral|loseCurlyDoubleQuote|loseCurlyQuote|loverLeaf|lubSuit|olon|ommandKey|onditioned|ongruent|onjugate|onjugateTranspose|onstantC|ontinuation|ontourIntegral|ontrolKey|oproduct|opyright|ounterClockwiseContourIntegral|ross|ubeRoot|up|upCap|urlyCapitalUpsilon|urlyEpsilon|urlyKappa|urlyPhi|urlyPi|urlyRho|urlyTheta|urrency))\\]",
-                    "name": "constant.character.escape"
+                    "name": "donothighlight.constant.character.escape"
                 },
                 {
                     "match": "\\\\\\[(?:D(?:Hacek|agger|alet|ash|egree|el|eleteKey|elta|escendingEllipsis|iameter|iamond|iamondSuit|ifferenceDelta|ifferentialD|igamma|irectedEdge|iscreteRatio|iscreteShift|iscretionaryHyphen|iscretionaryLineSeparator|iscretionaryPageBreakAbove|iscretionaryPageBreakBelow|iscretionaryParagraphSeparator|istributed|ivide|ivides|otEqual|otlessI|otlessJ|ottedSquare|oubleContourIntegral|oubleDagger|oubleDot|oubleDownArrow|oubleLeftArrow|oubleLeftRightArrow|oubleLeftTee|oubleLongLeftArrow|oubleLongLeftRightArrow|oubleLongRightArrow|oublePrime|oubleRightArrow|oubleRightTee|oubleStruckA|oubleStruckB|oubleStruckC|oubleStruckCapitalA|oubleStruckCapitalB|oubleStruckCapitalC|oubleStruckCapitalD|oubleStruckCapitalE|oubleStruckCapitalF|oubleStruckCapitalG|oubleStruckCapitalH|oubleStruckCapitalI|oubleStruckCapitalJ|oubleStruckCapitalK|oubleStruckCapitalL|oubleStruckCapitalM|oubleStruckCapitalN|oubleStruckCapitalO|oubleStruckCapitalP|oubleStruckCapitalQ|oubleStruckCapitalR|oubleStruckCapitalS|oubleStruckCapitalT|oubleStruckCapitalU|oubleStruckCapitalV|oubleStruckCapitalW|oubleStruckCapitalX|oubleStruckCapitalY|oubleStruckCapitalZ|oubleStruckD|oubleStruckE|oubleStruckEight|oubleStruckF|oubleStruckFive|oubleStruckFour|oubleStruckG|oubleStruckH|oubleStruckI|oubleStruckJ|oubleStruckK|oubleStruckL|oubleStruckM|oubleStruckN|oubleStruckNine|oubleStruckO|oubleStruckOne|oubleStruckP|oubleStruckQ|oubleStruckR|oubleStruckS|oubleStruckSeven|oubleStruckSix|oubleStruckT|oubleStruckThree|oubleStruckTwo|oubleStruckU|oubleStruckV|oubleStruckW|oubleStruckX|oubleStruckY|oubleStruckZ|oubleStruckZero|oubleUpArrow|oubleUpDownArrow|oubleVerticalBar|oubledGamma|oubledPi|ownArrow|ownArrowBar|ownArrowUpArrow|ownBreve|ownExclamation|ownLeftRightVector|ownLeftTeeVector|ownLeftVector|ownLeftVectorBar|ownPointer|ownQuestion|ownRightTeeVector|ownRightVector|ownRightVectorBar|ownTee|ownTeeArrow))\\]",
-                    "name": "constant.character.escape"
+                    "name": "donothighlight.constant.character.escape"
                 },
                 {
                     "match": "\\\\\\[(?:E(?:Acute|Bar|Cup|DoubleDot|Grave|Hacek|Hat|arth|ighthNote|lement|llipsis|mptyCircle|mptyDiamond|mptyDownTriangle|mptyRectangle|mptySet|mptySmallCircle|mptySmallSquare|mptySquare|mptyUpTriangle|mptyVerySmallSquare|nterKey|ntityEnd|ntityStart|psilon|qual|qualTilde|quilibrium|quivalent|rrorIndicator|scapeKey|ta|th|uro|xists|xponentialE))\\]",
-                    "name": "constant.character.escape"
+                    "name": "donothighlight.constant.character.escape"
                 },
                 {
                     "match": "\\\\\\[(?:F(?:iLigature|illedCircle|illedDiamond|illedDownTriangle|illedLeftTriangle|illedRectangle|illedRightTriangle|illedSmallCircle|illedSmallSquare|illedSquare|illedUpTriangle|illedVerySmallSquare|inalSigma|irstPage|ivePointedStar|lLigature|lat|lorin|orAll|reakedSmiley|unction))\\]",
-                    "name": "constant.character.escape"
+                    "name": "donothighlight.constant.character.escape"
                 },
                 {
                     "match": "\\\\\\[(?:G(?:amma|eminiSign|imel|othicA|othicB|othicC|othicCapitalA|othicCapitalB|othicCapitalC|othicCapitalD|othicCapitalE|othicCapitalF|othicCapitalG|othicCapitalH|othicCapitalI|othicCapitalJ|othicCapitalK|othicCapitalL|othicCapitalM|othicCapitalN|othicCapitalO|othicCapitalP|othicCapitalQ|othicCapitalR|othicCapitalS|othicCapitalT|othicCapitalU|othicCapitalV|othicCapitalW|othicCapitalX|othicCapitalY|othicCapitalZ|othicD|othicE|othicEight|othicF|othicFive|othicFour|othicG|othicH|othicI|othicJ|othicK|othicL|othicM|othicN|othicNine|othicO|othicOne|othicP|othicQ|othicR|othicS|othicSeven|othicSix|othicT|othicThree|othicTwo|othicU|othicV|othicW|othicX|othicY|othicZ|othicZero|rayCircle|raySquare|reaterEqual|reaterEqualLess|reaterFullEqual|reaterGreater|reaterLess|reaterSlantEqual|reaterTilde))\\]",
-                    "name": "constant.character.escape"
+                    "name": "donothighlight.constant.character.escape"
                 },
                 {
                     "match": "\\\\\\[(?:H(?:Bar|acek|appySmiley|eartSuit|ermitianConjugate|orizontalLine|umpDownHump|umpEqual|yphen))\\]",
-                    "name": "constant.character.escape"
+                    "name": "donothighlight.constant.character.escape"
                 },
                 {
                     "match": "\\\\\\[(?:I(?:Acute|Cup|DoubleDot|Grave|Hat|maginaryI|maginaryJ|mplicitPlus|mplies|ndentingNewLine|nfinity|ntegral|ntersection|nvisibleApplication|nvisibleComma|nvisiblePostfixScriptBase|nvisiblePrefixScriptBase|nvisibleSpace|nvisibleTimes|ota))\\]",
-                    "name": "constant.character.escape"
+                    "name": "donothighlight.constant.character.escape"
                 },
                 {
                     "match": "\\\\\\[(?:J(?:upiter))\\]",
-                    "name": "constant.character.escape"
+                    "name": "donothighlight.constant.character.escape"
                 },
                 {
                     "match": "\\\\\\[(?:K(?:appa|ernelIcon|eyBar|oppa))\\]",
-                    "name": "constant.character.escape"
+                    "name": "donothighlight.constant.character.escape"
                 },
                 {
                     "match": "\\\\\\[(?:L(?:Slash|ambda|astPage|eftAngleBracket|eftArrow|eftArrowBar|eftArrowRightArrow|eftAssociation|eftBracketingBar|eftCeiling|eftDoubleBracket|eftDoubleBracketingBar|eftDownTeeVector|eftDownVector|eftDownVectorBar|eftFloor|eftGuillemet|eftModified|eftPointer|eftRightArrow|eftRightVector|eftSkeleton|eftTee|eftTeeArrow|eftTeeVector|eftTriangle|eftTriangleBar|eftTriangleEqual|eftUpDownVector|eftUpTeeVector|eftUpVector|eftUpVectorBar|eftVector|eftVectorBar|eoSign|essEqual|essEqualGreater|essFullEqual|essGreater|essLess|essSlantEqual|essTilde|etterSpace|ibraSign|ightBulb|imit|ineSeparator|ongDash|ongEqual|ongLeftArrow|ongLeftRightArrow|ongRightArrow|owerLeftArrow|owerRightArrow))\\]",
-                    "name": "constant.character.escape"
+                    "name": "donothighlight.constant.character.escape"
                 },
                 {
                     "match": "\\\\\\[(?:M(?:ars|athematicaIcon|axLimit|easuredAngle|ediumSpace|ercury|ho|icro|inLimit|inusPlus|od1Key|od2Key|u))\\]",
-                    "name": "constant.character.escape"
+                    "name": "donothighlight.constant.character.escape"
                 },
                 {
                     "match": "\\\\\\[(?:N(?:Hacek|Tilde|and|atural|egativeMediumSpace|egativeThickSpace|egativeThinSpace|egativeVeryThinSpace|eptune|estedGreaterGreater|estedLessLess|eutralSmiley|ewLine|oBreak|onBreakingSpace|or|ot|otCongruent|otCupCap|otDoubleVerticalBar|otElement|otEqual|otEqualTilde|otExists|otGreater|otGreaterEqual|otGreaterFullEqual|otGreaterGreater|otGreaterLess|otGreaterSlantEqual|otGreaterTilde|otHumpDownHump|otHumpEqual|otLeftTriangle|otLeftTriangleBar|otLeftTriangleEqual|otLess|otLessEqual|otLessFullEqual|otLessGreater|otLessLess|otLessSlantEqual|otLessTilde|otNestedGreaterGreater|otNestedLessLess|otPrecedes|otPrecedesEqual|otPrecedesSlantEqual|otPrecedesTilde|otReverseElement|otRightTriangle|otRightTriangleBar|otRightTriangleEqual|otSquareSubset|otSquareSubsetEqual|otSquareSuperset|otSquareSupersetEqual|otSubset|otSubsetEqual|otSucceeds|otSucceedsEqual|otSucceedsSlantEqual|otSucceedsTilde|otSuperset|otSupersetEqual|otTilde|otTildeEqual|otTildeFullEqual|otTildeTilde|otVerticalBar|u|ull|umberSign))\\]",
-                    "name": "constant.character.escape"
+                    "name": "donothighlight.constant.character.escape"
                 },
                 {
                     "match": "\\\\\\[(?:O(?:Acute|DoubleAcute|DoubleDot|E|Grave|Hat|Slash|Tilde|mega|micron|penCurlyDoubleQuote|penCurlyQuote|ptionKey|r|verBrace|verBracket|verParenthesis))\\]",
-                    "name": "constant.character.escape"
+                    "name": "donothighlight.constant.character.escape"
                 },
                 {
                     "match": "\\\\\\[(?:P(?:aragraph|aragraphSeparator|artialD|ermutationProduct|erpendicular|hi|i|iecewise|iscesSign|laceholder|lusMinus|luto|recedes|recedesEqual|recedesSlantEqual|recedesTilde|rime|roduct|roportion|roportional|si))\\]",
-                    "name": "constant.character.escape"
+                    "name": "donothighlight.constant.character.escape"
                 },
                 {
                     "match": "\\\\\\[(?:Q(?:uarterNote))\\]",
-                    "name": "constant.character.escape"
+                    "name": "donothighlight.constant.character.escape"
                 },
                 {
                     "match": "\\\\\\[(?:R(?:Hacek|awAmpersand|awAt|awBackquote|awBackslash|awColon|awComma|awDash|awDollar|awDot|awDoubleQuote|awEqual|awEscape|awExclamation|awGreater|awLeftBrace|awLeftBracket|awLeftParenthesis|awLess|awNumberSign|awPercent|awPlus|awQuestion|awQuote|awReturn|awRightBrace|awRightBracket|awRightParenthesis|awSemicolon|awSlash|awSpace|awStar|awTab|awTilde|awUnderscore|awVerticalBar|awWedge|egisteredTrademark|eturnIndicator|eturnKey|everseDoublePrime|everseElement|everseEquilibrium|eversePrime|everseUpEquilibrium|ho|ightAngle|ightAngleBracket|ightArrow|ightArrowBar|ightArrowLeftArrow|ightAssociation|ightBracketingBar|ightCeiling|ightDoubleBracket|ightDoubleBracketingBar|ightDownTeeVector|ightDownVector|ightDownVectorBar|ightFloor|ightGuillemet|ightModified|ightPointer|ightSkeleton|ightTee|ightTeeArrow|ightTeeVector|ightTriangle|ightTriangleBar|ightTriangleEqual|ightUpDownVector|ightUpTeeVector|ightUpVector|ightUpVectorBar|ightVector|ightVectorBar|oundImplies|oundSpaceIndicator|ule|uleDelayed|upee))\\]",
-                    "name": "constant.character.escape"
+                    "name": "donothighlight.constant.character.escape"
                 },
                 {
                     "match": "\\\\\\[(?:S(?:Hacek|Z|adSmiley|agittariusSign|ampi|aturn|corpioSign|criptA|criptB|criptC|criptCapitalA|criptCapitalB|criptCapitalC|criptCapitalD|criptCapitalE|criptCapitalF|criptCapitalG|criptCapitalH|criptCapitalI|criptCapitalJ|criptCapitalK|criptCapitalL|criptCapitalM|criptCapitalN|criptCapitalO|criptCapitalP|criptCapitalQ|criptCapitalR|criptCapitalS|criptCapitalT|criptCapitalU|criptCapitalV|criptCapitalW|criptCapitalX|criptCapitalY|criptCapitalZ|criptD|criptDotlessI|criptDotlessJ|criptE|criptEight|criptF|criptFive|criptFour|criptG|criptH|criptI|criptJ|criptK|criptL|criptM|criptN|criptNine|criptO|criptOne|criptP|criptQ|criptR|criptS|criptSeven|criptSix|criptT|criptThree|criptTwo|criptU|criptV|criptW|criptX|criptY|criptZ|criptZero|ection|electionPlaceholder|hah|harp|hiftKey|hortDownArrow|hortLeftArrow|hortRightArrow|hortUpArrow|igma|ixPointedStar|keletonIndicator|mallCircle|paceIndicator|paceKey|padeSuit|panFromAbove|panFromBoth|panFromLeft|phericalAngle|qrt|quare|quareIntersection|quareSubset|quareSubsetEqual|quareSuperset|quareSupersetEqual|quareUnion|tar|terling|tigma|ubset|ubsetEqual|ucceeds|ucceedsEqual|ucceedsSlantEqual|ucceedsTilde|uchThat|um|uperset|upersetEqual|ystemEnterKey))\\]",
-                    "name": "constant.character.escape"
+                    "name": "donothighlight.constant.character.escape"
                 },
                 {
                     "match": "\\\\\\[(?:T(?:Hacek|abKey|au|aurusSign|ensorProduct|ensorWedge|herefore|heta|hickSpace|hinSpace|horn|ilde|ildeEqual|ildeFullEqual|ildeTilde|imes|rademark|ranspose|ripleDot|woWayRule))\\]",
-                    "name": "constant.character.escape"
+                    "name": "donothighlight.constant.character.escape"
                 },
                 {
                     "match": "\\\\\\[(?:U(?:Acute|DoubleAcute|DoubleDot|Grave|Hat|Ring|nderBrace|nderBracket|nderParenthesis|ndirectedEdge|nion|nionPlus|pArrow|pArrowBar|pArrowDownArrow|pDownArrow|pEquilibrium|pPointer|pTee|pTeeArrow|pperLeftArrow|pperRightArrow|psilon|ranus))\\]",
-                    "name": "constant.character.escape"
+                    "name": "donothighlight.constant.character.escape"
                 },
                 {
                     "match": "\\\\\\[(?:V(?:ectorGreater|ectorGreaterEqual|ectorLess|ectorLessEqual|ee|enus|erticalBar|erticalEllipsis|erticalLine|erticalSeparator|erticalTilde|eryThinSpace|irgoSign))\\]",
-                    "name": "constant.character.escape"
+                    "name": "donothighlight.constant.character.escape"
                 },
                 {
                     "match": "\\\\\\[(?:W(?:arningSign|atchIcon|edge|eierstrassP|hiteBishop|hiteKing|hiteKnight|hitePawn|hiteQueen|hiteRook|olf|olframLanguageLogo|olframLanguageLogoCircle))\\]",
-                    "name": "constant.character.escape"
+                    "name": "donothighlight.constant.character.escape"
                 },
                 {
                     "match": "\\\\\\[(?:X(?:i|nor|or))\\]",
-                    "name": "constant.character.escape"
+                    "name": "donothighlight.constant.character.escape"
                 },
                 {
                     "match": "\\\\\\[(?:Y(?:Acute|DoubleDot|en))\\]",
-                    "name": "constant.character.escape"
+                    "name": "donothighlight.constant.character.escape"
                 },
                 {
                     "match": "\\\\\\[(?:Z(?:Hacek|eta))\\]",
-                    "name": "constant.character.escape"
+                    "name": "donothighlight.constant.character.escape"
                 },
                 {
                     "match": "\\\\\\[(?:[$[:alpha:]][$[:alnum:]]*)?\\]?",
@@ -273,7 +273,7 @@
                 },
                 {
                     "match": "\\\\:\\h{4}",
-                    "name": "constant.character.escape"
+                    "name": "donothighlight.constant.character.escape"
                 },
                 {
                     "match": "\\\\:\\h{1,3}",
@@ -281,7 +281,7 @@
                 },
                 {
                     "match": "\\\\\\.\\h{2}",
-                    "name": "constant.character.escape"
+                    "name": "donothighlight.constant.character.escape"
                 },
                 {
                     "match": "\\\\\\.\\h{1}",
@@ -289,7 +289,7 @@
                 },
                 {
                     "match": "\\\\\\|\\h{6}",
-                    "name": "constant.character.escape"
+                    "name": "donothighlight.constant.character.escape"
                 },
                 {
                     "match": "\\\\\\|\\h{1,5}",
@@ -297,7 +297,7 @@
                 },
                 {
                     "match": "\\\\[0-7]{3}",
-                    "name": "constant.character.escape"
+                    "name": "donothighlight.constant.character.escape"
                 },
                 {
                     "match": "\\\\[0-7]{1,2}",
@@ -305,7 +305,7 @@
                 },
                 {
                     "match": "\\\\$",
-                    "name": "constant.character.escape punctuation.separator.continuation"
+                    "name": "donothighlight.constant.character.escape punctuation.separator.continuation"
                 },
                 {
                     "match": "\\\\.",
@@ -317,7 +317,7 @@
             "patterns": [
                 {
                     "match": "\\\\[bfnrt\\\"\\\\<>]",
-                    "name": "constant.character.escape"
+                    "name": "donothighlight.constant.character.escape"
                 },
                 {
                     "include": "#escaped_characters"
