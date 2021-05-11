@@ -767,7 +767,7 @@
                     "name": "keyword.operator.Function.wolfram"
                 },
                 {
-                    "match":  "(?:>|\\^|\\.|:|,|@|~)",
+                    "match":  "(?:>|\\^|\\.|:|@|~)",
                     "name": "keyword.operator.wolfram"
                 }
             ]
