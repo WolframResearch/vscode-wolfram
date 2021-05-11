@@ -120,7 +120,7 @@ add_custom_command(
 
 install(
 	CODE
-		"execute_process(COMMAND ${CODE_COMMAND} --install-extension ${VSIX_OUTPUT} --force)"
+		"execute_process(COMMAND ${CMAKE_COMMAND} -DVSIX_OUTPUT=${VSIX_OUTPUT} \"-DCODE_COMMAND=${CODE_COMMAND}\" -P ${PROJECT_SOURCE_DIR}/cmake/InstallVSIX.cmake)"
 	COMPONENT
 		vsix
 )
