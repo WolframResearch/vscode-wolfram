@@ -48,6 +48,7 @@
         "expressions": {
             "patterns": [
                 {"include": "#comments"},
+                {"include": "#escaped_character_symbols"},
                 {"include": "#escaped_characters"},
                 {"include": "#out"},
                 {"include": "#slot"},
@@ -81,19 +82,47 @@
                 }
             ]
         },
+        "escaped_character_symbols": {
+            "patterns": [
+                {
+                    "match": "System`\\\\\\[(?:F(?:ormalA|ormalAlpha|ormalB|ormalBeta|ormalC|ormalCapitalA|ormalCapitalAlpha|ormalCapitalB|ormalCapitalBeta|ormalCapitalC|ormalCapitalChi|ormalCapitalD|ormalCapitalDelta|ormalCapitalDigamma|ormalCapitalE|ormalCapitalEpsilon|ormalCapitalEta|ormalCapitalF|ormalCapitalG|ormalCapitalGamma|ormalCapitalH|ormalCapitalI|ormalCapitalIota|ormalCapitalJ|ormalCapitalK|ormalCapitalKappa|ormalCapitalKoppa|ormalCapitalL|ormalCapitalLambda|ormalCapitalM|ormalCapitalMu|ormalCapitalN|ormalCapitalNu|ormalCapitalO|ormalCapitalOmega|ormalCapitalOmicron|ormalCapitalP|ormalCapitalPhi|ormalCapitalPi|ormalCapitalPsi|ormalCapitalQ|ormalCapitalR|ormalCapitalRho|ormalCapitalS|ormalCapitalSampi|ormalCapitalSigma|ormalCapitalStigma|ormalCapitalT|ormalCapitalTau|ormalCapitalTheta|ormalCapitalU|ormalCapitalUpsilon|ormalCapitalV|ormalCapitalW|ormalCapitalX|ormalCapitalXi|ormalCapitalY|ormalCapitalZ|ormalCapitalZeta|ormalChi|ormalCurlyCapitalUpsilon|ormalCurlyEpsilon|ormalCurlyKappa|ormalCurlyPhi|ormalCurlyPi|ormalCurlyRho|ormalCurlyTheta|ormalD|ormalDelta|ormalDigamma|ormalE|ormalEpsilon|ormalEta|ormalF|ormalFinalSigma|ormalG|ormalGamma|ormalH|ormalI|ormalIota|ormalJ|ormalK|ormalKappa|ormalKoppa|ormalL|ormalLambda|ormalM|ormalMu|ormalN|ormalNu|ormalO|ormalOmega|ormalOmicron|ormalP|ormalPhi|ormalPi|ormalPsi|ormalQ|ormalR|ormalRho|ormalS|ormalSampi|ormalSigma|ormalStigma|ormalT|ormalTau|ormalTheta|ormalU|ormalUpsilon|ormalV|ormalW|ormalX|ormalXi|ormalY|ormalZ|ormalZeta))\\](?![`$[:alnum:]])",
+                    "name": "constant.language.wolfram"
+                },
+                {
+                    "match": "System`\\\\\\[(?:S(?:ystemsModelDelay))\\](?![`$[:alnum:]])",
+                    "name": "constant.language.wolfram"
+                },
+                {
+                    "match": "\\\\\\[(?:F(?:ormalA|ormalAlpha|ormalB|ormalBeta|ormalC|ormalCapitalA|ormalCapitalAlpha|ormalCapitalB|ormalCapitalBeta|ormalCapitalC|ormalCapitalChi|ormalCapitalD|ormalCapitalDelta|ormalCapitalDigamma|ormalCapitalE|ormalCapitalEpsilon|ormalCapitalEta|ormalCapitalF|ormalCapitalG|ormalCapitalGamma|ormalCapitalH|ormalCapitalI|ormalCapitalIota|ormalCapitalJ|ormalCapitalK|ormalCapitalKappa|ormalCapitalKoppa|ormalCapitalL|ormalCapitalLambda|ormalCapitalM|ormalCapitalMu|ormalCapitalN|ormalCapitalNu|ormalCapitalO|ormalCapitalOmega|ormalCapitalOmicron|ormalCapitalP|ormalCapitalPhi|ormalCapitalPi|ormalCapitalPsi|ormalCapitalQ|ormalCapitalR|ormalCapitalRho|ormalCapitalS|ormalCapitalSampi|ormalCapitalSigma|ormalCapitalStigma|ormalCapitalT|ormalCapitalTau|ormalCapitalTheta|ormalCapitalU|ormalCapitalUpsilon|ormalCapitalV|ormalCapitalW|ormalCapitalX|ormalCapitalXi|ormalCapitalY|ormalCapitalZ|ormalCapitalZeta|ormalChi|ormalCurlyCapitalUpsilon|ormalCurlyEpsilon|ormalCurlyKappa|ormalCurlyPhi|ormalCurlyPi|ormalCurlyRho|ormalCurlyTheta|ormalD|ormalDelta|ormalDigamma|ormalE|ormalEpsilon|ormalEta|ormalF|ormalFinalSigma|ormalG|ormalGamma|ormalH|ormalI|ormalIota|ormalJ|ormalK|ormalKappa|ormalKoppa|ormalL|ormalLambda|ormalM|ormalMu|ormalN|ormalNu|ormalO|ormalOmega|ormalOmicron|ormalP|ormalPhi|ormalPi|ormalPsi|ormalQ|ormalR|ormalRho|ormalS|ormalSampi|ormalSigma|ormalStigma|ormalT|ormalTau|ormalTheta|ormalU|ormalUpsilon|ormalV|ormalW|ormalX|ormalXi|ormalY|ormalZ|ormalZeta))\\](?![`$[:alnum:]])",
+                    "name": "constant.language.wolfram"
+                },
+                {
+                    "match": "\\\\\\[(?:S(?:ystemsModelDelay))\\](?![`$[:alnum:]])",
+                    "name": "constant.language.wolfram"
+                },
+                {
+                    "match": "\\\\\\[(?:D(?:egree))\\](?![`$[:alnum:]])",
+                    "name": "constant.language.wolfram"
+                },
+                {
+                    "match": "\\\\\\[(?:E(?:xponentialE))\\](?![`$[:alnum:]])",
+                    "name": "constant.language.wolfram"
+                },
+                {
+                    "match": "\\\\\\[(?:I(?:maginaryI|maginaryJ|nfinity))\\](?![`$[:alnum:]])",
+                    "name": "constant.language.wolfram"
+                },
+                {
+                    "match": "\\\\\\[(?:P(?:i))\\](?![`$[:alnum:]])",
+                    "name": "constant.language.wolfram"
+                }
+            ]
+        },
         "escaped_characters": {
             "patterns": [
                 {
                     "match": "\\\\[!%&()*+/@^_` ]",
                     "name": "donothighlight.constant.character.escape"
-                },
-                {
-                    "match": "\\\\\\[(?:F(?:ormalA|ormalAlpha|ormalB|ormalBeta|ormalC|ormalCapitalA|ormalCapitalAlpha|ormalCapitalB|ormalCapitalBeta|ormalCapitalC|ormalCapitalChi|ormalCapitalD|ormalCapitalDelta|ormalCapitalDigamma|ormalCapitalE|ormalCapitalEpsilon|ormalCapitalEta|ormalCapitalF|ormalCapitalG|ormalCapitalGamma|ormalCapitalH|ormalCapitalI|ormalCapitalIota|ormalCapitalJ|ormalCapitalK|ormalCapitalKappa|ormalCapitalKoppa|ormalCapitalL|ormalCapitalLambda|ormalCapitalM|ormalCapitalMu|ormalCapitalN|ormalCapitalNu|ormalCapitalO|ormalCapitalOmega|ormalCapitalOmicron|ormalCapitalP|ormalCapitalPhi|ormalCapitalPi|ormalCapitalPsi|ormalCapitalQ|ormalCapitalR|ormalCapitalRho|ormalCapitalS|ormalCapitalSampi|ormalCapitalSigma|ormalCapitalStigma|ormalCapitalT|ormalCapitalTau|ormalCapitalTheta|ormalCapitalU|ormalCapitalUpsilon|ormalCapitalV|ormalCapitalW|ormalCapitalX|ormalCapitalXi|ormalCapitalY|ormalCapitalZ|ormalCapitalZeta|ormalChi|ormalCurlyCapitalUpsilon|ormalCurlyEpsilon|ormalCurlyKappa|ormalCurlyPhi|ormalCurlyPi|ormalCurlyRho|ormalCurlyTheta|ormalD|ormalDelta|ormalDigamma|ormalE|ormalEpsilon|ormalEta|ormalF|ormalFinalSigma|ormalG|ormalGamma|ormalH|ormalI|ormalIota|ormalJ|ormalK|ormalKappa|ormalKoppa|ormalL|ormalLambda|ormalM|ormalMu|ormalN|ormalNu|ormalO|ormalOmega|ormalOmicron|ormalP|ormalPhi|ormalPi|ormalPsi|ormalQ|ormalR|ormalRho|ormalS|ormalSampi|ormalSigma|ormalStigma|ormalT|ormalTau|ormalTheta|ormalU|ormalUpsilon|ormalV|ormalW|ormalX|ormalXi|ormalY|ormalZ|ormalZeta))\\]",
-                    "name": "donothighlight.constant.character.escape constant.language.wolfram"
-                },
-                {
-                    "match": "\\\\\\[(?:S(?:ystemsModelDelay))\\]",
-                    "name": "donothighlight.constant.character.escape constant.language.wolfram"
                 },
                 {
                     "match": "\\\\\\[(?:A(?:kuz|ndy))\\]",
@@ -180,7 +209,7 @@
                     "name": "donothighlight.constant.character.escape"
                 },
                 {
-                    "match": "\\\\\\[(?:F(?:iLigature|illedCircle|illedDiamond|illedDownTriangle|illedLeftTriangle|illedRectangle|illedRightTriangle|illedSmallCircle|illedSmallSquare|illedSquare|illedUpTriangle|illedVerySmallSquare|inalSigma|irstPage|ivePointedStar|lLigature|lat|lorin|orAll|reakedSmiley|unction))\\]",
+                    "match": "\\\\\\[(?:F(?:iLigature|illedCircle|illedDiamond|illedDownTriangle|illedLeftTriangle|illedRectangle|illedRightTriangle|illedSmallCircle|illedSmallSquare|illedSquare|illedUpTriangle|illedVerySmallSquare|inalSigma|irstPage|ivePointedStar|lLigature|lat|lorin|orAll|ormalA|ormalAlpha|ormalB|ormalBeta|ormalC|ormalCapitalA|ormalCapitalAlpha|ormalCapitalB|ormalCapitalBeta|ormalCapitalC|ormalCapitalChi|ormalCapitalD|ormalCapitalDelta|ormalCapitalDigamma|ormalCapitalE|ormalCapitalEpsilon|ormalCapitalEta|ormalCapitalF|ormalCapitalG|ormalCapitalGamma|ormalCapitalH|ormalCapitalI|ormalCapitalIota|ormalCapitalJ|ormalCapitalK|ormalCapitalKappa|ormalCapitalKoppa|ormalCapitalL|ormalCapitalLambda|ormalCapitalM|ormalCapitalMu|ormalCapitalN|ormalCapitalNu|ormalCapitalO|ormalCapitalOmega|ormalCapitalOmicron|ormalCapitalP|ormalCapitalPhi|ormalCapitalPi|ormalCapitalPsi|ormalCapitalQ|ormalCapitalR|ormalCapitalRho|ormalCapitalS|ormalCapitalSampi|ormalCapitalSigma|ormalCapitalStigma|ormalCapitalT|ormalCapitalTau|ormalCapitalTheta|ormalCapitalU|ormalCapitalUpsilon|ormalCapitalV|ormalCapitalW|ormalCapitalX|ormalCapitalXi|ormalCapitalY|ormalCapitalZ|ormalCapitalZeta|ormalChi|ormalCurlyCapitalUpsilon|ormalCurlyEpsilon|ormalCurlyKappa|ormalCurlyPhi|ormalCurlyPi|ormalCurlyRho|ormalCurlyTheta|ormalD|ormalDelta|ormalDigamma|ormalE|ormalEpsilon|ormalEta|ormalF|ormalFinalSigma|ormalG|ormalGamma|ormalH|ormalI|ormalIota|ormalJ|ormalK|ormalKappa|ormalKoppa|ormalL|ormalLambda|ormalM|ormalMu|ormalN|ormalNu|ormalO|ormalOmega|ormalOmicron|ormalP|ormalPhi|ormalPi|ormalPsi|ormalQ|ormalR|ormalRho|ormalS|ormalSampi|ormalSigma|ormalStigma|ormalT|ormalTau|ormalTheta|ormalU|ormalUpsilon|ormalV|ormalW|ormalX|ormalXi|ormalY|ormalZ|ormalZeta|reakedSmiley|unction))\\]",
                     "name": "donothighlight.constant.character.escape"
                 },
                 {
@@ -232,7 +261,7 @@
                     "name": "donothighlight.constant.character.escape"
                 },
                 {
-                    "match": "\\\\\\[(?:S(?:Hacek|Z|adSmiley|agittariusSign|ampi|aturn|corpioSign|criptA|criptB|criptC|criptCapitalA|criptCapitalB|criptCapitalC|criptCapitalD|criptCapitalE|criptCapitalF|criptCapitalG|criptCapitalH|criptCapitalI|criptCapitalJ|criptCapitalK|criptCapitalL|criptCapitalM|criptCapitalN|criptCapitalO|criptCapitalP|criptCapitalQ|criptCapitalR|criptCapitalS|criptCapitalT|criptCapitalU|criptCapitalV|criptCapitalW|criptCapitalX|criptCapitalY|criptCapitalZ|criptD|criptDotlessI|criptDotlessJ|criptE|criptEight|criptF|criptFive|criptFour|criptG|criptH|criptI|criptJ|criptK|criptL|criptM|criptN|criptNine|criptO|criptOne|criptP|criptQ|criptR|criptS|criptSeven|criptSix|criptT|criptThree|criptTwo|criptU|criptV|criptW|criptX|criptY|criptZ|criptZero|ection|electionPlaceholder|hah|harp|hiftKey|hortDownArrow|hortLeftArrow|hortRightArrow|hortUpArrow|igma|ixPointedStar|keletonIndicator|mallCircle|paceIndicator|paceKey|padeSuit|panFromAbove|panFromBoth|panFromLeft|phericalAngle|qrt|quare|quareIntersection|quareSubset|quareSubsetEqual|quareSuperset|quareSupersetEqual|quareUnion|tar|terling|tigma|ubset|ubsetEqual|ucceeds|ucceedsEqual|ucceedsSlantEqual|ucceedsTilde|uchThat|um|uperset|upersetEqual|ystemEnterKey))\\]",
+                    "match": "\\\\\\[(?:S(?:Hacek|Z|adSmiley|agittariusSign|ampi|aturn|corpioSign|criptA|criptB|criptC|criptCapitalA|criptCapitalB|criptCapitalC|criptCapitalD|criptCapitalE|criptCapitalF|criptCapitalG|criptCapitalH|criptCapitalI|criptCapitalJ|criptCapitalK|criptCapitalL|criptCapitalM|criptCapitalN|criptCapitalO|criptCapitalP|criptCapitalQ|criptCapitalR|criptCapitalS|criptCapitalT|criptCapitalU|criptCapitalV|criptCapitalW|criptCapitalX|criptCapitalY|criptCapitalZ|criptD|criptDotlessI|criptDotlessJ|criptE|criptEight|criptF|criptFive|criptFour|criptG|criptH|criptI|criptJ|criptK|criptL|criptM|criptN|criptNine|criptO|criptOne|criptP|criptQ|criptR|criptS|criptSeven|criptSix|criptT|criptThree|criptTwo|criptU|criptV|criptW|criptX|criptY|criptZ|criptZero|ection|electionPlaceholder|hah|harp|hiftKey|hortDownArrow|hortLeftArrow|hortRightArrow|hortUpArrow|igma|ixPointedStar|keletonIndicator|mallCircle|paceIndicator|paceKey|padeSuit|panFromAbove|panFromBoth|panFromLeft|phericalAngle|qrt|quare|quareIntersection|quareSubset|quareSubsetEqual|quareSuperset|quareSupersetEqual|quareUnion|tar|terling|tigma|ubset|ubsetEqual|ucceeds|ucceedsEqual|ucceedsSlantEqual|ucceedsTilde|uchThat|um|uperset|upersetEqual|ystemEnterKey|ystemsModelDelay))\\]",
                     "name": "donothighlight.constant.character.escape"
                 },
                 {
@@ -983,10 +1012,6 @@
                     "name": "constant.language.wolfram"
                 },
                 {
-                    "match": "System`(?:\\\\(?:\\[FormalA\\]|\\[FormalAlpha\\]|\\[FormalB\\]|\\[FormalBeta\\]|\\[FormalC\\]|\\[FormalCapitalA\\]|\\[FormalCapitalAlpha\\]|\\[FormalCapitalB\\]|\\[FormalCapitalBeta\\]|\\[FormalCapitalC\\]|\\[FormalCapitalChi\\]|\\[FormalCapitalD\\]|\\[FormalCapitalDelta\\]|\\[FormalCapitalDigamma\\]|\\[FormalCapitalE\\]|\\[FormalCapitalEpsilon\\]|\\[FormalCapitalEta\\]|\\[FormalCapitalF\\]|\\[FormalCapitalG\\]|\\[FormalCapitalGamma\\]|\\[FormalCapitalH\\]|\\[FormalCapitalI\\]|\\[FormalCapitalIota\\]|\\[FormalCapitalJ\\]|\\[FormalCapitalK\\]|\\[FormalCapitalKappa\\]|\\[FormalCapitalKoppa\\]|\\[FormalCapitalL\\]|\\[FormalCapitalLambda\\]|\\[FormalCapitalM\\]|\\[FormalCapitalMu\\]|\\[FormalCapitalN\\]|\\[FormalCapitalNu\\]|\\[FormalCapitalO\\]|\\[FormalCapitalOmega\\]|\\[FormalCapitalOmicron\\]|\\[FormalCapitalP\\]|\\[FormalCapitalPhi\\]|\\[FormalCapitalPi\\]|\\[FormalCapitalPsi\\]|\\[FormalCapitalQ\\]|\\[FormalCapitalR\\]|\\[FormalCapitalRho\\]|\\[FormalCapitalS\\]|\\[FormalCapitalSampi\\]|\\[FormalCapitalSigma\\]|\\[FormalCapitalStigma\\]|\\[FormalCapitalT\\]|\\[FormalCapitalTau\\]|\\[FormalCapitalTheta\\]|\\[FormalCapitalU\\]|\\[FormalCapitalUpsilon\\]|\\[FormalCapitalV\\]|\\[FormalCapitalW\\]|\\[FormalCapitalX\\]|\\[FormalCapitalXi\\]|\\[FormalCapitalY\\]|\\[FormalCapitalZ\\]|\\[FormalCapitalZeta\\]|\\[FormalChi\\]|\\[FormalCurlyCapitalUpsilon\\]|\\[FormalCurlyEpsilon\\]|\\[FormalCurlyKappa\\]|\\[FormalCurlyPhi\\]|\\[FormalCurlyPi\\]|\\[FormalCurlyRho\\]|\\[FormalCurlyTheta\\]|\\[FormalD\\]|\\[FormalDelta\\]|\\[FormalDigamma\\]|\\[FormalE\\]|\\[FormalEpsilon\\]|\\[FormalEta\\]|\\[FormalF\\]|\\[FormalFinalSigma\\]|\\[FormalG\\]|\\[FormalGamma\\]|\\[FormalH\\]|\\[FormalI\\]|\\[FormalIota\\]|\\[FormalJ\\]|\\[FormalK\\]|\\[FormalKappa\\]|\\[FormalKoppa\\]|\\[FormalL\\]|\\[FormalLambda\\]|\\[FormalM\\]|\\[FormalMu\\]|\\[FormalN\\]|\\[FormalNu\\]|\\[FormalO\\]|\\[FormalOmega\\]|\\[FormalOmicron\\]|\\[FormalP\\]|\\[FormalPhi\\]|\\[FormalPi\\]|\\[FormalPsi\\]|\\[FormalQ\\]|\\[FormalR\\]|\\[FormalRho\\]|\\[FormalS\\]|\\[FormalSampi\\]|\\[FormalSigma\\]|\\[FormalStigma\\]|\\[FormalT\\]|\\[FormalTau\\]|\\[FormalTheta\\]|\\[FormalU\\]|\\[FormalUpsilon\\]|\\[FormalV\\]|\\[FormalW\\]|\\[FormalX\\]|\\[FormalXi\\]|\\[FormalY\\]|\\[FormalZ\\]|\\[FormalZeta\\]|\\[SystemsModelDelay\\]))(?![`$[:alnum:]])",
-                    "name": "constant.language.wolfram"
-                },
-                {
                     "match": "System`(?:A(?:bortScheduledTask|ctive|lgebraicRules|lternateImage|mbientLight|natomyForm|nimationCycleOffset|nimationCycleRepetitions|nimationDisplayTime|spectRatioFixed|stronomicalData|synchronousTaskObject|synchronousTasks|udioDevice|udioLooping))(?![`$[:alnum:]])",
                     "name": "invalid.deprecated.wolfram"
                 },
@@ -1492,10 +1517,6 @@
                 },
                 {
                     "match": "(?:\\$(?:Aborted|ActivationKey|AllowDataUpdates|AllowInternet|AssertFunction|Assumptions|AudioInputDevices|AudioOutputDevices|BaseDirectory|BasePacletsDirectory|BatchInput|BatchOutput|ByteOrdering|CacheBaseDirectory|Canceled|CharacterEncoding|CharacterEncodings|CloudAccountName|CloudBase|CloudConnected|CloudCreditsAvailable|CloudEvaluation|CloudExpressionBase|CloudObjectNameFormat|CloudObjectURLType|CloudRootDirectory|CloudSymbolBase|CloudUserID|CloudUserUUID|CloudVersion|CommandLine|CompilationTarget|ConfiguredKernels|Context|ContextPath|ControlActiveSetting|Cookies|CreationDate|CurrentLink|CurrentTask|DateStringFormat|DefaultAudioInputDevice|DefaultAudioOutputDevice|DefaultFrontEnd|DefaultImagingDevice|DefaultLocalBase|Display|DisplayFunction|DistributedContexts|DynamicEvaluation|Echo|EmbedCodeEnvironments|EmbeddableServices|Epilog|EvaluationCloudBase|EvaluationCloudObject|EvaluationEnvironment|ExportFormats|Failed|FontFamilies|FrontEnd|FrontEndSession|GeoLocation|GeoLocationCity|GeoLocationCountry|GeoLocationSource|HomeDirectory|IgnoreEOF|ImageFormattingWidth|ImageResolution|ImagingDevice|ImagingDevices|ImportFormats|InitialDirectory|Input|InputFileName|InputStreamMethods|Inspector|InstallationDirectory|InterpreterTypes|IterationLimit|KernelCount|KernelID|Language|LibraryPath|LicenseExpirationDate|LicenseID|LicenseServer|Linked|LocalBase|LocalSymbolBase|MachineAddresses|MachineDomains|MachineEpsilon|MachineID|MachineName|MachinePrecision|MachineType|MaxExtraPrecision|MaxMachineNumber|MaxNumber|MaxPiecewiseCases|MaxPrecision|MaxRootDegree|MessageGroups|MessageList|MessagePrePrint|Messages|MinMachineNumber|MinNumber|MinPrecision|MobilePhone|ModuleNumber|NetworkConnected|NewMessage|NewSymbol|NotebookInlineStorageLimit|Notebooks|NumberMarks|OperatingSystem|Output|OutputSizeLimit|OutputStreamMethods|Packages|ParentLink|ParentProcessID|PasswordFile|Path|PathnameSeparator|PerformanceGoal|Permissions|PlotTheme|Printout3DPreviewer|ProcessID|ProcessorCount|ProcessorType|ProgressReporting|RandomGeneratorState|RecursionLimit|ReleaseNumber|RequesterAddress|RequesterWolframID|RequesterWolframUUID|RootDirectory|ScriptCommandLine|ScriptInputString|Services|SessionID|SharedFunctions|SharedVariables|SoundDisplayFunction|SynchronousEvaluation|SyntaxHandler|System|SystemCharacterEncoding|SystemID|SystemShell|SystemTimeZone|SystemWordLength|TemplatePath|TemporaryDirectory|TimeUnit|TimeZone|TimeZoneEntity|TimedOut|UnitSystem|Urgent|UserAgentString|UserBaseDirectory|UserBasePacletsDirectory|UserDocumentsDirectory|UserURLBase|Username|Version|VersionNumber|WolframDocumentsDirectory|WolframID|WolframUUID))(?![`$[:alnum:]])",
-                    "name": "constant.language.wolfram"
-                },
-                {
-                    "match": "(?:\\\\(?:\\[FormalA\\]|\\[FormalAlpha\\]|\\[FormalB\\]|\\[FormalBeta\\]|\\[FormalC\\]|\\[FormalCapitalA\\]|\\[FormalCapitalAlpha\\]|\\[FormalCapitalB\\]|\\[FormalCapitalBeta\\]|\\[FormalCapitalC\\]|\\[FormalCapitalChi\\]|\\[FormalCapitalD\\]|\\[FormalCapitalDelta\\]|\\[FormalCapitalDigamma\\]|\\[FormalCapitalE\\]|\\[FormalCapitalEpsilon\\]|\\[FormalCapitalEta\\]|\\[FormalCapitalF\\]|\\[FormalCapitalG\\]|\\[FormalCapitalGamma\\]|\\[FormalCapitalH\\]|\\[FormalCapitalI\\]|\\[FormalCapitalIota\\]|\\[FormalCapitalJ\\]|\\[FormalCapitalK\\]|\\[FormalCapitalKappa\\]|\\[FormalCapitalKoppa\\]|\\[FormalCapitalL\\]|\\[FormalCapitalLambda\\]|\\[FormalCapitalM\\]|\\[FormalCapitalMu\\]|\\[FormalCapitalN\\]|\\[FormalCapitalNu\\]|\\[FormalCapitalO\\]|\\[FormalCapitalOmega\\]|\\[FormalCapitalOmicron\\]|\\[FormalCapitalP\\]|\\[FormalCapitalPhi\\]|\\[FormalCapitalPi\\]|\\[FormalCapitalPsi\\]|\\[FormalCapitalQ\\]|\\[FormalCapitalR\\]|\\[FormalCapitalRho\\]|\\[FormalCapitalS\\]|\\[FormalCapitalSampi\\]|\\[FormalCapitalSigma\\]|\\[FormalCapitalStigma\\]|\\[FormalCapitalT\\]|\\[FormalCapitalTau\\]|\\[FormalCapitalTheta\\]|\\[FormalCapitalU\\]|\\[FormalCapitalUpsilon\\]|\\[FormalCapitalV\\]|\\[FormalCapitalW\\]|\\[FormalCapitalX\\]|\\[FormalCapitalXi\\]|\\[FormalCapitalY\\]|\\[FormalCapitalZ\\]|\\[FormalCapitalZeta\\]|\\[FormalChi\\]|\\[FormalCurlyCapitalUpsilon\\]|\\[FormalCurlyEpsilon\\]|\\[FormalCurlyKappa\\]|\\[FormalCurlyPhi\\]|\\[FormalCurlyPi\\]|\\[FormalCurlyRho\\]|\\[FormalCurlyTheta\\]|\\[FormalD\\]|\\[FormalDelta\\]|\\[FormalDigamma\\]|\\[FormalE\\]|\\[FormalEpsilon\\]|\\[FormalEta\\]|\\[FormalF\\]|\\[FormalFinalSigma\\]|\\[FormalG\\]|\\[FormalGamma\\]|\\[FormalH\\]|\\[FormalI\\]|\\[FormalIota\\]|\\[FormalJ\\]|\\[FormalK\\]|\\[FormalKappa\\]|\\[FormalKoppa\\]|\\[FormalL\\]|\\[FormalLambda\\]|\\[FormalM\\]|\\[FormalMu\\]|\\[FormalN\\]|\\[FormalNu\\]|\\[FormalO\\]|\\[FormalOmega\\]|\\[FormalOmicron\\]|\\[FormalP\\]|\\[FormalPhi\\]|\\[FormalPi\\]|\\[FormalPsi\\]|\\[FormalQ\\]|\\[FormalR\\]|\\[FormalRho\\]|\\[FormalS\\]|\\[FormalSampi\\]|\\[FormalSigma\\]|\\[FormalStigma\\]|\\[FormalT\\]|\\[FormalTau\\]|\\[FormalTheta\\]|\\[FormalU\\]|\\[FormalUpsilon\\]|\\[FormalV\\]|\\[FormalW\\]|\\[FormalX\\]|\\[FormalXi\\]|\\[FormalY\\]|\\[FormalZ\\]|\\[FormalZeta\\]|\\[SystemsModelDelay\\]))(?![`$[:alnum:]])",
                     "name": "constant.language.wolfram"
                 },
                 {
