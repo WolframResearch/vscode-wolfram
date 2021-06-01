@@ -111,7 +111,6 @@ add_custom_command(
 		vsce package -o ${PROJECT_BINARY_DIR}
 	DEPENDS
 		${VSIX_SOURCES}
-		${GENERATED_PACKAGEJSON}
 		${PROJECT_SOURCE_DIR}/cmake/ReplacePackageJSON.cmake
 	VERBATIM
 	WORKING_DIRECTORY
