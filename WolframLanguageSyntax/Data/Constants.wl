@@ -1,6 +1,6 @@
 (* AUTO GENERATED FILE *)
 (* DO NOT MODIFY *)
-(* GENERATED WITH: 12.3.0 for Mac OS X x86 (64-bit) (May 8, 2021) *)
+(* GENERATED WITH: 12.3.0 for Mac OS X x86 (64-bit) (May 10, 2021) *)
 {"AcceptanceThreshold", "AccuracyGoal", "ActiveStyle", "AddOnHelpPath", 
  "AdjustmentBoxOptions", "Alignment", "AlignmentPoint", 
  "AllowedCloudExtraParameters", "AllowedCloudParameterExtensions", 
@@ -329,8 +329,8 @@
  "$RequesterWolframUUID", "$RootDirectory", "$ScriptCommandLine", 
  "$ScriptInputString", "$Services", "$SessionID", "$SharedFunctions", 
  "$SharedVariables", "$SoundDisplayFunction", "$SynchronousEvaluation", 
- "$SyntaxHandler", "$System", "$SystemCharacterEncoding", "$SystemID", 
- "$SystemShell", "$SystemTimeZone", "$SystemWordLength", "$TemplatePath", 
+ "$System", "$SystemCharacterEncoding", "$SystemID", "$SystemShell", 
+ "$SystemTimeZone", "$SystemWordLength", "$TemplatePath", 
  "$TemporaryDirectory", "$TimedOut", "$TimeUnit", "$TimeZone", 
  "$TimeZoneEntity", "$UnitSystem", "$Urgent", "$UserAgentString", 
  "$UserBaseDirectory", "$UserBasePacletsDirectory", 
