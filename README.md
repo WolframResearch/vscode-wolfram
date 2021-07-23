@@ -115,13 +115,3 @@ You can enable experimental settings. These are not supported.
   ...
 }
 ```
-
-
-## Troubleshooting
-
-## Windows
-
-You may need to double-up quotation marks in the command:
-
-``"Needs[\"\"LSPServer`\"\"];LSPServer`StartServer[]"``
-
