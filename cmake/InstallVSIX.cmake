@@ -11,6 +11,11 @@ endif()
 #
 execute_process(
   COMMAND
+    #
+    # uninstall the old name for some indefinite time into the future
+    #
+    ${CODE_COMMAND} --uninstall-extension brenton.wolfram
+  COMMAND
     ${CODE_COMMAND} --uninstall-extension wolfram.wolfram
 )
 
