@@ -3,11 +3,10 @@
 	"displayName": "Wolfram Language",
 	"description": "Support for Wolfram Language",
 	"version": "@1.3.0@",
-	"publisher": "brenton",
+	"publisher": "wolfram",
 	"license": "MIT",
 	"repository": {
-		"type": "git",
-		"url": "ssh://git@stash.wolfram.com:7999/cod/vscode-wolfram.git"
+		"type": "git"
 	},
 	"engines": {
 		"vscode": "^1.52.0"

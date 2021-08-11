@@ -11,7 +11,7 @@ endif()
 #
 execute_process(
   COMMAND
-    ${CODE_COMMAND} --uninstall-extension brenton.wolfram
+    ${CODE_COMMAND} --uninstall-extension wolfram.wolfram
 )
 
 execute_process(
