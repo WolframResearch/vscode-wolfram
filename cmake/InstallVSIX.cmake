@@ -16,7 +16,7 @@ execute_process(
     #
     ${CODE_COMMAND} --uninstall-extension brenton.wolfram
   COMMAND
-    ${CODE_COMMAND} --uninstall-extension wolfram.wolfram
+    ${CODE_COMMAND} --uninstall-extension WolframResearch.wolfram
 )
 
 execute_process(

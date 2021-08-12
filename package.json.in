@@ -3,7 +3,7 @@
 	"displayName": "Wolfram Language",
 	"description": "Support for Wolfram Language",
 	"version": "@1.3.0@",
-	"publisher": "wolfram",
+	"publisher": "WolframResearch",
 	"license": "MIT",
 	"repository": {
 		"type": "git"
