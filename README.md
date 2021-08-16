@@ -68,6 +68,7 @@ You may also change the command that is used to start the server:
       "-noprompt",
       "-nopaclet",
       "-noicon",
+      "-nostartuppaclets",
       "-run",
       "Needs[\"LSPServer`\"];LSPServer`StartServer[]"
   ]

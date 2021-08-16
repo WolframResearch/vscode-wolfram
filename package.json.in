@@ -80,6 +80,7 @@
 						"-noprompt",
 						"-nopaclet",
 						"-noicon",
+						"-nostartuppaclets",
 						"-run",
 						"Needs[\"LSPServer`\"];LSPServer`StartServer[]"
 					],
