@@ -25,10 +25,25 @@
         "simple-toplevel-definitions": {
             "patterns": [
                 {
-                    "match": "^\\s*(Attributes|Format|Options)(?=\\s*(\\[(?>[^\\[\\]]+|\\g<-1>)*\\])\\s*(?:/;.*)?(?::=|=(?!!|=|\\.)))",
+                    "match": "^\\s*(Attributes|Format|Options)\\s*(\\[)(`?(?:(?:[$[:alpha:]][$[:alnum:]]*)`)*)((?:[$[:alpha:]][$[:alnum:]]*))(\\])\\s*(:=|=(?!!|=|\\.))",
                     "captures": {
                         "1": {
                             "name": "support.function.builtin.wolfram"
+                        },
+                        "2": {
+                            "name": "punctuation.section.brackets.begin.wolfram"
+                        },
+                        "3": {
+                            "name": "meta.function.wolfram entity.name.Context.wolfram"
+                        },
+                        "4": {
+                            "name": "meta.function.wolfram entity.name.function.wolfram"
+                        },
+                        "5": {
+                            "name": "punctuation.section.brackets.end.wolfram"
+                        },
+                        "6": {
+                            "name": "keyword.operator.assignment.wolfram"
                         }
                     }
                 },
@@ -40,6 +55,17 @@
                         },
                         "2": {
                             "name": "meta.function.wolfram entity.name.function.wolfram"
+                        }
+                    }
+                },
+                {
+                    "match": "^\\s*(`?(?:(?:[$[:alpha:]][$[:alnum:]]*)`)*)((?:[$[:alpha:]][$[:alnum:]]*))(?=\\s*(?:/;.*)?(?::=|=(?!!|=|\\.)))",
+                    "captures": {
+                        "1": {
+                            "name": "meta.function.wolfram entity.name.Context.wolfram"
+                        },
+                        "2": {
+                            "name": "meta.function.wolfram entity.name.constant.wolfram"
                         }
                     }
                 }
