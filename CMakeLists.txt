@@ -52,18 +52,18 @@ message(STATUS "NPM_COMMAND: ${NPM_COMMAND}")
 message(STATUS "CODE_COMMAND: ${CODE_COMMAND}")
 
 set(STATIC_VSIX_SOURCES
-	${PROJECT_SOURCE_DIR}/themes/brenton-wl-theme.json
-	${PROJECT_SOURCE_DIR}/src/extension.ts
-	${PROJECT_SOURCE_DIR}/syntaxes/wolfram.tmLanguage.json
-	${PROJECT_SOURCE_DIR}/wolfram.language-configuration.json
+	${PROJECT_SOURCE_DIR}/extension/themes/brenton-wl-theme.json
+	${PROJECT_SOURCE_DIR}/extension/src/extension.ts
+	${PROJECT_SOURCE_DIR}/extension/syntaxes/wolfram.tmLanguage.json
+	${PROJECT_SOURCE_DIR}/extension/wolfram.language-configuration.json
 )
 
 set(PACKAGEJSON_IN_SOURCE
-	${PROJECT_SOURCE_DIR}/package.json.in
+	${PROJECT_SOURCE_DIR}/extension/package.json.in
 )
 
 set(PACKAGELOCKJSON_IN_SOURCE
-	${PROJECT_SOURCE_DIR}/package-lock.json.in
+	${PROJECT_SOURCE_DIR}/extension/package-lock.json.in
 )
 
 
@@ -97,9 +97,9 @@ add_custom_target(vsix
 )
 
 
-set(GENERATED_PACKAGEJSON ${PROJECT_SOURCE_DIR}/package.json)
+set(GENERATED_PACKAGEJSON ${PROJECT_SOURCE_DIR}/extension/package.json)
 
-set(GENERATED_PACKAGELOCKJSON ${PROJECT_SOURCE_DIR}/package-lock.json)
+set(GENERATED_PACKAGELOCKJSON ${PROJECT_SOURCE_DIR}/extension/package-lock.json)
 
 add_custom_command(
 	OUTPUT
@@ -123,7 +123,7 @@ add_custom_command(
 		${PROJECT_SOURCE_DIR}/cmake/ReplacePackageJSON.cmake
 	VERBATIM
 	WORKING_DIRECTORY
-		${PROJECT_SOURCE_DIR}
+		${PROJECT_SOURCE_DIR}/extension
 )
 
 install(
