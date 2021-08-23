@@ -27,7 +27,7 @@ macro(CheckPackageJSON)
         # specify -run here instead of the usual -runfirst
         # need to use -run to allow Import[JSON] to work
         #
-        ${WOLFRAMKERNEL} -noinit -noprompt -nopaclet -run Pause[${BUG349779_PAUSE}]\;Print[OutputForm[StringReplace["version"\ /.\ Import["${PACKAGEJSON_IN_SOURCE}",\ "JSON"],\ "@"\ ~~\ version___\ ~~\ "@"\ :>\ version]]]\;Exit[]
+        ${WOLFRAMKERNEL} -noinit -noprompt -nopaclet -nostartuppaclets -run Pause[${BUG349779_PAUSE}]\;Print[OutputForm[StringReplace["version"\ /.\ Import["${PACKAGEJSON_IN_SOURCE}",\ "JSON"],\ "@"\ ~~\ version___\ ~~\ "@"\ :>\ version]]]\;Exit[]
       OUTPUT_VARIABLE
         PACKAGEJSON_VERSION
       OUTPUT_STRIP_TRAILING_WHITESPACE

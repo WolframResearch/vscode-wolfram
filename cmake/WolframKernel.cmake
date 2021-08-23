@@ -45,7 +45,7 @@ macro(CheckWolframKernel)
 	#
 	execute_process(
 		COMMAND
-			${WOLFRAMKERNEL} -noinit -noprompt -nopaclet -runfirst Pause[${BUG349779_PAUSE}]\;Print[OutputForm[\$Version]]\;Exit[]
+			${WOLFRAMKERNEL} -noinit -noprompt -nopaclet -nostartuppaclets -runfirst Pause[${BUG349779_PAUSE}]\;Print[OutputForm[\$Version]]\;Exit[]
 		OUTPUT_VARIABLE
 			VERSION
 		OUTPUT_STRIP_TRAILING_WHITESPACE
