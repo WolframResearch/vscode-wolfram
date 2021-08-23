@@ -217,7 +217,7 @@ function kernel_initialization_check_function(command: [string]) {
 		return
 	}
 
-	// kill kernel, is possible
+	// kill kernel, if possible
 
 	let report = window.createOutputChannel("Wolfram Language Error Report");
 
