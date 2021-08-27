@@ -8,22 +8,6 @@ A Visual Studio Code extension for Wolfram Language.
 ![highlighting](docs/highlighting.png)
 
 
-## Setup
-
-VSCode-Wolfram depends on [LSPServer](https://github.com/WolframResearch/lspserver) to provide LSP functionality.
-
-[Build and install the wolfram extension locally](HowToBuild.md)
-
-If properly setup, you should have syntax highlighting and linting of Wolfram `.m` and `.wl` files.
-
-Test this by typing this into a new `.wl` file and saving it:
-```
-Which[a, b, a, b]
-```
-
-You should see warnings about duplicate clauses.
-
-
 ### Settings
 
 If you have Wolfram System installed in the default location on your system, you may not have to change any settings.

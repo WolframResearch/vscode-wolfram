@@ -49,3 +49,5 @@ You can install the paclet from CMake:
 ```
 cmake --install .
 ```
+
+This runs the `vsce` command and installs the built `.vsix` file.
