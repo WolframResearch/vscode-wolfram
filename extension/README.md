@@ -5,7 +5,7 @@ A Visual Studio Code extension for Wolfram Language.
 * Syntax highlighting
 * [LSP](https://microsoft.github.io/language-server-protocol/) support
 
-![highlighting](docs/highlighting.png)
+![highlighting](https://raw.githubusercontent.com/WolframResearch/vscode-wolfram/master/docs/highlighting.png)
 
 
 ### Settings
