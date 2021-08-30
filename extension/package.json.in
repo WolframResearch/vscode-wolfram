@@ -1,12 +1,13 @@
 {
 	"name": "wolfram",
 	"displayName": "Wolfram Language",
-	"description": "Support for Wolfram Language",
+	"description": "Wolfram Language support for Visual Studio Code",
 	"version": "@1.4.0@",
 	"publisher": "WolframResearch",
 	"license": "MIT",
 	"repository": {
-		"type": "git"
+		"type": "git",
+		"url": "git@github.com:WolframResearch/vscode-wolfram.git"
 	},
 	"engines": {
 		"vscode": "^1.52.0"
