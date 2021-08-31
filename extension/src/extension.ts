@@ -216,7 +216,7 @@ function implicitTokenCharToText(c: string) {
 	}
 }
 
-function kernel_initialization_check_function(command: [string]) {
+function kernel_initialization_check_function(command: string[]) {
 	if (kernel_initialized) {
 		return
 	}
