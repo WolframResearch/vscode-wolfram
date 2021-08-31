@@ -1,3 +1,5 @@
+import * as vscode from 'vscode';
+import * as open from 'open';
 
 import { basename } from 'path';
 import {
@@ -60,6 +62,12 @@ let implicitTokensDecorationType = window.createTextEditorDecorationType({});
 
 
 export function activate(context: ExtensionContext) {
+
+	// Setup the menu
+
+	context.subscriptions.push(vscode.commands.registerCommand('wolfram.OpenNotebook', (name: vscode.Uri) => {open(name.fsPath)}));
+
+	// Setup the LSP client
 
 	const config: WorkspaceConfiguration = workspace.getConfiguration("wolfram", null);
 
