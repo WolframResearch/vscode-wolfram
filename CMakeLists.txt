@@ -52,10 +52,13 @@ message(STATUS "NPM_COMMAND: ${NPM_COMMAND}")
 message(STATUS "CODE_COMMAND: ${CODE_COMMAND}")
 
 set(STATIC_VSIX_SOURCES
-	${PROJECT_SOURCE_DIR}/extension/themes/brenton-wl-theme.json
+	${PROJECT_SOURCE_DIR}/extension/config/node-extension.webpack.config.js
 	${PROJECT_SOURCE_DIR}/extension/src/extension.ts
 	${PROJECT_SOURCE_DIR}/extension/syntaxes/wolfram.tmLanguage.json
+	${PROJECT_SOURCE_DIR}/extension/themes/brenton-wl-theme.json
+	${PROJECT_SOURCE_DIR}/extension/.vscodeignore
 	${PROJECT_SOURCE_DIR}/extension/README.md
+	${PROJECT_SOURCE_DIR}/extension/tsconfig.json
 	${PROJECT_SOURCE_DIR}/extension/wolfram.language-configuration.json
 )
 
