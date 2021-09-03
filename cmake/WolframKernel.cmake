@@ -45,7 +45,7 @@ macro(CheckWolframKernel)
 	#
 	execute_process(
 		COMMAND
-			${WOLFRAMKERNEL} -noinit -noprompt -nopaclet -nostartuppaclets -runfirst Pause[${BUG349779_PAUSE}]\;Print[OutputForm[\$Version]]\;Exit[]
+			${WOLFRAMKERNEL} -noinit -noprompt -nopaclet -nostartuppaclets -runfirst Pause[${BUG349779_PAUSE}]\;Print[OutputForm[$Version]]\;Exit[]
 		OUTPUT_VARIABLE
 			VERSION
 		OUTPUT_STRIP_TRAILING_WHITESPACE
@@ -68,7 +68,7 @@ macro(CheckWolframKernel)
 	#
 	execute_process(
 		COMMAND
-			${WOLFRAMKERNEL} -noinit -noprompt -nopaclet -nostartuppaclets -runfirst Pause[${BUG349779_PAUSE}]\;Print[OutputForm[Floor[100\ \$VersionNumber\ +\ \$ReleaseNumber]]]\;Exit[]
+			${WOLFRAMKERNEL} -noinit -noprompt -nopaclet -nostartuppaclets -runfirst Pause[${BUG349779_PAUSE}]\;Print[OutputForm[Floor[100\ $VersionNumber\ +\ $ReleaseNumber]]]\;Exit[]
 		OUTPUT_VARIABLE
 			VERSION_NUMBER
 		OUTPUT_STRIP_TRAILING_WHITESPACE
@@ -95,7 +95,7 @@ macro(CheckWolframKernel)
 	#
 	execute_process(
 		COMMAND
-			${WOLFRAMKERNEL} -noinit -noprompt -nopaclet -nostartuppaclets -runfirst Pause[${BUG349779_PAUSE}]\;Print[OutputForm[\$SystemID]]\;Exit[]
+			${WOLFRAMKERNEL} -noinit -noprompt -nopaclet -nostartuppaclets -runfirst Pause[${BUG349779_PAUSE}]\;Print[OutputForm[$SystemID]]\;Exit[]
 		OUTPUT_VARIABLE
 			SYSTEMID
 		OUTPUT_STRIP_TRAILING_WHITESPACE
@@ -118,7 +118,7 @@ macro(CheckWolframKernel)
 	#
 	execute_process(
 		COMMAND
-			${WOLFRAMKERNEL} -noinit -noprompt -nopaclet -nostartuppaclets -runfirst Pause[${BUG349779_PAUSE}]\;Print[OutputForm[\$SystemWordLength]]\;Exit[]
+			${WOLFRAMKERNEL} -noinit -noprompt -nopaclet -nostartuppaclets -runfirst Pause[${BUG349779_PAUSE}]\;Print[OutputForm[$SystemWordLength]]\;Exit[]
 		OUTPUT_VARIABLE
 			SYSTEMWORDLENGTH
 		OUTPUT_STRIP_TRAILING_WHITESPACE
