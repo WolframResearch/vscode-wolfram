@@ -7,7 +7,7 @@
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "git@github.com:WolframResearch/vscode-wolfram.git"
+		"url": "https://github.com/WolframResearch/vscode-wolfram.git"
 	},
 	"engines": {
 		"vscode": "^1.52.0"
@@ -21,6 +21,7 @@
 		"Programming Languages",
 		"Themes"
 	],
+	"icon": "images/icon.png",
 	"contributes": {
 		"languages": [
 			{

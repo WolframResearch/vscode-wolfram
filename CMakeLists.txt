@@ -53,6 +53,7 @@ message(STATUS "CODE_COMMAND: ${CODE_COMMAND}")
 
 set(STATIC_VSIX_SOURCES
 	${PROJECT_SOURCE_DIR}/extension/config/node-extension.webpack.config.js
+	${PROJECT_SOURCE_DIR}/extension/images/icon.png
 	${PROJECT_SOURCE_DIR}/extension/src/extension.ts
 	${PROJECT_SOURCE_DIR}/extension/syntaxes/wolfram.tmLanguage.json
 	${PROJECT_SOURCE_DIR}/extension/themes/brenton-wl-theme.json
