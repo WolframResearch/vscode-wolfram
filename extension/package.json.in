@@ -1,7 +1,7 @@
 {
 	"name": "wolfram",
 	"displayName": "Wolfram Language",
-	"description": "Wolfram Language support for Visual Studio Code",
+	"description": "Wolfram System Integration with Visual Studio Code",
 	"version": "@1.4.0@",
 	"publisher": "WolframResearch",
 	"license": "MIT",
