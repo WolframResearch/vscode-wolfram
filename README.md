@@ -1,4 +1,4 @@
-# Wolfram Integration with Visual Studio Code
+# Wolfram System Integration with Visual Studio Code
 
 A Visual Studio Code extension for Wolfram Language.
 
