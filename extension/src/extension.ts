@@ -121,7 +121,6 @@ export function activate(context: ExtensionContext) {
 	let clientOptions: LanguageClientOptions = {
 		documentSelector: [{ scheme: 'file', language: 'wolfram' }],
 		initializationOptions: {
-			afterInitialize: true,
 			implicitTokens: implicitTokens,
 			// bracketMatcher: bracketMatcher,
 			// debugBracketMatcher: debugBracketMatcher
@@ -138,10 +137,10 @@ export function activate(context: ExtensionContext) {
 
 	client.onReady().then(() => {
 		
-		client.onNotification("wolfram/afterInitialize", () => {
-
-			kernel_initialized = true;
-		});
+		//
+		// client.onReady() is called after initialize response, so it is appropriate to set kernel_initialized here
+		//
+		kernel_initialized = true;
 
 		client.onNotification("textDocument/publishImplicitTokens", (params: ImplicitTokensI) => {
 
