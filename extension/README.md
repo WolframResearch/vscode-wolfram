@@ -1,11 +1,33 @@
 # Wolfram System Integration with Visual Studio Code
 
-A Visual Studio Code extension for Wolfram Language.
+Official Visual Studio Code extension for Wolfram Language.
 
 * Syntax highlighting
 * [LSP](https://microsoft.github.io/language-server-protocol/) support
 
 ![highlighting](https://raw.githubusercontent.com/WolframResearch/vscode-wolfram/master/docs/highlighting.png)
+
+
+## Setup
+
+The Wolfram Language extension depends on [LSPServer paclet](https://github.com/WolframResearch/lspserver) to provide LSP functionality.
+
+Install LSPServer and its dependencies by running this Wolfram Language code:
+```
+PacletInstall["CodeParser"]
+PacletInstall["CodeInspector"]
+PacletInstall["CodeFormatter"]
+PacletInstall["LSPServer"]
+```
+
+If properly setup, you should have syntax highlighting and linting of Wolfram Language `.wl` files.
+
+Test this by typing this into a new `.wl` file and saving it:
+```
+Which[a, b, a, b]
+```
+
+You should see warnings about duplicate clauses.
 
 
 ### Settings
