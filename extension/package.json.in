@@ -1,7 +1,7 @@
 {
 	"name": "wolfram",
 	"displayName": "Wolfram Language",
-	"description": "Wolfram System Integration with Visual Studio Code",
+	"description": "Official Visual Studio Code extension for Wolfram Language",
 	"version": "@1.4.0@",
 	"publisher": "WolframResearch",
 	"license": "MIT",
@@ -61,7 +61,7 @@
 					"scope": "resource",
 					"type": "number",
 					"default": 100,
-					"description": "Controls the maximum number of problems produced by the server."
+					"description": "Controls the maximum number of problems produced by the server"
 				},
 				"wolfram.trace.server": {
 					"scope": "window",
@@ -72,13 +72,13 @@
 						"verbose"
 					],
 					"default": "verbose",
-					"description": "Traces the communication between VS Code and the Wolfram Language server."
+					"description": "Traces the communication between VS Code and the Wolfram language server"
 				},
 				"wolfram.kernel": {
 					"scope": "user",
 					"type": "string",
 					"default": "<<Path to WolframKernel>>",
-					"description": "WolframKernel to use for Wolfram Language Server"
+					"description": "WolframKernel for the Wolfram language server"
 				},
 				"wolfram.command": {
 					"scope": "user",
@@ -93,19 +93,19 @@
 						"-run",
 						"Needs[\"LSPServer`\"];LSPServer`StartServer[]"
 					],
-					"description": "Command for Wolfram Language Server"
+					"description": "Command for the Wolfram language server"
 				},
 				"wolfram.implicitTokens": {
 					"scope": "user",
 					"type": "array",
 					"default": [],
-					"description": "Experimental option for Wolfram Language Server"
+					"description": "Experimental option for the Wolfram language server"
 				},
 				"wolfram.semanticTokens": {
 					"scope": "user",
 					"type": "boolean",
 					"default": false,
-					"description": "Experimental option for Wolfram Language Server"
+					"description": "Experimental option for the Wolfram language server"
 				}
 			}
 		},
