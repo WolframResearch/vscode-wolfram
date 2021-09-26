@@ -145,18 +145,22 @@
 				"title": "Open in notebook editor"
 			}
 		],
-      "menus": {
-        "explorer/context": [{
-            "when": "resourceExtname == .nb || resourceExtname == .m || resourceExtname == .wl || resourceExtname == .wls || resourceExtname == .cdf",
-            "command": "wolfram.OpenNotebook",
-            "group": "navigation"
-      	}],
-		"editor/context": [{
-            "when": "resourceExtname == .nb || resourceExtname == .m || resourceExtname == .wl || resourceExtname == .wls || resourceExtname == .cdf",
-            "command": "wolfram.OpenNotebook",
-            "group": "navigation"
-      	}]
-    }
+		"menus": {
+			"explorer/context": [
+				{
+					"when": "resourceExtname == .nb || resourceExtname == .m || resourceExtname == .wl || resourceExtname == .wls || resourceExtname == .cdf",
+					"command": "wolfram.OpenNotebook",
+					"group": "navigation"
+				}
+			],
+			"editor/context": [
+				{
+					"when": "resourceExtname == .nb || resourceExtname == .m || resourceExtname == .wl || resourceExtname == .wls || resourceExtname == .cdf",
+					"command": "wolfram.OpenNotebook",
+					"group": "navigation"
+				}
+			]
+		}
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run package",
