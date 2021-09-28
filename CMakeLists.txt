@@ -58,6 +58,8 @@ set(STATIC_VSIX_SOURCES
 	${PROJECT_SOURCE_DIR}/extension/syntaxes/wolfram.tmLanguage.json
 	${PROJECT_SOURCE_DIR}/extension/themes/brenton-wl-theme.json
 	${PROJECT_SOURCE_DIR}/extension/.vscodeignore
+	${PROJECT_SOURCE_DIR}/extension/CHANGELOG.md
+	${PROJECT_SOURCE_DIR}/extension/LICENSE
 	${PROJECT_SOURCE_DIR}/extension/README.md
 	${PROJECT_SOURCE_DIR}/extension/tsconfig.json
 	${PROJECT_SOURCE_DIR}/extension/wolfram.language-configuration.json
