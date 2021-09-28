@@ -78,6 +78,18 @@ set(PACKAGELOCKJSON_IN_SOURCE
 CheckWolframKernel()
 CheckPackageJSON()
 
+#
+# Force re-configure if package.json.in changes, e.g. extension version is changed and name of .vsix has changed
+#
+set_property(
+	DIRECTORY
+	APPEND
+	PROPERTY
+		CMAKE_CONFIGURE_DEPENDS
+	${PACKAGEJSON_IN_SOURCE}
+	${PACKAGELOCKJSON_IN_SOURCE}
+)
+
 
 #
 # vsix target
