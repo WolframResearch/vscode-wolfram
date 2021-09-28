@@ -1,5 +1,6 @@
 import * as vscode from 'vscode';
 import * as open from 'open';
+import * as fs from 'fs';
 
 import { basename } from 'path';
 import {
@@ -224,7 +225,17 @@ function implicitTokenCharToText(c: string) {
 }
 
 function kernel_initialization_check_function(command: string[]) {
+
 	if (kernel_initialized) {
+		return
+	}
+
+	let kernel = command[0]
+
+	//
+	// Users knows that the kernel did not start properly, so do not also display timeout error
+    //
+	if (!fs.existsSync(kernel)) {
 		return
 	}
 
