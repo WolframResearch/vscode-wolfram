@@ -1,18 +1,19 @@
-import * as vscode from 'vscode';
-import * as open from 'open';
-import * as fs from 'fs';
-import * as path from 'path';
-import * as os from 'os';
+
+const open = require('open');
+const path = require('path');
+const os = require('os');
+const fs = require('fs');
 
 import {
-	workspace,
+	commands,
 	window,
+	workspace,
 	DecorationOptions,
 	ExtensionContext,
+	Position,
 	Range,
-	TextEditorDecorationType,
-	WorkspaceConfiguration,
-	Position
+	Uri,
+	WorkspaceConfiguration
 } from 'vscode';
 
 import {
@@ -71,7 +72,7 @@ export function activate(context: ExtensionContext) {
 
 	// Setup the menu
 
-	context.subscriptions.push(vscode.commands.registerCommand('wolfram.OpenNotebook', (name: vscode.Uri) => { if (name) { open(name.fsPath) } }));
+	context.subscriptions.push(commands.registerCommand('wolfram.OpenNotebook', (name: Uri) => { if (name) { open(name.fsPath) } }));
 
 	// Setup the LSP client
 
