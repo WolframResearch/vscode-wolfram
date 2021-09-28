@@ -51,6 +51,12 @@
 			"type": "object",
 			"title": "Example configuration",
 			"properties": {
+				"wolfram.lsp_server_enabled": {
+					"scope": "resource",
+					"type": "boolean",
+					"default": true,
+					"description": "Enables the Wolfram language server"
+				},
 				"wolfram.maxNumberOfProblems": {
 					"scope": "resource",
 					"type": "number",

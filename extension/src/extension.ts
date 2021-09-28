@@ -72,6 +72,11 @@ export function activate(context: ExtensionContext) {
 
 	const config: WorkspaceConfiguration = workspace.getConfiguration("wolfram", null);
 
+	let enabled = config.get<boolean>("lsp_server_enabled", true)
+	if (!enabled) {
+		return
+	}
+
 	let command = config.get<string[]>("command", ["`kernel`"])
 
 	if (command[0] == "`kernel`") {
