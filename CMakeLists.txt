@@ -58,11 +58,14 @@ set(STATIC_VSIX_SOURCES
 	${PROJECT_SOURCE_DIR}/extension/syntaxes/wolfram.tmLanguage.json
 	${PROJECT_SOURCE_DIR}/extension/themes/brenton-wl-theme.json
 	${PROJECT_SOURCE_DIR}/extension/.vscodeignore
-	${PROJECT_SOURCE_DIR}/extension/CHANGELOG.md
-	${PROJECT_SOURCE_DIR}/extension/LICENSE
 	${PROJECT_SOURCE_DIR}/extension/README.md
 	${PROJECT_SOURCE_DIR}/extension/tsconfig.json
 	${PROJECT_SOURCE_DIR}/extension/wolfram.language-configuration.json
+)
+
+set(STATIC_ROOT_SOURCES
+	${PROJECT_SOURCE_DIR}/CHANGELOG.md
+	${PROJECT_SOURCE_DIR}/LICENSE
 )
 
 set(PACKAGEJSON_IN_SOURCE
@@ -93,6 +96,48 @@ set_property(
 )
 
 
+file(MAKE_DIRECTORY
+	${PROJECT_BINARY_DIR}/extension
+)
+
+
+#
+# Copy WL source files
+#
+
+#
+# static VSIX sources
+#
+foreach(SRC ${STATIC_VSIX_SOURCES})
+	file(RELATIVE_PATH REL ${PROJECT_SOURCE_DIR}/extension/ ${SRC})
+	add_custom_command(
+		OUTPUT
+			${PROJECT_BINARY_DIR}/extension/${REL}
+		COMMAND
+			${CMAKE_COMMAND} -E copy ${SRC} ${PROJECT_BINARY_DIR}/extension/${REL}
+		DEPENDS
+			${SRC}
+	)
+	list(APPEND COPIED_VSIX_SOURCES ${PROJECT_BINARY_DIR}/extension/${REL})
+endforeach()
+
+#
+# static root sources
+#
+foreach(SRC ${STATIC_ROOT_SOURCES})
+	file(RELATIVE_PATH REL ${PROJECT_SOURCE_DIR}/ ${SRC})
+	add_custom_command(
+		OUTPUT
+			${PROJECT_BINARY_DIR}/extension/${REL}
+		COMMAND
+			${CMAKE_COMMAND} -E copy ${SRC} ${PROJECT_BINARY_DIR}/extension/${REL}
+		DEPENDS
+			${SRC}
+	)
+	list(APPEND COPIED_VSIX_SOURCES ${PROJECT_BINARY_DIR}/extension/${REL})
+endforeach()
+
+
 #
 # vsix target
 #
@@ -100,7 +145,7 @@ set_property(
 set(VSIX_SOURCES
 	${PACKAGEJSON_IN_SOURCE}
 	${PACKAGELOCKJSON_IN_SOURCE}
-	${STATIC_VSIX_SOURCES}
+	${COPIED_VSIX_SOURCES}
 )
 
 if(LOCAL_BUILD)
@@ -116,17 +161,16 @@ add_custom_target(vsix
 )
 
 
-set(GENERATED_PACKAGEJSON ${PROJECT_SOURCE_DIR}/extension/package.json)
+set(GENERATED_PACKAGEJSON ${PROJECT_BINARY_DIR}/extension/package.json)
 
-set(GENERATED_PACKAGELOCKJSON ${PROJECT_SOURCE_DIR}/extension/package-lock.json)
+set(GENERATED_PACKAGELOCKJSON ${PROJECT_BINARY_DIR}/extension/package-lock.json)
 
 add_custom_command(
 	OUTPUT
 		${VSIX_OUTPUT}
 	COMMAND
 		#
-		# copy for every build because I am lazy and I do not want to teach ReplacePackageJSON.cmake about semver syntax
-		# so that it can run on already-replaced files
+		# copy for every build because this is simple and deterministic
 		#
 		${CMAKE_COMMAND} -E copy ${PACKAGEJSON_IN_SOURCE} ${GENERATED_PACKAGEJSON}
 	COMMAND
@@ -142,7 +186,7 @@ add_custom_command(
 		${PROJECT_SOURCE_DIR}/cmake/ReplacePackageJSON.cmake
 	VERBATIM
 	WORKING_DIRECTORY
-		${PROJECT_SOURCE_DIR}/extension
+		${PROJECT_BINARY_DIR}/extension
 )
 
 install(
