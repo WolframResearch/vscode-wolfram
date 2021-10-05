@@ -1,13 +1,2 @@
-# Ignored folders
-build*
-dist
-node_modules
-older
 
-#
-# Ignored files
-#
-# These are created during the build process
-#
-package.json
-package-lock.json
+build*
