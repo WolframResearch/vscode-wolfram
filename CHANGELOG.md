@@ -1,4 +1,28 @@
 
+
+## 0.12 - 5 Aug, 2019
+
+Unify the various command settings into a single wolfram.command setting
+
+
+## 0.14 - 28 Oct, 2019
+
+Add ConfidenceLevel setting
+
+
+## 0.15 - 15 Jan, 2020
+
+Add (\* \*) as a kind of bracket
+
+
+## 1.3 - 30 Aug, 2021
+
+Rename publisher to WolframResearch
+
+A change in CMake \~3.20 introduced compiler_depend.ts file in the CMakeFiles directory
+So exclude compiler_depend.ts files
+
+
 ## v1.3.1 - 22 Sep, 2021
 
 First release from official Wolfram Research GitHub repo
