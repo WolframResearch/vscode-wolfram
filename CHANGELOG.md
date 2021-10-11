@@ -36,3 +36,10 @@ https://github.com/WolframResearch/Sublime-WolframLanguage
 - Fixed problem with dialog saying "Language Server kernel did not initialize properly after 10 seconds."
 
 The kernel actually did start correctly, but the timeout for the dialog was not being handled properly.
+
+
+## v1.3.3 - 11 Oct, 2021
+
+If a kernel cannot be started, then do not also show the timeout dialog after 10 seconds, that is just extra noise.
+
+lsp_server_enabled setting: Allow selectively disabling Wolfram Language LSP
