@@ -2,19 +2,41 @@
 
 Official Visual Studio Code extension for Wolfram Language
 
-* Syntax highlighting
-* [LSP](https://microsoft.github.io/language-server-protocol/) support
+
+## Features
+
+* Syntax Highlighting
+* Diagnostics and suggestions for fixes
+* Formatting files and selections
+* Semantic highlighting
+* Expand and shrink selection
+* Outline
+* Color swatches
+* Symbol references
+* Documentation on hover
+
+### Syntax Highlighting
+
+Support for the entire Wolfram Language syntax and all built-in functions.
 
 ![highlighting](docs/highlighting.png)
 
 
 ## Setup
 
+<!--  filter me START -->
 Install the Wolfram Language extension from the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/items?itemName=WolframResearch.wolfram).
+
+The extension must be installed from Wolfram Research.
+<!--  filter me END -->
+
+LSP functionality uses a Wolfram kernel to run as a language server.
+
+This requires Wolfram System 12.1 or higher.
 
 The Wolfram Language extension depends on [LSPServer paclet](https://github.com/WolframResearch/lspserver) to provide LSP functionality.
 
-Install LSPServer and its dependencies by running this Wolfram Language code:
+Install LSPServer paclet and its dependencies by running this Wolfram Language code:
 ```
 PacletInstall["CodeParser"]
 PacletInstall["CodeInspector"]
@@ -87,6 +109,14 @@ Which[a, b, a, b]
 ```
 
 You should see warnings about duplicate clauses.
+
+#### Other Settings
+
+It is convenient to specify word separators that do not have the `$` character, which is a letterlike character in WL.
+
+```
+"editor.wordSeparators": "`~!@#%^&*()-=+[{]}\\|;:'\",.<>/?",
+```
 
 
 #### Experimental Settings
