@@ -58,7 +58,6 @@ set(STATIC_VSIX_SOURCES
 	${PROJECT_SOURCE_DIR}/extension/syntaxes/wolfram.tmLanguage.json
 	${PROJECT_SOURCE_DIR}/extension/themes/brenton-wl-theme.json
 	${PROJECT_SOURCE_DIR}/extension/.vscodeignore
-	${PROJECT_SOURCE_DIR}/extension/README.md
 	${PROJECT_SOURCE_DIR}/extension/tsconfig.json
 	${PROJECT_SOURCE_DIR}/extension/wolfram.language-configuration.json
 )
@@ -66,6 +65,10 @@ set(STATIC_VSIX_SOURCES
 set(STATIC_ROOT_SOURCES
 	${PROJECT_SOURCE_DIR}/CHANGELOG.md
 	${PROJECT_SOURCE_DIR}/LICENSE
+)
+
+set(README_SOURCE
+	${PROJECT_SOURCE_DIR}/README.md
 )
 
 set(PACKAGEJSON_IN_SOURCE
@@ -136,6 +139,24 @@ foreach(SRC ${STATIC_ROOT_SOURCES})
 	)
 	list(APPEND COPIED_VSIX_SOURCES ${PROJECT_BINARY_DIR}/extension/${REL})
 endforeach()
+
+#
+# README
+#
+
+set(COPIED_README ${PROJECT_BINARY_DIR}/extension/README.md)
+
+add_custom_command(
+	OUTPUT
+		${COPIED_README}
+	COMMAND
+		${CMAKE_COMMAND} -E copy ${README_SOURCE} ${COPIED_README}
+	COMMAND
+		${CMAKE_COMMAND} -DCOPIED_README=${COPIED_README} -P ${PROJECT_SOURCE_DIR}/cmake/ReplaceREADME.cmake
+	DEPENDS
+		${README_SOURCE}
+)
+list(APPEND COPIED_VSIX_SOURCES ${COPIED_README})
 
 
 #
