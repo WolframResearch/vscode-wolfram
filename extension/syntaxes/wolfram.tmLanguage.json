@@ -1338,12 +1338,20 @@
                     "name": "invalid.illegal.system.wolfram"
                 },
                 {
+                    "match": "(?:[$[:alpha:]][$[:alnum:]]*)(?:`(?:[$[:alpha:]][$[:alnum:]]*))+(?=\\s*(\\[|@(?!@)))",
+                    "name": "variable.function.wolfram"
+                },
+                {
                     "match": "(?:[$[:alpha:]][$[:alnum:]]*)(?:`(?:[$[:alpha:]][$[:alnum:]]*))+",
                     "name": "symbol.unrecognized.wolfram"
                 },
                 {
                     "match": "(?:[$[:alpha:]][$[:alnum:]]*)`",
                     "name": "invalid.illegal.wolfram"
+                },
+                {
+                    "match": "(?:`(?:[$[:alpha:]][$[:alnum:]]*))+(?=\\s*(\\[|@(?!@)))",
+                    "name": "variable.function.wolfram"
                 },
                 {
                     "match": "(?:`(?:[$[:alpha:]][$[:alnum:]]*))+",
@@ -1896,6 +1904,10 @@
                 {
                     "match": "(?:\\$(?:HistoryLength|Line|Post|Pre|PrePrint|PreRead|SyntaxHandler))(?![`$[:alnum:]])",
                     "name": "invalid.session.wolfram"
+                },
+                {
+                    "match": "(?:[$[:alpha:]][$[:alnum:]]*)(?=\\s*(\\[|@(?!@)))",
+                    "name": "variable.function.wolfram"
                 },
                 {
                     "match": "(?:[$[:alpha:]][$[:alnum:]]*)",

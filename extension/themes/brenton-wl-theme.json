@@ -164,6 +164,14 @@
 			}
 		},
 		{
+			"name": "User function",
+			"scope": "variable.function",
+			"settings": {
+				"fontStyle": "",
+				"foreground": "#BBEEF8"
+			}
+		},
+		{
 			"name": "Function argument",
 			"scope": "variable.parameter",
 			"settings": {
