@@ -244,14 +244,25 @@ function kernel_initialization_check_function(command: string[]) {
 		return
 	}
 
-	// kill kernel, if possible
+	// TODO: kill kernel, if possible
 
 	let report = window.createOutputChannel("Wolfram Language Error Report");
 
-	report.appendLine("Language Server kernel did not initialize properly after 10 seconds.")
+	report.appendLine("Language server kernel did not respond after 10 seconds.")
+	report.appendLine("")
+	report.appendLine("The most likely cause is that required paclets are not installed.").
+	report.appendLine("")
+	report.appendLine("The language server kernel process is hanging and may need to be killed manually.")
 	report.appendLine("")
 	report.appendLine("This is the command that was used:")
 	report.appendLine(command.toString())
+	report.appendLine("")
+	report.appendLine("To ensure that required paclets are installed and up-to-date, run this in a notebook:")
+	report.appendLine("")
+	report.appendLine("PacletInstall[\"CodeParser\"]")
+	report.appendLine("PacletInstall[\"CodeInspector\"]")
+	report.appendLine("PacletInstall[\"CodeFormatter\"]")
+	report.appendLine("PacletInstall[\"LSPServer\"]")
 	report.appendLine("")
 	report.appendLine("To help diagnose the problem, run this in a notebook:")
 	report.appendLine("")
@@ -276,7 +287,7 @@ function kernel_initialization_check_function(command: string[]) {
 	//
 	// Related issues: https://github.com/microsoft/vscode/issues/5454
 	//
-	window.showErrorMessage("Cannot start Wolfram Language server. Check Wolfram Language Error Report output channel for more information.")
+	window.showErrorMessage("Cannot start Wolfram language server. Check Output view and open the Wolfram Language Error Report output channel for more information. ")
 }
 
 export function deactivate(): Thenable<void> | undefined {
