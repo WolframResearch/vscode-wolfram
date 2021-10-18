@@ -52,6 +52,13 @@ message(STATUS "NPM_COMMAND: ${NPM_COMMAND}")
 message(STATUS "CODE_COMMAND: ${CODE_COMMAND}")
 
 set(STATIC_VSIX_SOURCES
+	#
+	# .png files in docs do not need to be included in build
+	#
+	# the extension works by referencing the .png files relative to the repo URL
+	#
+	#${PROJECT_SOURCE_DIR}/docs/error-report.png
+	#${PROJECT_SOURCE_DIR}/docs/highlighting.png
 	${PROJECT_SOURCE_DIR}/extension/config/node-extension.webpack.config.js
 	${PROJECT_SOURCE_DIR}/extension/images/icon.png
 	${PROJECT_SOURCE_DIR}/extension/src/extension.ts

@@ -101,21 +101,23 @@ You may also change the command that is used to start the server:
 }
 ```
 
-You should now have syntax highlighting and linting of Wolfram `.m` and `.wl` files working.
-
-Test this by typing this into a new `.m` file and saving it:
+You may disable Wolfram language server by specifying:
 ```
-Which[a, b, a, b]
+"wolfram.lsp_server_enabled": false,
 ```
-
-You should see warnings about duplicate clauses.
 
 #### Other Settings
 
-It is convenient to specify word separators that do not have the `$` character, which is a letterlike character in WL.
+It is convenient to remove `$` from word separators, which is a letterlike character in WL.
 
 ```
 "editor.wordSeparators": "`~!@#%^&*()-=+[{]}\\|;:'\",.<>/?",
+```
+
+A color theme that focuses on WL syntax is available.
+
+```
+"workbench.colorTheme": "BrentonWL",
 ```
 
 
@@ -147,10 +149,21 @@ You can enable experimental settings. These are not supported.
 }
 ```
 
+To use semantic tokens, a theme that has semantic highlighting enabled must be used, such as BrentonWL.
+
 
 ## Troubleshooting
 
 Make sure that the paclets can be found on your system:
 ```
+PacletInstall["CodeParser"]
+PacletInstall["CodeInspector"]
+PacletInstall["CodeFormatter"]
+PacletInstall["LSPServer"]
+
 Needs["LSPServer`"]
 ```
+
+If the kernel cannot start, then check Output view and open the Wolfram Language Error Report output channel for more information.
+
+![error report](docs/error-report.png)
