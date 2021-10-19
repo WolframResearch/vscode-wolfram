@@ -64,23 +64,6 @@
 					"default": true,
 					"description": "Enables the timeout warning if the kernel does not start after 15 seconds"
 				},
-				"wolfram.maxNumberOfProblems": {
-					"scope": "resource",
-					"type": "number",
-					"default": 100,
-					"description": "Controls the maximum number of problems produced by the server"
-				},
-				"wolfram.trace.server": {
-					"scope": "window",
-					"type": "string",
-					"enum": [
-						"off",
-						"messages",
-						"verbose"
-					],
-					"default": "verbose",
-					"description": "Traces the communication between VS Code and the Wolfram language server"
-				},
 				"wolfram.kernel": {
 					"scope": "user",
 					"type": "string",
