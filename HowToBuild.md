@@ -32,14 +32,14 @@ The result is a `.vsix` file in the `build` directory.
 Specify `MATHEMATICA_INSTALL_DIR` if you have Mathematica installed in a non-default location:
 
 ```
-cmake -DMATHEMATICA_INSTALL_DIR=/Applications/Mathematica123.app/Contents/ ..
+cmake -DMATHEMATICA_INSTALL_DIR=/Applications/Mathematica.app/Contents/ ..
 cmake --build .
 ```
 
 On Windows:
 
 ```
-cmake -DMATHEMATICA_INSTALL_DIR="C:/Program Files/Wolfram Research/Mathematica/12.3" ..
+cmake -DMATHEMATICA_INSTALL_DIR="C:/Program Files/Wolfram Research/Mathematica/13.0" ..
 cmake --build .
 ```
 
