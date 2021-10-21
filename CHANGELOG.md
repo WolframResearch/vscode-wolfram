@@ -43,3 +43,17 @@ The kernel actually did start correctly, but the timeout for the dialog was not 
 If a kernel cannot be started, then do not also show the timeout dialog after 10 seconds, that is just extra noise.
 
 lsp_server_enabled setting: Allow selectively disabling Wolfram Language LSP
+
+
+## v1.4.0 - 25 Oct, 2021
+
+Remove unused WolframLanguageSyntax files
+
+
+### Fixes
+
+Fix 415574: unrecognized symbol followed by [ should have scope variable.function
+
+Also recognized f @ x syntax for function call, but do NOT recognize a ~f~ b or a // f
+
+
