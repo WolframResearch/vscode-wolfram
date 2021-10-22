@@ -250,7 +250,7 @@ function kernel_initialization_check_function(command: string[]) {
 
 	report.appendLine("Language server kernel did not respond after 10 seconds.")
 	report.appendLine("")
-	report.appendLine("The most likely cause is that required paclets are not installed.").
+	report.appendLine("The most likely cause is that required paclets are not installed.")
 	report.appendLine("")
 	report.appendLine("The language server kernel process is hanging and may need to be killed manually.")
 	report.appendLine("")
