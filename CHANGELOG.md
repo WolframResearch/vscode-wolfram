@@ -27,7 +27,7 @@ So exclude compiler_depend.ts files
 
 First release from official Wolfram Research GitHub repo
 
-https://github.com/WolframResearch/Sublime-WolframLanguage
+https://github.com/WolframResearch/vscode-wolfram
 
 
 ## v1.3.2 - 27 Sep, 2021
