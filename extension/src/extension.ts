@@ -277,14 +277,14 @@ function kernel_initialization_check_function(command: string[]) {
 	report.appendLine("")
 	report.appendLine("Needs[\"LSPServer`\"]")
 	report.append("LSPServer`RunServerDiagnostic[{")
-	//
-	// TODO: when replaceAll is available, then use it instead of split().join()
-	//
 	command.slice(0, -1).forEach( (a) => {
-		report.append("\"" + a.split("\"").join("\\\"") + "\"")
+		//
+		// important to replace \ -> \\ before replacing " -> \"
+		//
+		report.append("\"" + a.replace(/\\/g, "\\\\").replace(/"/g, "\\\"") + "\"")
 		report.append(", ")
 	})
-	report.append("\"" + command[command.length - 1].split("\"").join("\\\"") + "\"")
+	report.append("\"" + command[command.length - 1].replace(/\\/g, "\\\\").replace(/"/g, "\\\"") + "\"")
 	report.append("}]")
 	report.appendLine("")
 	report.appendLine("")
