@@ -237,7 +237,8 @@ export function activate(context: ExtensionContext) {
 	
 	setTimeout(kernel_initialization_check_function, 10000, command);
 
-	client.start();
+	let disposable = client.start()
+	context.subscriptions.push(disposable)
 }
 
 function implicitTokenCharToText(c: string) {
