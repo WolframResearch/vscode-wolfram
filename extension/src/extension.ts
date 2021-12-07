@@ -268,7 +268,7 @@ function kernel_initialization_check_function(command: string[]) {
 	let kernel = command[0]
 
 	//
-	// Users knows that the kernel did not start properly, so do not also display timeout error
+	// User knows that the kernel did not start properly, so do not also display timeout error
     //
 	if (!fs.existsSync(kernel)) {
 		return
