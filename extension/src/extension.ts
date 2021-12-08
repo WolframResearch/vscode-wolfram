@@ -1,8 +1,9 @@
 import * as vscode from 'vscode';
 import * as open from 'open';
 import * as fs from 'fs';
+import * as path from 'path';
+import * as os from 'os';
 
-import { basename } from 'path';
 import {
 	workspace,
 	window,
@@ -13,11 +14,13 @@ import {
 	WorkspaceConfiguration,
 	Position
 } from 'vscode';
+
 import {
 	LanguageClient,
 	LanguageClientOptions,
 	ServerOptions,
-	TransportKind
+	TransportKind,
+	ExecutableOptions
 } from 'vscode-languageclient/node';
 
 
@@ -56,6 +59,8 @@ interface ImplicitTokensI {
 
 
 let client: LanguageClient;
+
+let wolframTmpDir: string
 
 let kernel_initialized = false;
 
@@ -114,22 +119,38 @@ export function activate(context: ExtensionContext) {
 	// let debugBracketMatcher = config.get<boolean>("debugBracketMatcher", false);
 	let semanticTokens = config.get<boolean>("semanticTokens", false);
 
-	let base = basename(command[0]);
+	let base = path.basename(command[0]);
 
 	if (!base.toLowerCase().startsWith("wolframkernel")) {
 		window.showErrorMessage("Command for Wolfram Language Server does not start with 'WolframKernel': " + command[0]);
 	}
 
+	//
+	// Ensure an empty directory to use as working directory
+	//
+	wolframTmpDir = path.join(os.tmpdir(), "Wolfram-LSPServer")
+
+	//
+	// recursive option suppresses any directory-already-exists error
+	//
+	fs.mkdirSync(wolframTmpDir, { recursive: true })
+
+	let opts: ExecutableOptions = {
+		cwd: wolframTmpDir
+	};
+
 	let serverOptions: ServerOptions = {
 		run: {
 			transport: TransportKind.stdio,
 			command: command[0],
-			args: command.slice(1)
+			args: command.slice(1),
+			options: opts
 		},
 		debug: {
 			transport: TransportKind.stdio,
 			command: command[0],
-			args: command.slice(1)
+			args: command.slice(1),
+			options: opts
 		}
 	};
 
@@ -285,7 +306,9 @@ function kernel_initialization_check_function(command: string[]) {
 		report.append(", ")
 	})
 	report.append("\"" + command[command.length - 1].replace(/\\/g, "\\\\").replace(/"/g, "\\\"") + "\"")
-	report.append("}]")
+	report.append("}, ProcessDirectory -> \"")
+	report.append(wolframTmpDir.replace(/\\/g, "\\\\"))
+	report.append("\"]")
 	report.appendLine("")
 	report.appendLine("")
 	report.appendLine("Fix any problems then restart and try again.")
