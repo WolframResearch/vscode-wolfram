@@ -142,7 +142,7 @@
 		"commands": [
 			{
 				"command": "wolfram.OpenNotebook",
-				"title": "Open in notebook editor"
+				"title": "Open in Notebook Editor"
 			}
 		],
 		"menus": {
