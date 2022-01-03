@@ -49,7 +49,7 @@
 		],
 		"configuration": {
 			"type": "object",
-			"title": "Example configuration",
+			"title": "Wolfram",
 			"properties": {
 				"wolfram.lsp_server_enabled": {
 					"scope": "resource",
