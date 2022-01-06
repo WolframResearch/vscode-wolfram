@@ -103,12 +103,6 @@ export function activate(context: ExtensionContext) {
 	// let debugBracketMatcher = config.get<boolean>("debugBracketMatcher", false);
 	let semanticTokens = config.get<boolean>("semanticTokens", false);
 
-	let base = path.basename(command[0]);
-
-	if (!base.toLowerCase().startsWith("wolframkernel")) {
-		window.showErrorMessage("Command for Wolfram Language Server does not start with 'WolframKernel': " + command[0]);
-	}
-
 	//
 	// Ensure an empty directory to use as working directory
 	//
@@ -219,7 +213,11 @@ export function activate(context: ExtensionContext) {
 		// });
 	});
 	
-	setTimeout(kernel_initialization_check_function, 10000, command);
+	let timeoutWarningEnabled = config.get<boolean>("timeout_warning_enabled", true);
+
+	if (timeoutWarningEnabled) {
+		setTimeout(kernel_initialization_check_function, 15000, command);
+	}
 
 	let disposable = client.start()
 	context.subscriptions.push(disposable)
@@ -263,7 +261,9 @@ function kernel_initialization_check_function(command: string[]) {
 
 	let report = window.createOutputChannel("Wolfram Language Error Report");
 
-	report.appendLine("Language server kernel did not respond after 10 seconds.")
+	report.appendLine("Language server kernel did not respond after 15 seconds.")
+	report.appendLine("")
+	report.appendLine("If the language kernel server did eventually start after this warning, then you can disable this warning with the timeout_warning_enabled setting.")
 	report.appendLine("")
 	report.appendLine("The most likely cause is that required paclets are not installed.")
 	report.appendLine("")

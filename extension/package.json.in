@@ -57,6 +57,12 @@
 					"default": true,
 					"description": "Enables the Wolfram language server"
 				},
+				"wolfram.timeout_warning_enabled": {
+					"scope": "resource",
+					"type": "boolean",
+					"default": true,
+					"description": "Enables the timeout warning if the kernel does not start after 15 seconds"
+				},
 				"wolfram.maxNumberOfProblems": {
 					"scope": "resource",
 					"type": "number",
