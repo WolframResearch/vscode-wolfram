@@ -2,6 +2,7 @@
 
 Official Visual Studio Code extension for Wolfram Language
 
+[Developing Wolfram Language Code in Other Editors and IDEs with LSP from WTC 2021: Watch Video (youtube)](https://www.youtube.com/watch?v=nXVEOUMZbzQ)
 
 ## Features
 
@@ -14,6 +15,7 @@ Official Visual Studio Code extension for Wolfram Language
 * Color swatches
 * Symbol references
 * Documentation on hover
+* New menu items (Open in Notebook Editor)
 
 ### Syntax Highlighting
 
