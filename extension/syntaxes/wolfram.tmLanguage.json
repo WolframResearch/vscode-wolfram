@@ -343,11 +343,15 @@
                     "name": "invalid.illegal"
                 },
                 {
-                    "match": "\\\\\\|\\h{6}",
+                    "match": "\\\\\\|0\\h{5}",
                     "name": "donothighlight.constant.character.escape"
                 },
                 {
-                    "match": "\\\\\\|\\h{1,5}",
+                    "match": "\\\\\\|10\\h{4}",
+                    "name": "donothighlight.constant.character.escape"
+                },
+                {
+                    "match": "\\\\\\|\\h{1,6}",
                     "name": "invalid.illegal"
                 },
                 {
