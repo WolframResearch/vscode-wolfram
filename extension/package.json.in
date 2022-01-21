@@ -148,7 +148,7 @@
 		"commands": [
 			{
 				"command": "wolfram.OpenNotebook",
-				"title": "Open in Notebook Editor"
+				"title": "Open in System Editor"
 			}
 		],
 		"menus": {
