@@ -127,17 +127,22 @@ A color theme that focuses on WL syntax is available.
 
 You can enable experimental settings. These are not supported.
 
-`implicitTokens` controls the display of implicit tokens such as `Null` after `;` and implicit Times character `×`.
-
+`implicitTokens` controls the display of implicit tokens.
 ```
 {
   …
 
   "wolfram.implicitTokens": ["*", ",", ";;", "?"]
-
   …
 }
 ```
+
+* `"*"`: display implicit Times character `×`
+* `","`: display `Null` around stray commas
+* `;;`: display `1` and `All` around `;;`
+* `;`: display `Null` after `;`
+* `?`: display `□` in place of missing arguments
+
 
 `semanticTokens` controls semantic highlighting such as `Module` variables.
 
@@ -146,7 +151,6 @@ You can enable experimental settings. These are not supported.
   …
 
   "wolfram.semanticTokens": true
-
   …
 }
 ```
