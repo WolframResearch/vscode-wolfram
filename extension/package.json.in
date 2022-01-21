@@ -165,7 +165,13 @@
 					"command": "wolfram.OpenNotebook",
 					"group": "navigation"
 				}
-			]
+			],
+			"commandPalette": [
+            	{
+					"command": "wolfram.OpenNotebook",
+					"when": "false"
+				}
+        	]
 		}
 	},
 	"scripts": {

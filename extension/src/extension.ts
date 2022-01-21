@@ -71,7 +71,7 @@ export function activate(context: ExtensionContext) {
 
 	// Setup the menu
 
-	context.subscriptions.push(vscode.commands.registerCommand('wolfram.OpenNotebook', (name: vscode.Uri) => {open(name.fsPath)}));
+	context.subscriptions.push(vscode.commands.registerCommand('wolfram.OpenNotebook', (name: vscode.Uri) => { if (name) { open(name.fsPath) } }));
 
 	// Setup the LSP client
 
