@@ -183,6 +183,10 @@
                     "name": "donothighlight.constant.character.escape.undocumented"
                 },
                 {
+                    "match": "\\\\\\[(?:N(?:umberComma))\\]",
+                    "name": "donothighlight.constant.character.escape.undocumented"
+                },
+                {
                     "match": "\\\\\\[(?:P(?:ageBreakAbove|ageBreakBelow|robabilityPr))\\]",
                     "name": "donothighlight.constant.character.escape.undocumented"
                 },
@@ -208,10 +212,6 @@
                 },
                 {
                     "match": "\\\\\\[(?:I(?:nlinePart))\\]",
-                    "name": "invalid.illegal.unsupported"
-                },
-                {
-                    "match": "\\\\\\[(?:N(?:umberComma))\\]",
                     "name": "invalid.illegal.unsupported"
                 },
                 {
