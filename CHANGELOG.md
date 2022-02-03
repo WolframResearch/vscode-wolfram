@@ -1,4 +1,39 @@
 
+## v1.5.0 - 7 Mar, 2022
+
+Ensure an empty directory to use as working directory
+
+Properly push subscription from client.start()
+
+Increase timeout to 15 seconds and add timeout_warning_enabled setting
+
+Syntax error for invalid `\|XXXXXX` character syntax
+
+Remove "Open Notebook" from command palette
+
+Rename "Open in Notebook Editor" -> "Open in System Editor"
+
+Various "open" commands are run on different systems, and nothing guarantees opening with the FE
+
+Minimize user confusion by not mentioning "Notebook Editor"
+
+13.0.1 syntax updates
+
+Merge pull request #9 from LumaKernel/patch-1
+Add "Wolfram Language" as language alias for Jupyter Notebook VSCode Integration
+
+
+### Fixes
+
+Fix leftover "Example configuration" from early days
+
+https://github.com/WolframResearch/vscode-wolfram/issues/5
+
+Fix logic for resolving kernel paths
+
+Should try new versions as well as older versions
+
+
 ## v1.4.0 - 25 Oct, 2021
 
 Remove unused WolframLanguageSyntax files
