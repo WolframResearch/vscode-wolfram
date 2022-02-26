@@ -28,7 +28,8 @@
 				"id": "wolfram",
 				"aliases": [
 					"Wolfram",
-					"wolfram"
+					"wolfram",
+					"Wolfram Language"
 				],
 				"extensions": [
 					".wl",
