@@ -1,4 +1,7 @@
 
+## v1.6.0 - XX May, 2022
+
+
 ## v1.5.0 - 7 Mar, 2022
 
 Ensure an empty directory to use as working directory
