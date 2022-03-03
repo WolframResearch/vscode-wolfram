@@ -34,13 +34,13 @@ macro(CheckPackageJSON)
       WORKING_DIRECTORY
         ${PROJECT_SOURCE_DIR}
       TIMEOUT
-        10
+        60
       RESULT_VARIABLE
         PACKAGEJSON_RESULT
     )
 
     if(NOT ${PACKAGEJSON_RESULT} EQUAL "0")
-      message(WARNING "Bad exit code from PackageJSON script: ${PACKAGEJSON_RESULT}; Continuing")
+      message(FATAL_ERROR "Bad exit code from PackageJSON script: ${PACKAGEJSON_RESULT}")
     endif()
 
   endif(LOCAL_BUILD)
