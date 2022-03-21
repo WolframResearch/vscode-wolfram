@@ -27,6 +27,11 @@ find_program(CODE_COMMAND
 		code.cmd code
 )
 
+find_program(VSCE_COMMAND
+	NAMES
+		vsce.cmd vsce
+)
+
 set(WOLFRAMKERNEL ${WOLFRAMKERNEL_DEFAULT} CACHE FILEPATH "Path to WolframKernel")
 set(LOCAL_BUILD OFF CACHE BOOL "Local build")
 # Work-around for bug 349779 is to pause ~1 second
@@ -197,6 +202,17 @@ add_custom_command(
 	OUTPUT
 		${VSIX_OUTPUT}
 	COMMAND
+		${CMAKE_COMMAND} -E echo "NPM version:"
+	COMMAND
+		#
+		# npm --version is not documented
+		#
+		${NPM_COMMAND} version
+	COMMAND
+		${CMAKE_COMMAND} -E echo "VSCE version:"
+	COMMAND
+		${VSCE_COMMAND} --version
+	COMMAND
 		#
 		# copy for every build because this is simple and deterministic
 		#
@@ -208,7 +224,7 @@ add_custom_command(
 	COMMAND
 		${NPM_COMMAND} --no-fund install --no-save
 	COMMAND
-		vsce package -o ${PROJECT_BINARY_DIR}
+		${VSCE_COMMAND} package -o ${PROJECT_BINARY_DIR}
 	DEPENDS
 		${VSIX_SOURCES}
 		${PROJECT_SOURCE_DIR}/cmake/ReplacePackageJSON.cmake
