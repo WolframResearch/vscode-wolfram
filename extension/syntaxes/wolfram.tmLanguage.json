@@ -1854,7 +1854,15 @@
                     "name": "invalid.bad.wolfram"
                 },
                 {
-                    "match": "(?:C(?:omplexQ))(?![`$[:alnum:]])",
+                    "match": "(?:C(?:loudbase|omplexQ))(?![`$[:alnum:]])",
+                    "name": "invalid.bad.wolfram"
+                },
+                {
+                    "match": "(?:D(?:ataSet))(?![`$[:alnum:]])",
+                    "name": "invalid.bad.wolfram"
+                },
+                {
+                    "match": "(?:E(?:xpandFilename))(?![`$[:alnum:]])",
                     "name": "invalid.bad.wolfram"
                 },
                 {
@@ -1882,7 +1890,11 @@
                     "name": "invalid.bad.wolfram"
                 },
                 {
-                    "match": "(?:U(?:nSameQ))(?![`$[:alnum:]])",
+                    "match": "(?:U(?:nSameQ|rlExecute))(?![`$[:alnum:]])",
+                    "name": "invalid.bad.wolfram"
+                },
+                {
+                    "match": "(?:\\$(?:PathNameSeparator|RegisteredUsername))(?![`$[:alnum:]])",
                     "name": "invalid.bad.wolfram"
                 },
                 {
