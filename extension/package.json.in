@@ -14,7 +14,8 @@
 	},
 	"activationEvents": [
 		"onLanguage:wolfram",
-		"onCommand:wolfram.OpenNotebook"
+		"onCommand:wolfram.OpenNotebook",
+		"onCommand:wolfram.DownloadWolframEngine"
 	],
 	"main": "./dist/extension.js",
 	"categories": [
@@ -133,6 +134,10 @@
 			{
 				"command": "wolfram.OpenNotebook",
 				"title": "Open in System Editor"
+			},
+			{
+				"command": "wolfram.DownloadWolframEngine",
+				"title": "Wolfram Language: Download Wolfram Engine"
 			}
 		],
 		"menus": {
@@ -154,6 +159,9 @@
             	{
 					"command": "wolfram.OpenNotebook",
 					"when": "false"
+				},
+				{
+					"command": "wolfram.DownloadWolframEngine"
 				}
         	]
 		}

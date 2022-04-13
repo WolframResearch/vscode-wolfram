@@ -73,6 +73,8 @@ export function activate(context: ExtensionContext) {
 	// Setup the menu
 
 	context.subscriptions.push(commands.registerCommand('wolfram.OpenNotebook', (name: Uri) => { if (name) { open(name.fsPath) } }));
+	context.subscriptions.push(commands.registerCommand('wolfram.DownloadWolframEngine', onDownloadWolframEngine));
+
 
 	// Setup the LSP client
 
@@ -377,4 +379,9 @@ export function deactivate(): Thenable<void> | undefined {
 		return undefined;
 	}
 	return client.stop();
+}
+
+function onDownloadWolframEngine(): void {
+    const uri: Uri = Uri.parse(`https://www.wolfram.com/engine/`);
+    commands.executeCommand('vscode.open', uri);
 }
