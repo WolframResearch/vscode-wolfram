@@ -45,14 +45,14 @@ macro(CheckWolframKernel)
 	#
 	execute_process(
 		COMMAND
-			${WOLFRAMKERNEL} -noinit -noprompt -nopaclet -nostartuppaclets -runfirst Pause[${BUG349779_PAUSE}]\;Print[OutputForm[$Version]]\;Exit[]
+			${WOLFRAMKERNEL} -noinit -noprompt -nopaclet -nostartuppaclets -runfirst Pause[${KERNEL_PAUSE}]\;Print[OutputForm[$Version]]\;Exit[]
 		OUTPUT_VARIABLE
 			VERSION
 		OUTPUT_STRIP_TRAILING_WHITESPACE
 		WORKING_DIRECTORY
 			${PROJECT_SOURCE_DIR}
 		TIMEOUT
-			${BUG349779_TIMEOUT}
+			${KERNEL_TIMEOUT}
 		RESULT_VARIABLE
 			VERSION_RESULT
 	)
@@ -68,14 +68,14 @@ macro(CheckWolframKernel)
 	#
 	execute_process(
 		COMMAND
-			${WOLFRAMKERNEL} -noinit -noprompt -nopaclet -nostartuppaclets -runfirst Pause[${BUG349779_PAUSE}]\;Print[OutputForm[Floor[100\ $VersionNumber\ +\ $ReleaseNumber]]]\;Exit[]
+			${WOLFRAMKERNEL} -noinit -noprompt -nopaclet -nostartuppaclets -runfirst Pause[${KERNEL_PAUSE}]\;Print[OutputForm[Floor[100\ $VersionNumber\ +\ $ReleaseNumber]]]\;Exit[]
 		OUTPUT_VARIABLE
 			VERSION_NUMBER
 		OUTPUT_STRIP_TRAILING_WHITESPACE
 		WORKING_DIRECTORY
 			${PROJECT_SOURCE_DIR}
 		TIMEOUT
-			${BUG349779_TIMEOUT}
+			${KERNEL_TIMEOUT}
 		RESULT_VARIABLE
 			VERSION_NUMBER_RESULT
 	)
@@ -95,14 +95,14 @@ macro(CheckWolframKernel)
 	#
 	execute_process(
 		COMMAND
-			${WOLFRAMKERNEL} -noinit -noprompt -nopaclet -nostartuppaclets -runfirst Pause[${BUG349779_PAUSE}]\;Print[OutputForm[$SystemID]]\;Exit[]
+			${WOLFRAMKERNEL} -noinit -noprompt -nopaclet -nostartuppaclets -runfirst Pause[${KERNEL_PAUSE}]\;Print[OutputForm[$SystemID]]\;Exit[]
 		OUTPUT_VARIABLE
 			SYSTEMID
 		OUTPUT_STRIP_TRAILING_WHITESPACE
 		WORKING_DIRECTORY
 			${PROJECT_SOURCE_DIR}
 		TIMEOUT
-			${BUG349779_TIMEOUT}
+			${KERNEL_TIMEOUT}
 		RESULT_VARIABLE
 			SYSTEMID_RESULT
 	)
@@ -118,14 +118,14 @@ macro(CheckWolframKernel)
 	#
 	execute_process(
 		COMMAND
-			${WOLFRAMKERNEL} -noinit -noprompt -nopaclet -nostartuppaclets -runfirst Pause[${BUG349779_PAUSE}]\;Print[OutputForm[$SystemWordLength]]\;Exit[]
+			${WOLFRAMKERNEL} -noinit -noprompt -nopaclet -nostartuppaclets -runfirst Pause[${KERNEL_PAUSE}]\;Print[OutputForm[$SystemWordLength]]\;Exit[]
 		OUTPUT_VARIABLE
 			SYSTEMWORDLENGTH
 		OUTPUT_STRIP_TRAILING_WHITESPACE
 		WORKING_DIRECTORY
 			${PROJECT_SOURCE_DIR}
 		TIMEOUT
-			${BUG349779_TIMEOUT}
+			${KERNEL_TIMEOUT}
 		RESULT_VARIABLE
 			SYSTEMWORDLENGTH_RESULT
 	)

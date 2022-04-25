@@ -34,16 +34,29 @@ find_program(VSCE_COMMAND
 
 set(WOLFRAMKERNEL ${WOLFRAMKERNEL_DEFAULT} CACHE FILEPATH "Path to WolframKernel")
 set(LOCAL_BUILD OFF CACHE BOOL "Local build")
+#
+# Time to pause when starting kernel
+#
 # Work-around for bug 349779 is to pause ~1 second
-set(BUG349779_PAUSE 1 CACHE STRING "Bug 349779 pause")
-
-# Evidence suggests that when bug 349779 strikes, the kernel does exit after 30 minutes
-# So double that and cross fingers.
+# bug 349779 was fixed in version 12.0
+# 
+# Related bugs: 349779
+#
+set(KERNEL_PAUSE 0 CACHE STRING "Kernel startup pause")
+#
+# Timeout for starting a kernel and getting a result
+#
+# RE machines can be very slow when starting a kernel, so we need to be very generous with this timeout
+#
+# Should be at least 10 minutes = 600 seconds
+#
+# Evidence suggests that when bug 349779 strikes, the kernel does exit after 30 minutes = 1800 seconds
+# bug 349779 was fixed in version 12.0
 #
 # Related bugs: 349779
 # Related issues: RE-514227
 #
-set(BUG349779_TIMEOUT 3600 CACHE STRING "Bug 349779 timeout")
+set(KERNEL_TIMEOUT 600 CACHE STRING "Kernel startup timeout")
 
 message(STATUS "CMAKE_VERSION: ${CMAKE_VERSION}")
 message(STATUS "WOLFRAMKERNEL: ${WOLFRAMKERNEL}")
@@ -51,8 +64,8 @@ message(STATUS "LOCAL_BUILD: ${LOCAL_BUILD}")
 if(LOCAL_BUILD)
 message(STATUS "Configuring for local build")
 endif()
-message(STATUS "BUG349779_PAUSE: ${BUG349779_PAUSE}")
-message(STATUS "BUG349779_TIMEOUT: ${BUG349779_TIMEOUT}")
+message(STATUS "KERNEL_PAUSE: ${KERNEL_PAUSE}")
+message(STATUS "KERNEL_TIMEOUT: ${KERNEL_TIMEOUT}")
 message(STATUS "NPM_COMMAND: ${NPM_COMMAND}")
 message(STATUS "CODE_COMMAND: ${CODE_COMMAND}")
 message(STATUS "VSCE_COMMAND: ${VSCE_COMMAND}")
