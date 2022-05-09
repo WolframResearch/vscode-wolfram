@@ -3,6 +3,8 @@
 
 Update dependencies
 
+Add "Download Wolfram Engine" links to command palette
+
 
 ## v1.5.0 - 7 Mar, 2022
 
