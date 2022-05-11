@@ -2040,7 +2040,7 @@
 
         "bracket-group": {
             "name": "meta.brackets.wolfram",
-            "begin": "\\[",
+            "begin": "::\\[|\\[",
             "beginCaptures": {
                 "0": {
                     "name": "punctuation.section.brackets.begin.wolfram"
