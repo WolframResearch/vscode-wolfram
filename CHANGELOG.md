@@ -1,5 +1,8 @@
 
-## v1.6.0 - XX May, 2022
+## v1.7.0 - XX June, 2022
+
+
+## v1.6.0 - 12 May, 2022
 
 Update dependencies
 
