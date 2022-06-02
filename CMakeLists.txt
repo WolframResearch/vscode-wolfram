@@ -82,7 +82,8 @@ set(STATIC_VSIX_SOURCES
 	${PROJECT_SOURCE_DIR}/extension/images/icon.png
 	${PROJECT_SOURCE_DIR}/extension/src/extension.ts
 	${PROJECT_SOURCE_DIR}/extension/syntaxes/wolfram.tmLanguage.json
-	${PROJECT_SOURCE_DIR}/extension/themes/brenton-wl-theme.json
+	${PROJECT_SOURCE_DIR}/extension/themes/brenton-wl-color-theme.json
+	${PROJECT_SOURCE_DIR}/extension/themes/brenton-wl-light-color-theme.json
 	${PROJECT_SOURCE_DIR}/extension/.vscodeignore
 	${PROJECT_SOURCE_DIR}/extension/tsconfig.json
 	${PROJECT_SOURCE_DIR}/extension/wolfram.language-configuration.json

@@ -1,4 +1,6 @@
 {
+	"$schema": "vscode://schemas/color-theme",
+	"type": "dark",
 	"semanticHighlighting": true,
 	"semanticTokenColors": {
 		"variable.Module": "#d8a265",
@@ -13,8 +15,10 @@
 	},
 	"tokenColors": [
 		{
+			"scope": [
+				"symbol.unrecognized"
+			],
 			"settings": {
-				"background": "#272822",
 				"foreground": "#F8F8F2"
 			}
 		},

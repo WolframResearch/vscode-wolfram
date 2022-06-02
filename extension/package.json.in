@@ -127,7 +127,12 @@
 			{
 				"label": "BrentonWL",
 				"uiTheme": "vs-dark",
-				"path": "./themes/brenton-wl-theme.json"
+				"path": "./themes/brenton-wl-color-theme.json"
+			},
+			{
+				"label": "BrentonWL (Light)",
+				"uiTheme": "vs",
+				"path": "./themes/brenton-wl-light-color-theme.json"
 			}
 		],
 		"commands": [
