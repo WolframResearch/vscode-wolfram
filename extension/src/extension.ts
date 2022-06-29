@@ -324,6 +324,8 @@ function resolveKernel() {
 			// But do not recommend Wolfram Engine before 13.0, because usage messages did not work before 13.0
 			//
 			possibleKernelPaths = [
+				"/usr/local/Wolfram/WolframEngine/13.1/Executables/WolframKernel",
+				"/usr/local/Wolfram/Mathematica/13.1/Executables/WolframKernel",
 				"/usr/local/Wolfram/WolframEngine/13.0/Executables/WolframKernel",
 				"/usr/local/Wolfram/Mathematica/13.0/Executables/WolframKernel",
 				"/usr/local/Wolfram/Mathematica/12.3/Executables/WolframKernel",
@@ -352,6 +354,8 @@ function resolveKernel() {
 			// But do not recommend Wolfram Engine before 13.0, because usage messages did not work before 13.0
 			//
 			possibleKernelPaths = [
+				"C:\\Program Files\\Wolfram Research\\Wolfram Engine\\13.1\\WolframKernel.exe",
+				"C:\\Program Files\\Wolfram Research\\Mathematica\\13.1\\WolframKernel.exe",
 				"C:\\Program Files\\Wolfram Research\\Wolfram Engine\\13.0\\WolframKernel.exe",
 				"C:\\Program Files\\Wolfram Research\\Mathematica\\13.0\\WolframKernel.exe",
 				"C:\\Program Files\\Wolfram Research\\Mathematica\\12.3\\WolframKernel.exe",
