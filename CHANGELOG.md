@@ -1,5 +1,9 @@
 
-## v1.7.0 - XX June, 2022
+## v1.7.0 - 4 July, 2022
+
+Add light theme
+
+13.1 syntax updates
 
 
 ## v1.6.0 - 12 May, 2022
