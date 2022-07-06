@@ -1,4 +1,7 @@
 
+## v1.8.0 - XX Sep, 2022
+
+
 ## v1.7.0 - 4 July, 2022
 
 Add light theme

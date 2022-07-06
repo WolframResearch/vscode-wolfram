@@ -2,7 +2,7 @@
 	"name": "wolfram",
 	"displayName": "Wolfram Language",
 	"description": "Official Visual Studio Code extension for Wolfram Language",
-	"version": "@1.7.0@",
+	"version": "@1.8.0@",
 	"publisher": "WolframResearch",
 	"license": "MIT",
 	"repository": {
