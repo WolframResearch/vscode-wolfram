@@ -112,8 +112,10 @@ You may disable Wolfram language server by specifying:
 
 It is convenient to remove `$` from word separators, which is a letterlike character in WL.
 
+It is also convenient to add `_` from word separators, which is NOT a letterlike character in WL.
+
 ```
-"editor.wordSeparators": "`~!@#%^&*()-=+[{]}\\|;:'\",.<>/?",
+"editor.wordSeparators": "`~!@#%^&*()-=+[{]}\\|;:'\",.<>/?_",
 ```
 
 A color theme that focuses on WL syntax is available.
