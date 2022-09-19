@@ -4,6 +4,9 @@ Official Visual Studio Code extension for Wolfram Language
 
 [Developing Wolfram Language Code in Other Editors and IDEs with LSP from WTC 2021: Watch Video (youtube)](https://www.youtube.com/watch?v=nXVEOUMZbzQ)
 
+Download and install the free [Wolfram Engine](https://www.wolfram.com/engine/)
+
+
 ## Features
 
 * Syntax Highlighting
@@ -35,6 +38,8 @@ The extension must be installed from Wolfram Research.
 LSP functionality uses a Wolfram kernel to run as a language server.
 
 This requires Wolfram System 12.1 or higher.
+
+If you do not have the Wolfram System installed, then download and install the free [Wolfram Engine](https://www.wolfram.com/engine/).
 
 The Wolfram Language extension depends on [LSPServer paclet](https://github.com/WolframResearch/lspserver) to provide LSP functionality.
 
