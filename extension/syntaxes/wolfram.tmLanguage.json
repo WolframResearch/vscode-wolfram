@@ -938,39 +938,39 @@
                     "name": "support.function.builtin.wolfram"
                 },
                 {
-                    "match": "System`(?:A(?:bove|cceptanceThreshold|ccuracyGoal|ctiveStyle|ddOnHelpPath|djustmentBoxOptions|fter|lgebraics|lignment|lignmentPoint|ll|llowGroupClose|llowInlineCells|llowLooseGrammar|llowReverseGroupClose|llowScriptLevelChange|llowVersionUpdate|llowedCloudExtraParameters|llowedCloudParameterExtensions|llowedDimensions|llowedFrequencyRange|llowedHeads|lternativeHypothesis|ltitudeMethod|mbiguityFunction|natomySkinStyle|nchoredSearch|nimationDirection|nimationRate|nimationRepetitions|nimationRunTime|nimationRunning|nimationTimeIndex|nnotationRules|nonymous|ntialiasing|ppearance|ppearanceElements|ppearanceRules|spectRatio|ssociationFormat|ssumptions|synchronous|ttachedCell|udioChannelAssignment|udioEncoding|udioInputDevice|udioLabel|udioOutputDevice|uthentication|utoAction|utoCopy|utoDelete|utoGeneratedPackage|utoIndent|utoItalicWords|utoMultiplicationSymbol|utoOpenNotebooks|utoOpenPalettes|utoOperatorRenderings|utoRemove|utoScroll|utoSpacing|utoloadPath|utomatic|utorunSequencing|xes|xesEdge|xesLabel|xesOrigin|xesStyle|xis))(?![`$[:alnum:]])",
+                    "match": "System`(?:A(?:cceptanceThreshold|ccuracyGoal|ctiveStyle|ddOnHelpPath|djustmentBoxOptions|lignment|lignmentPoint|llowGroupClose|llowInlineCells|llowLooseGrammar|llowReverseGroupClose|llowScriptLevelChange|llowVersionUpdate|llowedCloudExtraParameters|llowedCloudParameterExtensions|llowedDimensions|llowedFrequencyRange|llowedHeads|lternativeHypothesis|ltitudeMethod|mbiguityFunction|natomySkinStyle|nchoredSearch|nimationDirection|nimationRate|nimationRepetitions|nimationRunTime|nimationRunning|nimationTimeIndex|nnotationRules|ntialiasing|ppearance|ppearanceElements|ppearanceRules|spectRatio|ssociationFormat|ssumptions|synchronous|ttachedCell|udioChannelAssignment|udioEncoding|udioInputDevice|udioLabel|udioOutputDevice|uthentication|utoAction|utoCopy|utoDelete|utoGeneratedPackage|utoIndent|utoItalicWords|utoMultiplicationSymbol|utoOpenNotebooks|utoOpenPalettes|utoOperatorRenderings|utoRemove|utoScroll|utoSpacing|utoloadPath|utorunSequencing|xes|xesEdge|xesLabel|xesOrigin|xesStyle))(?![`$[:alnum:]])",
                     "name": "constant.language.wolfram"
                 },
                 {
-                    "match": "System`(?:B(?:ack|ackground|ackward|arOrigin|arSpacing|aseStyle|aseline|aselinePosition|efore|elow|inaryFormat|lack|lue|old|ookmarks|ooleanStrings|ooleans|ottom|oundaryStyle|oxBaselineShift|oxFormFormatTypes|oxFrame|oxMargins|oxRatios|oxStyle|oxed|oxes|rown|ubbleScale|ubbleSizes|uttonBoxOptions|uttonData|uttonFunction|uttonMinHeight|uttonSource|yte|yteOrdering))(?![`$[:alnum:]])",
+                    "match": "System`(?:B(?:ackground|arOrigin|arSpacing|aseStyle|aselinePosition|inaryFormat|ookmarks|ooleanStrings|oundaryStyle|oxBaselineShift|oxFormFormatTypes|oxFrame|oxMargins|oxRatios|oxStyle|oxed|ubbleScale|ubbleSizes|uttonBoxOptions|uttonData|uttonFunction|uttonMinHeight|uttonSource|yteOrdering))(?![`$[:alnum:]])",
                     "name": "constant.language.wolfram"
                 },
                 {
-                    "match": "System`(?:C(?:alendarType|alloutMarker|alloutStyle|aptureRunning|aseOrdering|atalan|elestialSystem|ellAutoOverwrite|ellBaseline|ellBracketOptions|ellChangeTimes|ellContext|ellDingbat|ellDingbatMargin|ellDynamicExpression|ellEditDuplicate|ellEpilog|ellEvaluationDuplicate|ellEvaluationFunction|ellEventActions|ellFrame|ellFrameColor|ellFrameLabelMargins|ellFrameLabels|ellFrameMargins|ellGrouping|ellGroupingRules|ellHorizontalScrolling|ellID|ellLabel|ellLabelAutoDelete|ellLabelMargins|ellLabelPositioning|ellLabelStyle|ellMargins|ellOpen|ellProlog|ellSize|ellStyle|ellTags|enter|haracter|haracterEncoding|haracterEncodingsPath|hartBaseStyle|hartElementFunction|hartElements|hartLabels|hartLayout|hartLegends|hartStyle|lassPriors|lickToCopyEnabled|lipPlanes|lipPlanesStyle|lipRange|lippingStyle|losingAutoSave|loudBase|loudObjectNameFormat|loudObjectURLType|lusterDissimilarityFunction|odeAssistOptions|olorCoverage|olorFunction|olorFunctionBinning|olorFunctionScaling|olorRules|olorSelectorSettings|olorSpace|olumnAlignments|olumnLines|olumnSpacings|olumnWidths|olumnsEqual|ombinerFunction|ommonDefaultFormatTypes|ommunityBoundaryStyle|ommunityLabels|ommunityRegionStyle|ompilationOptions|ompilationTarget|ompiled|omplexInfinity|omplexes|omplexityFunction|ompressionLevel|onfidenceLevel|onfidenceRange|onfidenceTransform|onfigurationPath|onstant|onstants|ontentPadding|ontentSelectable|ontentSize|ontinuousAction|ontourLabels|ontourShading|ontourStyle|ontours|ontrolPlacement|ontrolType|ontrollerLinking|ontrollerMethod|ontrollerPath|ontrolsRendering|onversionRules|ookieFunction|oordinatesToolOptions|opyFunction|opyable|ornerNeighbors|ounterAssignments|ounterFunction|ounterIncrements|ounterStyleMenuListing|ovarianceEstimatorFunction|reateCellID|reateIntermediateDirectories|riterionFunction|ubics|urveClosed|yan))(?![`$[:alnum:]])",
+                    "match": "System`(?:C(?:alendarType|alloutMarker|alloutStyle|aptureRunning|aseOrdering|elestialSystem|ellAutoOverwrite|ellBaseline|ellBracketOptions|ellChangeTimes|ellContext|ellDingbat|ellDingbatMargin|ellDynamicExpression|ellEditDuplicate|ellEpilog|ellEvaluationDuplicate|ellEvaluationFunction|ellEventActions|ellFrame|ellFrameColor|ellFrameLabelMargins|ellFrameLabels|ellFrameMargins|ellGrouping|ellGroupingRules|ellHorizontalScrolling|ellID|ellLabel|ellLabelAutoDelete|ellLabelMargins|ellLabelPositioning|ellLabelStyle|ellMargins|ellOpen|ellProlog|ellSize|ellTags|haracterEncoding|haracterEncodingsPath|hartBaseStyle|hartElementFunction|hartElements|hartLabels|hartLayout|hartLegends|hartStyle|lassPriors|lickToCopyEnabled|lipPlanes|lipPlanesStyle|lipRange|lippingStyle|losingAutoSave|loudBase|loudObjectNameFormat|loudObjectURLType|lusterDissimilarityFunction|odeAssistOptions|olorCoverage|olorFunction|olorFunctionBinning|olorFunctionScaling|olorRules|olorSelectorSettings|olorSpace|olumnAlignments|olumnLines|olumnSpacings|olumnWidths|olumnsEqual|ombinerFunction|ommonDefaultFormatTypes|ommunityBoundaryStyle|ommunityLabels|ommunityRegionStyle|ompilationOptions|ompilationTarget|ompiled|omplexityFunction|ompressionLevel|onfidenceLevel|onfidenceRange|onfidenceTransform|onfigurationPath|onstants|ontentPadding|ontentSelectable|ontentSize|ontinuousAction|ontourLabels|ontourShading|ontourStyle|ontours|ontrolPlacement|ontrolType|ontrollerLinking|ontrollerMethod|ontrollerPath|ontrolsRendering|onversionRules|ookieFunction|oordinatesToolOptions|opyFunction|opyable|ornerNeighbors|ounterAssignments|ounterFunction|ounterIncrements|ounterStyleMenuListing|ovarianceEstimatorFunction|reateCellID|reateIntermediateDirectories|riterionFunction|ubics|urveClosed))(?![`$[:alnum:]])",
                     "name": "constant.language.wolfram"
                 },
                 {
-                    "match": "System`(?:D(?:ashed|ataRange|ataReversed|atasetTheme|ateFormat|ateFunction|ateReduction|ateTicksFormat|ayCountConvention|efaultAxesStyle|efaultBaseStyle|efaultBoxStyle|efaultDuplicateCellStyle|efaultDuration|efaultElement|efaultFaceGridsStyle|efaultFieldHintStyle|efaultFontProperties|efaultFormatType|efaultFrameStyle|efaultFrameTicksStyle|efaultGridLinesStyle|efaultInlineFormatType|efaultLabelStyle|efaultMenuStyle|efaultNaturalLanguage|efaultNewCellStyle|efaultNewInlineCellStyle|efaultNotebook|efaultOptions|efaultPrintPrecision|efaultStyleDefinitions|efaultTicksStyle|efaultTooltipStyle|egree|einitialization|eletable|eleteContents|eletionWarning|elimiter|elimiterAutoMatching|elimiterFlashTime|elimiterMatching|elimiters|eliveryFunction|ependentVariables|eployed|escriptorStateSpace|iacriticalPositioning|ialogProlog|ialogSymbols|igitBlock|igitCharacter|irectedEdges|irection|iscreteVariables|ispersionEstimatorFunction|isplayAllSteps|isplayFunction|istanceFunction|istributedContexts|ithering|ividers|ockedCells|otDashed|otted|ynamicEvaluationTimeout|ynamicModuleValues|ynamicUpdating))(?![`$[:alnum:]])",
+                    "match": "System`(?:D(?:ataRange|ataReversed|atasetTheme|ateFormat|ateFunction|ateReduction|ateTicksFormat|ayCountConvention|efaultDuplicateCellStyle|efaultDuration|efaultElement|efaultFontProperties|efaultFormatType|efaultInlineFormatType|efaultNaturalLanguage|efaultNewCellStyle|efaultNewInlineCellStyle|efaultNotebook|efaultOptions|efaultPrintPrecision|efaultStyleDefinitions|einitialization|eletable|eleteContents|eletionWarning|elimiterAutoMatching|elimiterFlashTime|elimiterMatching|elimiters|eliveryFunction|ependentVariables|eployed|escriptorStateSpace|iacriticalPositioning|ialogProlog|ialogSymbols|igitBlock|irectedEdges|irection|iscreteVariables|ispersionEstimatorFunction|isplayAllSteps|isplayFunction|istanceFunction|istributedContexts|ithering|ividers|ockedCells|ynamicEvaluationTimeout|ynamicModuleValues|ynamicUpdating))(?![`$[:alnum:]])",
                     "name": "constant.language.wolfram"
                 },
                 {
-                    "match": "System`(?:E(?:|clipseType|dgeCapacity|dgeCost|dgeLabelStyle|dgeLabels|dgeShapeFunction|dgeStyle|dgeValueRange|dgeValueSizes|dgeWeight|ditCellTagsSettings|ditable|lidedForms|nabled|ndOfBuffer|ndOfFile|ndOfLine|ndOfString|pilog|pilogFunction|scapeRadius|ulerGamma|valuatable|valuationCompletionAction|valuationElements|valuationMonitor|valuator|valuatorNames|ventLabels|xcludePods|xcludedContexts|xcludedForms|xcludedLines|xcludedPhysicalQuantities|xclusions|xclusionsStyle|xponentFunction|xponentPosition|xponentStep|xponentialFamily|xportAutoReplacements|xpression|xpressionUUID|xtension|xtentElementFunction|xtentMarkers|xtentSize|xternalDataCharacterEncoding|xternalOptions|xternalTypeSignature))(?![`$[:alnum:]])",
+                    "match": "System`(?:E(?:clipseType|dgeCapacity|dgeCost|dgeLabelStyle|dgeLabels|dgeShapeFunction|dgeStyle|dgeValueRange|dgeValueSizes|dgeWeight|ditCellTagsSettings|ditable|lidedForms|nabled|pilog|pilogFunction|scapeRadius|valuatable|valuationCompletionAction|valuationElements|valuationMonitor|valuator|valuatorNames|ventLabels|xcludePods|xcludedContexts|xcludedForms|xcludedLines|xcludedPhysicalQuantities|xclusions|xclusionsStyle|xponentFunction|xponentPosition|xponentStep|xponentialFamily|xportAutoReplacements|xpressionUUID|xtension|xtentElementFunction|xtentMarkers|xtentSize|xternalDataCharacterEncoding|xternalOptions|xternalTypeSignature))(?![`$[:alnum:]])",
                     "name": "constant.language.wolfram"
                 },
                 {
-                    "match": "System`(?:F(?:aceGrids|aceGridsStyle|ailureAction|alse|eatureNames|eatureTypes|eedbackSector|eedbackSectorStyle|eedbackType|ieldCompletionFunction|ieldHint|ieldHintStyle|ieldMasked|ieldSize|ileNameDialogSettings|ileNameForms|illing|illingStyle|indSettings|itRegularization|lat|ollowRedirects|ontColor|ontFamily|ontProperties|ontSize|ontSlant|ontSubstitutions|ontTracking|ontVariations|ontWeight|orceVersionInstall|ormBoxOptions|ormLayoutFunction|ormProtectionMethod|ormatType|ormatTypeAutoConvert|orward|orwardBackward|ourierParameters|ractionBoxOptions|ractionLine|rame|rameBoxOptions|rameLabel|rameMargins|rameRate|rameStyle|rameTicks|rameTicksStyle|riday|ront|rontEndDynamicExpression|rontEndEventActions|ull|unctionSpace))(?![`$[:alnum:]])",
+                    "match": "System`(?:F(?:aceGrids|aceGridsStyle|ailureAction|eatureNames|eatureTypes|eedbackSector|eedbackSectorStyle|eedbackType|ieldCompletionFunction|ieldHint|ieldHintStyle|ieldMasked|ieldSize|ileNameDialogSettings|ileNameForms|illing|illingStyle|indSettings|itRegularization|ollowRedirects|ontColor|ontFamily|ontSize|ontSlant|ontSubstitutions|ontTracking|ontVariations|ontWeight|orceVersionInstall|ormBoxOptions|ormLayoutFunction|ormProtectionMethod|ormatType|ormatTypeAutoConvert|ourierParameters|ractionBoxOptions|ractionLine|rame|rameBoxOptions|rameLabel|rameMargins|rameRate|rameStyle|rameTicks|rameTicksStyle|rontEndEventActions|unctionSpace))(?![`$[:alnum:]])",
                     "name": "constant.language.wolfram"
                 },
                 {
-                    "match": "System`(?:G(?:apPenalty|augeFaceElementFunction|augeFaceStyle|augeFrameElementFunction|augeFrameSize|augeFrameStyle|augeLabels|augeMarkers|augeStyle|aussianIntegers|eneral|enerateConditions|eneratedCell|eneratedDocumentBinding|eneratedParameters|eneratedQuantityMagnitudes|eneratorDescription|eneratorHistoryLength|eneratorOutputType|eoArraySize|eoBackground|eoCenter|eoGridLines|eoGridLinesStyle|eoGridRange|eoGridRangePadding|eoLabels|eoLocation|eoModel|eoProjection|eoRange|eoRangePadding|eoResolution|eoScaleBar|eoServer|eoStylingImageFunction|eoZoomLevel|laisher|oldenAngle|oldenRatio|radient|raphHighlight|raphHighlightStyle|raphLayerStyle|raphLayers|raphLayout|ray|reen|ridCreationSettings|ridDefaultElement|ridFrame|ridFrameMargins|ridLines|ridLinesStyle|roupActionBase|roupPageBreakWithin))(?![`$[:alnum:]])",
+                    "match": "System`(?:G(?:apPenalty|augeFaceElementFunction|augeFaceStyle|augeFrameElementFunction|augeFrameSize|augeFrameStyle|augeLabels|augeMarkers|augeStyle|aussianIntegers|enerateConditions|eneratedCell|eneratedDocumentBinding|eneratedParameters|eneratedQuantityMagnitudes|eneratorDescription|eneratorHistoryLength|eneratorOutputType|eoArraySize|eoBackground|eoCenter|eoGridLines|eoGridLinesStyle|eoGridRange|eoGridRangePadding|eoLabels|eoLocation|eoModel|eoProjection|eoRange|eoRangePadding|eoResolution|eoScaleBar|eoServer|eoStylingImageFunction|eoZoomLevel|radient|raphHighlight|raphHighlightStyle|raphLayerStyle|raphLayers|raphLayout|ridCreationSettings|ridDefaultElement|ridFrame|ridFrameMargins|ridLines|ridLinesStyle|roupActionBase|roupPageBreakWithin))(?![`$[:alnum:]])",
                     "name": "constant.language.wolfram"
                 },
                 {
-                    "match": "System`(?:H(?:eaderAlignment|eaderBackground|eaderDisplayFunction|eaderLines|eaderSize|eaderStyle|eads|elpBrowserSettings|ere|exadecimalCharacter|iddenItems|oldAll|oldAllComplete|oldFirst|oldRest|olidayCalendar|yperlinkAction|yphenation))(?![`$[:alnum:]])",
+                    "match": "System`(?:H(?:eaderAlignment|eaderBackground|eaderDisplayFunction|eaderLines|eaderSize|eaderStyle|eads|elpBrowserSettings|iddenItems|olidayCalendar|yperlinkAction|yphenation))(?![`$[:alnum:]])",
                     "name": "constant.language.wolfram"
                 },
                 {
-                    "match": "System`(?:I(?:|conRules|gnoreCase|gnoreDiacritics|gnorePunctuation|mageCaptureFunction|mageFormattingWidth|mageLabels|mageLegends|mageMargins|magePadding|magePreviewFunction|mageRegion|mageResolution|mageSize|mageSizeAction|mageSizeMultipliers|magingDevice|mportAutoReplacements|mportOptions|ncludeConstantBasis|ncludeDefinitions|ncludeDirectories|ncludeFileExtension|ncludeGeneratorTasks|ncludeInflections|ncludeMetaInformation|ncludePods|ncludeQuantities|ncludeSingularSolutions|ncludeWindowTimes|ncludedContexts|ndeterminate|ndeterminateThreshold|nfinity|nflationMethod|nheritScope|nherited|nitialSeeding|nitialization|nitializationCell|nitializationCellEvaluation|nitializationCellWarning|nputAliases|nputAssumptions|nputAutoReplacements|nsertResults|nsertionFunction|nteger|ntegers|nteractive|nterleaving|nterpolationOrder|nterpolationPoints|nterpretationBoxOptions|nterpretationFunction|ntervalMarkers|ntervalMarkersStyle|nverseFunctions|talic|temAspectRatio|temDisplayFunction|temSize|temStyle))(?![`$[:alnum:]])",
+                    "match": "System`(?:I(?:conRules|gnoreCase|gnoreDiacritics|gnorePunctuation|mageCaptureFunction|mageFormattingWidth|mageLabels|mageLegends|mageMargins|magePadding|magePreviewFunction|mageRegion|mageResolution|mageSize|mageSizeAction|mageSizeMultipliers|magingDevice|mportAutoReplacements|mportOptions|ncludeConstantBasis|ncludeDefinitions|ncludeDirectories|ncludeFileExtension|ncludeGeneratorTasks|ncludeInflections|ncludeMetaInformation|ncludePods|ncludeQuantities|ncludeSingularSolutions|ncludeWindowTimes|ncludedContexts|ndeterminateThreshold|nflationMethod|nheritScope|nitialSeeding|nitialization|nitializationCell|nitializationCellEvaluation|nitializationCellWarning|nputAliases|nputAssumptions|nputAutoReplacements|nsertResults|nsertionFunction|nteractive|nterleaving|nterpolationOrder|nterpolationPoints|nterpretationBoxOptions|nterpretationFunction|ntervalMarkers|ntervalMarkersStyle|nverseFunctions|temAspectRatio|temDisplayFunction|temSize|temStyle))(?![`$[:alnum:]])",
                     "name": "constant.language.wolfram"
                 },
                 {
@@ -978,27 +978,27 @@
                     "name": "constant.language.wolfram"
                 },
                 {
-                    "match": "System`(?:K(?:eepExistingVersion|eyCollisionFunction|eypointStrength|hinchin))(?![`$[:alnum:]])",
+                    "match": "System`(?:K(?:eepExistingVersion|eyCollisionFunction|eypointStrength))(?![`$[:alnum:]])",
                     "name": "constant.language.wolfram"
                 },
                 {
-                    "match": "System`(?:L(?:abelStyle|abelVisibility|abelingFunction|abelingSize|anguage|anguageCategory|arge|arger|ayerSizeFunction|eaderSize|earningRate|eft|egendAppearance|egendFunction|egendLabel|egendLayout|egendMargins|egendMarkerSize|egendMarkers|etterCharacter|ightBlue|ightBrown|ightCyan|ightGray|ightGreen|ightMagenta|ightOrange|ightPink|ightPurple|ightRed|ightYellow|ighting|ightingAngle|imitsPositioning|imitsPositioningTokens|ineBreakWithin|ineIndent|ineIndentMaxFraction|ineIntegralConvolutionScale|ineSpacing|inearOffsetFunction|inebreakAdjustments|inkFunction|inkProtocol|istFormat|istPickerBoxOptions|istable|ocalizeVariables|ocatorAutoCreate|ocatorRegion|ocked|ooping))(?![`$[:alnum:]])",
+                    "match": "System`(?:L(?:abelStyle|abelVisibility|abelingFunction|abelingSize|anguage|anguageCategory|ayerSizeFunction|eaderSize|earningRate|egendAppearance|egendFunction|egendLabel|egendLayout|egendMargins|egendMarkerSize|egendMarkers|ighting|ightingAngle|imitsPositioning|imitsPositioningTokens|ineBreakWithin|ineIndent|ineIndentMaxFraction|ineIntegralConvolutionScale|ineSpacing|inearOffsetFunction|inebreakAdjustments|inkFunction|inkProtocol|istFormat|istPickerBoxOptions|ocalizeVariables|ocatorAutoCreate|ocatorRegion|ooping))(?![`$[:alnum:]])",
                     "name": "constant.language.wolfram"
                 },
                 {
-                    "match": "System`(?:M(?:achinePrecision|agenta|agnification|ailAddressValidation|ailResponseFunction|ailSettings|anual|asking|atchLocalNames|axCellMeasure|axColorDistance|axDuration|axExtraBandwidths|axExtraConditions|axFeatureDisplacement|axFeatures|axItems|axIterations|axMixtureKernels|axOverlapFraction|axPlotPoints|axRecursion|axStepFraction|axStepSize|axSteps|edium|emoryConstraint|enuCommandKey|enuSortingValue|enuStyle|esh|eshCellCentroid|eshCellHighlight|eshCellLabel|eshCellMarker|eshCellMeasure|eshCellQuality|eshCellShapeFunction|eshCellStyle|eshFunctions|eshQualityGoal|eshRefinementFunction|eshShading|eshStyle|etaInformation|ethod|inColorDistance|inIntervalSize|inPointSeparation|issingBehavior|issingDataMethod|issingDataRules|issingString|issingStyle|odal|odulus|onday|ultiaxisArrangement|ultiedgeStyle|ultilaunchWarning|ultilineFunction|ultiselection))(?![`$[:alnum:]])",
+                    "match": "System`(?:M(?:agnification|ailAddressValidation|ailResponseFunction|ailSettings|asking|atchLocalNames|axCellMeasure|axColorDistance|axDuration|axExtraBandwidths|axExtraConditions|axFeatureDisplacement|axFeatures|axItems|axIterations|axMixtureKernels|axOverlapFraction|axPlotPoints|axRecursion|axStepFraction|axStepSize|axSteps|emoryConstraint|enuCommandKey|enuSortingValue|enuStyle|esh|eshCellHighlight|eshCellLabel|eshCellMarker|eshCellShapeFunction|eshCellStyle|eshFunctions|eshQualityGoal|eshRefinementFunction|eshShading|eshStyle|etaInformation|ethod|inColorDistance|inIntervalSize|inPointSeparation|issingBehavior|issingDataMethod|issingDataRules|issingString|issingStyle|odal|odulus|ultiaxisArrangement|ultiedgeStyle|ultilaunchWarning|ultilineFunction|ultiselection))(?![`$[:alnum:]])",
                     "name": "constant.language.wolfram"
                 },
                 {
-                    "match": "System`(?:N(?:HoldAll|HoldFirst|HoldRest|egativeIntegers|egativeRationals|egativeReals|icholsGridLines|oWhitespace|ominalVariables|onConstants|onNegativeIntegers|onNegativeRationals|onNegativeReals|onPositiveIntegers|onPositiveRationals|onPositiveReals|one|ormFunction|ormalized|ormalsFunction|otebookAutoSave|otebookBrowseDirectory|otebookConvertSettings|otebookDynamicExpression|otebookEventActions|otebookPath|otebooksMenu|otificationFunction|ow|ull|ullRecords|ullWords|umber|umberFormat|umberMarks|umberMultiplier|umberPadding|umberPoint|umberSeparator|umberSigns|umberString|umericFunction|yquistGridLines))(?![`$[:alnum:]])",
+                    "match": "System`(?:N(?:icholsGridLines|ominalVariables|onConstants|ormFunction|ormalized|ormalsFunction|otebookAutoSave|otebookBrowseDirectory|otebookConvertSettings|otebookDynamicExpression|otebookEventActions|otebookPath|otebooksMenu|otificationFunction|ullRecords|ullWords|umberFormat|umberMarks|umberMultiplier|umberPadding|umberPoint|umberSeparator|umberSigns|yquistGridLines))(?![`$[:alnum:]])",
                     "name": "constant.language.wolfram"
                 },
                 {
-                    "match": "System`(?:O(?:neIdentity|pacityFunction|pacityFunctionScaling|peratingSystem|ptionInspectorSettings|range|rderless|utputAutoOverwrite|utputSizeLimit|verlaps|verscriptBoxOptions|verwriteTarget))(?![`$[:alnum:]])",
+                    "match": "System`(?:O(?:pacityFunction|pacityFunctionScaling|peratingSystem|ptionInspectorSettings|utputAutoOverwrite|utputSizeLimit|verlaps|verscriptBoxOptions|verwriteTarget))(?![`$[:alnum:]])",
                     "name": "constant.language.wolfram"
                 },
                 {
-                    "match": "System`(?:P(?:IDDerivativeFilter|IDFeedforward|acletSite|adding|addingSize|ageBreakAbove|ageBreakBelow|ageBreakWithin|ageFooterLines|ageFooters|ageHeaderLines|ageHeaders|ageTheme|ageWidth|alettePath|aneled|aragraphIndent|aragraphSpacing|arallelization|arameterEstimator|artBehavior|artitionGranularity|assEventsDown|assEventsUp|asteBoxFormInlineCells|ath|erformanceGoal|ermissions|haseRange|i|ink|laceholderReplace|lain|layRange|lotLabel|lotLabels|lotLayout|lotLegends|lotMarkers|lotPoints|lotRange|lotRangeClipping|lotRangePadding|lotRegion|lotStyle|lotTheme|odStates|odWidth|olarAxes|olarAxesOrigin|olarGridLines|olarTicks|oleZeroMarkers|ositiveIntegers|ositiveRationals|ositiveReals|recisionGoal|referencesPath|reprocessingRules|reserveColor|reserveImageOptions|rimes|rincipalValue|rintAction|rintPrecision|rintingCopies|rintingOptions|rintingPageRange|rintingStartingPageNumber|rintingStyleEnvironment|rintout3DPreviewer|rivateCellOptions|rivateEvaluationOptions|rivateFontOptions|rivateNotebookOptions|rivatePaths|rocessDirectory|rocessEnvironment|rocessEstimator|rogressReporting|rolog|rotected|unctuationCharacter|urple))(?![`$[:alnum:]])",
+                    "match": "System`(?:P(?:IDDerivativeFilter|IDFeedforward|acletSite|adding|addingSize|ageBreakAbove|ageBreakBelow|ageBreakWithin|ageFooterLines|ageFooters|ageHeaderLines|ageHeaders|ageTheme|ageWidth|alettePath|aneled|aragraphIndent|aragraphSpacing|arallelization|arameterEstimator|artBehavior|artitionGranularity|assEventsDown|assEventsUp|asteBoxFormInlineCells|ath|erformanceGoal|ermissions|haseRange|laceholderReplace|layRange|lotLabel|lotLabels|lotLayout|lotLegends|lotMarkers|lotPoints|lotRange|lotRangeClipping|lotRangePadding|lotRegion|lotStyle|lotTheme|odStates|odWidth|olarAxes|olarAxesOrigin|olarGridLines|olarTicks|oleZeroMarkers|recisionGoal|referencesPath|reprocessingRules|reserveColor|reserveImageOptions|rincipalValue|rintAction|rintPrecision|rintingCopies|rintingOptions|rintingPageRange|rintingStartingPageNumber|rintingStyleEnvironment|rintout3DPreviewer|rivateCellOptions|rivateEvaluationOptions|rivateFontOptions|rivateNotebookOptions|rivatePaths|rocessDirectory|rocessEnvironment|rocessEstimator|rogressReporting|rolog))(?![`$[:alnum:]])",
                     "name": "constant.language.wolfram"
                 },
                 {
@@ -1006,19 +1006,19 @@
                     "name": "constant.language.wolfram"
                 },
                 {
-                    "match": "System`(?:R(?:adicalBoxOptions|andomSeeding|asterSize|ationals|eImLabels|eImStyle|eadProtected|eal|ealBlockDiagonalForm|eals|ecognitionPrior|ecord|ecordLists|ecordSeparators|ed|eferenceLineStyle|efreshRate|egionBoundaryStyle|egionFillingStyle|egionFunction|egionSize|egularization|enderingOptions|equiredPhysicalQuantities|esampling|esamplingMethod|esolveContextAliases|estartInterval|eturnReceiptFunction|evolutionAxis|ight|otateLabel|otationAction|oundingRadius|owAlignments|owLines|owMinHeight|owSpacings|owsEqual|ulerUnits|untimeAttributes|untimeOptions))(?![`$[:alnum:]])",
+                    "match": "System`(?:R(?:adicalBoxOptions|andomSeeding|asterSize|eImLabels|eImStyle|ealBlockDiagonalForm|ecognitionPrior|ecordLists|ecordSeparators|eferenceLineStyle|efreshRate|egionBoundaryStyle|egionFillingStyle|egionFunction|egionSize|egularization|enderingOptions|equiredPhysicalQuantities|esampling|esamplingMethod|esolveContextAliases|estartInterval|eturnReceiptFunction|evolutionAxis|otateLabel|otationAction|oundingRadius|owAlignments|owLines|owMinHeight|owSpacings|owsEqual|ulerUnits|untimeAttributes|untimeOptions))(?![`$[:alnum:]])",
                     "name": "constant.language.wolfram"
                 },
                 {
-                    "match": "System`(?:S(?:ameTest|ampleDepth|ampleRate|amplingPeriod|aturday|aveConnection|aveDefinitions|aveable|caleDivisions|caleOrigin|calePadding|caleRangeStyle|caleRanges|calingFunctions|cientificNotationThreshold|creenStyleEnvironment|criptBaselineShifts|criptLevel|criptMinSize|criptSizeMultipliers|crollPosition|crollbars|crollingOptions|ectorOrigin|ectorSpacing|electable|elfLoopStyle|equenceHold|eriesTermGoal|haringList|howAutoSpellCheck|howAutoStyles|howCellBracket|howCellLabel|howCellTags|howClosedCellArea|howContents|howCursorTracker|howGroupOpener|howPageBreaks|howSelection|howShortBoxForm|howSpecialCharacters|howStringCharacters|hrinkingDelay|ignPadding|ignificanceLevel|imilarityRules|ingleLetterItalics|liderBoxOptions|mall|maller|ortedBy|oundVolume|pacings|panAdjustments|panCharacterRounding|panFromAbove|panFromBoth|panFromLeft|panLineThickness|panMaxSize|panMinSize|panSymmetric|pecificityGoal|pellingCorrection|pellingDictionaries|pellingDictionariesPath|pellingOptions|phericalRegion|plineClosed|plineDegree|plineKnots|plineWeights|qrtBoxOptions|tabilityMargins|tabilityMarginsStyle|tandardized|tartOfLine|tartOfString|tartingStepSize|tateSpaceRealization|tepMonitor|trataVariables|treamColorFunction|treamColorFunctionScaling|treamMarkers|treamPoints|treamScale|treamStyle|trictInequalities|tring|tripOnInput|tripWrapperBoxes|truckthrough|tructuredSelection|tub|tyleBoxAutoDelete|tyleDefinitions|tyleHints|tyleMenuListing|tyleNameDialogSettings|tyleSheetPath|ubscriptBoxOptions|ubsuperscriptBoxOptions|ubtitleEncoding|unday|uperscriptBoxOptions|urdForm|ynchronousInitialization|ynchronousUpdating|yntaxForm|ystemHelpPath|ystemsModelLabels))(?![`$[:alnum:]])",
+                    "match": "System`(?:S(?:ameTest|ampleDepth|ampleRate|amplingPeriod|aveConnection|aveDefinitions|aveable|caleDivisions|caleOrigin|calePadding|caleRangeStyle|caleRanges|calingFunctions|cientificNotationThreshold|creenStyleEnvironment|criptBaselineShifts|criptLevel|criptMinSize|criptSizeMultipliers|crollPosition|crollbars|crollingOptions|ectorOrigin|ectorSpacing|electable|elfLoopStyle|eriesTermGoal|haringList|howAutoSpellCheck|howAutoStyles|howCellBracket|howCellLabel|howCellTags|howClosedCellArea|howContents|howCursorTracker|howGroupOpener|howPageBreaks|howSelection|howShortBoxForm|howSpecialCharacters|howStringCharacters|hrinkingDelay|ignPadding|ignificanceLevel|imilarityRules|ingleLetterItalics|liderBoxOptions|ortedBy|oundVolume|pacings|panAdjustments|panCharacterRounding|panLineThickness|panMaxSize|panMinSize|panSymmetric|pecificityGoal|pellingCorrection|pellingDictionaries|pellingDictionariesPath|pellingOptions|phericalRegion|plineClosed|plineDegree|plineKnots|plineWeights|qrtBoxOptions|tabilityMargins|tabilityMarginsStyle|tandardized|tartingStepSize|tateSpaceRealization|tepMonitor|trataVariables|treamColorFunction|treamColorFunctionScaling|treamMarkers|treamPoints|treamScale|treamStyle|trictInequalities|tripOnInput|tripWrapperBoxes|tructuredSelection|tyleBoxAutoDelete|tyleDefinitions|tyleHints|tyleMenuListing|tyleNameDialogSettings|tyleSheetPath|ubscriptBoxOptions|ubsuperscriptBoxOptions|ubtitleEncoding|uperscriptBoxOptions|urdForm|ynchronousInitialization|ynchronousUpdating|yntaxForm|ystemHelpPath|ystemsModelLabels))(?![`$[:alnum:]])",
                     "name": "constant.language.wolfram"
                 },
                 {
-                    "match": "System`(?:T(?:abFilling|abSpacings|ableAlignments|ableDepth|ableDirections|ableHeadings|ableSpacing|agBoxOptions|aggingRules|argetFunctions|argetUnits|emplateBoxOptions|emporalRegularity|emporary|estID|extAlignment|extClipboardType|extJustification|extureCoordinateFunction|extureCoordinateScaling|hick|hin|hursday|icks|icksStyle|imeConstraint|imeDirection|imeFormat|imeGoal|imeSystem|imeZone|iny|oday|okenWords|olerance|omorrow|ooltipDelay|ooltipStyle|op|otalWidth|ouchscreenAutoZoom|ouchscreenControlPlacement|raceAbove|raceBackward|raceDepth|raceForward|raceOff|raceOn|raceOriginal|rackedSymbols|rackingFunction|raditionalFunctionNotation|ransformationClass|ransformationFunctions|ransitionDirection|ransitionDuration|ransitionEffect|ranslationOptions|ransparent|ravelMethod|rendStyle|rig|rue|uesday))(?![`$[:alnum:]])",
+                    "match": "System`(?:T(?:abFilling|abSpacings|ableAlignments|ableDepth|ableDirections|ableHeadings|ableSpacing|agBoxOptions|aggingRules|argetFunctions|argetUnits|emplateBoxOptions|emporalRegularity|estID|extAlignment|extClipboardType|extJustification|extureCoordinateFunction|extureCoordinateScaling|icks|icksStyle|imeConstraint|imeDirection|imeFormat|imeGoal|imeSystem|imeZone|okenWords|olerance|ooltipDelay|ooltipStyle|otalWidth|ouchscreenAutoZoom|ouchscreenControlPlacement|raceAbove|raceBackward|raceDepth|raceForward|raceOff|raceOn|raceOriginal|rackedSymbols|rackingFunction|raditionalFunctionNotation|ransformationClass|ransformationFunctions|ransitionDirection|ransitionDuration|ransitionEffect|ranslationOptions|ravelMethod|rendStyle|rig))(?![`$[:alnum:]])",
                     "name": "constant.language.wolfram"
                 },
                 {
-                    "match": "System`(?:U(?:ndefined|nderlined|nderoverscriptBoxOptions|nderscriptBoxOptions|ndoOptions|ndoTrackedVariables|nitSystem|nityDimensions|nsavedVariables|pdateInterval|pdatePacletSites|tilityFunction))(?![`$[:alnum:]])",
+                    "match": "System`(?:U(?:nderoverscriptBoxOptions|nderscriptBoxOptions|ndoOptions|ndoTrackedVariables|nitSystem|nityDimensions|nsavedVariables|pdateInterval|pdatePacletSites|tilityFunction))(?![`$[:alnum:]])",
                     "name": "constant.language.wolfram"
                 },
                 {
@@ -1026,15 +1026,95 @@
                     "name": "constant.language.wolfram"
                 },
                 {
-                    "match": "System`(?:W(?:aveletScale|ednesday|eights|hite|hitePoint|hitespace|hitespaceCharacter|indowClickSelect|indowElements|indowFloating|indowFrame|indowFrameElements|indowMargins|indowOpacity|indowSize|indowStatusArea|indowTitle|indowToolbars|ord|ordBoundary|ordCharacter|ordOrientation|ordSearch|ordSelectionFunction|ordSeparators|ordSpacings|orkingPrecision|rapAround))(?![`$[:alnum:]])",
-                    "name": "constant.language.wolfram"
-                },
-                {
-                    "match": "System`(?:Y(?:ellow|esterday))(?![`$[:alnum:]])",
+                    "match": "System`(?:W(?:aveletScale|eights|hitePoint|indowClickSelect|indowElements|indowFloating|indowFrame|indowFrameElements|indowMargins|indowOpacity|indowSize|indowStatusArea|indowTitle|indowToolbars|ordOrientation|ordSearch|ordSelectionFunction|ordSeparators|ordSpacings|orkingPrecision|rapAround))(?![`$[:alnum:]])",
                     "name": "constant.language.wolfram"
                 },
                 {
                     "match": "System`(?:Z(?:eroTest|eroWidthTimes))(?![`$[:alnum:]])",
+                    "name": "constant.language.wolfram"
+                },
+                {
+                    "match": "System`(?:A(?:bove|fter|lgebraics|ll|nonymous|utomatic|xis))(?![`$[:alnum:]])",
+                    "name": "constant.language.wolfram"
+                },
+                {
+                    "match": "System`(?:B(?:ack|ackward|aseline|efore|elow|lack|lue|old|ooleans|ottom|oxes|rown|yte))(?![`$[:alnum:]])",
+                    "name": "constant.language.wolfram"
+                },
+                {
+                    "match": "System`(?:C(?:atalan|ellStyle|enter|haracter|omplexInfinity|omplexes|onstant|yan))(?![`$[:alnum:]])",
+                    "name": "constant.language.wolfram"
+                },
+                {
+                    "match": "System`(?:D(?:ashed|efaultAxesStyle|efaultBaseStyle|efaultBoxStyle|efaultFaceGridsStyle|efaultFieldHintStyle|efaultFrameStyle|efaultFrameTicksStyle|efaultGridLinesStyle|efaultLabelStyle|efaultMenuStyle|efaultTicksStyle|efaultTooltipStyle|egree|elimiter|igitCharacter|otDashed|otted))(?![`$[:alnum:]])",
+                    "name": "constant.language.wolfram"
+                },
+                {
+                    "match": "System`(?:E(?:|ndOfBuffer|ndOfFile|ndOfLine|ndOfString|ulerGamma|xpression))(?![`$[:alnum:]])",
+                    "name": "constant.language.wolfram"
+                },
+                {
+                    "match": "System`(?:F(?:alse|lat|ontProperties|orward|orwardBackward|riday|ront|rontEndDynamicExpression|ull))(?![`$[:alnum:]])",
+                    "name": "constant.language.wolfram"
+                },
+                {
+                    "match": "System`(?:G(?:eneral|laisher|oldenAngle|oldenRatio|ray|reen))(?![`$[:alnum:]])",
+                    "name": "constant.language.wolfram"
+                },
+                {
+                    "match": "System`(?:H(?:ere|exadecimalCharacter|oldAll|oldAllComplete|oldFirst|oldRest))(?![`$[:alnum:]])",
+                    "name": "constant.language.wolfram"
+                },
+                {
+                    "match": "System`(?:I(?:|ndeterminate|nfinity|nherited|nteger|ntegers|talic))(?![`$[:alnum:]])",
+                    "name": "constant.language.wolfram"
+                },
+                {
+                    "match": "System`(?:K(?:hinchin))(?![`$[:alnum:]])",
+                    "name": "constant.language.wolfram"
+                },
+                {
+                    "match": "System`(?:L(?:arge|arger|eft|etterCharacter|ightBlue|ightBrown|ightCyan|ightGray|ightGreen|ightMagenta|ightOrange|ightPink|ightPurple|ightRed|ightYellow|istable|ocked))(?![`$[:alnum:]])",
+                    "name": "constant.language.wolfram"
+                },
+                {
+                    "match": "System`(?:M(?:achinePrecision|agenta|anual|edium|eshCellCentroid|eshCellMeasure|eshCellQuality|onday))(?![`$[:alnum:]])",
+                    "name": "constant.language.wolfram"
+                },
+                {
+                    "match": "System`(?:N(?:HoldAll|HoldFirst|HoldRest|egativeIntegers|egativeRationals|egativeReals|oWhitespace|onNegativeIntegers|onNegativeRationals|onNegativeReals|onPositiveIntegers|onPositiveRationals|onPositiveReals|one|ow|ull|umber|umberString|umericFunction))(?![`$[:alnum:]])",
+                    "name": "constant.language.wolfram"
+                },
+                {
+                    "match": "System`(?:O(?:neIdentity|range|rderless))(?![`$[:alnum:]])",
+                    "name": "constant.language.wolfram"
+                },
+                {
+                    "match": "System`(?:P(?:i|ink|lain|ositiveIntegers|ositiveRationals|ositiveReals|rimes|rotected|unctuationCharacter|urple))(?![`$[:alnum:]])",
+                    "name": "constant.language.wolfram"
+                },
+                {
+                    "match": "System`(?:R(?:ationals|eadProtected|eal|eals|ecord|ed|ight))(?![`$[:alnum:]])",
+                    "name": "constant.language.wolfram"
+                },
+                {
+                    "match": "System`(?:S(?:aturday|equenceHold|mall|maller|panFromAbove|panFromBoth|panFromLeft|tartOfLine|tartOfString|tring|truckthrough|tub|unday))(?![`$[:alnum:]])",
+                    "name": "constant.language.wolfram"
+                },
+                {
+                    "match": "System`(?:T(?:emporary|hick|hin|hursday|iny|oday|omorrow|op|ransparent|rue|uesday))(?![`$[:alnum:]])",
+                    "name": "constant.language.wolfram"
+                },
+                {
+                    "match": "System`(?:U(?:ndefined|nderlined))(?![`$[:alnum:]])",
+                    "name": "constant.language.wolfram"
+                },
+                {
+                    "match": "System`(?:W(?:ednesday|hite|hitespace|hitespaceCharacter|ord|ordBoundary|ordCharacter))(?![`$[:alnum:]])",
+                    "name": "constant.language.wolfram"
+                },
+                {
+                    "match": "System`(?:Y(?:ellow|esterday))(?![`$[:alnum:]])",
                     "name": "constant.language.wolfram"
                 },
                 {
@@ -1470,39 +1550,39 @@
                     "name": "support.function.builtin.wolfram"
                 },
                 {
-                    "match": "(?:A(?:bove|cceptanceThreshold|ccuracyGoal|ctiveStyle|ddOnHelpPath|djustmentBoxOptions|fter|lgebraics|lignment|lignmentPoint|ll|llowGroupClose|llowInlineCells|llowLooseGrammar|llowReverseGroupClose|llowScriptLevelChange|llowVersionUpdate|llowedCloudExtraParameters|llowedCloudParameterExtensions|llowedDimensions|llowedFrequencyRange|llowedHeads|lternativeHypothesis|ltitudeMethod|mbiguityFunction|natomySkinStyle|nchoredSearch|nimationDirection|nimationRate|nimationRepetitions|nimationRunTime|nimationRunning|nimationTimeIndex|nnotationRules|nonymous|ntialiasing|ppearance|ppearanceElements|ppearanceRules|spectRatio|ssociationFormat|ssumptions|synchronous|ttachedCell|udioChannelAssignment|udioEncoding|udioInputDevice|udioLabel|udioOutputDevice|uthentication|utoAction|utoCopy|utoDelete|utoGeneratedPackage|utoIndent|utoItalicWords|utoMultiplicationSymbol|utoOpenNotebooks|utoOpenPalettes|utoOperatorRenderings|utoRemove|utoScroll|utoSpacing|utoloadPath|utomatic|utorunSequencing|xes|xesEdge|xesLabel|xesOrigin|xesStyle|xis))(?![`$[:alnum:]])",
+                    "match": "(?:A(?:cceptanceThreshold|ccuracyGoal|ctiveStyle|ddOnHelpPath|djustmentBoxOptions|lignment|lignmentPoint|llowGroupClose|llowInlineCells|llowLooseGrammar|llowReverseGroupClose|llowScriptLevelChange|llowVersionUpdate|llowedCloudExtraParameters|llowedCloudParameterExtensions|llowedDimensions|llowedFrequencyRange|llowedHeads|lternativeHypothesis|ltitudeMethod|mbiguityFunction|natomySkinStyle|nchoredSearch|nimationDirection|nimationRate|nimationRepetitions|nimationRunTime|nimationRunning|nimationTimeIndex|nnotationRules|ntialiasing|ppearance|ppearanceElements|ppearanceRules|spectRatio|ssociationFormat|ssumptions|synchronous|ttachedCell|udioChannelAssignment|udioEncoding|udioInputDevice|udioLabel|udioOutputDevice|uthentication|utoAction|utoCopy|utoDelete|utoGeneratedPackage|utoIndent|utoItalicWords|utoMultiplicationSymbol|utoOpenNotebooks|utoOpenPalettes|utoOperatorRenderings|utoRemove|utoScroll|utoSpacing|utoloadPath|utorunSequencing|xes|xesEdge|xesLabel|xesOrigin|xesStyle))(?![`$[:alnum:]])",
                     "name": "constant.language.wolfram"
                 },
                 {
-                    "match": "(?:B(?:ack|ackground|ackward|arOrigin|arSpacing|aseStyle|aseline|aselinePosition|efore|elow|inaryFormat|lack|lue|old|ookmarks|ooleanStrings|ooleans|ottom|oundaryStyle|oxBaselineShift|oxFormFormatTypes|oxFrame|oxMargins|oxRatios|oxStyle|oxed|oxes|rown|ubbleScale|ubbleSizes|uttonBoxOptions|uttonData|uttonFunction|uttonMinHeight|uttonSource|yte|yteOrdering))(?![`$[:alnum:]])",
+                    "match": "(?:B(?:ackground|arOrigin|arSpacing|aseStyle|aselinePosition|inaryFormat|ookmarks|ooleanStrings|oundaryStyle|oxBaselineShift|oxFormFormatTypes|oxFrame|oxMargins|oxRatios|oxStyle|oxed|ubbleScale|ubbleSizes|uttonBoxOptions|uttonData|uttonFunction|uttonMinHeight|uttonSource|yteOrdering))(?![`$[:alnum:]])",
                     "name": "constant.language.wolfram"
                 },
                 {
-                    "match": "(?:C(?:alendarType|alloutMarker|alloutStyle|aptureRunning|aseOrdering|atalan|elestialSystem|ellAutoOverwrite|ellBaseline|ellBracketOptions|ellChangeTimes|ellContext|ellDingbat|ellDingbatMargin|ellDynamicExpression|ellEditDuplicate|ellEpilog|ellEvaluationDuplicate|ellEvaluationFunction|ellEventActions|ellFrame|ellFrameColor|ellFrameLabelMargins|ellFrameLabels|ellFrameMargins|ellGrouping|ellGroupingRules|ellHorizontalScrolling|ellID|ellLabel|ellLabelAutoDelete|ellLabelMargins|ellLabelPositioning|ellLabelStyle|ellMargins|ellOpen|ellProlog|ellSize|ellStyle|ellTags|enter|haracter|haracterEncoding|haracterEncodingsPath|hartBaseStyle|hartElementFunction|hartElements|hartLabels|hartLayout|hartLegends|hartStyle|lassPriors|lickToCopyEnabled|lipPlanes|lipPlanesStyle|lipRange|lippingStyle|losingAutoSave|loudBase|loudObjectNameFormat|loudObjectURLType|lusterDissimilarityFunction|odeAssistOptions|olorCoverage|olorFunction|olorFunctionBinning|olorFunctionScaling|olorRules|olorSelectorSettings|olorSpace|olumnAlignments|olumnLines|olumnSpacings|olumnWidths|olumnsEqual|ombinerFunction|ommonDefaultFormatTypes|ommunityBoundaryStyle|ommunityLabels|ommunityRegionStyle|ompilationOptions|ompilationTarget|ompiled|omplexInfinity|omplexes|omplexityFunction|ompressionLevel|onfidenceLevel|onfidenceRange|onfidenceTransform|onfigurationPath|onstant|onstants|ontentPadding|ontentSelectable|ontentSize|ontinuousAction|ontourLabels|ontourShading|ontourStyle|ontours|ontrolPlacement|ontrolType|ontrollerLinking|ontrollerMethod|ontrollerPath|ontrolsRendering|onversionRules|ookieFunction|oordinatesToolOptions|opyFunction|opyable|ornerNeighbors|ounterAssignments|ounterFunction|ounterIncrements|ounterStyleMenuListing|ovarianceEstimatorFunction|reateCellID|reateIntermediateDirectories|riterionFunction|ubics|urveClosed|yan))(?![`$[:alnum:]])",
+                    "match": "(?:C(?:alendarType|alloutMarker|alloutStyle|aptureRunning|aseOrdering|elestialSystem|ellAutoOverwrite|ellBaseline|ellBracketOptions|ellChangeTimes|ellContext|ellDingbat|ellDingbatMargin|ellDynamicExpression|ellEditDuplicate|ellEpilog|ellEvaluationDuplicate|ellEvaluationFunction|ellEventActions|ellFrame|ellFrameColor|ellFrameLabelMargins|ellFrameLabels|ellFrameMargins|ellGrouping|ellGroupingRules|ellHorizontalScrolling|ellID|ellLabel|ellLabelAutoDelete|ellLabelMargins|ellLabelPositioning|ellLabelStyle|ellMargins|ellOpen|ellProlog|ellSize|ellTags|haracterEncoding|haracterEncodingsPath|hartBaseStyle|hartElementFunction|hartElements|hartLabels|hartLayout|hartLegends|hartStyle|lassPriors|lickToCopyEnabled|lipPlanes|lipPlanesStyle|lipRange|lippingStyle|losingAutoSave|loudBase|loudObjectNameFormat|loudObjectURLType|lusterDissimilarityFunction|odeAssistOptions|olorCoverage|olorFunction|olorFunctionBinning|olorFunctionScaling|olorRules|olorSelectorSettings|olorSpace|olumnAlignments|olumnLines|olumnSpacings|olumnWidths|olumnsEqual|ombinerFunction|ommonDefaultFormatTypes|ommunityBoundaryStyle|ommunityLabels|ommunityRegionStyle|ompilationOptions|ompilationTarget|ompiled|omplexityFunction|ompressionLevel|onfidenceLevel|onfidenceRange|onfidenceTransform|onfigurationPath|onstants|ontentPadding|ontentSelectable|ontentSize|ontinuousAction|ontourLabels|ontourShading|ontourStyle|ontours|ontrolPlacement|ontrolType|ontrollerLinking|ontrollerMethod|ontrollerPath|ontrolsRendering|onversionRules|ookieFunction|oordinatesToolOptions|opyFunction|opyable|ornerNeighbors|ounterAssignments|ounterFunction|ounterIncrements|ounterStyleMenuListing|ovarianceEstimatorFunction|reateCellID|reateIntermediateDirectories|riterionFunction|ubics|urveClosed))(?![`$[:alnum:]])",
                     "name": "constant.language.wolfram"
                 },
                 {
-                    "match": "(?:D(?:ashed|ataRange|ataReversed|atasetTheme|ateFormat|ateFunction|ateReduction|ateTicksFormat|ayCountConvention|efaultAxesStyle|efaultBaseStyle|efaultBoxStyle|efaultDuplicateCellStyle|efaultDuration|efaultElement|efaultFaceGridsStyle|efaultFieldHintStyle|efaultFontProperties|efaultFormatType|efaultFrameStyle|efaultFrameTicksStyle|efaultGridLinesStyle|efaultInlineFormatType|efaultLabelStyle|efaultMenuStyle|efaultNaturalLanguage|efaultNewCellStyle|efaultNewInlineCellStyle|efaultNotebook|efaultOptions|efaultPrintPrecision|efaultStyleDefinitions|efaultTicksStyle|efaultTooltipStyle|egree|einitialization|eletable|eleteContents|eletionWarning|elimiter|elimiterAutoMatching|elimiterFlashTime|elimiterMatching|elimiters|eliveryFunction|ependentVariables|eployed|escriptorStateSpace|iacriticalPositioning|ialogProlog|ialogSymbols|igitBlock|igitCharacter|irectedEdges|irection|iscreteVariables|ispersionEstimatorFunction|isplayAllSteps|isplayFunction|istanceFunction|istributedContexts|ithering|ividers|ockedCells|otDashed|otted|ynamicEvaluationTimeout|ynamicModuleValues|ynamicUpdating))(?![`$[:alnum:]])",
+                    "match": "(?:D(?:ataRange|ataReversed|atasetTheme|ateFormat|ateFunction|ateReduction|ateTicksFormat|ayCountConvention|efaultDuplicateCellStyle|efaultDuration|efaultElement|efaultFontProperties|efaultFormatType|efaultInlineFormatType|efaultNaturalLanguage|efaultNewCellStyle|efaultNewInlineCellStyle|efaultNotebook|efaultOptions|efaultPrintPrecision|efaultStyleDefinitions|einitialization|eletable|eleteContents|eletionWarning|elimiterAutoMatching|elimiterFlashTime|elimiterMatching|elimiters|eliveryFunction|ependentVariables|eployed|escriptorStateSpace|iacriticalPositioning|ialogProlog|ialogSymbols|igitBlock|irectedEdges|irection|iscreteVariables|ispersionEstimatorFunction|isplayAllSteps|isplayFunction|istanceFunction|istributedContexts|ithering|ividers|ockedCells|ynamicEvaluationTimeout|ynamicModuleValues|ynamicUpdating))(?![`$[:alnum:]])",
                     "name": "constant.language.wolfram"
                 },
                 {
-                    "match": "(?:E(?:|clipseType|dgeCapacity|dgeCost|dgeLabelStyle|dgeLabels|dgeShapeFunction|dgeStyle|dgeValueRange|dgeValueSizes|dgeWeight|ditCellTagsSettings|ditable|lidedForms|nabled|ndOfBuffer|ndOfFile|ndOfLine|ndOfString|pilog|pilogFunction|scapeRadius|ulerGamma|valuatable|valuationCompletionAction|valuationElements|valuationMonitor|valuator|valuatorNames|ventLabels|xcludePods|xcludedContexts|xcludedForms|xcludedLines|xcludedPhysicalQuantities|xclusions|xclusionsStyle|xponentFunction|xponentPosition|xponentStep|xponentialFamily|xportAutoReplacements|xpression|xpressionUUID|xtension|xtentElementFunction|xtentMarkers|xtentSize|xternalDataCharacterEncoding|xternalOptions|xternalTypeSignature))(?![`$[:alnum:]])",
+                    "match": "(?:E(?:clipseType|dgeCapacity|dgeCost|dgeLabelStyle|dgeLabels|dgeShapeFunction|dgeStyle|dgeValueRange|dgeValueSizes|dgeWeight|ditCellTagsSettings|ditable|lidedForms|nabled|pilog|pilogFunction|scapeRadius|valuatable|valuationCompletionAction|valuationElements|valuationMonitor|valuator|valuatorNames|ventLabels|xcludePods|xcludedContexts|xcludedForms|xcludedLines|xcludedPhysicalQuantities|xclusions|xclusionsStyle|xponentFunction|xponentPosition|xponentStep|xponentialFamily|xportAutoReplacements|xpressionUUID|xtension|xtentElementFunction|xtentMarkers|xtentSize|xternalDataCharacterEncoding|xternalOptions|xternalTypeSignature))(?![`$[:alnum:]])",
                     "name": "constant.language.wolfram"
                 },
                 {
-                    "match": "(?:F(?:aceGrids|aceGridsStyle|ailureAction|alse|eatureNames|eatureTypes|eedbackSector|eedbackSectorStyle|eedbackType|ieldCompletionFunction|ieldHint|ieldHintStyle|ieldMasked|ieldSize|ileNameDialogSettings|ileNameForms|illing|illingStyle|indSettings|itRegularization|lat|ollowRedirects|ontColor|ontFamily|ontProperties|ontSize|ontSlant|ontSubstitutions|ontTracking|ontVariations|ontWeight|orceVersionInstall|ormBoxOptions|ormLayoutFunction|ormProtectionMethod|ormatType|ormatTypeAutoConvert|orward|orwardBackward|ourierParameters|ractionBoxOptions|ractionLine|rame|rameBoxOptions|rameLabel|rameMargins|rameRate|rameStyle|rameTicks|rameTicksStyle|riday|ront|rontEndDynamicExpression|rontEndEventActions|ull|unctionSpace))(?![`$[:alnum:]])",
+                    "match": "(?:F(?:aceGrids|aceGridsStyle|ailureAction|eatureNames|eatureTypes|eedbackSector|eedbackSectorStyle|eedbackType|ieldCompletionFunction|ieldHint|ieldHintStyle|ieldMasked|ieldSize|ileNameDialogSettings|ileNameForms|illing|illingStyle|indSettings|itRegularization|ollowRedirects|ontColor|ontFamily|ontSize|ontSlant|ontSubstitutions|ontTracking|ontVariations|ontWeight|orceVersionInstall|ormBoxOptions|ormLayoutFunction|ormProtectionMethod|ormatType|ormatTypeAutoConvert|ourierParameters|ractionBoxOptions|ractionLine|rame|rameBoxOptions|rameLabel|rameMargins|rameRate|rameStyle|rameTicks|rameTicksStyle|rontEndEventActions|unctionSpace))(?![`$[:alnum:]])",
                     "name": "constant.language.wolfram"
                 },
                 {
-                    "match": "(?:G(?:apPenalty|augeFaceElementFunction|augeFaceStyle|augeFrameElementFunction|augeFrameSize|augeFrameStyle|augeLabels|augeMarkers|augeStyle|aussianIntegers|eneral|enerateConditions|eneratedCell|eneratedDocumentBinding|eneratedParameters|eneratedQuantityMagnitudes|eneratorDescription|eneratorHistoryLength|eneratorOutputType|eoArraySize|eoBackground|eoCenter|eoGridLines|eoGridLinesStyle|eoGridRange|eoGridRangePadding|eoLabels|eoLocation|eoModel|eoProjection|eoRange|eoRangePadding|eoResolution|eoScaleBar|eoServer|eoStylingImageFunction|eoZoomLevel|laisher|oldenAngle|oldenRatio|radient|raphHighlight|raphHighlightStyle|raphLayerStyle|raphLayers|raphLayout|ray|reen|ridCreationSettings|ridDefaultElement|ridFrame|ridFrameMargins|ridLines|ridLinesStyle|roupActionBase|roupPageBreakWithin))(?![`$[:alnum:]])",
+                    "match": "(?:G(?:apPenalty|augeFaceElementFunction|augeFaceStyle|augeFrameElementFunction|augeFrameSize|augeFrameStyle|augeLabels|augeMarkers|augeStyle|aussianIntegers|enerateConditions|eneratedCell|eneratedDocumentBinding|eneratedParameters|eneratedQuantityMagnitudes|eneratorDescription|eneratorHistoryLength|eneratorOutputType|eoArraySize|eoBackground|eoCenter|eoGridLines|eoGridLinesStyle|eoGridRange|eoGridRangePadding|eoLabels|eoLocation|eoModel|eoProjection|eoRange|eoRangePadding|eoResolution|eoScaleBar|eoServer|eoStylingImageFunction|eoZoomLevel|radient|raphHighlight|raphHighlightStyle|raphLayerStyle|raphLayers|raphLayout|ridCreationSettings|ridDefaultElement|ridFrame|ridFrameMargins|ridLines|ridLinesStyle|roupActionBase|roupPageBreakWithin))(?![`$[:alnum:]])",
                     "name": "constant.language.wolfram"
                 },
                 {
-                    "match": "(?:H(?:eaderAlignment|eaderBackground|eaderDisplayFunction|eaderLines|eaderSize|eaderStyle|eads|elpBrowserSettings|ere|exadecimalCharacter|iddenItems|oldAll|oldAllComplete|oldFirst|oldRest|olidayCalendar|yperlinkAction|yphenation))(?![`$[:alnum:]])",
+                    "match": "(?:H(?:eaderAlignment|eaderBackground|eaderDisplayFunction|eaderLines|eaderSize|eaderStyle|eads|elpBrowserSettings|iddenItems|olidayCalendar|yperlinkAction|yphenation))(?![`$[:alnum:]])",
                     "name": "constant.language.wolfram"
                 },
                 {
-                    "match": "(?:I(?:|conRules|gnoreCase|gnoreDiacritics|gnorePunctuation|mageCaptureFunction|mageFormattingWidth|mageLabels|mageLegends|mageMargins|magePadding|magePreviewFunction|mageRegion|mageResolution|mageSize|mageSizeAction|mageSizeMultipliers|magingDevice|mportAutoReplacements|mportOptions|ncludeConstantBasis|ncludeDefinitions|ncludeDirectories|ncludeFileExtension|ncludeGeneratorTasks|ncludeInflections|ncludeMetaInformation|ncludePods|ncludeQuantities|ncludeSingularSolutions|ncludeWindowTimes|ncludedContexts|ndeterminate|ndeterminateThreshold|nfinity|nflationMethod|nheritScope|nherited|nitialSeeding|nitialization|nitializationCell|nitializationCellEvaluation|nitializationCellWarning|nputAliases|nputAssumptions|nputAutoReplacements|nsertResults|nsertionFunction|nteger|ntegers|nteractive|nterleaving|nterpolationOrder|nterpolationPoints|nterpretationBoxOptions|nterpretationFunction|ntervalMarkers|ntervalMarkersStyle|nverseFunctions|talic|temAspectRatio|temDisplayFunction|temSize|temStyle))(?![`$[:alnum:]])",
+                    "match": "(?:I(?:conRules|gnoreCase|gnoreDiacritics|gnorePunctuation|mageCaptureFunction|mageFormattingWidth|mageLabels|mageLegends|mageMargins|magePadding|magePreviewFunction|mageRegion|mageResolution|mageSize|mageSizeAction|mageSizeMultipliers|magingDevice|mportAutoReplacements|mportOptions|ncludeConstantBasis|ncludeDefinitions|ncludeDirectories|ncludeFileExtension|ncludeGeneratorTasks|ncludeInflections|ncludeMetaInformation|ncludePods|ncludeQuantities|ncludeSingularSolutions|ncludeWindowTimes|ncludedContexts|ndeterminateThreshold|nflationMethod|nheritScope|nitialSeeding|nitialization|nitializationCell|nitializationCellEvaluation|nitializationCellWarning|nputAliases|nputAssumptions|nputAutoReplacements|nsertResults|nsertionFunction|nteractive|nterleaving|nterpolationOrder|nterpolationPoints|nterpretationBoxOptions|nterpretationFunction|ntervalMarkers|ntervalMarkersStyle|nverseFunctions|temAspectRatio|temDisplayFunction|temSize|temStyle))(?![`$[:alnum:]])",
                     "name": "constant.language.wolfram"
                 },
                 {
@@ -1510,27 +1590,27 @@
                     "name": "constant.language.wolfram"
                 },
                 {
-                    "match": "(?:K(?:eepExistingVersion|eyCollisionFunction|eypointStrength|hinchin))(?![`$[:alnum:]])",
+                    "match": "(?:K(?:eepExistingVersion|eyCollisionFunction|eypointStrength))(?![`$[:alnum:]])",
                     "name": "constant.language.wolfram"
                 },
                 {
-                    "match": "(?:L(?:abelStyle|abelVisibility|abelingFunction|abelingSize|anguage|anguageCategory|arge|arger|ayerSizeFunction|eaderSize|earningRate|eft|egendAppearance|egendFunction|egendLabel|egendLayout|egendMargins|egendMarkerSize|egendMarkers|etterCharacter|ightBlue|ightBrown|ightCyan|ightGray|ightGreen|ightMagenta|ightOrange|ightPink|ightPurple|ightRed|ightYellow|ighting|ightingAngle|imitsPositioning|imitsPositioningTokens|ineBreakWithin|ineIndent|ineIndentMaxFraction|ineIntegralConvolutionScale|ineSpacing|inearOffsetFunction|inebreakAdjustments|inkFunction|inkProtocol|istFormat|istPickerBoxOptions|istable|ocalizeVariables|ocatorAutoCreate|ocatorRegion|ocked|ooping))(?![`$[:alnum:]])",
+                    "match": "(?:L(?:abelStyle|abelVisibility|abelingFunction|abelingSize|anguage|anguageCategory|ayerSizeFunction|eaderSize|earningRate|egendAppearance|egendFunction|egendLabel|egendLayout|egendMargins|egendMarkerSize|egendMarkers|ighting|ightingAngle|imitsPositioning|imitsPositioningTokens|ineBreakWithin|ineIndent|ineIndentMaxFraction|ineIntegralConvolutionScale|ineSpacing|inearOffsetFunction|inebreakAdjustments|inkFunction|inkProtocol|istFormat|istPickerBoxOptions|ocalizeVariables|ocatorAutoCreate|ocatorRegion|ooping))(?![`$[:alnum:]])",
                     "name": "constant.language.wolfram"
                 },
                 {
-                    "match": "(?:M(?:achinePrecision|agenta|agnification|ailAddressValidation|ailResponseFunction|ailSettings|anual|asking|atchLocalNames|axCellMeasure|axColorDistance|axDuration|axExtraBandwidths|axExtraConditions|axFeatureDisplacement|axFeatures|axItems|axIterations|axMixtureKernels|axOverlapFraction|axPlotPoints|axRecursion|axStepFraction|axStepSize|axSteps|edium|emoryConstraint|enuCommandKey|enuSortingValue|enuStyle|esh|eshCellCentroid|eshCellHighlight|eshCellLabel|eshCellMarker|eshCellMeasure|eshCellQuality|eshCellShapeFunction|eshCellStyle|eshFunctions|eshQualityGoal|eshRefinementFunction|eshShading|eshStyle|etaInformation|ethod|inColorDistance|inIntervalSize|inPointSeparation|issingBehavior|issingDataMethod|issingDataRules|issingString|issingStyle|odal|odulus|onday|ultiaxisArrangement|ultiedgeStyle|ultilaunchWarning|ultilineFunction|ultiselection))(?![`$[:alnum:]])",
+                    "match": "(?:M(?:agnification|ailAddressValidation|ailResponseFunction|ailSettings|asking|atchLocalNames|axCellMeasure|axColorDistance|axDuration|axExtraBandwidths|axExtraConditions|axFeatureDisplacement|axFeatures|axItems|axIterations|axMixtureKernels|axOverlapFraction|axPlotPoints|axRecursion|axStepFraction|axStepSize|axSteps|emoryConstraint|enuCommandKey|enuSortingValue|enuStyle|esh|eshCellHighlight|eshCellLabel|eshCellMarker|eshCellShapeFunction|eshCellStyle|eshFunctions|eshQualityGoal|eshRefinementFunction|eshShading|eshStyle|etaInformation|ethod|inColorDistance|inIntervalSize|inPointSeparation|issingBehavior|issingDataMethod|issingDataRules|issingString|issingStyle|odal|odulus|ultiaxisArrangement|ultiedgeStyle|ultilaunchWarning|ultilineFunction|ultiselection))(?![`$[:alnum:]])",
                     "name": "constant.language.wolfram"
                 },
                 {
-                    "match": "(?:N(?:HoldAll|HoldFirst|HoldRest|egativeIntegers|egativeRationals|egativeReals|icholsGridLines|oWhitespace|ominalVariables|onConstants|onNegativeIntegers|onNegativeRationals|onNegativeReals|onPositiveIntegers|onPositiveRationals|onPositiveReals|one|ormFunction|ormalized|ormalsFunction|otebookAutoSave|otebookBrowseDirectory|otebookConvertSettings|otebookDynamicExpression|otebookEventActions|otebookPath|otebooksMenu|otificationFunction|ow|ull|ullRecords|ullWords|umber|umberFormat|umberMarks|umberMultiplier|umberPadding|umberPoint|umberSeparator|umberSigns|umberString|umericFunction|yquistGridLines))(?![`$[:alnum:]])",
+                    "match": "(?:N(?:icholsGridLines|ominalVariables|onConstants|ormFunction|ormalized|ormalsFunction|otebookAutoSave|otebookBrowseDirectory|otebookConvertSettings|otebookDynamicExpression|otebookEventActions|otebookPath|otebooksMenu|otificationFunction|ullRecords|ullWords|umberFormat|umberMarks|umberMultiplier|umberPadding|umberPoint|umberSeparator|umberSigns|yquistGridLines))(?![`$[:alnum:]])",
                     "name": "constant.language.wolfram"
                 },
                 {
-                    "match": "(?:O(?:neIdentity|pacityFunction|pacityFunctionScaling|peratingSystem|ptionInspectorSettings|range|rderless|utputAutoOverwrite|utputSizeLimit|verlaps|verscriptBoxOptions|verwriteTarget))(?![`$[:alnum:]])",
+                    "match": "(?:O(?:pacityFunction|pacityFunctionScaling|peratingSystem|ptionInspectorSettings|utputAutoOverwrite|utputSizeLimit|verlaps|verscriptBoxOptions|verwriteTarget))(?![`$[:alnum:]])",
                     "name": "constant.language.wolfram"
                 },
                 {
-                    "match": "(?:P(?:IDDerivativeFilter|IDFeedforward|acletSite|adding|addingSize|ageBreakAbove|ageBreakBelow|ageBreakWithin|ageFooterLines|ageFooters|ageHeaderLines|ageHeaders|ageTheme|ageWidth|alettePath|aneled|aragraphIndent|aragraphSpacing|arallelization|arameterEstimator|artBehavior|artitionGranularity|assEventsDown|assEventsUp|asteBoxFormInlineCells|ath|erformanceGoal|ermissions|haseRange|i|ink|laceholderReplace|lain|layRange|lotLabel|lotLabels|lotLayout|lotLegends|lotMarkers|lotPoints|lotRange|lotRangeClipping|lotRangePadding|lotRegion|lotStyle|lotTheme|odStates|odWidth|olarAxes|olarAxesOrigin|olarGridLines|olarTicks|oleZeroMarkers|ositiveIntegers|ositiveRationals|ositiveReals|recisionGoal|referencesPath|reprocessingRules|reserveColor|reserveImageOptions|rimes|rincipalValue|rintAction|rintPrecision|rintingCopies|rintingOptions|rintingPageRange|rintingStartingPageNumber|rintingStyleEnvironment|rintout3DPreviewer|rivateCellOptions|rivateEvaluationOptions|rivateFontOptions|rivateNotebookOptions|rivatePaths|rocessDirectory|rocessEnvironment|rocessEstimator|rogressReporting|rolog|rotected|unctuationCharacter|urple))(?![`$[:alnum:]])",
+                    "match": "(?:P(?:IDDerivativeFilter|IDFeedforward|acletSite|adding|addingSize|ageBreakAbove|ageBreakBelow|ageBreakWithin|ageFooterLines|ageFooters|ageHeaderLines|ageHeaders|ageTheme|ageWidth|alettePath|aneled|aragraphIndent|aragraphSpacing|arallelization|arameterEstimator|artBehavior|artitionGranularity|assEventsDown|assEventsUp|asteBoxFormInlineCells|ath|erformanceGoal|ermissions|haseRange|laceholderReplace|layRange|lotLabel|lotLabels|lotLayout|lotLegends|lotMarkers|lotPoints|lotRange|lotRangeClipping|lotRangePadding|lotRegion|lotStyle|lotTheme|odStates|odWidth|olarAxes|olarAxesOrigin|olarGridLines|olarTicks|oleZeroMarkers|recisionGoal|referencesPath|reprocessingRules|reserveColor|reserveImageOptions|rincipalValue|rintAction|rintPrecision|rintingCopies|rintingOptions|rintingPageRange|rintingStartingPageNumber|rintingStyleEnvironment|rintout3DPreviewer|rivateCellOptions|rivateEvaluationOptions|rivateFontOptions|rivateNotebookOptions|rivatePaths|rocessDirectory|rocessEnvironment|rocessEstimator|rogressReporting|rolog))(?![`$[:alnum:]])",
                     "name": "constant.language.wolfram"
                 },
                 {
@@ -1538,19 +1618,19 @@
                     "name": "constant.language.wolfram"
                 },
                 {
-                    "match": "(?:R(?:adicalBoxOptions|andomSeeding|asterSize|ationals|eImLabels|eImStyle|eadProtected|eal|ealBlockDiagonalForm|eals|ecognitionPrior|ecord|ecordLists|ecordSeparators|ed|eferenceLineStyle|efreshRate|egionBoundaryStyle|egionFillingStyle|egionFunction|egionSize|egularization|enderingOptions|equiredPhysicalQuantities|esampling|esamplingMethod|esolveContextAliases|estartInterval|eturnReceiptFunction|evolutionAxis|ight|otateLabel|otationAction|oundingRadius|owAlignments|owLines|owMinHeight|owSpacings|owsEqual|ulerUnits|untimeAttributes|untimeOptions))(?![`$[:alnum:]])",
+                    "match": "(?:R(?:adicalBoxOptions|andomSeeding|asterSize|eImLabels|eImStyle|ealBlockDiagonalForm|ecognitionPrior|ecordLists|ecordSeparators|eferenceLineStyle|efreshRate|egionBoundaryStyle|egionFillingStyle|egionFunction|egionSize|egularization|enderingOptions|equiredPhysicalQuantities|esampling|esamplingMethod|esolveContextAliases|estartInterval|eturnReceiptFunction|evolutionAxis|otateLabel|otationAction|oundingRadius|owAlignments|owLines|owMinHeight|owSpacings|owsEqual|ulerUnits|untimeAttributes|untimeOptions))(?![`$[:alnum:]])",
                     "name": "constant.language.wolfram"
                 },
                 {
-                    "match": "(?:S(?:ameTest|ampleDepth|ampleRate|amplingPeriod|aturday|aveConnection|aveDefinitions|aveable|caleDivisions|caleOrigin|calePadding|caleRangeStyle|caleRanges|calingFunctions|cientificNotationThreshold|creenStyleEnvironment|criptBaselineShifts|criptLevel|criptMinSize|criptSizeMultipliers|crollPosition|crollbars|crollingOptions|ectorOrigin|ectorSpacing|electable|elfLoopStyle|equenceHold|eriesTermGoal|haringList|howAutoSpellCheck|howAutoStyles|howCellBracket|howCellLabel|howCellTags|howClosedCellArea|howContents|howCursorTracker|howGroupOpener|howPageBreaks|howSelection|howShortBoxForm|howSpecialCharacters|howStringCharacters|hrinkingDelay|ignPadding|ignificanceLevel|imilarityRules|ingleLetterItalics|liderBoxOptions|mall|maller|ortedBy|oundVolume|pacings|panAdjustments|panCharacterRounding|panFromAbove|panFromBoth|panFromLeft|panLineThickness|panMaxSize|panMinSize|panSymmetric|pecificityGoal|pellingCorrection|pellingDictionaries|pellingDictionariesPath|pellingOptions|phericalRegion|plineClosed|plineDegree|plineKnots|plineWeights|qrtBoxOptions|tabilityMargins|tabilityMarginsStyle|tandardized|tartOfLine|tartOfString|tartingStepSize|tateSpaceRealization|tepMonitor|trataVariables|treamColorFunction|treamColorFunctionScaling|treamMarkers|treamPoints|treamScale|treamStyle|trictInequalities|tring|tripOnInput|tripWrapperBoxes|truckthrough|tructuredSelection|tub|tyleBoxAutoDelete|tyleDefinitions|tyleHints|tyleMenuListing|tyleNameDialogSettings|tyleSheetPath|ubscriptBoxOptions|ubsuperscriptBoxOptions|ubtitleEncoding|unday|uperscriptBoxOptions|urdForm|ynchronousInitialization|ynchronousUpdating|yntaxForm|ystemHelpPath|ystemsModelLabels))(?![`$[:alnum:]])",
+                    "match": "(?:S(?:ameTest|ampleDepth|ampleRate|amplingPeriod|aveConnection|aveDefinitions|aveable|caleDivisions|caleOrigin|calePadding|caleRangeStyle|caleRanges|calingFunctions|cientificNotationThreshold|creenStyleEnvironment|criptBaselineShifts|criptLevel|criptMinSize|criptSizeMultipliers|crollPosition|crollbars|crollingOptions|ectorOrigin|ectorSpacing|electable|elfLoopStyle|eriesTermGoal|haringList|howAutoSpellCheck|howAutoStyles|howCellBracket|howCellLabel|howCellTags|howClosedCellArea|howContents|howCursorTracker|howGroupOpener|howPageBreaks|howSelection|howShortBoxForm|howSpecialCharacters|howStringCharacters|hrinkingDelay|ignPadding|ignificanceLevel|imilarityRules|ingleLetterItalics|liderBoxOptions|ortedBy|oundVolume|pacings|panAdjustments|panCharacterRounding|panLineThickness|panMaxSize|panMinSize|panSymmetric|pecificityGoal|pellingCorrection|pellingDictionaries|pellingDictionariesPath|pellingOptions|phericalRegion|plineClosed|plineDegree|plineKnots|plineWeights|qrtBoxOptions|tabilityMargins|tabilityMarginsStyle|tandardized|tartingStepSize|tateSpaceRealization|tepMonitor|trataVariables|treamColorFunction|treamColorFunctionScaling|treamMarkers|treamPoints|treamScale|treamStyle|trictInequalities|tripOnInput|tripWrapperBoxes|tructuredSelection|tyleBoxAutoDelete|tyleDefinitions|tyleHints|tyleMenuListing|tyleNameDialogSettings|tyleSheetPath|ubscriptBoxOptions|ubsuperscriptBoxOptions|ubtitleEncoding|uperscriptBoxOptions|urdForm|ynchronousInitialization|ynchronousUpdating|yntaxForm|ystemHelpPath|ystemsModelLabels))(?![`$[:alnum:]])",
                     "name": "constant.language.wolfram"
                 },
                 {
-                    "match": "(?:T(?:abFilling|abSpacings|ableAlignments|ableDepth|ableDirections|ableHeadings|ableSpacing|agBoxOptions|aggingRules|argetFunctions|argetUnits|emplateBoxOptions|emporalRegularity|emporary|estID|extAlignment|extClipboardType|extJustification|extureCoordinateFunction|extureCoordinateScaling|hick|hin|hursday|icks|icksStyle|imeConstraint|imeDirection|imeFormat|imeGoal|imeSystem|imeZone|iny|oday|okenWords|olerance|omorrow|ooltipDelay|ooltipStyle|op|otalWidth|ouchscreenAutoZoom|ouchscreenControlPlacement|raceAbove|raceBackward|raceDepth|raceForward|raceOff|raceOn|raceOriginal|rackedSymbols|rackingFunction|raditionalFunctionNotation|ransformationClass|ransformationFunctions|ransitionDirection|ransitionDuration|ransitionEffect|ranslationOptions|ransparent|ravelMethod|rendStyle|rig|rue|uesday))(?![`$[:alnum:]])",
+                    "match": "(?:T(?:abFilling|abSpacings|ableAlignments|ableDepth|ableDirections|ableHeadings|ableSpacing|agBoxOptions|aggingRules|argetFunctions|argetUnits|emplateBoxOptions|emporalRegularity|estID|extAlignment|extClipboardType|extJustification|extureCoordinateFunction|extureCoordinateScaling|icks|icksStyle|imeConstraint|imeDirection|imeFormat|imeGoal|imeSystem|imeZone|okenWords|olerance|ooltipDelay|ooltipStyle|otalWidth|ouchscreenAutoZoom|ouchscreenControlPlacement|raceAbove|raceBackward|raceDepth|raceForward|raceOff|raceOn|raceOriginal|rackedSymbols|rackingFunction|raditionalFunctionNotation|ransformationClass|ransformationFunctions|ransitionDirection|ransitionDuration|ransitionEffect|ranslationOptions|ravelMethod|rendStyle|rig))(?![`$[:alnum:]])",
                     "name": "constant.language.wolfram"
                 },
                 {
-                    "match": "(?:U(?:ndefined|nderlined|nderoverscriptBoxOptions|nderscriptBoxOptions|ndoOptions|ndoTrackedVariables|nitSystem|nityDimensions|nsavedVariables|pdateInterval|pdatePacletSites|tilityFunction))(?![`$[:alnum:]])",
+                    "match": "(?:U(?:nderoverscriptBoxOptions|nderscriptBoxOptions|ndoOptions|ndoTrackedVariables|nitSystem|nityDimensions|nsavedVariables|pdateInterval|pdatePacletSites|tilityFunction))(?![`$[:alnum:]])",
                     "name": "constant.language.wolfram"
                 },
                 {
@@ -1558,15 +1638,95 @@
                     "name": "constant.language.wolfram"
                 },
                 {
-                    "match": "(?:W(?:aveletScale|ednesday|eights|hite|hitePoint|hitespace|hitespaceCharacter|indowClickSelect|indowElements|indowFloating|indowFrame|indowFrameElements|indowMargins|indowOpacity|indowSize|indowStatusArea|indowTitle|indowToolbars|ord|ordBoundary|ordCharacter|ordOrientation|ordSearch|ordSelectionFunction|ordSeparators|ordSpacings|orkingPrecision|rapAround))(?![`$[:alnum:]])",
-                    "name": "constant.language.wolfram"
-                },
-                {
-                    "match": "(?:Y(?:ellow|esterday))(?![`$[:alnum:]])",
+                    "match": "(?:W(?:aveletScale|eights|hitePoint|indowClickSelect|indowElements|indowFloating|indowFrame|indowFrameElements|indowMargins|indowOpacity|indowSize|indowStatusArea|indowTitle|indowToolbars|ordOrientation|ordSearch|ordSelectionFunction|ordSeparators|ordSpacings|orkingPrecision|rapAround))(?![`$[:alnum:]])",
                     "name": "constant.language.wolfram"
                 },
                 {
                     "match": "(?:Z(?:eroTest|eroWidthTimes))(?![`$[:alnum:]])",
+                    "name": "constant.language.wolfram"
+                },
+                {
+                    "match": "(?:A(?:bove|fter|lgebraics|ll|nonymous|utomatic|xis))(?![`$[:alnum:]])",
+                    "name": "constant.language.wolfram"
+                },
+                {
+                    "match": "(?:B(?:ack|ackward|aseline|efore|elow|lack|lue|old|ooleans|ottom|oxes|rown|yte))(?![`$[:alnum:]])",
+                    "name": "constant.language.wolfram"
+                },
+                {
+                    "match": "(?:C(?:atalan|ellStyle|enter|haracter|omplexInfinity|omplexes|onstant|yan))(?![`$[:alnum:]])",
+                    "name": "constant.language.wolfram"
+                },
+                {
+                    "match": "(?:D(?:ashed|efaultAxesStyle|efaultBaseStyle|efaultBoxStyle|efaultFaceGridsStyle|efaultFieldHintStyle|efaultFrameStyle|efaultFrameTicksStyle|efaultGridLinesStyle|efaultLabelStyle|efaultMenuStyle|efaultTicksStyle|efaultTooltipStyle|egree|elimiter|igitCharacter|otDashed|otted))(?![`$[:alnum:]])",
+                    "name": "constant.language.wolfram"
+                },
+                {
+                    "match": "(?:E(?:|ndOfBuffer|ndOfFile|ndOfLine|ndOfString|ulerGamma|xpression))(?![`$[:alnum:]])",
+                    "name": "constant.language.wolfram"
+                },
+                {
+                    "match": "(?:F(?:alse|lat|ontProperties|orward|orwardBackward|riday|ront|rontEndDynamicExpression|ull))(?![`$[:alnum:]])",
+                    "name": "constant.language.wolfram"
+                },
+                {
+                    "match": "(?:G(?:eneral|laisher|oldenAngle|oldenRatio|ray|reen))(?![`$[:alnum:]])",
+                    "name": "constant.language.wolfram"
+                },
+                {
+                    "match": "(?:H(?:ere|exadecimalCharacter|oldAll|oldAllComplete|oldFirst|oldRest))(?![`$[:alnum:]])",
+                    "name": "constant.language.wolfram"
+                },
+                {
+                    "match": "(?:I(?:|ndeterminate|nfinity|nherited|nteger|ntegers|talic))(?![`$[:alnum:]])",
+                    "name": "constant.language.wolfram"
+                },
+                {
+                    "match": "(?:K(?:hinchin))(?![`$[:alnum:]])",
+                    "name": "constant.language.wolfram"
+                },
+                {
+                    "match": "(?:L(?:arge|arger|eft|etterCharacter|ightBlue|ightBrown|ightCyan|ightGray|ightGreen|ightMagenta|ightOrange|ightPink|ightPurple|ightRed|ightYellow|istable|ocked))(?![`$[:alnum:]])",
+                    "name": "constant.language.wolfram"
+                },
+                {
+                    "match": "(?:M(?:achinePrecision|agenta|anual|edium|eshCellCentroid|eshCellMeasure|eshCellQuality|onday))(?![`$[:alnum:]])",
+                    "name": "constant.language.wolfram"
+                },
+                {
+                    "match": "(?:N(?:HoldAll|HoldFirst|HoldRest|egativeIntegers|egativeRationals|egativeReals|oWhitespace|onNegativeIntegers|onNegativeRationals|onNegativeReals|onPositiveIntegers|onPositiveRationals|onPositiveReals|one|ow|ull|umber|umberString|umericFunction))(?![`$[:alnum:]])",
+                    "name": "constant.language.wolfram"
+                },
+                {
+                    "match": "(?:O(?:neIdentity|range|rderless))(?![`$[:alnum:]])",
+                    "name": "constant.language.wolfram"
+                },
+                {
+                    "match": "(?:P(?:i|ink|lain|ositiveIntegers|ositiveRationals|ositiveReals|rimes|rotected|unctuationCharacter|urple))(?![`$[:alnum:]])",
+                    "name": "constant.language.wolfram"
+                },
+                {
+                    "match": "(?:R(?:ationals|eadProtected|eal|eals|ecord|ed|ight))(?![`$[:alnum:]])",
+                    "name": "constant.language.wolfram"
+                },
+                {
+                    "match": "(?:S(?:aturday|equenceHold|mall|maller|panFromAbove|panFromBoth|panFromLeft|tartOfLine|tartOfString|tring|truckthrough|tub|unday))(?![`$[:alnum:]])",
+                    "name": "constant.language.wolfram"
+                },
+                {
+                    "match": "(?:T(?:emporary|hick|hin|hursday|iny|oday|omorrow|op|ransparent|rue|uesday))(?![`$[:alnum:]])",
+                    "name": "constant.language.wolfram"
+                },
+                {
+                    "match": "(?:U(?:ndefined|nderlined))(?![`$[:alnum:]])",
+                    "name": "constant.language.wolfram"
+                },
+                {
+                    "match": "(?:W(?:ednesday|hite|hitespace|hitespaceCharacter|ord|ordBoundary|ordCharacter))(?![`$[:alnum:]])",
+                    "name": "constant.language.wolfram"
+                },
+                {
+                    "match": "(?:Y(?:ellow|esterday))(?![`$[:alnum:]])",
                     "name": "constant.language.wolfram"
                 },
                 {
