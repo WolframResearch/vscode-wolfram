@@ -39,6 +39,8 @@ LSP functionality uses a Wolfram kernel to run as a language server.
 
 This requires Wolfram System 12.1 or higher.
 
+You can use either Mathematica or the free Wolfram Engine.
+
 If you do not have the Wolfram System installed, then download and install the free [Wolfram Engine](https://www.wolfram.com/engine/).
 
 The Wolfram Language extension depends on [LSPServer paclet](https://github.com/WolframResearch/lspserver) to provide LSP functionality.
@@ -63,7 +65,7 @@ You should see warnings about duplicate clauses.
 
 ### Settings
 
-If you have Wolfram System installed in the default location on your system, you may not have to change any settings.
+If you have Wolfram System (either Mathematica or Wolfram Engine) installed in the default location on your system, you may not have to change any settings.
 
 If Wolfram System is not in the default location, then specify the actual location:
 
@@ -72,61 +74,42 @@ Open the Command Palette
 Enter the command:
 `Preferences: Configure Language Specific Settings...`
 
-Select `Wolfram`
+Enter `@ext:wolframresearch.wolfram `
 
-A `settings.json` file is now open.
+A UI file is now open.
 
-Add a `wolfram.kernel` setting:
+![settings](docs/settings.png)
+
+And change the `Wolfram: Kernel` setting to the location of the `WolframKernel` executable to use.
+
+The default location for Wolfram Engine on Linux is:
 ```
-{
-  …
-
-  "wolfram.kernel": "/Applications/Mathematica.app/Contents/MacOS/WolframKernel"
-
-  …
-}
-
+/usr/local/Wolfram/WolframEngine/13.1/Executables/WolframKernel
 ```
 
-You may also change the command that is used to start the server:
+The default location for Wolfram Engine on Windows is:
 ```
-{
-  …
-
-  "wolfram.command": [
-      "`kernel`",
-      "-noinit",
-      "-noprompt",
-      "-nopaclet",
-      "-noicon",
-      "-nostartuppaclets",
-      "-run",
-      "Needs[\"LSPServer`\"];LSPServer`StartServer[]"
-  ]
-
-  …
-}
+C:\Program Files\Wolfram Research\Wolfram Engine\13.1\WolframKernel.exe
 ```
 
-You may disable Wolfram language server by specifying:
+The default location for Wolfram Engine on macOS is:
 ```
-"wolfram.lsp_server_enabled": false,
+/Applications/Mathematica.app/Contents/MacOS/WolframKernel
 ```
+
 
 #### Other Settings
 
 It is convenient to remove `$` from word separators, which is a letterlike character in WL.
 
 It is also convenient to add `_` from word separators, which is NOT a letterlike character in WL.
-
 ```
-"editor.wordSeparators": "`~!@#%^&*()-=+[{]}\\|;:'\",.<>/?_",
+"editor.wordSeparators": "`~!@#%^&*()-=+[{]}\\|;:'\",.<>/?_"
 ```
 
 A color theme that focuses on WL syntax is available.
-
 ```
-"workbench.colorTheme": "BrentonWL",
+"workbench.colorTheme": "BrentonWL"
 ```
 
 
@@ -134,14 +117,9 @@ A color theme that focuses on WL syntax is available.
 
 You can enable experimental settings. These are not supported.
 
-`implicitTokens` controls the display of implicit tokens.
+`Wolfram: Implicit Tokens` controls the display of implicit tokens:
 ```
-{
-  …
-
-  "wolfram.implicitTokens": ["*", ",", ";;", "?"]
-  …
-}
+["*", ",", ";;", "?"]
 ```
 
 * `"*"`: display implicit Times character `×`
@@ -151,18 +129,9 @@ You can enable experimental settings. These are not supported.
 * `?`: display `□` in place of missing arguments
 
 
-`semanticTokens` controls semantic highlighting such as `Module` variables.
+`Wolfram: Semantic Tokens` controls semantic highlighting such as `Module` variables.
 
-```
-{
-  …
-
-  "wolfram.semanticTokens": true
-  …
-}
-```
-
-To use semantic tokens, a theme that has semantic highlighting enabled must be used, such as BrentonWL.
+To use semantic tokens, a theme that has semantic highlighting enabled must be used, such as `BrentonWL`.
 
 
 ## Troubleshooting
