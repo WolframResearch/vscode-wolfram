@@ -2022,7 +2022,7 @@
                     "name": "invalid.bad.wolfram"
                 },
                 {
-                    "match": "(?:E(?:xpandFilename))(?![`$[:alnum:]])",
+                    "match": "(?:E(?:xpandFilename|xportPacket))(?![`$[:alnum:]])",
                     "name": "invalid.bad.wolfram"
                 },
                 {
