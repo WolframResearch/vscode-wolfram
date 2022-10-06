@@ -9,7 +9,7 @@ else()
 endif()
 endif()
 
-if(CMAKE_HOST_WIN32 OR CYGWIN)
+if(MSVC)
 	set(WOLFRAMKERNEL_DEFAULT ${MATHEMATICA_INSTALL_DIR}/wolfram.exe)
 	set(WOLFRAMLIBRARY_INCLUDE_DIR_DEFAULT ${MATHEMATICA_INSTALL_DIR}/SystemFiles/IncludeFiles/C)
 	#
@@ -20,9 +20,17 @@ if(CMAKE_HOST_WIN32 OR CYGWIN)
 	# starting in 11.2, the single path for MathLink includes and MathLink libs is:
 	# SystemFiles/Links/MathLink/DeveloperKit/Windows-x86-64/CompilerAdditions
 	#
+	if(EXISTS ${MATHEMATICA_INSTALL_DIR}/SystemFiles/Links/MathLink/DeveloperKit/Windows-x86-64/CompilerAdditions/mldev64/include)
+	set(MATHLINK_INCLUDE_DIR_DEFAULT ${MATHEMATICA_INSTALL_DIR}/SystemFiles/Links/MathLink/DeveloperKit/Windows-x86-64/CompilerAdditions/mldev64/include)
+	else()
 	set(MATHLINK_INCLUDE_DIR_DEFAULT ${MATHEMATICA_INSTALL_DIR}/SystemFiles/Links/MathLink/DeveloperKit/Windows-x86-64/CompilerAdditions)
+	endif()
+	if(EXISTS ${MATHEMATICA_INSTALL_DIR}/SystemFiles/Links/MathLink/DeveloperKit/Windows-x86-64/CompilerAdditions/mldev64/lib)
+	set(MATHLINK_LIB_DIR_DEFAULT ${MATHEMATICA_INSTALL_DIR}/SystemFiles/Links/MathLink/DeveloperKit/Windows-x86-64/CompilerAdditions/mldev64/lib)
+	else()
 	set(MATHLINK_LIB_DIR_DEFAULT ${MATHEMATICA_INSTALL_DIR}/SystemFiles/Links/MathLink/DeveloperKit/Windows-x86-64/CompilerAdditions)
-elseif (CMAKE_HOST_APPLE)
+	endif()
+elseif (APPLE)
 	set(WOLFRAMKERNEL_DEFAULT ${MATHEMATICA_INSTALL_DIR}/MacOS/WolframKernel)
 	set(WOLFRAMLIBRARY_INCLUDE_DIR_DEFAULT ${MATHEMATICA_INSTALL_DIR}/SystemFiles/IncludeFiles/C)
 	set(MATHLINK_INCLUDE_DIR_DEFAULT ${MATHEMATICA_INSTALL_DIR}/SystemFiles/Links/MathLink/DeveloperKit/MacOSX-x86-64/CompilerAdditions)
@@ -144,10 +152,8 @@ macro(CheckWolframKernel)
 	elseif(${CMAKE_SIZEOF_VOID_P} EQUAL 4)
 	if(NOT ${SYSTEMWORDLENGTH} EQUAL 32)
 	message(FATAL_ERROR
-		"CMake is reporting 32-bit; Mathematica is reporting: ${SYSTEMWORDLENGTH}"
-		"\n"
+		"CMake is reporting 32-bit; Mathematica is reporting: ${SYSTEMWORDLENGTH}\n"
 		"HINT: On Windows, you probably need to specify -A x64"
-		"\n"
 	)
 	endif()
 	elseif(${CMAKE_SIZEOF_VOID_P} EQUAL 8)

@@ -1,5 +1,9 @@
 
-## v1.8.0 - XX Sep, 2022
+## v1.8.0 - 10 Oct, 2022
+
+Add `_` to wordSeparators suggestion.
+
+Add links to free Wolfram Engine.
 
 
 ## v1.7.0 - 4 July, 2022
