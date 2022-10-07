@@ -1,4 +1,7 @@
 
+## v1.9.0 - XX Dec, 2022
+
+
 ## v1.8.0 - 10 Oct, 2022
 
 Add `_` to wordSeparators suggestion.
