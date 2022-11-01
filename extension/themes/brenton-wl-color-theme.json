@@ -11,7 +11,11 @@
 		"parameter": "#e4861b",
 		"parameter.shadowed": "#f2430e",
 		"parameter.error": "#ff0000",
-		"parameter.unused": "#888888"
+		"parameter.unused": "#888888",
+		"constant.With": "#ae81ff",
+		"constant.shadowed": "#f2430e",
+		"constant.error": "#ff0000",
+		"constant.unused": "#888888"
 	},
 	"tokenColors": [
 		{

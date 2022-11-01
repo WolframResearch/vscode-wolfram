@@ -111,12 +111,16 @@
 				"description": "Annotates a variable that is Block scoped"
 			},
 			{
+				"id": "With",
+				"description": "Annotates a constant that is With scoped"
+			},
+			{
 				"id": "shadowed",
-				"description": "Annotates a variable or parameter that is shadowed"
+				"description": "Annotates a variable, parameter, or constant that is shadowed"
 			},
 			{
 				"id": "unused",
-				"description": "Annotates a variable or parameter that is unused"
+				"description": "Annotates a variable, parameter, or constant that is unused"
 			},
 			{
 				"id": "error",
