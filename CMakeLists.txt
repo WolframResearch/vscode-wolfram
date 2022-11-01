@@ -33,7 +33,6 @@ find_program(VSCE_COMMAND
 )
 
 set(WOLFRAMKERNEL ${WOLFRAMKERNEL_DEFAULT} CACHE FILEPATH "Path to WolframKernel")
-set(LOCAL_BUILD OFF CACHE BOOL "Local build")
 #
 # Time to pause when starting kernel
 #
@@ -60,10 +59,6 @@ set(KERNEL_TIMEOUT 600 CACHE STRING "Kernel startup timeout")
 
 message(STATUS "CMAKE_VERSION: ${CMAKE_VERSION}")
 message(STATUS "WOLFRAMKERNEL: ${WOLFRAMKERNEL}")
-message(STATUS "LOCAL_BUILD: ${LOCAL_BUILD}")
-if(LOCAL_BUILD)
-message(STATUS "Configuring for local build")
-endif()
 message(STATUS "KERNEL_PAUSE: ${KERNEL_PAUSE}")
 message(STATUS "KERNEL_TIMEOUT: ${KERNEL_TIMEOUT}")
 message(STATUS "NPM_COMMAND: ${NPM_COMMAND}")
@@ -78,31 +73,21 @@ set(STATIC_VSIX_SOURCES
 	#
 	#${PROJECT_SOURCE_DIR}/docs/error-report.png
 	#${PROJECT_SOURCE_DIR}/docs/highlighting.png
-	${PROJECT_SOURCE_DIR}/extension/images/icon.png
-	${PROJECT_SOURCE_DIR}/extension/src/extension.ts
-	${PROJECT_SOURCE_DIR}/extension/syntaxes/wolfram.tmLanguage.json
-	${PROJECT_SOURCE_DIR}/extension/themes/brenton-wl-color-theme.json
-	${PROJECT_SOURCE_DIR}/extension/themes/brenton-wl-light-color-theme.json
-	${PROJECT_SOURCE_DIR}/extension/.vscodeignore
-	${PROJECT_SOURCE_DIR}/extension/tsconfig.json
-	${PROJECT_SOURCE_DIR}/extension/wolfram.language-configuration.json
-)
-
-set(STATIC_ROOT_SOURCES
 	${PROJECT_SOURCE_DIR}/CHANGELOG.md
 	${PROJECT_SOURCE_DIR}/LICENSE
-)
-
-set(README_SOURCE
 	${PROJECT_SOURCE_DIR}/README.md
+	${PROJECT_SOURCE_DIR}/images/icon.png
+	${PROJECT_SOURCE_DIR}/src/extension.ts
+	${PROJECT_SOURCE_DIR}/syntaxes/wolfram.tmLanguage.json
+	${PROJECT_SOURCE_DIR}/themes/brenton-wl-color-theme.json
+	${PROJECT_SOURCE_DIR}/themes/brenton-wl-light-color-theme.json
+	${PROJECT_SOURCE_DIR}/.vscodeignore
+	${PROJECT_SOURCE_DIR}/tsconfig.json
+	${PROJECT_SOURCE_DIR}/wolfram.language-configuration.json
 )
 
-set(PACKAGEJSON_IN_SOURCE
-	${PROJECT_SOURCE_DIR}/extension/package.json.in
-)
-
-set(PACKAGELOCKJSON_IN_SOURCE
-	${PROJECT_SOURCE_DIR}/extension/package-lock.json.in
+set(PACKAGEJSON_SOURCE
+	${PROJECT_SOURCE_DIR}/package.json
 )
 
 
@@ -113,76 +98,20 @@ CheckWolframKernel()
 CheckPackageJSON()
 
 #
-# Force re-configure if package.json.in changes, e.g. extension version is changed and name of .vsix has changed
+# Force re-configure if package.json changes, e.g. extension version is changed and name of .vsix has changed
 #
 set_property(
 	DIRECTORY
 	APPEND
 	PROPERTY
 		CMAKE_CONFIGURE_DEPENDS
-	${PACKAGEJSON_IN_SOURCE}
-	${PACKAGELOCKJSON_IN_SOURCE}
+	${PACKAGEJSON_SOURCE}
 )
 
 
 file(MAKE_DIRECTORY
-	${PROJECT_BINARY_DIR}/extension
+	${PROJECT_BINARY_DIR}/vsix
 )
-
-
-#
-# Copy WL source files
-#
-
-#
-# static VSIX sources
-#
-foreach(SRC ${STATIC_VSIX_SOURCES})
-	file(RELATIVE_PATH REL ${PROJECT_SOURCE_DIR}/extension/ ${SRC})
-	add_custom_command(
-		OUTPUT
-			${PROJECT_BINARY_DIR}/extension/${REL}
-		COMMAND
-			${CMAKE_COMMAND} -E copy ${SRC} ${PROJECT_BINARY_DIR}/extension/${REL}
-		DEPENDS
-			${SRC}
-	)
-	list(APPEND COPIED_VSIX_SOURCES ${PROJECT_BINARY_DIR}/extension/${REL})
-endforeach()
-
-#
-# static root sources
-#
-foreach(SRC ${STATIC_ROOT_SOURCES})
-	file(RELATIVE_PATH REL ${PROJECT_SOURCE_DIR}/ ${SRC})
-	add_custom_command(
-		OUTPUT
-			${PROJECT_BINARY_DIR}/extension/${REL}
-		COMMAND
-			${CMAKE_COMMAND} -E copy ${SRC} ${PROJECT_BINARY_DIR}/extension/${REL}
-		DEPENDS
-			${SRC}
-	)
-	list(APPEND COPIED_VSIX_SOURCES ${PROJECT_BINARY_DIR}/extension/${REL})
-endforeach()
-
-#
-# README
-#
-
-set(COPIED_README ${PROJECT_BINARY_DIR}/extension/README.md)
-
-add_custom_command(
-	OUTPUT
-		${COPIED_README}
-	COMMAND
-		${CMAKE_COMMAND} -E copy ${README_SOURCE} ${COPIED_README}
-	COMMAND
-		${CMAKE_COMMAND} -DCOPIED_README=${COPIED_README} -P ${PROJECT_SOURCE_DIR}/cmake/ReplaceREADME.cmake
-	DEPENDS
-		${README_SOURCE}
-)
-list(APPEND COPIED_VSIX_SOURCES ${COPIED_README})
 
 
 #
@@ -190,16 +119,11 @@ list(APPEND COPIED_VSIX_SOURCES ${COPIED_README})
 #
 
 set(VSIX_SOURCES
-	${PACKAGEJSON_IN_SOURCE}
-	${PACKAGELOCKJSON_IN_SOURCE}
-	${COPIED_VSIX_SOURCES}
+	${PACKAGEJSON_SOURCE}
+	${STATIC_VSIX_SOURCES}
 )
 
-if(LOCAL_BUILD)
-set(VSIX_OUTPUT ${PROJECT_BINARY_DIR}/wolfram-${LOCAL_BUILD_VERSION}.vsix)
-else(LOCAL_BUILD)
-set(VSIX_OUTPUT ${PROJECT_BINARY_DIR}/wolfram-${PACKAGEJSON_VERSION}.vsix)
-endif(LOCAL_BUILD)
+set(VSIX_OUTPUT ${PROJECT_BINARY_DIR}/vsix/wolfram-${PACKAGEJSON_VERSION}.vsix)
 
 add_custom_target(vsix
 	ALL
@@ -207,10 +131,6 @@ add_custom_target(vsix
 		${VSIX_OUTPUT}
 )
 
-
-set(GENERATED_PACKAGEJSON ${PROJECT_BINARY_DIR}/extension/package.json)
-
-set(GENERATED_PACKAGELOCKJSON ${PROJECT_BINARY_DIR}/extension/package-lock.json)
 
 add_custom_command(
 	OUTPUT
@@ -227,24 +147,14 @@ add_custom_command(
 	COMMAND
 		${VSCE_COMMAND} --version
 	COMMAND
-		#
-		# copy for every build because this is simple and deterministic
-		#
-		${CMAKE_COMMAND} -E copy ${PACKAGEJSON_IN_SOURCE} ${GENERATED_PACKAGEJSON}
-	COMMAND
-		${CMAKE_COMMAND} -E copy ${PACKAGELOCKJSON_IN_SOURCE} ${GENERATED_PACKAGELOCKJSON}
-	COMMAND
-		${CMAKE_COMMAND} -DLOCAL_BUILD=${LOCAL_BUILD} -DLOCAL_BUILD_VERSION=${LOCAL_BUILD_VERSION} -DGENERATED_PACKAGEJSON=${GENERATED_PACKAGEJSON} -DGENERATED_PACKAGELOCKJSON=${GENERATED_PACKAGELOCKJSON} -P ${PROJECT_SOURCE_DIR}/cmake/ReplacePackageJSON.cmake
-	COMMAND
 		${NPM_COMMAND} --no-fund install --no-save
 	COMMAND
-		${VSCE_COMMAND} package -o ${PROJECT_BINARY_DIR}
+		${VSCE_COMMAND} package -o ${PROJECT_BINARY_DIR}/vsix
 	DEPENDS
 		${VSIX_SOURCES}
-		${PROJECT_SOURCE_DIR}/cmake/ReplacePackageJSON.cmake
 	VERBATIM
 	WORKING_DIRECTORY
-		${PROJECT_BINARY_DIR}/extension
+		${PROJECT_SOURCE_DIR}
 )
 
 install(
