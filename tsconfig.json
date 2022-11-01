@@ -33,6 +33,10 @@
 		//
 		// So exclude compiler_depend.ts files
 		//
-		"**/compiler_depend.ts"
+		"**/compiler_depend.ts",
+		//
+		// exclude old files that may cause conflicts
+		//
+		"**/extension/*"
 	]
 }
