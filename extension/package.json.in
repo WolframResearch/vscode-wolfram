@@ -17,7 +17,7 @@
 		"onCommand:wolfram.OpenNotebook",
 		"onCommand:wolfram.DownloadWolframEngine"
 	],
-	"main": "./dist/extension.js",
+	"main": "./out/extension.js",
 	"categories": [
 		"Programming Languages",
 		"Themes"
@@ -165,24 +165,21 @@
 				}
 			],
 			"commandPalette": [
-            	{
+				{
 					"command": "wolfram.OpenNotebook",
 					"when": "false"
 				},
 				{
 					"command": "wolfram.DownloadWolframEngine"
 				}
-        	]
+			]
 		}
 	},
 	"scripts": {
-		"vscode:prepublish": "npm run package",
-		"compile": "webpack --devtool nosources-source-map --config ./config/node-extension.webpack.config.js",
-		"watch": "webpack --watch --devtool nosources-source-map --info-verbosity verbose --config ./config/node-extension.webpack.config.js",
-		"package": "webpack --mode production --config ./config/node-extension.webpack.config.js",
-		"test-compile": "tsc -p ./",
-		"test-watch": "tsc -watch -p ./",
-		"pretest": "npm run test-compile && npm run lint",
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile && npm run lint",
 		"lint": "eslint src --ext ts",
 		"test": "node ./out/test/runTest.js"
 	},
@@ -192,8 +189,6 @@
 		"open": "^8.4.0",
 		"ts-loader": "^9.2.7",
 		"typescript": "^4.6.2",
-		"vscode-languageclient": "^7.0.0",
-		"webpack": "^5.70.0",
-		"webpack-cli": "^4.9.2"
+		"vscode-languageclient": "^7.0.0"
 	}
 }

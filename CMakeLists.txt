@@ -78,7 +78,6 @@ set(STATIC_VSIX_SOURCES
 	#
 	#${PROJECT_SOURCE_DIR}/docs/error-report.png
 	#${PROJECT_SOURCE_DIR}/docs/highlighting.png
-	${PROJECT_SOURCE_DIR}/extension/config/node-extension.webpack.config.js
 	${PROJECT_SOURCE_DIR}/extension/images/icon.png
 	${PROJECT_SOURCE_DIR}/extension/src/extension.ts
 	${PROJECT_SOURCE_DIR}/extension/syntaxes/wolfram.tmLanguage.json

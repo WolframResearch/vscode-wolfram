@@ -1,4 +1,3 @@
-config/node-extension.webpack.config.js
 node_modules
 src/
 tsconfig.json
