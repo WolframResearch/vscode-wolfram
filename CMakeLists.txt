@@ -147,7 +147,7 @@ add_custom_command(
 	COMMAND
 		${VSCE_COMMAND} --version
 	COMMAND
-		${NPM_COMMAND} --no-fund install --no-save
+		${NPM_COMMAND} ci
 	COMMAND
 		${VSCE_COMMAND} package -o ${PROJECT_BINARY_DIR}/vsix
 	DEPENDS
