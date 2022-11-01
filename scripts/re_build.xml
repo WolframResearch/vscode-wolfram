@@ -22,7 +22,7 @@
 		</re-cmake-exec>
 
 		<copy todir='${files_directory}' >
-			<fileset dir='${build.dir}/vsix' includes='*.vsix' />
+			<fileset dir='${NativeLibrary.makefiles.dir}/vsix' includes='*.vsix' />
 		</copy>
 
 	</target>
