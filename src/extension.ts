@@ -152,10 +152,16 @@ export function activate(context: ExtensionContext) {
 		clientOptions
 	);
 
-	client.onReady().then(() => {
+	let timeoutWarningEnabled = config.get<boolean>("timeout_warning_enabled", true);
+
+	if (timeoutWarningEnabled) {
+		setTimeout(kernel_initialization_check_function, 15000, command);
+	}
+	
+	client.start().then(() => {
 		
 		//
-		// client.onReady() is called after initialize response, so it is appropriate to set kernel_initialized here
+		// client.onStart() is called after initialize response, so it is appropriate to set kernel_initialized here
 		//
 		kernel_initialized = true;
 
@@ -215,15 +221,6 @@ export function activate(context: ExtensionContext) {
 			// experimental.appendLine("done publishHTMLSnippet");
 		// });
 	});
-	
-	let timeoutWarningEnabled = config.get<boolean>("timeout_warning_enabled", true);
-
-	if (timeoutWarningEnabled) {
-		setTimeout(kernel_initialization_check_function, 15000, command);
-	}
-
-	let disposable = client.start()
-	context.subscriptions.push(disposable)
 }
 
 function implicitTokenCharToText(c: string) {
