@@ -73,6 +73,7 @@ set(STATIC_VSIX_SOURCES
 	#
 	#${PROJECT_SOURCE_DIR}/docs/error-report.png
 	#${PROJECT_SOURCE_DIR}/docs/highlighting.png
+	${PROJECT_SOURCE_DIR}/config/node-extension.webpack.config.js
 	${PROJECT_SOURCE_DIR}/CHANGELOG.md
 	${PROJECT_SOURCE_DIR}/LICENSE
 	${PROJECT_SOURCE_DIR}/README.md
