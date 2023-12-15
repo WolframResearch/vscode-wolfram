@@ -37,7 +37,9 @@
 					".m",
 					".wls",
 					".wlt",
-					".mt"
+					".mt",
+					".ipynb",
+					".wlnb"
 				],
 				"configuration": "./wolfram.language-configuration.json"
 			}
@@ -152,14 +154,14 @@
 		"menus": {
 			"explorer/context": [
 				{
-					"when": "resourceExtname == .nb || resourceExtname == .m || resourceExtname == .wl || resourceExtname == .wls || resourceExtname == .cdf",
+					"when": "resourceExtname == .nb || resourceExtname == .m || resourceExtname == .wl || resourceExtname == .wls || resourceExtname == .cdf || resourceExtname == .ipynb || resourceExtname == .wlnb",
 					"command": "wolfram.OpenNotebook",
 					"group": "navigation"
 				}
 			],
 			"editor/context": [
 				{
-					"when": "resourceExtname == .nb || resourceExtname == .m || resourceExtname == .wl || resourceExtname == .wls || resourceExtname == .cdf",
+					"when": "resourceExtname == .nb || resourceExtname == .m || resourceExtname == .wl || resourceExtname == .wls || resourceExtname == .cdf || resourceExtname == .ipynb || resourceExtname == .wlnb",
 					"command": "wolfram.OpenNotebook",
 					"group": "navigation"
 				}
