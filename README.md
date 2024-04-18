@@ -1,3 +1,16 @@
+# The latest version of this extension can be found [here](https://stash.wolfram.com/projects/ECE/repos/vscode-wolfram/browse).
+
+<br/>  <br/>    <br/>    <br/>    <br/>    
+
+
+
+
+
+
+
+
+
+
 # Wolfram System Integration with Visual Studio Code
 
 Official Visual Studio Code extension for Wolfram Language
