@@ -1,42 +1,16 @@
 {
 	"compilerOptions": {
 		"module": "commonjs",
-		"target": "es6",
-		"outDir": "out",
+		"target": "es2020",
 		"lib": [
-			"es6"
+			"es2020","dom"
 		],
+		"outDir": "out",
 		"sourceMap": true,
-		"rootDir": "src",
-		"strict": true   /* enable all strict type-checking options */
-		/* Additional Checks */
-		// "noImplicitReturns": true, /* Report error when not all code paths in function return a value. */
-		// "noFallthroughCasesInSwitch": true, /* Report errors for fallthrough cases in switch statement. */
-		// "noUnusedParameters": true,  /* Report errors on unused parameters. */
+		"strict": true,
 	},
 	"exclude": [
 		"node_modules",
-		".vscode-test",
-		//
-		// A change in CMake ~3.20 introduced compiler_depend.ts file in the CMakeFiles directory
-		//
-		// compiler_depend.ts is used as a time stamp ( .ts = time stamp )
-		//
-		// However, .ts extension is also used by TypeScript and the presence of compiler_depend.ts was causing build errors:
-		//
-		//		ERROR in /Users/brenton/development/stash/COD/vscode-wolfram/tsconfig.json
-		//[tsl] ERROR
-		//      TS6059: File '/Users/brenton/development/stash/COD/vscode-wolfram/build/CMakeFiles/vsix.dir/compiler_depend.ts' is not under 'rootDir' '/Users/brenton/development/stash/COD/vscode-wolfram/src'. 'rootDir' is expected to contain all source files.
-		//  The file is in the program because:
-		//    Root file specified for compilation
-		//
-		//
-		// So exclude compiler_depend.ts files
-		//
-		"**/compiler_depend.ts",
-		//
-		// exclude old files that may cause conflicts
-		//
-		"**/extension/*"
+		".vscode-test"
 	]
 }
