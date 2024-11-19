@@ -1,199 +1,321 @@
 {
-	"name": "wolfram",
-	"displayName": "Wolfram Language",
-	"description": "Official Visual Studio Code extension for Wolfram Language",
-	"version": "1.10.0",
-	"publisher": "WolframResearch",
-	"license": "MIT",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/WolframResearch/vscode-wolfram.git"
-	},
-	"engines": {
-		"vscode": "^1.52.0"
-	},
-	"activationEvents": [
-		"onLanguage:wolfram",
-		"onCommand:wolfram.OpenNotebook",
-		"onCommand:wolfram.DownloadWolframEngine"
-	],
-	"main": "./dist/extension.js",
-	"categories": [
-		"Programming Languages",
-		"Themes"
-	],
-	"icon": "images/icon.png",
-	"contributes": {
-		"languages": [
-			{
-				"id": "wolfram",
-				"aliases": [
-					"Wolfram",
-					"wolfram",
-					"Wolfram Language"
-				],
-				"extensions": [
-					".wl",
-					".m",
-					".wls",
-					".wlt",
-					".mt"
-				],
-				"configuration": "./wolfram.language-configuration.json"
-			}
-		],
-		"grammars": [
-			{
-				"language": "wolfram",
-				"scopeName": "source.wolfram",
-				"path": "./syntaxes/wolfram.tmLanguage.json"
-			}
-		],
-		"configuration": {
-			"type": "object",
-			"title": "Wolfram",
-			"properties": {
-				"wolfram.lsp_server_enabled": {
-					"scope": "resource",
-					"type": "boolean",
-					"default": true,
-					"description": "Enables the Wolfram language server"
-				},
-				"wolfram.timeout_warning_enabled": {
-					"scope": "resource",
-					"type": "boolean",
-					"default": true,
-					"description": "Enables the timeout warning if the kernel does not start after 15 seconds"
-				},
-				"wolfram.kernel": {
-					"scope": "user",
-					"type": "string",
-					"default": "<<Path to WolframKernel>>",
-					"description": "WolframKernel for the Wolfram language server"
-				},
-				"wolfram.command": {
-					"scope": "user",
-					"type": "array",
-					"default": [
-						"`kernel`",
-						"-noinit",
-						"-noprompt",
-						"-nopaclet",
-						"-noicon",
-						"-nostartuppaclets",
-						"-run",
-						"Needs[\"LSPServer`\"];LSPServer`StartServer[]"
-					],
-					"description": "Command for the Wolfram language server"
-				},
-				"wolfram.implicitTokens": {
-					"scope": "user",
-					"type": "array",
-					"default": [],
-					"description": "Experimental option for the Wolfram language server"
-				},
-				"wolfram.semanticTokens": {
-					"scope": "user",
-					"type": "boolean",
-					"default": false,
-					"description": "Experimental option for the Wolfram language server"
-				}
-			}
-		},
-		"semanticTokenTypes": [],
-		"semanticTokenModifiers": [
-			{
-				"id": "Module",
-				"description": "Annotates a variable that is Module scoped"
-			},
-			{
-				"id": "Block",
-				"description": "Annotates a variable that is Block scoped"
-			},
-			{
-				"id": "With",
-				"description": "Annotates a constant that is With scoped"
-			},
-			{
-				"id": "shadowed",
-				"description": "Annotates a variable, parameter, or constant that is shadowed"
-			},
-			{
-				"id": "unused",
-				"description": "Annotates a variable, parameter, or constant that is unused"
-			},
-			{
-				"id": "error",
-				"description": "Annotates a scoping error"
-			}
-		],
-		"themes": [
-			{
-				"label": "BrentonWL",
-				"uiTheme": "vs-dark",
-				"path": "./themes/brenton-wl-color-theme.json"
-			},
-			{
-				"label": "BrentonWL (Light)",
-				"uiTheme": "vs",
-				"path": "./themes/brenton-wl-light-color-theme.json"
-			}
-		],
-		"commands": [
-			{
-				"command": "wolfram.OpenNotebook",
-				"title": "Open in System Editor"
-			},
-			{
-				"command": "wolfram.DownloadWolframEngine",
-				"title": "Wolfram Language: Download Wolfram Engine"
-			}
-		],
-		"menus": {
-			"explorer/context": [
-				{
-					"when": "resourceExtname == .nb || resourceExtname == .m || resourceExtname == .wl || resourceExtname == .wls || resourceExtname == .cdf",
-					"command": "wolfram.OpenNotebook",
-					"group": "navigation"
-				}
-			],
-			"editor/context": [
-				{
-					"when": "resourceExtname == .nb || resourceExtname == .m || resourceExtname == .wl || resourceExtname == .wls || resourceExtname == .cdf",
-					"command": "wolfram.OpenNotebook",
-					"group": "navigation"
-				}
-			],
-			"commandPalette": [
-				{
-					"command": "wolfram.OpenNotebook",
-					"when": "false"
-				},
-				{
-					"command": "wolfram.DownloadWolframEngine"
-				}
-			]
-		}
-	},
-	"scripts": {
-		"vscode:prepublish": "npm run package",
-		"compile": "webpack --devtool nosources-source-map --config ./config/node-extension.webpack.config.js",
-		"watch": "webpack --watch --devtool nosources-source-map --info-verbosity verbose --config ./config/node-extension.webpack.config.js",
-		"package": "webpack --mode production --config ./config/node-extension.webpack.config.js",
-		"test-compile": "tsc -p ./",
-		"test-watch": "tsc -watch -p ./",
-		"pretest": "npm run test-compile && npm run lint",
-		"lint": "eslint src --ext ts",
-		"test": "node ./out/test/runTest.js"
-	},
-	"dependencies": {
-		"@types/node": "18.11.9",
-		"@types/vscode": "1.72.0",
-		"open": "8.4.0",
-		"ts-loader": "9.4.1",
-		"typescript": "4.8.4",
-		"vscode-languageclient": "8.0.2",
-		"webpack": "5.74.0",
-		"webpack-cli": "4.10.0"
-	}
+  "name": "wolfram",
+  "displayName": "Wolfram Language",
+  "description": "Official Visual Studio Code extension for Wolfram Language",
+  "publisher": "WolframResearch",
+  "version": "2.0.0",
+  "engines": {
+    "vscode": "^1.95.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/WolframResearch/vscode-wolfram.git"
+  },
+  "keywords": [
+    "notebookRenderer"
+  ],
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onLanguage:wolfram",
+    "onCommand:wolfram.OpenNotebook",
+    "onCommand:wolfram.DownloadWolframEngine",
+    "onCommand:createWolframScriptTerminal",
+    "onCommand:wolfram.openConfigurations",
+    "onCommand:wolfram.launchKernel"
+  ],
+  "main": "./out/extension/extension.js",
+  "icon": "images/icon.png",
+  "contributes": {
+    "languages": [
+      {
+        "id": "wolfram",
+        "aliases": [
+          "Wolfram",
+          "wolfram",
+          "Wolfram Language"
+        ],
+        "extensions": [
+          ".wl",
+          ".m",
+          ".wls",
+          ".wlt",
+          ".mt",
+          ".vsnb"
+        ],
+        "configuration": "./wolfram.language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "wolfram",
+        "scopeName": "source.wolfram",
+        "path": "./syntaxes/wolfram.tmLanguage.json"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "Wolfram",
+      "properties": {
+        "wolfram.lsp.serverEnabled": {
+          "scope": "resource",
+          "type": "boolean",
+          "default": true,
+          "description": "Enables the Wolfram LSP server",
+          "order": 1
+        },
+        "wolfram.notebook.kernelEnabled": {
+          "scope": "resource",
+          "type": "boolean",
+          "default": false,
+          "description": "Enables Notebook Evaluation",
+          "order": 1
+        },
+        "wolfram.timeout_warning_enabled": {
+          "scope": "resource",
+          "type": "boolean",
+          "default": true,
+          "description": "Enables the timeout warning if the kernel does not start after 15 seconds",
+          "order": 2
+        },
+        "wolfram.systemKernel": {
+          "scope": "user",
+          "type": "string",
+          "default": "Automatic",
+          "description": "Path to Wolfram System kernel",
+          "order": 0
+        },
+        "wolfram.advanced.lsp.ServerLogDirectory": {
+          "scope": "user",
+          "type": "string",
+          "default": "Off",
+          "description": "Directory for the Wolfram LSP server log",
+          "order": 5
+        },
+        "wolfram.advanced.notebook.logDirectory": {
+          "scope": "user",
+          "type": "string",
+          "default": "Off",
+          "description": "Directory for the notebook log",
+          "order": 5
+        },
+        "wolfram.advanced.lsp.command": {
+          "scope": "user",
+          "type": "array",
+          "default": [
+            "lspKernel"
+          ],
+          "description": "Command to start the Wolfram LSP server",
+          "order": 5
+        },
+        "wolfram.lsp.implicitTokens": {
+          "scope": "user",
+          "type": "array",
+          "default": [],
+          "description": "Experimental option for the Wolfram LSP server",
+          "order": 3
+        },
+        "wolfram.lsp.semanticTokens": {
+          "scope": "user",
+          "type": "boolean",
+          "default": false,
+          "description": "Experimental option for the Wolfram LSP server",
+          "order": 3
+        },
+        "wolfram.notebook.rendering.invertBrightnessInDarkThemes": {
+          "type": "boolean",
+          "default": true,
+          "description": "When an expression is evaluated, this option specifies whether the brightness of the images in the output should be inverted in dark and high contrast themes. ",
+          "order": 4
+        },
+        "wolfram.notebook.rendering.imageScalingFactor": {
+          "type": "number",
+          "default": 0.8,
+          "description": "Controls image output size",
+          "order": 4
+        }
+      }
+    },
+    "semanticTokenTypes": [],
+    "semanticTokenModifiers": [
+      {
+        "id": "Module",
+        "description": "Annotates a variable that is Module scoped"
+      },
+      {
+        "id": "Block",
+        "description": "Annotates a variable that is Block scoped"
+      },
+      {
+        "id": "With",
+        "description": "Annotates a constant that is With scoped"
+      },
+      {
+        "id": "shadowed",
+        "description": "Annotates a variable, parameter, or constant that is shadowed"
+      },
+      {
+        "id": "unused",
+        "description": "Annotates a variable, parameter, or constant that is unused"
+      },
+      {
+        "id": "error",
+        "description": "Annotates a scoping error"
+      }
+    ],
+    "themes": [
+      {
+        "label": "Wolfram (Dark)",
+        "uiTheme": "vs-dark",
+        "path": "./themes/wolfram-dark.json"
+      },
+      {
+        "label": "Wolfram (Default)",
+        "uiTheme": "vs",
+        "path": "./themes/wolfram-Default.json"
+      },
+      {
+        "label": "Wolfram (Dark Rainbow)",
+        "uiTheme": "vs-dark",
+        "path": "./themes/wolfram-dark-rainbow.json"
+      },
+      {
+        "label": "Wolfram (Light)",
+        "uiTheme": "vs",
+        "path": "./themes/Wolfram-light.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "wolfram.OpenNotebook",
+        "title": "Open in System Editor"
+      },
+      {
+        "command": "wolfram.DownloadWolframEngine",
+        "title": "Wolfram Language: Download Wolfram Engine"
+      },
+      {
+        "command": "createWolframScriptTerminal",
+        "title": "Wolfram Language: Start Wolfram in Terminal"
+      },
+      {
+        "command": "wolfram.launchKernel",
+        "title": "Wolfram Language: Launch Default Kernel"
+      },
+      {
+        "command": "wolfram.openConfigurations",
+        "title": "Wolfram Language: Open Configurations"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "when": "resourceExtname == .nb || resourceExtname == .m || resourceExtname == .wl || resourceExtname == .wls || resourceExtname == .cdf",
+          "command": "wolfram.OpenNotebook",
+          "group": "navigation"
+        }
+      ],
+      "editor/context": [
+        {
+          "when": "resourceExtname == .nb || resourceExtname == .m || resourceExtname == .wl || resourceExtname == .wls || resourceExtname == .cdf",
+          "command": "wolfram.OpenNotebook",
+          "group": "navigation"
+        },
+        {
+          "when": "resourceExtname == .nb || resourceExtname == .m || resourceExtname == .wl || resourceExtname == .wls || resourceExtname == .cdf",
+          "command": "workbench.action.terminal.runSelectedText",
+          "group": "navigation"
+        },
+        {
+          "when": "resourceExtname == .nb || resourceExtname == .m || resourceExtname == .wl || resourceExtname == .wls || resourceExtname == .cdf",
+          "command": "workbench.action.terminal.runActiveFile",
+          "group": "navigation"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "wolfram.OpenNotebook",
+          "when": "false"
+        },
+        {
+          "command": "wolfram.DownloadWolframEngine"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "workbench.action.terminal.runSelectedText",
+        "key": "Shift+Enter",
+        "when": "resourceExtname == .nb || resourceExtname == .m || resourceExtname == .wl || resourceExtname == .wls || resourceExtname == .cdf"
+      }
+    ],
+    "notebooks": [
+      {
+        "type": "wolfram-notebook",
+        "displayName": "Wolfram Notebook",
+        "selector": [
+          {
+            "filenamePattern": "*.vsnb"
+          }
+        ]
+      }
+    ],
+    "notebookRenderer": [
+      {
+        "id": "wolfram-notebook-renderer",
+        "entrypoint": "./out/client/index.js",
+        "displayName": "wolfram-notebook-renderer",
+        "mimeTypes": [
+          "x-application/wolfram-language-html"
+        ],
+        "dependencies": [],
+        "requiresMessaging": "optional"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "clean": "rm -rf out  && rm -rf node_modules",
+    "compile": "tsc -b  && webpack --mode production",
+    "lint": "eslint src --ext ts",
+    "watch": "concurrently \"tsc -b --watch\" \"webpack --mode development --watch\"",
+    "pretest": "webpack --mode development && npm run lint",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^8.1.0",
+    "@types/mocha": "^8.2.3",
+    "@types/node": "18.11.9",
+    "@types/uuid": "^9.0.8",
+    "@types/vscode": "^1.95.0",
+    "@types/vscode-notebook-renderer": "^1.72.3",
+    "@types/webpack-env": "^1.18.5",
+    "@typescript-eslint/eslint-plugin": "^4.33.0",
+    "@typescript-eslint/parser": "^4.33.0",
+    "@vscode/test-electron": "^2.4.1",
+    "concurrently": "^8.2.2",
+    "css-loader": "^6.11.0",
+    "eslint": "^7.32.0",
+    "fork-ts-checker-webpack-plugin": "^6.5.3",
+    "lodash": "^4.17.21",
+    "marked": "^4.3.0",
+    "mocha": "^10.8.2",
+    "string-argv": "^0.3.2",
+    "style-loader": "^3.3.4",
+    "ts-loader": "9.4.1",
+    "typescript": "^4.9.5",
+    "vscode-notebook-error-overlay": "^1.0.1",
+    "web3": "^4.15.0",
+    "webpack": "^5.96.1",
+    "webpack-cli": "^4.10.0"
+  },
+  "dependencies": {
+    "domutils": "^2.8.0",
+    "open": "8.4.0",
+    "path": "^0.12.7",
+    "uuid": "^8.3.2",
+    "vscode-languageclient": "8.0.2",
+    "zeromq": "^6.1.2"
+  }
 }

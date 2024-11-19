@@ -1,8 +1,13 @@
 
-## v1.10.0 - XX Oct, 2023
+## v2.0.0 - XX Nov, 2024
 
+Add themes.
 
-## v1.9.0 - XX Jun, 2023
+Add VsCode notebook support.
+
+Add auto-completion support.
+
+Add `Start Wolfram in terminal` command.
 
 
 ## v1.8.0 - 10 Oct, 2022

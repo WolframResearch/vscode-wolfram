@@ -176,8 +176,12 @@ export function activate(context: vscode.ExtensionContext) {
 
 		let semanticTokens = config.get<boolean>("lsp.semanticTokens", false);
 
-		// wolframTmpDir = path.join(os.tmpdir(), "Wolfram-LSPServer")
 		wolframTmpDir = path.join(os.tmpdir(), "Wolfram")
+
+		//
+		// recursive option suppresses any directory-already-exists error
+		//
+		fs.mkdirSync(wolframTmpDir, { recursive: true })
 
 
 		let opts: ExecutableOptions = {
