@@ -1,11 +1,5 @@
 # Building
 
-VSCode-Wolfram uses a Wolfram Language kernel to build a `.vsix` file.
-
-VSCode-Wolfram uses CMake to generate build scripts.
-
-## One time setup
-
 npm must be installed on your system. Get npm from here:
 [Get npm](https://www.npmjs.com/get-npm)
 
@@ -17,37 +11,18 @@ npm install -g vsce
 
 ## Building
 
-Here is an example transcript using the default make generator to build VSCode-Wolfram:
+Here is an example transcript using the default npm and vsce to build VSCode-Wolfram:
 
 ```
-cd vscode-wolfram
-mkdir build
-cd build
-cmake ..
-cmake --build .
+npm install
+vace package
 ```
 
-The result is a `.vsix` file in the `build` directory.
-
-Specify `MATHEMATICA_INSTALL_DIR` if you have Mathematica installed in a non-default location:
-
-```
-cmake -DMATHEMATICA_INSTALL_DIR=/Applications/Mathematica.app/Contents/ ..
-cmake --build .
-```
-
-On Windows:
-
-```
-cmake -DMATHEMATICA_INSTALL_DIR="C:/Program Files/Wolfram Research/Mathematica/13.1" ..
-cmake --build .
-```
+The result is a `.vsix` file in the project directory.
 
 ## Installing
 
-You can install the paclet from CMake:
+You can install the built extension from command-line terminal in VsCode:
 ```
-cmake --install .
+code --install-extension vsixFilePath
 ```
-
-This runs the `vsce` command and installs the built `.vsix` file.
