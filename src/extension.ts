@@ -136,7 +136,7 @@ export function activate(context: ExtensionContext) {
 	};
 
 	let clientOptions: LanguageClientOptions = {
-		documentSelector: [{ language: 'wolfram' }],
+		documentSelector: [{ scheme: 'file', language: 'wolfram' }],
 		initializationOptions: {
 			implicitTokens: implicitTokens,
 			// bracketMatcher: bracketMatcher,

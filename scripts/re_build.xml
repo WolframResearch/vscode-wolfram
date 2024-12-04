@@ -1,33 +1,31 @@
-<project name='VSCode' basedir='..' default='NativeLibrary.build' xmlns:if='ant:if' xmlns:unless='ant:unless'>
+<project name='vscode-wolfram' basedir='.'>
 
-	<property name='component' value='${ant.project.name}' />
+	<!-- the following two items (component, version) must be properly set in the branch build -->
+	<property name='component' value='vscode-wolfram' />
+
 	<property environment='env' />
 	<import file='${env.RE_ANTLIBRARY_HOME}/ant-lib.xml' />
 
-	<target name='NativeLibrary.VSCode.execute' extensionOf='NativeLibrary.execute'>
-
-		<property name='NativeLibrary.makefiles.dir' value='${checkout_directory}${file.separator}makefiles' />
-		<mkdir dir='${NativeLibrary.makefiles.dir}' />
-
-		<re-cmake-exec dir='${NativeLibrary.makefiles.dir}' >
-			<arg line='-DMATHEMATICA_INSTALL_DIR=${env.MATHEMATICA_DIRECTORY}' />
-			<arg line='-DCMAKE_BUILD_TYPE:STRING=Release' />
-			<arg line='-G &quot;${env.CMAKE_GENERATOR}&quot;' />
-			<arg value='${basedir}' />
-		</re-cmake-exec>
-
-		<re-cmake-exec dir='${NativeLibrary.makefiles.dir}' >
-			<arg line='--build ${NativeLibrary.makefiles.dir}' />
-			<arg line='--config Release' />
-		</re-cmake-exec>
-
-		<copy todir='${files_directory}' >
-			<fileset dir='${NativeLibrary.makefiles.dir}/vsix' >
-				<include name='**/*.vsix' />
-			</fileset>
-		</copy>
-
+	<target name='Component.Unix.prebuild' extensionOf='Component.prebuild' unless='is.windows'>
+		<exec dir='${basedir}' executable='bash'>
+			<env key='PATH' value='${env.PATH}' />
+			<arg line='build'/> 
+		</exec> 
 	</target>
 
+	<target name='Component.Windows.prebuild' extensionOf='Component.prebuild' if='is.windows'>
+			<exec dir='${basedir}' executable='cmd'>
+				<env key='PATH' value='${env.PATH};${env.Path}' />
+				<arg line='/c build.bat'/> 
+			</exec> 
+	</target>
+
+	<target name='Component.vscode-wolfram.execute' extensionOf='Component.execute' >
+		<copy todir='${files_directory}'>
+			<fileset dir='${basedir}/..'>
+				<include name='*.vsix'/>
+			</fileset>
+		</copy>
+	</target>
 
 </project>
