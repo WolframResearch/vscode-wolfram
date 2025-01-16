@@ -15,7 +15,7 @@ Here is an example transcript using the default npm and vsce to build VSCode-Wol
 
 ```
 npm install
-vace package
+vsce package
 ```
 
 The result is a `.vsix` file in the project directory.
