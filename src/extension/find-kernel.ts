@@ -93,7 +93,7 @@ export class FindKernel {
 
   }
 
-  public resolveNBKernel() {
+  public resolveNBKernel():string {
 
     const config: vscode.WorkspaceConfiguration = vscode.workspace.getConfiguration("wolfram", null);
 
@@ -109,7 +109,7 @@ export class FindKernel {
   }
   
   
-    private resolveNBKernelPath() {
+  private resolveNBKernelPath():string {
   
     let possibleKernelPaths: string[];
   
@@ -147,9 +147,9 @@ export class FindKernel {
     let res = possibleKernelPaths.find(k => fs.existsSync(k));
     if (res === undefined) {
       //
-      // need to return SOMETHING to show in error messages, so use possibleKernelPaths[0] as default
+      // need to return SOMETHING to show in error messages, so return "kernel-not-found"
       //
-      res = possibleKernelPaths[0]
+      res = "kernel-not-found"
     }
     return res;
   }
