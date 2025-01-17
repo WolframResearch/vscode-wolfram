@@ -89,6 +89,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 
 		// Add Terminal
+		// Add "kernel-not-found" case
 
 		let terminalKernel = lspKernel.resolveNBKernel();
 
