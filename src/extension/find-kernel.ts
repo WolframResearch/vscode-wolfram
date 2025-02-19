@@ -93,7 +93,7 @@ export class FindKernel {
 
   }
 
-  public resolveNBKernel():string {
+  public resolveKernel():string {
 
     const config: vscode.WorkspaceConfiguration = vscode.workspace.getConfiguration("wolfram", null);
 
@@ -102,14 +102,14 @@ export class FindKernel {
     // kernel is the default value, so resolve to an actual path
     if (kernel == "Automatic") {
       
-      kernel = this.resolveNBKernelPath();
+      kernel = this.getOSKernelPath();
     }
 
     return kernel
   }
   
   
-  private resolveNBKernelPath():string {
+  private getOSKernelPath():string {
   
     let possibleKernelPaths: string[];
   
@@ -117,24 +117,17 @@ export class FindKernel {
       
       case "linux":
         //
-        // generally recommend Wolfram Engine before Mathematica
-        // and newer versions over older versions
+        // generally recommend newer versions over older versions
         // and recommend pre-13.0 Wolfram Engine last, because usage messages did not work before 13.0
         //
         possibleKernelPaths = this.linuxKernelPath;
         break;
       case "darwin":
-        //
-        // generally recommend Wolfram Engine before Mathematica
-        //
-        // We do not know the version on Mac
-        //
         possibleKernelPaths = this.macKernelPath;
         break;
       case "win32":
         //
-        // generally recommend Wolfram Engine before Mathematica
-        // and newer versions over older versions
+        // generally recommend newer versions over older versions
         // and recommend pre-13.0 Wolfram Engine last, because usage messages did not work before 13.0
         //
         possibleKernelPaths = this.winKernelPath;
@@ -145,12 +138,11 @@ export class FindKernel {
     }
   
     let res = possibleKernelPaths.find(k => fs.existsSync(k));
+
     if (res === undefined) {
-      //
-      // need to return SOMETHING to show in error messages, so return "kernel-not-found"
-      //
       res = "kernel-not-found"
     }
+    
     return res;
   }
 
