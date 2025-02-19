@@ -251,7 +251,7 @@ export class WolframNotebookKernel {
 		}
 
 
-		launchCommand = this.findKernel.resolveNBKernel();
+		launchCommand = this.findKernel.resolveKernel();
 
 		if(process.platform === "win32"){
 			launchCommand = launchCommand.replace("WolframKernel.exe", "wolfram.exe")
