@@ -102,7 +102,7 @@ export function activate(context: vscode.ExtensionContext) {
 		};
 
 		if (!fs.existsSync(mainKernel)) {
-			vscode.window.showErrorMessage("Kernel executable path does not exist: " + mainKernel + "Either change \"System Kernel\" in the configuration or "  + download_WEngine_MDString.value)
+			vscode.window.showErrorMessage("Kernel executable path does not exist: " + mainKernel + ". Either change \"System Kernel\" in the configuration or "  + download_WEngine_MDString.value)
 			return
 		}
 
