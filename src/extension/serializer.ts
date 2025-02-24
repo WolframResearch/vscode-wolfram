@@ -36,7 +36,7 @@ interface WLNotebookData {
 	metadata?: { [key: string]: any };
   }
 
-export class SampleContentSerializer implements vscode.NotebookSerializer {
+export class VSNBContentSerializer implements vscode.NotebookSerializer {
 	// TODO: better label
 	public readonly label: string = 'Wolfram Language Content Serializer';
 

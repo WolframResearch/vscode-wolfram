@@ -6,21 +6,21 @@
 	<property environment='env' />
 	<import file='${env.RE_ANTLIBRARY_HOME}/ant-lib.xml' />
 
-	<target name='Component.Unix.prebuild' extensionOf='Component.prebuild' unless='is.windows'>
+	<target name='NativeLibrary.Unix.prebuild' extensionOf='NativeLibrary.prebuild' unless='is.windows'>
 		<exec dir='${basedir}' executable='bash'>
 			<env key='PATH' value='${env.PATH}' />
 			<arg line='build'/> 
 		</exec> 
 	</target>
 
-	<target name='Component.Windows.prebuild' extensionOf='Component.prebuild' if='is.windows'>
+	<target name='NativeLibrary.Windows.prebuild' extensionOf='NativeLibrary.prebuild' if='is.windows'>
 			<exec dir='${basedir}' executable='cmd'>
 				<env key='PATH' value='${env.PATH};${env.Path}' />
 				<arg line='/c build.bat'/> 
 			</exec> 
 	</target>
 
-	<target name='Component.vscode-wolfram.execute' extensionOf='Component.execute' >
+	<target name='NativeLibrary.vscode-wolfram.execute' extensionOf='NativeLibrary.execute' >
 		<copy todir='${files_directory}'>
 			<fileset dir='${basedir}/..'>
 				<include name='*.vsix'/>

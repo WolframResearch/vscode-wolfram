@@ -3,7 +3,7 @@
   "displayName": "Wolfram Language",
   "description": "Official Visual Studio Code extension for Wolfram Language",
   "publisher": "WolframResearch",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "engines": {
     "vscode": "^1.95.0"
   },

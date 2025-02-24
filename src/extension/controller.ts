@@ -52,9 +52,6 @@ export class WolframNotebookKernel {
 
 	private extensionPath: string = "";
 
-	// TODO: Change the log file path, do not use hardcoaded path
-	// use logDirectory
-	// private logFile: string = path.join(os.tmpdir(), "Wolfram") + "/" + "Notebook-Log-" + new Date().toUTCString() + ".txt";
 	private logFile: string;
 
 	private outputPanel = new NotebookOutputPanel("Wolfram Language Notebook");
@@ -254,9 +251,10 @@ export class WolframNotebookKernel {
 		}
 
 
-		launchCommand = this.findKernel.resolveNBKernel();
+		launchCommand = this.findKernel.resolveKernel();
+
 		if(process.platform === "win32"){
-			launchCommand = launchCommand.replace("WolframKernel.exe","wolfram.exe")
+			launchCommand = launchCommand.replace("WolframKernel.exe", "wolfram.exe")
 		};
 		launchArguments = ["-run", kernelInitCommands];
 		

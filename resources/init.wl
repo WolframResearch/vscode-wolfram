@@ -55,6 +55,7 @@ If[FileExistsQ[$file], DeleteFile[$file]];
 $file = CreateFile[$file];
 
 logWrite["< INITIALIZATION STARTS >"];
+logWrite[TemplateApply["Available kernel processes = ``", ToExpression["$MaxLicenseProcesses - $LicenseProcesses"]]];
 logWriteFile[ "< INITIALIZATION STARTS >\n"];
 logWriteFile[ "< Test STARTS > " <> timeString[] <> " - \n"];
 

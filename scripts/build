@@ -1,0 +1,5 @@
+cd ..
+npm install -g vsce
+npm audit fix --force
+npm install
+vsce package

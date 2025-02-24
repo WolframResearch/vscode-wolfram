@@ -10,25 +10,21 @@ const open = require('open');
 const path = require('path');
 const os = require('os');
 const fs = require('fs');
-const util = require("util");
 import { FindKernel } from "./find-kernel";
 
 
 import * as vscode from 'vscode';
 import { WolframNotebookKernel } from './controller';
-import { SampleContentSerializer } from './serializer';
+import { VSNBContentSerializer } from './serializer';
 
 
 import {
 	commands,
 	window,
-	workspace,
 	DecorationOptions,
-	ExtensionContext,
 	Position,
 	Range,
-	Uri,
-	WorkspaceConfiguration
+	Uri
 } from 'vscode';
 
 import {
@@ -52,7 +48,7 @@ interface ImplicitTokensI {
 	tokens: ImplicitTokenI[]
 }
 
-let lspKernel = new FindKernel();
+let extensionKernel = new FindKernel();
 
 let client: LanguageClient;
 
@@ -87,13 +83,37 @@ export function activate(context: vscode.ExtensionContext) {
 		);
 
 
+		let mainKernel = extensionKernel.resolveKernel();
+
+		const download_WEngine_MDString = new vscode.MarkdownString(`[Download Wolfram Engine for kernel support.](https://www.wolfram.com/engine/)`);
+
+		download_WEngine_MDString.supportHtml = true;
+		download_WEngine_MDString.isTrusted = true;
+
+		/* 
+			kernel setting is Automatic and kernel could not be found. As LSP and Notebook kernels  
+			are same as mainKernel, these kernels will also be missing. So no point of going further. 
+			Show error message here.
+		*/
+
+		if(mainKernel === "kernel-not-found"){
+			vscode.window.showErrorMessage("Kernel is not found in the default location. Either change \"System Kernel\" in the configuration or " + download_WEngine_MDString.value)
+			return
+		};
+
+		if (!fs.existsSync(mainKernel)) {
+			vscode.window.showErrorMessage("Kernel executable path does not exist: " + mainKernel + ". Either change \"System Kernel\" in the configuration or "  + download_WEngine_MDString.value)
+			return
+		}
 
 		// Add Terminal
 
-		let terminalKernel = lspKernel.resolveNBKernel();
+		let terminalKernel = mainKernel;
+
+
 
 		if(process.platform === "win32"){
-			terminalKernel = terminalKernel.replace("WolframKernel.exe","wolfram.exe")
+			terminalKernel = terminalKernel.replace("WolframKernel.exe", "wolfram.exe")
 		};
 
 		context.subscriptions.push(
@@ -114,12 +134,45 @@ export function activate(context: vscode.ExtensionContext) {
 
 
 
-		// Setup the LSP client
+		// Setup Notebook client
 
-		// let extensionDebug = vscode.window.createOutputChannel("Wolfram extension debug");
+		let nbKernelenabled = config.get<boolean>("notebook.kernelEnabled", true);
+
+
+		let controller = new WolframNotebookKernel();
+
+		if(nbKernelenabled){controller.launchKernel()};
+
+
+		context.subscriptions.push(
+			commands.registerCommand(
+				"wolfram.launchKernel", () => {
+
+					if(nbKernelenabled){
+						client.outputChannel.appendLine("Launching Wolfram Kernel");
+						controller.launchKernel()
+					}
+
+				}
+			)
+		);
+		
+
+		context.subscriptions.push(
+			vscode.workspace.registerNotebookSerializer(
+				NOTEBOOK_TYPE, new VSNBContentSerializer()
+			),
+			controller	
+		);
+
+
+
+
+		// Setup LSP client
+
+
 
 		let enabled = config.get<boolean>("lsp.serverEnabled", true);
-		let nbKernelenabled = config.get<boolean>("notebook.kernelEnabled", true);
 
 		if (!enabled) {
 			return
@@ -131,13 +184,20 @@ export function activate(context: vscode.ExtensionContext) {
 		let lspLog = config.get<string>("advanced.lsp.ServerLogDirectory", "Off");
 
 		// Set lspcommand to use standalone LSP app.
+
+
+
+
+
+
+		// Use the default option to launch LSPServer
 		if (lspcommand[0] == "lspKernel") {
 
 			// No log directory is to be used
 			if (lspLog == "Off") {
 
 				lspcommand = [
-					lspKernel.resolveNBKernel(),
+					mainKernel,
 					"-noinit",
 					"-noprompt",
 					"-nopaclet",
@@ -153,7 +213,7 @@ export function activate(context: vscode.ExtensionContext) {
 			else{
 
 				lspcommand = [
-					lspKernel.resolveNBKernel(),
+					mainKernel,
 					"-noinit",
 					"-noprompt",
 					"-nopaclet",
@@ -167,9 +227,6 @@ export function activate(context: vscode.ExtensionContext) {
 			}
 
 		};
-
-
-		// extensionDebug.appendLine(lspcommand[0]);
 	
 
 		let implicitTokens = config.get<string[]>("lsp.implicitTokens", []);
@@ -275,48 +332,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 		
 
-		let controller = new WolframNotebookKernel();
-
-		if(nbKernelenabled){controller.launchKernel()};
-
-
-		context.subscriptions.push(
-			commands.registerCommand(
-				"wolfram.launchKernel", () => {
-
-					if(nbKernelenabled){
-						client.outputChannel.appendLine("Launching Wolfram Kernel");
-						controller.launchKernel()
-					}
-
-				}
-			)
-		);
-		
-
-		context.subscriptions.push(
-			vscode.workspace.registerNotebookSerializer(
-				NOTEBOOK_TYPE, new SampleContentSerializer()
-			),
-			controller	
-		);
-
-		context.subscriptions.push(vscode.commands.registerCommand('getting-started-sample.runCommand', async () => {
-			await new Promise(resolve => setTimeout(resolve, 1000));
-			vscode.commands.executeCommand('getting-started-sample.sayHello', vscode.Uri.joinPath(context.extensionUri, 'sample-folder'));
-		}));
-
-
-
 }
-
-
-
-
-async function lanchKernelInExtension(controller: WolframNotebookKernel) {
-	const kernel = await controller.launchKernel();
-	console.log(`kernel = ${kernel}`)
-};
 
 
 
