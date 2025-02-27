@@ -1,5 +1,14 @@
 
-## v2.0.0 - XX Nov, 2024
+## v2.0.1 - 24 Feb, 2025
+
+Notebook support without LSP.
+
+Version mismatch issue fix with LSPServer paclet update.
+
+Updated kernel support information message.
+
+
+## v2.0.0 - 21 Nov, 2024
 
 Add themes.
 
