@@ -36,10 +36,10 @@ const zmq = require("zeromq");
 
 import { readFileSync, writeFile, appendFile } from "fs";
 import * as child_process from "child_process";
-import { ExportNotebookStatusBarItem, NotebookOutputPanel } from "./ui-items";
+import { ExportNotebookStatusBarItem, KernelStatusBarItem, NotebookOutputPanel } from "./ui-items";
 import { NotebookConfig } from "./notebook-config";
 import { ExecutionQueue } from "./notebook-kernel";
-import { FindKernel } from "./find-kernel";
+import { FindKernel, getUserBaseDirectoryPath } from "./find-kernel";
 
 export class WolframNotebookKernel {
 	private readonly notebookConfig: vscode.WorkspaceConfiguration = vscode.workspace.getConfiguration("wolfram", null);
@@ -47,15 +47,17 @@ export class WolframNotebookKernel {
 	private readonly _label = 'Wolfram Kernel';
 	private readonly _supportedLanguages = ['wolfram'];
 	private findKernel = new FindKernel();
-	private kernelStatusString: string = "unrevoled";
+	private kernelStatusString: string = "unresolved";
 	
 
 	private extensionPath: string = "";
 
-	private logFile: string;
+	private logFile: string = "";
+	private logEnabled: boolean ;
 
 	private outputPanel = new NotebookOutputPanel("Wolfram Language Notebook");
 	private config = new NotebookConfig();
+	private kernelStatusBar = new KernelStatusBarItem(['wolfram']);
 
 	private readonly _controller: vscode.NotebookController;
 	private thisExtension: vscode.Extension<any> | undefined;
@@ -69,14 +71,19 @@ export class WolframNotebookKernel {
 	constructor() {
 		this.thisExtension = vscode.extensions.getExtension("WolframResearch.wolfram");
 
-		this.logFile = this.notebookConfig.get<string>("advanced.notebook.logDirectory", "Off");
+		this.logEnabled = this.notebookConfig.get<boolean>("advanced.notebook.logEnabled", false);
 
-		if (this.logFile !== "Off") {
-			this.logFile = this.logFile + "/" + "Notebook-Log-" + new Date().toUTCString() + ".txt";
-			// replace ',', '(', ")" and ':' with '-'
-			this.logFile = this.logFile.replace(/\,|\(|\)|:/g, '-');
+		if (this.logEnabled) {
+			let logDir = path.join(getUserBaseDirectoryPath(), "VSNB", "Log");
+			fs.mkdirSync(logDir, { recursive: true });
+			let logFileName = "Notebook-Log-" + new Date().toUTCString() + ".txt";
+			// replace ',', '(', ")" and ':' with '-' - only in the filename, not the path
+			logFileName = logFileName.replace(/\,|\(|\)|:/g, '-');
+			this.logFile = path.join(logDir, logFileName);
 			this.outputPanel.print(`Log file = ${this.logFile}`);
 		};
+
+		const kernelPath = this.findKernel.resolveKernel();
 
 		this._controller = vscode.notebooks.createNotebookController(this._id,
 			'wolfram-notebook',
@@ -84,7 +91,9 @@ export class WolframNotebookKernel {
 
 		this._controller.supportedLanguages = this._supportedLanguages;
 		this._controller.supportsExecutionOrder = true;
+		this._controller.detail = kernelPath;
 		this._controller.executeHandler = this.execute.bind(this);
+		this._controller.interruptHandler = this.interruptExecution.bind(this);
 
 
 		this.extensionPath = this.thisExtension?.extensionPath || "";
@@ -92,6 +101,13 @@ export class WolframNotebookKernel {
 		// when notebook config changes, send a message to the kernel
 		this.config.onDidChange((config: NotebookConfig) => {
 			this.postMessageToKernel({ type: "set-config", config: config.getKernelRelatedConfigs() });
+		});
+
+		// update kernel path when systemPath setting changes
+		vscode.workspace.onDidChangeConfiguration(e => {
+			if (e.affectsConfiguration("wolfram.systemPath")) {
+				this._controller.detail = this.findKernel.resolveKernel();
+			}
 		});
 
 		this._controller.onDidChangeSelectedNotebooks(({ notebook, selected }) => {
@@ -118,6 +134,7 @@ export class WolframNotebookKernel {
 		this.outputPanel.print(`Killing kernel process, pid = ${this.kernel.pid}`);
 		this.quitKernel();
 		this._controller.dispose();
+		this.kernelStatusBar.dispose();
 	}
 
 	private execute(
@@ -125,26 +142,46 @@ export class WolframNotebookKernel {
 		_notebook: vscode.NotebookDocument,
 		_controller: vscode.NotebookController
 	  ): void {
-		if(this.kernelStatusString === "resolved")
-		{		
-			for (let cell of cells) {
-				this.outputPanel.print("===========Exec start=====================.");
-				const execution = this._controller.createNotebookCellExecution(cell);
-				console.log(`execute kernelStatusString: , ${this.kernelStatusString}`);
-				if(this.kernelStatusString === "resolved"){this.executionQueue.push(execution)};
-
-				execution.token.onCancellationRequested(() => {
-						this.outputPanel.print("Abort evaluation");
-						// process.kill(this.kernel.pid);
-						// this.kernel.kill("SIGKILL");
-						this.kernel.kill(this.kernel.pid, "SIGINT");
-						this.outputPanel.print("Abort evaluation");
-					}
-				);
-			}
-			this.outputPanel.print("Execution command sent from NB.");
-			this.checkoutExecutionQueue()
-		}
+		   // Ensure the kernel is running and execute the given notebook cells
+		   const ensureKernelAndExecute = async () => {
+			   // If the kernel is not connected, attempt to launch it
+			   if (this.kernelStatusString !== "resolved") {
+				   this.outputPanel.print("Kernel not connected. Launching kernel before evaluation...");
+				   try {
+					   // Try to launch the kernel
+					   await this.launchKernel();
+				   } catch (e) {
+					   // If launching fails, print error and mark all cells as failed
+					   const errMsg = (typeof e === "object" && e && "message" in e) ? (e as any).message : String(e);
+					   this.outputPanel.print("Failed to launch kernel: " + errMsg);
+					   for (let cell of cells) {
+						   // Create an execution for each cell and show the error output
+						   const execution = this._controller.createNotebookCellExecution(cell);
+						   execution.replaceOutput([
+							   new vscode.NotebookCellOutput([
+								   vscode.NotebookCellOutputItem.text("Failed to launch kernel: " + errMsg, "text/plain")
+							   ])
+						   ]);
+						   execution.end(false); // Mark execution as failed
+					   }
+					   return;
+				   }
+			   }
+			   // For each cell, create an execution and add it to the queue
+			   for (let cell of cells) {
+				   this.outputPanel.print("===========Exec start=====================.");
+				   const execution = this._controller.createNotebookCellExecution(cell);
+				   this.executionQueue.push(execution);
+				   // Register a cancellation handler for the execution
+				   execution.token.onCancellationRequested(() => {
+					   this.interruptExecution();
+				   });
+			   }
+			   // Start processing the execution queue
+			   this.checkoutExecutionQueue();
+		   };
+		   // Start the kernel check and execution process
+		   ensureKernelAndExecute();
 	  }
 
 
@@ -155,7 +192,7 @@ export class WolframNotebookKernel {
 			const inputFromCell = currentExecution.execution.cell.document.getText();
 			this.outputPanel.print("\n============================================================\n");
 			this.outputPanel.print("Input from cell");
-			if (this.logFile !== "Off") {
+			if (this.logEnabled) {
 				this.appendFileWrite(this.logFile, this.logString("\n============================================================\n"));
 				this.appendFileWrite(this.logFile, this.logString("Input from cell: " + inputFromCell));
 			}
@@ -246,7 +283,7 @@ export class WolframNotebookKernel {
 		const kernelInitCommands = `ToExpression["VsCodeWolfram\`Private\`zmqPort=${kernelPort}; Get[\\"${kernelInitPath}\\"]"]`;
 
 
-		if (this.logFile !== "Off") {
+		if (this.logEnabled) {
 			this.appendFileWrite(this.logFile, this.logString(kernelInitCommands));
 		}
 
@@ -261,12 +298,13 @@ export class WolframNotebookKernel {
 
 		this.outputPanel.print("Launching kernel"); 
 		this.outputPanel.print(`NotebookKernel = ${launchCommand}`); 
+		this.kernelStatusBar.setConnecting();
 
 		this.kernel = child_process.spawn(launchCommand, launchArguments, { stdio: "pipe" });
 
 		if (this.kernel) {
 			this.outputPanel.print(`kernel process pid = ${this.kernel.pid}`)
-			if (this.logFile !== "Off") { this.appendFileWrite(this.logFile, this.logString(`kernel process pid = ${this.kernel.pid}`)) };
+			if (this.logEnabled) { this.appendFileWrite(this.logFile, this.logString(`kernel process pid = ${this.kernel.pid}`)) };
 
 		}
 
@@ -321,23 +359,29 @@ export class WolframNotebookKernel {
 						// this.firstResponse = await this.handleMessageFromKernel();
 						this.handleMessageFromKernel();
 
-						if (this.logFile !== "Off") {
+						// Send initial VS Code config to the kernel
+						this.postMessageToKernel({ type: "set-config", config: this.config.getKernelRelatedConfigs() });
+
+						if (this.logEnabled) {
 							this.appendFileWrite(this.logFile, this.logString("================ Kernel launched with kernel message handler =======================\n\n"));
 						}
 						
 						console.log("================ Kernel launched with kernel message handler =======================");
 
-						vscode.window.showInformationMessage("Notebook kernel launched, ready for notebook evaluation.");
+						this.kernelStatusBar.setConnected(launchCommand);
 
-						resolve("hello from stdout");
+						resolve("kernel connected");
 						clearTimeout(connectionTimeout);
 						this.kernelStatusString = "resolved";
 
 						
 
 					} catch (error) {
-
-						this.outputPanel.print("The kernel took too long to respond through the ZeroMQ link.");
+						const errMsg = (typeof error === "object" && error && "message" in error)
+							? (error as any).message
+							: String(error);
+						this.outputPanel.print("Kernel handshake failed: " + errMsg);
+						reject(error instanceof Error ? error : new Error(errMsg));
 					}
 				}
 			});
@@ -392,7 +436,7 @@ export class WolframNotebookKernel {
 
 	private postMessageToKernel(message: any) {
 		if (this.socket !== undefined) {
-			if (this.logFile !== "Off") {
+			if (this.logEnabled) {
 				this.appendFileWrite(this.logFile, this.logString(
 					("TS -> WL: " + JSON.stringify(message)).substring(0, 400)
 				));
@@ -412,14 +456,40 @@ export class WolframNotebookKernel {
 		});
 	}
 
-	private quitKernel() {
+	public isKernelConnected(): boolean {
+		return this.kernelStatusString === "resolved";
+	}
+
+	public quitKernel() {
+		if (!this.kernel) {
+			this.outputPanel.print("No kernel process to kill.");
+			return;
+		}
+
+		// Cancel all pending and running executions
+		this.executionQueue.clear();
+
 		this.outputPanel.print(`Killing kernel process, pid = ${this.kernel.pid}`);
+		this.kernelStatusBar.setDisconnected();
+		this.kernelStatusString = "unresolved";
 
 		this.kernel.kill("SIGKILL");
 		this.kernel = undefined;
 		this.socket.close();
 		this.socket = undefined;
 	  };
+
+	private interruptExecution(): void {
+		if (!this.kernel) {
+			this.outputPanel.print("No kernel process to interrupt.");
+			return;
+		}
+		this.outputPanel.print(`Sending SIGINT to kernel process, pid = ${this.kernel.pid}`);
+		this.kernelStatusBar.setDisconnected();
+		this.kernelStatusString = "unresolved";
+		this.kernel.kill("SIGINT");
+		this.executionQueue.clear();
+	}
 
 
   private async handleMessageFromKernel() {
@@ -440,7 +510,7 @@ export class WolframNotebookKernel {
 			this.outputPanel.print(JSON.stringify(message));
 
 
-			if (this.logFile !== "Off") { this.appendFileWrite(this.logFile, this.logString("WL -> TS :> " + JSON.stringify(message))); }
+			if (this.logEnabled) { this.appendFileWrite(this.logFile, this.logString("WL -> TS :> " + JSON.stringify(message))); }
 
 			try {
 			  message = JSON.parse(message);
@@ -485,7 +555,7 @@ export class WolframNotebookKernel {
 
 				  const output = new vscode.NotebookCellOutput(outputItems);
 
-				  this.outputPanel.print(`Output = ${output.items.toString}`)
+				  this.outputPanel.print(`Output = ${output.items.toString()}`)
 
 
 					if (currentExecution?.hasOutput) {

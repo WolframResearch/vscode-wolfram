@@ -98,7 +98,7 @@ $config=<|
   "storeOutputExpressions"-> <|"value"->True,"requires"->(#===True||#===False&)|>,
   "outputSizeLimit"-> <|"value"->5000(*KB*),"requires"->(Head[#]===Integer&&#>0&)|>,
   "boxesTimeLimit"-><|"value"->5000(*ms*),"requires"->(Head[#]===Integer&&#>0&)|>,
-  "htmlTimeLimit"-><|"value"->10000(*ms*),"requires"->(Head[#]===Integer&&#>0&)|>,
+  "timeLimit"-><|"value"->30000(*ms*),"requires"->(Head[#]===Integer&&#>0&)|>,
   "htmlMemoryLimit"-><|"value"->200(*MB*),"requires"->(Head[#]===Integer&&#>0&)|>,
   "imageWithTransparency"-><|"value"-> False,"requires"->(#===True||#===False&)|>,
   "renderAsImages"-><|"value"->True,"requires"->(#===True||#===False&)|>,
@@ -171,6 +171,34 @@ readMessage[timeout_:1.0]:=Module[{ready=SocketReadyQ[$zmqserver,timeout]},If[re
 			ToCharacterCode[str, "Unicode"],
 			(57344 <= #1 <= 63743 || 983040 <= #1 <= 1048575 || 1048576 <= #1 <= 1114111) &
 		];
+
+  escapeHTML[str_String] := StringReplace[
+    str,
+    {
+      "&" -> "&amp;",
+      "<" -> "&lt;",
+      ">" -> "&gt;",
+      "\"" -> "&quot;",
+      "'" -> "&#39;"
+    }
+  ];
+
+  renderFailureHTML[msg_String] := StringJoin[
+    "<section class=\"wl-render-failure\" role=\"alert\">",
+    "<pre class=\"wl-render-failure-message\">", escapeHTML[msg], "</pre>",
+    "</section>"
+  ];
+
+  (* Normalize renderer output to HTML strings so logging and JSON serialization never receive symbolic expressions. *)
+  normalizeHTML[html_] := Replace[
+    html,
+    {
+      s_String :> s,
+      renderHTML[renderingFailed[msg_String]] :> renderFailureHTML[msg],
+      renderingFailed[msg_String] :> renderFailureHTML[msg],
+      other_ :> renderFailureHTML[ToString[Unevaluated[other], InputForm]]
+    }
+  ];
 
 (************************************
 	utility for determining if a
@@ -365,11 +393,12 @@ handleOutput[]:=
           MemoryConstrained[
             If[$getKernelConfig["renderAsImages"],renderImage,renderHTML][boxes],
             $getKernelConfig["htmlMemoryLimit"]*2^20,
-            renderHTML@renderingFailed["Rendering to HTML took much memory."]
+            renderFailureHTML["Output rendering exceeded the memory limit."]
           ],
-          $getKernelConfig["htmlTimeLimit"]/1000.0,
-          renderHTML@renderingFailed["Rendering to HTML took much time."]
+          $getKernelConfig["timeLimit"]/1000.0,
+          renderFailureHTML["Output rendering timed out. Try increasing \"Wolfram > Notebook > Rendering: Time Limit\" in VS Code settings, or simplify the output expression."]
         ];
+        html = normalizeHTML[html];
         logWriteFile["Expression html: " <> html <> "\n"];
         sendMessage[<|
           "type"->"show-output",

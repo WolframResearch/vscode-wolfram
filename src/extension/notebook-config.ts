@@ -49,7 +49,8 @@ export class NotebookConfig {
   getKernelRelatedConfigs() {
     const configNames = [
       "notebook.rendering.invertBrightnessInDarkThemes",
-      "notebook.rendering.imageScalingFactor"
+      "notebook.rendering.imageScalingFactor",
+      "notebook.rendering.timeLimit"
     ];
     const renderingConfig = vscode.workspace.getConfiguration("wolfram");
     let config: { [key: string]: any } = {};

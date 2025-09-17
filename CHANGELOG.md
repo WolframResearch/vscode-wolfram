@@ -1,4 +1,11 @@
 
+
+## v3.0.2 - 10 May, 2026
+
+- LSP feature support in notebooks.
+- Wolfram MCP server support.
+- Simplified configuration settings.
+
 ## v2.0.1 - 24 Feb, 2025
 
 Notebook support without LSP.
