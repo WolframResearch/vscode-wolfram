@@ -262,7 +262,10 @@ export function activate(context: vscode.ExtensionContext) {
 		};
 
 		let clientOptions: LanguageClientOptions = {
-			documentSelector: [{ scheme: 'file', language: 'wolfram' }],
+			documentSelector: [
+				{ scheme: 'file', language: 'wolfram' },
+				{ notebook: NOTEBOOK_TYPE, language: 'wolfram' }
+			],
 			initializationOptions: {
 				implicitTokens: implicitTokens,
 				// bracketMatcher: bracketMatcher,
