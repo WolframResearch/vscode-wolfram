@@ -10,7 +10,8 @@ const open = require('open');
 const path = require('path');
 const os = require('os');
 const fs = require('fs');
-import { FindKernel } from "./find-kernel";
+import { exec } from 'child_process';
+import { FindKernel, getUserBaseDirectoryPath } from "./find-kernel";
 
 
 import * as vscode from 'vscode';
@@ -24,7 +25,9 @@ import {
 	DecorationOptions,
 	Position,
 	Range,
-	Uri
+	Uri,
+	ViewColumn,
+	WebviewPanel
 } from 'vscode';
 
 import {
@@ -60,8 +63,17 @@ let kernel_initialized = false;
 let implicitTokensDecorationType = vscode.window.createTextEditorDecorationType({});
 
 
+
+// Create output channel for Wolfram extension logging
+// let wolframOutputChannel: vscode.OutputChannel;
+
+
   
 export function activate(context: vscode.ExtensionContext) {
+
+		// Create output channel for debugging
+		// wolframOutputChannel = vscode.window.createOutputChannel("Wolfram Extension");
+		// context.subscriptions.push(wolframOutputChannel);
 
 	    const config: vscode.WorkspaceConfiguration = vscode.workspace.getConfiguration("wolfram", null);
 
@@ -69,6 +81,50 @@ export function activate(context: vscode.ExtensionContext) {
 
 		context.subscriptions.push(commands.registerCommand('wolfram.OpenNotebook', (name: Uri) => { if (name) { open(name.fsPath) } }));
 		context.subscriptions.push(commands.registerCommand('wolfram.DownloadWolframEngine', onDownloadWolframEngine));
+
+
+		// MCP server change emitters - fired when config changes so VS Code re-queries providers
+		const mcpSearchEmitter = new vscode.EventEmitter<void>();
+		const mcpWolframAIEmitter = new vscode.EventEmitter<void>();
+
+		// Listen for config changes to refresh MCP providers dynamically
+		context.subscriptions.push(vscode.workspace.onDidChangeConfiguration(e => {
+			if (e.affectsConfiguration("wolfram.mcp.serverEnabled")) {
+				mcpSearchEmitter.fire();
+				mcpWolframAIEmitter.fire();
+			}
+		}));
+
+
+		
+
+		// Register Native Wolfram MCP Server
+		context.subscriptions.push(vscode.lm.registerMcpServerDefinitionProvider('wolframAI', {
+			onDidChangeMcpServerDefinitions: mcpWolframAIEmitter.event,
+			provideMcpServerDefinitions(): vscode.McpServerDefinition[] {
+				const cfg = vscode.workspace.getConfiguration("wolfram", null);
+				if (!cfg.get<boolean>("mcp.serverEnabled", true)) {
+					return [];
+				}
+				const mcpKernelPath = extensionKernel.resolveMCPWolframExecutable();
+				
+				return [
+					new vscode.McpStdioServerDefinition(
+						'WolframAI',
+						mcpKernelPath,
+						[
+							"-run",
+							"Needs[\"Wolfram\`AgentTools\`\"] ;PacletSymbol[\"Wolfram/AgentTools\",\"Wolfram`AgentTools`StartMCPServer\"][\"WolframLanguage\"]",
+							"-noinit",
+							"-noprompt",
+						]
+					)
+				];
+			}
+		}));
+
+
+
 
 		context.subscriptions.push(
 			vscode.commands.registerCommand(
@@ -106,9 +162,14 @@ export function activate(context: vscode.ExtensionContext) {
 			return
 		}
 
+		// Log wolframscript path information
+		let envPath = terminalFromEnvPath();
+		
+		const actualPath = envPath;
+
 		// Add Terminal
 
-		let terminalKernel = mainKernel;
+		let terminalKernel = resolveTerminalKernel(mainKernel);
 
 
 
@@ -116,9 +177,16 @@ export function activate(context: vscode.ExtensionContext) {
 			terminalKernel = terminalKernel.replace("WolframKernel.exe", "wolfram.exe")
 		};
 
+		// wolframOutputChannel.appendLine(`=== Wolfram Extension Activated ===`);
+		// wolframOutputChannel.appendLine(`Environment WOLFRAM_SCRIPT_PATH: ${envPath || 'Not set'}`);
+		// wolframOutputChannel.appendLine(`mainKernel: ${mainKernel}`);
+		// wolframOutputChannel.appendLine(`Using path: ${terminalKernel}`);
+		// wolframOutputChannel.appendLine(`Path exists: ${fs.existsSync(terminalKernel)}`);
+		// wolframOutputChannel.appendLine(`================================`);
+
 		context.subscriptions.push(
 			commands.registerCommand(
-				'createWolframScriptTerminal', () => {
+				'createWolframTerminal', () => {
 					
 						// Reads systemKernel configuration value, and resolve the kernel
 						// For defaulkt value, it will resolve to the actual path
@@ -156,6 +224,59 @@ export function activate(context: vscode.ExtensionContext) {
 				}
 			)
 		);
+
+		context.subscriptions.push(
+			commands.registerCommand(
+				"wolfram.kernelMenu", async () => {
+					const isConnected = controller.isKernelConnected();
+
+					interface KernelMenuItem extends vscode.QuickPickItem {
+						action: string;
+					}
+
+					const items: KernelMenuItem[] = isConnected
+						? [
+							{ label: "$(debug-restart) Restart Kernel", description: "Disconnect and reconnect the kernel", action: "restart" },
+							{ label: "$(debug-disconnect) Disconnect Kernel", description: "Stop the running kernel", action: "disconnect" },
+							{ label: "$(gear) Open Kernel Settings", description: "Configure kernel options", action: "settings" }
+						]
+						: [
+							{ label: "$(plug) Connect Kernel", description: "Start the Wolfram kernel", action: "connect" },
+							{ label: "$(gear) Open Kernel Settings", description: "Configure kernel options", action: "settings" }
+						];
+
+					const selected = await vscode.window.showQuickPick(items, {
+						placeHolder: isConnected ? "Wolfram Kernel is connected" : "Wolfram Kernel is disconnected"
+					});
+
+					if (!selected) { return; }
+
+					switch (selected.action) {
+						case "connect":
+							if (nbKernelenabled) { controller.launchKernel(); }
+							break;
+						case "disconnect":
+							controller.quitKernel();
+							break;
+						case "restart":
+							controller.quitKernel();
+							if (nbKernelenabled) { controller.launchKernel(); }
+							break;
+						case "settings":
+							vscode.commands.executeCommand("workbench.action.openSettings", "@ext:WolframResearch.wolfram kernel");
+							break;
+					}
+				}
+			)
+		);
+
+		context.subscriptions.push(
+			commands.registerCommand(
+				"wolfram.abortKernel", () => {
+					controller.quitKernel();
+				}
+			)
+		);
 		
 
 		context.subscriptions.push(
@@ -163,6 +284,44 @@ export function activate(context: vscode.ExtensionContext) {
 				NOTEBOOK_TYPE, new VSNBContentSerializer()
 			),
 			controller	
+		);
+
+		// Register a command to run selected text in a dedicated Wolfram terminal
+		context.subscriptions.push(
+			vscode.commands.registerCommand(
+				"wolfram.runSelectedInWolframTerminal",
+				async () => {
+					// Get the active text editor
+					const editor = vscode.window.activeTextEditor;
+					if (!editor) {
+						return;
+					}
+					// Get the selected text, or the current line if no selection
+					const selection = editor.selection;
+					const text = editor.document.getText(
+						selection.isEmpty
+							? editor.document.lineAt(selection.active.line).range
+							: selection
+					);
+
+					// Find an existing Wolfram terminal by name
+					let terminal = vscode.window.terminals.find(
+						(t) => t.name === "WolframKernel"
+					);
+					if (!terminal) {
+						// If not found, create a new Wolfram terminal using the resolved terminal path
+						terminal = vscode.window.createTerminal(
+							"WolframKernel",
+							terminalKernel
+						);
+						// Wait briefly to ensure the terminal is ready
+						await new Promise((res) => setTimeout(res, 300));
+					}
+					// Show the terminal and send the selected text for execution
+					terminal.show();
+					terminal.sendText(text, true);
+				}
+			)
 		);
 
 
@@ -181,7 +340,8 @@ export function activate(context: vscode.ExtensionContext) {
 		
 
 		let lspcommand = config.get<string[]>("advanced.lsp.command", ["lspKernel"]);
-		let lspLog = config.get<string>("advanced.lsp.ServerLogDirectory", "Off");
+		let lspLogEnabled = config.get<boolean>("advanced.lsp.ServerLogEnabled", false);
+		let lspLogLoc = path.join(getUserBaseDirectoryPath(), "LSPServer", "Log");
 
 		// Set lspcommand to use standalone LSP app.
 
@@ -193,8 +353,8 @@ export function activate(context: vscode.ExtensionContext) {
 		// Use the default option to launch LSPServer
 		if (lspcommand[0] == "lspKernel") {
 
-			// No log directory is to be used
-			if (lspLog == "Off") {
+			// Logging disabled: start LSP server without log directory
+			if (!lspLogEnabled){
 
 				lspcommand = [
 					mainKernel,
@@ -220,7 +380,7 @@ export function activate(context: vscode.ExtensionContext) {
 					"-noicon",
 					"-nostartuppaclets",
 					"-run",
-					"Needs[\"LSPServer`\"]; LSPServer`$LogLevel = 1; LSPServer`StartServer[\"" + lspLog + "\"]"
+					"Needs[\"LSPServer`\"]; LSPServer`$LogLevel = 1; LSPServer`StartServer[\"" + lspLogLoc + "\"]"
 				];
 
 
@@ -262,7 +422,8 @@ export function activate(context: vscode.ExtensionContext) {
 		};
 
 		let clientOptions: LanguageClientOptions = {
-			documentSelector: [{ scheme: 'file', language: 'wolfram' }],
+			// documentSelector: [{ scheme: 'file', language: 'wolfram' }],
+			documentSelector: [{ language: 'wolfram' }],
 			initializationOptions: {
 				implicitTokens: implicitTokens,
 				// bracketMatcher: bracketMatcher,
@@ -282,7 +443,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 		// client.outputChannel.dispose();
 
-		let timeoutWarningEnabled = config.get<boolean>("timeout_warning_enabled", true);
+		let timeoutWarningEnabled = config.get<boolean>("timeoutWarningEnabled", true);
 
 		if (timeoutWarningEnabled) {
 			setTimeout(kernel_initialization_check_function, 15000, lspcommand);
@@ -404,6 +565,43 @@ function kernel_initialization_check_function(command: string[]) {
 }
 
 
+function terminalFromEnvPath(): string | undefined {
+	let envPath = process.env.WOLFRAMSCRIPT_KERNELPATH;
+
+	// If environment variable not set, try to read from shell config files
+	if (!envPath) {
+		const homeDir = os.homedir();
+		const shellConfigs = [
+			path.join(homeDir, '.zshrc'),
+			path.join(homeDir, '.bashrc'),
+			path.join(homeDir, '.bash_profile'),
+			path.join(homeDir, '.profile')
+		];
+
+		for (const configFile of shellConfigs) {
+			if (fs.existsSync(configFile)) {
+				try {
+					const content = fs.readFileSync(configFile, 'utf8');
+					const match = content.match(/export\s+WOLFRAMSCRIPT_KERNELPATH\s*=\s*["']?([^"'\s]+)["']?/);
+					if (match && match[1]) {
+						envPath = match[1];
+						break;
+					}
+				} catch (error) {
+					// Ignore file read errors
+				}
+			}
+		}
+	}
+
+	return envPath;
+}
+
+function resolveTerminalKernel(kernel: string): string {
+	return terminalFromEnvPath() || kernel;
+}
+
+
 function implicitTokenCharToText(c: string) {
 	switch (c) {
 		case "x": return "\xd7";
@@ -426,4 +624,13 @@ function implicitTokenCharToText(c: string) {
 function onDownloadWolframEngine(): void {
     const uri: Uri = Uri.parse(`https://www.wolfram.com/engine/`);
     commands.executeCommand('vscode.open', uri);
+}
+
+
+
+export function deactivate() {
+	// Clean up resources when extension is deactivated
+	if (client) {
+		return client.stop();
+	}
 }

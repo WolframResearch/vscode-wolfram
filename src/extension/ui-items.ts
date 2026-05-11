@@ -27,7 +27,7 @@ export class KernelStatusBarItem {
     );
     this.disposables.push(this.item);
     this.item.name = "Wolfram Kernel";
-    this.item.command = "wolframLanguageNotebook.manageKernels";
+    this.item.command = "wolfram.kernelMenu";
     this.setDisconnected();
     this.updateVisibility();
 
@@ -51,23 +51,28 @@ export class KernelStatusBarItem {
     }
   }
 
-  private setState(active: boolean, icon: string, tooltip: string) {
+  private setState(active: boolean, icon: string, tooltip: string, color?: string) {
     this.kernelIsActive = active;
     this.item.text = icon + this.baseText;
     this.item.tooltip = tooltip;
+    this.item.color = color;
     this.updateVisibility();
   }
 
+  isConnected(): boolean {
+    return this.kernelIsActive;
+  }
+
   setDisconnected() {
-    this.setState(false, "$(close)", "Currently not connected to a kernel");
+    this.setState(false, "$(error)", "Kernel aborted");
   }
 
   setConnecting() {
     this.setState(true, "$(loading~spin)", "Connecting to the kernel");
   }
 
-  setConnected(tooltip: string = "", isRemote: boolean = false) {
-    this.setState(true, (isRemote ? "$(remote)" : "$(check)"), tooltip || "Kernel connected");
+  setConnected(tooltip: string = "") {
+    this.setState(true, "$(pass-filled)", tooltip || "Kernel is ready for evaluation");
   }
 }
 
@@ -80,7 +85,7 @@ export class ExportNotebookStatusBarItem {
     );
     this.item.name = "Export Notebook";
     this.item.text = "$(loading~spin) Generating Notebook";
-    this.item.command = "wolframLanguageNotebook.manageKernels";
+    this.item.command = "wolfram.launchKernel";
     this.item.hide();
   }
 

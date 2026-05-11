@@ -239,8 +239,7 @@ wgraph > img {
   left: 0;
   image-rendering: auto;
 }
-body.vscode-dark wgraph > img,
-body.vscode-high-contrast wgraph > img {
+wgraph > img.invert-brightness {
   filter: invert(1) hue-rotate(180deg);
 }
 wgraph > .resize-widget {

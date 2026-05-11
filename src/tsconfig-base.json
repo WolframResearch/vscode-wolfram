@@ -5,7 +5,6 @@
     "lib": [
       "ES2020","dom"
     ],
-    "types": ["node"],
     "moduleResolution": "node",
     "sourceMap": true,
     "strict": true   /* enable all strict type-checking options */

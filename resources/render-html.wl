@@ -88,12 +88,12 @@ renderHTMLimage[x_,resizable_:True]:=Module[{img=rasterizeAsImage[x] ,dim, final
   ba = ExportByteArray[img, "PNG"];
   imageInBase64 = BaseEncode[ba];
   dim=ImageDimensions[img]; 
-  disableInvert=!TrueQ@$getKernelConfig["invertBrightnessInDarkThemes"];
+  enableInvert=TrueQ@$getKernelConfig["invertBrightnessInDarkThemes"];
   StringJoin["<wgraph ",
     If[TrueQ[resizable],"class=\"resizable\" ",""],
-    "style=\"width:",TextString[N[dim[[1]]* $getKernelConfig["imageScalingFactor"]]],"px;height:",TextString[N[dim[[2]] * $getKernelConfig["imageScalingFactor"]]],"px;\" ",
-    "aspect-ratio=\"",TextString[N[dim[[2]]/dim[[1]]]],"\" ",
-    "tabIndex=\"-1\"><img ",If[disableInvert,"style=\"filter:none;\" ",""],"src=\"data:image/png;base64,",
+    "style=\"width:",ToString[Round[dim[[1]]* $getKernelConfig["imageScalingFactor"]]],"px;height:",ToString[Round[dim[[2]] * $getKernelConfig["imageScalingFactor"]]],"px;\" ",
+    "aspect-ratio=\"",ToString@NumberForm[N[dim[[2]]/dim[[1]]], {6, 4}],"\" ",
+    "tabIndex=\"-1\"><img ",If[enableInvert,"class=\"invert-brightness\" ",""],"src=\"data:image/png;base64,",
     imageInBase64,
     "\" /></wgraph>"
   ]

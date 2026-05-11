@@ -3,7 +3,7 @@
   "displayName": "Wolfram Language",
   "description": "Official Visual Studio Code extension for Wolfram Language",
   "publisher": "WolframResearch",
-  "version": "2.0.1",
+  "version": "3.0.2",
   "engines": {
     "vscode": "^1.95.0"
   },
@@ -12,22 +12,33 @@
     "url": "https://github.com/WolframResearch/vscode-wolfram.git"
   },
   "keywords": [
-    "notebookRenderer"
+    "wolfram", "wolfram language", "notebook", "lsp", "mathematica"
   ],
   "categories": [
-    "Other"
+    "Programming Languages",
+    "Notebooks",
+    "Themes",
+    "Linters",
+    "Formatters"
   ],
   "activationEvents": [
     "onLanguage:wolfram",
     "onCommand:wolfram.OpenNotebook",
     "onCommand:wolfram.DownloadWolframEngine",
-    "onCommand:createWolframScriptTerminal",
+    "onCommand:createWolframTerminal",
     "onCommand:wolfram.openConfigurations",
-    "onCommand:wolfram.launchKernel"
+    "onCommand:wolfram.launchKernel",
+    "onCommand:wolfram.kernelMenu"
   ],
   "main": "./out/extension/extension.js",
   "icon": "images/icon.png",
   "contributes": {
+    "mcpServerDefinitionProviders": [
+      {
+        "id": "wolframAI",
+        "label": "WolframAI"
+      }
+    ],
     "languages": [
       {
         "id": "wolfram",
@@ -54,89 +65,119 @@
         "path": "./syntaxes/wolfram.tmLanguage.json"
       }
     ],
-    "configuration": {
-      "type": "object",
-      "title": "Wolfram",
-      "properties": {
-        "wolfram.lsp.serverEnabled": {
-          "scope": "resource",
-          "type": "boolean",
-          "default": true,
-          "description": "Enables the Wolfram LSP server",
-          "order": 1
-        },
-        "wolfram.notebook.kernelEnabled": {
-          "scope": "resource",
-          "type": "boolean",
-          "default": false,
-          "description": "Enables Notebook Evaluation",
-          "order": 1
-        },
-        "wolfram.timeout_warning_enabled": {
-          "scope": "resource",
-          "type": "boolean",
-          "default": true,
-          "description": "Enables the timeout warning if the kernel does not start after 15 seconds",
-          "order": 2
-        },
-        "wolfram.systemKernel": {
-          "scope": "user",
-          "type": "string",
-          "default": "Automatic",
-          "description": "Path to Wolfram System kernel",
-          "order": 0
-        },
-        "wolfram.advanced.lsp.ServerLogDirectory": {
-          "scope": "user",
-          "type": "string",
-          "default": "Off",
-          "description": "Directory for the Wolfram LSP server log",
-          "order": 5
-        },
-        "wolfram.advanced.notebook.logDirectory": {
-          "scope": "user",
-          "type": "string",
-          "default": "Off",
-          "description": "Directory for the notebook log",
-          "order": 5
-        },
-        "wolfram.advanced.lsp.command": {
-          "scope": "user",
-          "type": "array",
-          "default": [
-            "lspKernel"
-          ],
-          "description": "Command to start the Wolfram LSP server",
-          "order": 5
-        },
-        "wolfram.lsp.implicitTokens": {
-          "scope": "user",
-          "type": "array",
-          "default": [],
-          "description": "Experimental option for the Wolfram LSP server",
-          "order": 3
-        },
-        "wolfram.lsp.semanticTokens": {
-          "scope": "user",
-          "type": "boolean",
-          "default": false,
-          "description": "Experimental option for the Wolfram LSP server",
-          "order": 3
-        },
-        "wolfram.notebook.rendering.invertBrightnessInDarkThemes": {
-          "type": "boolean",
-          "default": true,
-          "description": "When an expression is evaluated, this option specifies whether the brightness of the images in the output should be inverted in dark and high contrast themes. ",
-          "order": 4
-        },
-        "wolfram.notebook.rendering.imageScalingFactor": {
-          "type": "number",
-          "default": 0.8,
-          "description": "Controls image output size",
-          "order": 4
+    "configuration": [
+      {
+        "title": "General",
+        "properties": {
+          "wolfram.systemPath": {
+            "scope": "user",
+            "type": "string",
+            "default": "Automatic",
+            "markdownDescription": "Path to Wolfram System installation. Set to `Automatic` to auto-detect, or provide a custom path.\n\nExamples:\n- **macOS:** `/Applications/Wolfram.app`\n- **Windows:** `C:\\Program Files\\Wolfram Research\\Wolfram\\14.3`\n- **Linux:** `/usr/local/Wolfram/Wolfram/14.3`",
+            "order": 0
+          },
+          "wolfram.timeoutWarningEnabled": {
+            "scope": "resource",
+            "type": "boolean",
+            "default": true,
+            "description": "Enables the timeout warning if the kernel does not start after 15 seconds",
+            "order": 2
+          }
+        }
+      },
+      {
+        "title": "LSP",
+        "properties": {
+          "wolfram.lsp.serverEnabled": {
+            "scope": "resource",
+            "type": "boolean",
+            "default": true,
+            "description": "Enables the Wolfram LSP server",
+            "order": 0
+          },
+          "wolfram.lsp.implicitTokens": {
+            "scope": "user",
+            "type": "array",
+            "default": [],
+            "description": "Experimental option for the Wolfram LSP server",
+            "order": 1
+          },
+          "wolfram.lsp.semanticTokens": {
+            "scope": "user",
+            "type": "boolean",
+            "default": false,
+            "description": "Experimental option for the Wolfram LSP server",
+            "order": 2
+          },
+          "wolfram.advanced.lsp.command": {
+            "scope": "user",
+            "type": "array",
+            "default": [
+              "lspKernel"
+            ],
+            "description": "Command to start the Wolfram LSP server",
+            "order": 3
+          },
+          "wolfram.advanced.lsp.ServerLogEnabled": {
+            "scope": "user",
+            "type": "boolean",
+            "default": false,
+            "markdownDescription": "Enable LSP server logging.\n\nWhen enabled, logs are written to:\n- **macOS:** `~/Library/Wolfram/LSPServer/Log`\n- **Windows:** `%APPDATA%\\Wolfram\\LSPServer\\Log`\n- **Linux:** `~/.Wolfram/LSPServer/Log`",
+            "order": 4
+          }
+        }
+      },
+      {
+        "title": "Notebook",
+        "properties": {
+          "wolfram.notebook.kernelEnabled": {
+            "scope": "resource",
+            "type": "boolean",
+            "default": true,
+            "description": "Enables Notebook Evaluation",
+            "order": 0
+          },
+          "wolfram.notebook.rendering.invertBrightnessInDarkThemes": {
+            "type": "boolean",
+            "default": true,
+            "markdownDescription": "Automatically invert image colors in dark and high contrast themes so that white backgrounds appear dark.\n\nWhen **enabled**, plot backgrounds blend with the dark editor theme. When **disabled**, images are shown with their original colors (typically white background).",
+            "order": 1
+          },
+          "wolfram.notebook.rendering.imageScalingFactor": {
+            "type": "number",
+            "default": 0.8,
+            "description": "Controls image output size",
+            "order": 2
+          },
+          "wolfram.notebook.rendering.timeLimit": {
+            "type": "number",
+            "default": 30000,
+            "description": "Maximum time in milliseconds allowed for rendering output. Increase this if you see 'Output rendering timed out.' for complex or slow-rendering outputs.",
+            "order": 3
+          },
+          "wolfram.advanced.notebook.logEnabled": {
+            "scope": "user",
+            "type": "boolean",
+            "default": false,
+            "markdownDescription": "Enable notebook logging.\n\nWhen enabled, logs are written to:\n- **macOS:** `~/Library/Wolfram/VSNB/Log`\n- **Windows:** `%APPDATA%\\Wolfram\\VSNB\\Log`\n- **Linux:** `~/.Wolfram/VSNB/Log`",
+            "order": 3
+          }
+        }
+      },
+      {
+        "title": "MCP",
+        "properties": {
+          "wolfram.mcp.serverEnabled": {
+            "scope": "resource",
+            "type": "boolean",
+            "default": true,
+            "description": "Enables the Wolfram MCP servers",
+            "markdownDescription": "For Wolfram Language versions 14.3 and earlier install the `Wolfram/AgentTools` paclet to enable MCP functionality using:\n\n `PacletInstall[\"Wolfram/AgentTools\"]`",
+            "order": 0
+          }
         }
       }
-    },
+    ],
     "semanticTokenTypes": [],
     "semanticTokenModifiers": [
       {
@@ -196,7 +237,7 @@
         "title": "Wolfram Language: Download Wolfram Engine"
       },
       {
-        "command": "createWolframScriptTerminal",
+        "command": "createWolframTerminal",
         "title": "Wolfram Language: Start Wolfram in Terminal"
       },
       {
@@ -204,11 +245,31 @@
         "title": "Wolfram Language: Launch Default Kernel"
       },
       {
+        "command": "wolfram.kernelMenu",
+        "title": "Wolfram Language: Kernel Menu"
+      },
+      {
         "command": "wolfram.openConfigurations",
         "title": "Wolfram Language: Open Configurations"
+      },
+      {
+        "command": "wolfram.abortKernel",
+        "title": "Quit Kernel",
+        "icon": "$(debug-stop)"
+      },
+      {
+        "command": "wolfram.runSelectedInWolframTerminal",
+        "title": "Wolfram Language: Run Selected Text in Wolfram Terminal"
       }
     ],
     "menus": {
+      "notebook/toolbar": [
+        {
+          "command": "wolfram.abortKernel",
+          "group": "navigation/execute",
+          "when": "notebookType == 'wolfram-notebook'"
+        }
+      ],
       "explorer/context": [
         {
           "when": "resourceExtname == .nb || resourceExtname == .m || resourceExtname == .wl || resourceExtname == .wls || resourceExtname == .cdf",
@@ -224,7 +285,7 @@
         },
         {
           "when": "resourceExtname == .nb || resourceExtname == .m || resourceExtname == .wl || resourceExtname == .wls || resourceExtname == .cdf",
-          "command": "workbench.action.terminal.runSelectedText",
+          "command": "wolfram.runSelectedInWolframTerminal",
           "group": "navigation"
         },
         {
@@ -245,9 +306,9 @@
     },
     "keybindings": [
       {
-        "command": "workbench.action.terminal.runSelectedText",
+        "command": "wolfram.runSelectedInWolframTerminal",
         "key": "Shift+Enter",
-        "when": "resourceExtname == .nb || resourceExtname == .m || resourceExtname == .wl || resourceExtname == .wls || resourceExtname == .cdf"
+        "when": "(editorTextFocus && !findWidgetVisible) && (resourceExtname == .m || resourceExtname == .wl || resourceExtname == .wls)"
       }
     ],
     "notebooks": [
@@ -281,41 +342,55 @@
     "lint": "eslint src --ext ts",
     "watch": "concurrently \"tsc -b --watch\" \"webpack --mode development --watch\"",
     "pretest": "webpack --mode development && npm run lint",
-    "test": "node ./out/test/runTest.js"
+    "test": "node ./out/test/runTest.js",
+    "in": "rm -f wolfram-*.vsix && npm run compile && vsce package && code --install-extension wolfram-$(node -p \"require('./package.json').version\").vsix"
   },
   "devDependencies": {
-    "@types/glob": "^8.1.0",
-    "@types/mocha": "^8.2.3",
-    "@types/node": "18.11.9",
+    "@types/cheerio": "^0.22.35",
+    "@types/mocha": "^10.0.0",
+    "@types/node": "^20",
+    "@types/node-fetch": "^2.6.13",
     "@types/uuid": "^9.0.8",
     "@types/vscode": "^1.95.0",
     "@types/vscode-notebook-renderer": "^1.72.3",
     "@types/webpack-env": "^1.18.5",
-    "@typescript-eslint/eslint-plugin": "^4.33.0",
-    "@typescript-eslint/parser": "^4.33.0",
     "@vscode/test-electron": "^2.4.1",
     "concurrently": "^8.2.2",
     "css-loader": "^6.11.0",
-    "eslint": "^7.32.0",
-    "fork-ts-checker-webpack-plugin": "^6.5.3",
+    "fork-ts-checker-webpack-plugin": "^9.0.0",
+    "glob": "^13.0.0",
     "lodash": "^4.17.21",
     "marked": "^4.3.0",
-    "mocha": "^10.8.2",
+    "mocha": "^11.0.0",
     "string-argv": "^0.3.2",
     "style-loader": "^3.3.4",
     "ts-loader": "9.4.1",
-    "typescript": "^4.9.5",
+    "typescript": "^5.8.2",
     "vscode-notebook-error-overlay": "^1.0.1",
     "web3": "^4.15.0",
     "webpack": "^5.96.1",
     "webpack-cli": "^4.10.0"
   },
   "dependencies": {
+    "@cfworker/json-schema": "^4.1.1",
+    "@modelcontextprotocol/sdk": "^1.21.0",
+    "@upstash/context7-mcp": "1.0.14",
+    "cheerio": "^1.0.0-rc.12",
     "domutils": "^2.8.0",
+    "node-fetch": "^2.7.0",
     "open": "8.4.0",
     "path": "^0.12.7",
     "uuid": "^8.3.2",
     "vscode-languageclient": "8.0.2",
-    "zeromq": "^6.1.2"
+    "zeromq": "^6.1.2",
+    "zod": "^3.25.76"
+  },
+  "overrides": {
+    "encoding-sniffer": "^1.0.0",
+    "diff": "^8.0.4",
+    "serialize-javascript": "^7.0.5",
+    "mocha": {
+      "glob": "^13.0.0"
+    }
   }
 }
